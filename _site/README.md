@@ -17,4 +17,4 @@ Dasper is a [Jekyll](http://jekyllrb.com/) theme inspired by [Ghost](https://gho
 - Google analytics tracking
 
 ## Copyright & License
-Copyright (c) 2016 - Released under the MIT License.
+Copyright (c) 2016 - Released under the MIT License.# allythy.github.io
