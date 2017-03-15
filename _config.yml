@@ -1,0 +1,38 @@
+# Website details
+name: "Allythy"
+description: "Dicas sobre GNU/Linux"
+email: ""
+author: "Allythy"
+lang: "pt-br"
+locale: ""
+
+# Jekyll
+paginate: 10
+highlighter: ""
+markdown: kramdown
+gems: [jekyll-paginate]
+timezone: America/Fortaleza
+paginateLabel: page
+paginate_path: "page/:num"
+permalink: /:title
+baseurl: ""
+
+# Includes
+addthisId: ""
+disqusUsername: ""
+googleAnalyticsId: ""
+
+# Search engine verifications
+bing: ""
+yandex: ""
+google: ""
+
+#Sitemap
+sitemap:
+    file: "/sitemap.xml"
+    exclude:
+        - "/404.html"
+    include_posts:
+        - "/index.html"
+    change_frequency_name: "daily"
+    priority_name: "1.00"
