@@ -128,21 +128,21 @@
 
 <p>Enfim, vamos para o que interessa. Depois de ter baixado a ISO do Debian temos que baixar os arquivos SHA512SUMS e SHA512SUMS.sign e colocar no mesmo diretório da ISO do Debian. Primeiramente, vamos verificar a hash da ISO que baixamos como esse comando:</p>
 
-<p><code>sha512sum -c SHA512SUMS | grep debian-testing-amd64-netinst.iso</code></p>
+<p><code class="highlighter-rouge">sha512sum -c SHA512SUMS | grep debian-testing-amd64-netinst.iso</code></p>
 
 <p><img src="/imagem/terminal01.png" alt="Mostrando que a comparação da hash foi bem sucedida" /></p>
 
 <p>Vai aparecer uma mensagem com o nome <strong>“SUCESSO”</strong>, isso nos diz que o Download não foi corrompido, mas a gente não sabe se veio do Debian. Para isso temos que verificar a assinatura dos arquivos que contém as hashs. Primeiro, temos que obter a chave pública da pessoa que assinou o arquivo usando o seguinte comando:</p>
 
-<p><code>gpg —verify SHA512SUMS.sign</code></p>
+<p><code class="highlighter-rouge">gpg —verify SHA512SUMS.sign</code></p>
 
 <p>Você receberá uma mensagem informando que a chave pública com <strong>ID 09EA8AC3</strong> não está actualmente disponível em seu sistema, então precisamos baixar essa chave diretamentamente do keyring server do Debian, para isso vamos usar esse comando:</p>
 
-<p><code>gpg —keyserver keyring.debian.org —recv 6294BE9B</code></p>
+<p><code class="highlighter-rouge">gpg —keyserver keyring.debian.org —recv 6294BE9B</code></p>
 
 <p>Lembrando que no lugar desse ID <strong>“6294BE9B”</strong> você vai colocar o ID que apareceu pra você com o comando anterior. Feito isso, agora é só fazer a verificação da assinatura com esse comando:</p>
 
-<p><code>gpg —verify SHA512SUMS.sign SHA512SUMS</code></p>
+<p><code class="highlighter-rouge">gpg —verify SHA512SUMS.sign SHA512SUMS</code></p>
 
 <p>Se tudo ocorrer bem você irar receber essa mensagem <strong>“ Good signature from “Debian CD signing key “</strong>. Também é bom você verificar se o chave do fingerprint que foi gerado pelo último comando é o mesmo que tem no <a href="https://www.debian.org/CD/verify.pt.html">site do Debian</a>, para ter certeza que ninguém modificou. Agora é só instalar o seu Debian. Com ajuda do Samuel Henrique da comunidade Debian.</p>
 </section>
