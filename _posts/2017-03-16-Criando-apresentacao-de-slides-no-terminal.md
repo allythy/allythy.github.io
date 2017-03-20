@@ -24,4 +24,4 @@ E nesse arquivo vou colocar as informações a baixo:
 --center Saudações Livres
 </pre>
 
-Para saber mais sobre os comandos do TPP basta ler o README que esta em  /usr/share/doc/tpp. Você pode ver uma pequena [apresentaçao usando TPP aqui.](https://www.youtube.com/watch?time_continue=29&v=fcC2aKCDGAs)
+Para saber mais sobre os comandos do TPP basta ler o README que esta em  /usr/share/doc/tpp. Você pode ver uma pequena [apresentaçao usando TPP aqui.](https://www.youtube.com/watch?time_continue=29&v=fcC2aKCDGAs) [Caso você queira ver o código desse vídeo ele vai estar no meu GitHub.](https://github.com/allythy/Apresentacao-de-Slides-no-Terminal)
