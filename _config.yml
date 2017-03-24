@@ -5,6 +5,7 @@ email: ""
 author: "Allythy"
 lang: "pt-br"
 locale: ""
+page: "/"
 
 # Jekyll
 paginate: 10
