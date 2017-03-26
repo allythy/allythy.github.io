@@ -20,7 +20,7 @@ baseurl: ""
 # Includes
 addthisId: ""
 disqusUsername: ""
-googleAnalyticsId: ""
+googleAnalyticsId: "UA-96197910-1"
 
 # Search engine verifications
 bing: ""
