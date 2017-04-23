@@ -1,38 +1,26 @@
-# Website details
-name: "Allythy"
-description: "Não diga pouco em muitas palavras, mas sim muito em poucas"
-email: ""
-author: "Allythy"
-lang: "pt-br"
-locale: ""
-page: "/"
-
-# Jekyll
-paginate: 10
-markdown: kramdown
-gems: [jekyll-paginate]
-timezone: America/Fortaleza
-paginateLabel: page
-paginate_path: "page/:num"
-permalink: /:title
+# Site settings
+title: Allythy
+header-img: img/home-bg.jpg
+#email: your-email@yourdomain.com
+copyright_name: Allythy
+description: "Write your site description here. It will be used as your sites meta description as well!"
 baseurl: ""
+page: "/"
+#url: "http://yourdomain.com"
+twitter_username: SBootstrap
+github_username:  davidtmiller
+facebook_username:  StartBootstrap
+email_username:  your-email@yourdomain.com
 
-# Includes
-addthisId: ""
-disqusUsername: ""
-googleAnalyticsId: "UA-96197910-1"
+# Google Analytics
+# To enable google analytics, uncomment below line with a valid Google Tracking ID
+# google_tracking_id:
 
-# Search engine verifications
-bing: ""
-yandex: ""
-google: ""
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+paginate: 5
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 
-#Sitemap
-sitemap:
-    file: "/sitemap.xml"
-    exclude:
-        - "/404.html"
-    include_posts:
-        - "/index.html"
-    change_frequency_name: "daily"
-    priority_name: "1.00"
+gems: [jekyll-paginate, jekyll-feed]

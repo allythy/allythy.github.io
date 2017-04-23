@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-04-23T14:54:31-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title type="html">Conhecendo o Advanced Packaging Tool (APT)</title><link href="http://localhost:4000/2017/04/15/conhecendo-o-advanced-packaging-tool-apt/" rel="alternate" type="text/html" title="Conhecendo o Advanced Packaging Tool (APT) " /><published>2017-04-15T20:00:00-03:00</published><updated>2017-04-15T20:00:00-03:00</updated><id>http://localhost:4000/2017/04/15/conhecendo-o-advanced-packaging-tool-apt</id><content type="html" xml:base="http://localhost:4000/2017/04/15/conhecendo-o-advanced-packaging-tool-apt/">&lt;p&gt;Neste artigo, vamos conhecer um pouco mais o Advanced Packaging Tool (APT), o gerenciador de pacotes do Debian e seus derivados. Então, vamos aprender como esse gerenciador surgiu e alguns comandos que são necessário para os usuários que o utilizam.&lt;/p&gt;
+
+&lt;p&gt;No princípio era o .tar.gz. Os usuários tinham que compilar cada programa que quisessem usar em seus sistemas GNU/Linux, ou outro qualquer. Quando o Debian foi criado, uma nova forma de gerenciamento de pacotes tornou-se necessário. Para este sistema, foi dado o nome dpkg. Esse famoso pacote (Pacote é um arquivo binário, compactado ou não, que contém os arquivos binários do software, scripts de configuração, documentação, ícones, imagens, licenças GPL e, por vezes, os próprios arquivos-fonte. Um pacote pode ser criptografado e assinado digitalmente, apesar de nem todos o serem.) foi o primeiro a chegar nos sistemas GNU/Linux. Logo após a Red Hat decidiu criar seu próprio sistema, o RPM.&lt;/p&gt;
+
+&lt;p&gt;Um novo dilema rapidamente tomou conta das mentes dos criadores do GNU/Linux. Eles precisavam de um método rápido, prático e eficiente para instalar pacotes, que deveriam gerenciar automaticamente as dependências e cuidar dos arquivos de configuração ao atualizá-los. Aqui novamente, o Debian mostrou o caminho e deu vida ao APT, o ‘Advanced Packaging Tool’ (ferramenta de pacotes avançada), hoje portado pela Conectiva e incorporado por algumas outras distribuições”.&lt;/p&gt;
+
+&lt;p&gt;APT é um programa C++ cujo código reside principalmente na biblioteca compartilhada libapt-pkg. Usar uma biblioteca compartilhada para facilitar a criação de interfaces de usuário (front-ends), já que o código contido na biblioteca pode facilmente ser reutilizado. Historicamente, apt-get foi projetado apenas como um front-end de teste para libapt-pkg, mas seu sucesso tende a obscurecer esse fato, tornando-se a ferramenta usada no gerenciamento de pacotes padrão do Debian e seus derivados. Você também pode usar outra ferramentas para gerenciar o APT, como Aptitude, que tem uma interface semi-gráfico e o Synaptic que é uma ferramenta em modo gráfico.
+Agora que já possuímos um embasamento sobre a origem e porque foi necessário criar o APT, vamos aprender alguns comandos essenciais.&lt;/p&gt;
+
+&lt;h2 id=&quot;instalação-de-programas&quot;&gt;Instalação de programas&lt;/h2&gt;
+
+&lt;p&gt;Para Instalar um programa é muito fácil, basta usar o seguinte comando:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-get install nome_do_pacote&lt;/pre&gt;
+
+&lt;p&gt;Instalando mais de um programa simultaneamente:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-get install pacote1 pacote2 pacote3&lt;/pre&gt;
+
+&lt;p&gt;Baixa apenas os pacotes, não são desempacotados e nem instalados. Os arquivos baixados são colocados no diretório /var/cache/apt/archives&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-get install -d nome_do_pacote&lt;/pre&gt;
+
+&lt;p&gt;Simulando a instalação de um pacote, isso não altera nada no seu sistema:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-get install -s nome_do_pacote&lt;/pre&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Ainda temos a opção -y que assume “sim” para todas as perguntas, e a opção -u mostrar pacotes que serão atualizados.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;desinstalação-de-programas&quot;&gt;Desinstalação de programas&lt;/h2&gt;
+&lt;p&gt;Para remoção de um programa:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-get remove nome_do_pacote&lt;/pre&gt;
+
+&lt;p&gt;Removendo mais de um programa simultaneamente:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-get remove pacote1 pacote2 pacote3&lt;/pre&gt;
+
+&lt;p&gt;Quando você usa “apt-get remove” para desinstalar um programa, ele ainda deixa suas configurações, por exemplo: Quando você instala o servidor de impressão CUPS e cria uma configuração personalizada. Ao remover com “apt-get remove cups” essas configurações ainda continuam presentes no /etc/, caso você venha a reinstalar esse pacote estas configurações serão mantidas. Para uma desinstalação completa temos que usar esse comando:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-get purge nome_do_pacote&lt;/pre&gt;
+
+&lt;p&gt;Caso você de alguma forma danifique a instalação de um pacote, ou simplesmente deseja que os arquivos do pacote sejam repostos com a versão mais nova que estiver disponível, você pode usar esse comando:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-get --reinstall install nome_do_pacote&lt;/pre&gt;
+
+&lt;h2 id=&quot;atualização&quot;&gt;Atualização&lt;/h2&gt;
+&lt;p&gt;Atualizar lista de repositório do sistema:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-get update&lt;/pre&gt;
+
+&lt;p&gt;Instalar as atualizações de todos os pacotes no sistema:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-get upgrade&lt;/pre&gt;
+
+&lt;p&gt;O dist-upgrade é quase igual ao upgrade , o dist-upgrade também atualiza o sistema, mas  pode remover pacotes que ele julgue necessário para atualização do sistema.&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-get dist-upgrade&lt;/pre&gt;
+
+&lt;h2 id=&quot;obtendo-informações-sobre-os-pacotes&quot;&gt;Obtendo informações sobre os pacotes&lt;/h2&gt;
+&lt;p&gt;Para isso, vamos usar o apt-cahe que é o outra ferramenta para o APT, ela é usada para manipular e obter informações sobre os pacotes no cache (O cache é um sistema de armazenamento temporário usado para acelerar o acesso frequente de dados) do APT.&lt;/p&gt;
+
+&lt;p&gt;Esse comando pesquisa por pacotes que estejam relacionados com a palavra-chave que você deseja, e traz uma breve descrição sobre eles.&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-cache search palavra-chave&lt;/pre&gt;
+
+&lt;p&gt;Este comando fornece a descrição do pacote, suas dependências, o nome de seu mantenedor, entre outras coisas. Ele traz mais informações do que o apt-cache search.&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-cache show nome_do_pacote&lt;/pre&gt;
+
+&lt;p&gt;Mostra as dependência de um pacote:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-cache depends nome_do_pacote&lt;/pre&gt;
+
+&lt;p&gt;Este comando escreve o nome de cada pacote que o APT conhece:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-cache pkgnames&lt;/pre&gt;
+
+&lt;p&gt;Para exibir as prioridades de pacote, se ele está instalado ou não, a versão e outras coisas:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-cache policy&lt;/pre&gt;
+
+&lt;h2 id=&quot;limpeza&quot;&gt;Limpeza&lt;/h2&gt;
+
+&lt;p&gt;O APT mantém uma cópia de cada arquivo .deb baixado no diretório /var/cache/apt/archives/ . Caso haja atualizações frequentes, este diretório pode rapidamente ocupar uma grande espaço em disco com várias versões de cada pacote. Para efetuar essa limpeza, vamos usar dois comando. O primeiro  esvazia completamente o diretório:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-get clean&lt;/pre&gt;
+
+&lt;p&gt;O segundo remove apenas os pacotes que não podem mais ser baixados, por terem sumido dos repositórios do Debian, e são agora claramente inúteis:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-get autoclean&lt;/pre&gt;
+
+&lt;p&gt;O comando a seguir é usado para remover pacotes que foram instalados automaticamente, para satisfazer dependências de outros pacotes, que já não são necessários.&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-get autoremove&lt;/pre&gt;
+
+&lt;h2 id=&quot;resolvendo-problemas&quot;&gt;Resolvendo Problemas&lt;/h2&gt;
+&lt;p&gt;Às vezes, um defeito em algum pacote ou um download corrompido pode fazer com que o APT fique “travado”, sem concluir a instalação de um determinado pacote por causa de um erro qualquer e sem aceitar instalar outros antes que o problema inicial seja resolvido.
+Caso isso aconteça, usamos o sistema de resolução de problemas do APT,  que verifica a lista de dependências quebradas e tenta corrigi-las, instalando pacotes necessários. Para isso, usamos esse comando:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-get -f install&lt;/pre&gt;
+
+&lt;p&gt;Caso você queira saber qual é a dependência que está faltando, o comando a seguir faz a verificação e mostra todas as dependências que o pacote necessita.&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo dpkg –configure -a&lt;/pre&gt;
+
+&lt;p&gt;Caso &lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get -f install&lt;/code&gt; não resolva, o que é bem difícil isso acontecer, experimente o &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get -f remove&lt;/code&gt;, que tem uma função similar à do &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get -f install&lt;/code&gt;, mas dá preferência a remover os pacotes com problemas, ao invés de tentar corrigir a instalação.&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos conhecer um pouco mais o Advanced Packaging Tool (APT), o gerenciador de pacotes do Debian e seus derivados. Então, vamos aprender como esse gerenciador surgiu e alguns comandos que são necessário para os usuários que o utilizam.</summary></entry><entry><title type="html">Como verificar autenticidade da ISO do Debian</title><link href="http://localhost:4000/2017/03/17/Como-verificar-a-integridade-da-iso-do-Debian/" rel="alternate" type="text/html" title="Como verificar autenticidade da ISO do Debian" /><published>2017-03-17T17:00:00-03:00</published><updated>2017-03-17T17:00:00-03:00</updated><id>http://localhost:4000/2017/03/17/Como-verificar-a-integridade-da-iso-do-Debian</id><content type="html" xml:base="http://localhost:4000/2017/03/17/Como-verificar-a-integridade-da-iso-do-Debian/">&lt;p&gt;Neste artigo, vamos aprender como verificar autenticidade da ISO do Debian. É uma coisa bem rápida de se fazer e importante, porque fazendo essa verificação podemos ter certeza que aquela ISO não foi corrompida. Se o pessoal que baixou o ISO do Linux Mint tivesse verificado a assinatura da ISO deles não teria ocorrido aquele escândalo no começo do ano.&lt;/p&gt;
+
+&lt;p&gt;Enfim, vamos para o que interessa. Depois de ter baixado a ISO do Debian temos que baixar os arquivos SHA512SUMS e SHA512SUMS.sign e colocar no mesmo diretório da ISO do Debian. Primeiramente, vamos verificar a hash da ISO que baixamos como esse comando:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sha512sum -c SHA512SUMS | grep debian-testing-amd64-netinst.iso&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/imagem/terminal01.png&quot; alt=&quot;Mostrando que a comparação da hash foi bem sucedida&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Vai aparecer uma mensagem com o nome &lt;strong&gt;“SUCESSO”&lt;/strong&gt;, isso nos diz que o Download não foi corrompido, mas a gente não sabe se veio do Debian. Para isso temos que verificar a assinatura dos arquivos que contém as hashs. Primeiro, temos que obter a chave pública da pessoa que assinou o arquivo usando o seguinte comando:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;gpg —verify SHA512SUMS.sign&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Você receberá uma mensagem informando que a chave pública com &lt;strong&gt;ID 09EA8AC3&lt;/strong&gt; não está actualmente disponível em seu sistema, então precisamos baixar essa chave diretamentamente do keyring server do Debian, para isso vamos usar esse comando:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;gpg —keyserver keyring.debian.org —recv 6294BE9B&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Lembrando que no lugar desse ID &lt;strong&gt;“6294BE9B”&lt;/strong&gt; você vai colocar o ID que apareceu pra você com o comando anterior. Feito isso, agora é só fazer a verificação da assinatura com esse comando:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;gpg —verify SHA512SUMS.sign SHA512SUMS&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Se tudo ocorrer bem você irar receber essa mensagem &lt;strong&gt;“ Good signature from “Debian CD signing key “&lt;/strong&gt;. Também é bom você verificar se o chave do fingerprint que foi gerado pelo último comando é o mesmo que tem no &lt;a href=&quot;https://www.debian.org/CD/verify.pt.html&quot;&gt;site do Debian&lt;/a&gt;, para ter certeza que ninguém modificou. Agora é só instalar o seu Debian. Com ajuda do Samuel Henrique da comunidade Debian.&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como verificar autenticidade da ISO do Debian. É uma coisa bem rápida de se fazer e importante, porque fazendo essa verificação podemos ter certeza que aquela ISO não foi corrompida. Se o pessoal que baixou o ISO do Linux Mint tivesse verificado a assinatura da ISO deles não teria ocorrido aquele escândalo no começo do ano.</summary></entry><entry><title type="html">Como criar apresentação de slides no terminal</title><link href="http://localhost:4000/2017/03/16/Criando-apresentacao-de-slides-no-terminal/" rel="alternate" type="text/html" title="Como criar apresentação de slides no terminal" /><published>2017-03-16T11:00:00-03:00</published><updated>2017-03-16T11:00:00-03:00</updated><id>http://localhost:4000/2017/03/16/Criando-apresentacao-de-slides-no-terminal</id><content type="html" xml:base="http://localhost:4000/2017/03/16/Criando-apresentacao-de-slides-no-terminal/">&lt;p&gt;Neste artigo, vamos aprender como criar uma apresentação de slides no terminal.
+Não há necessidade de instalar uma tonelada de softwares, afim de criar uma apresentação agradável e informativa.&lt;/p&gt;
+
+&lt;p&gt;O TPP é uma simples ferramenta de linha de comando que permite que você faça isso,
+com suporte a cores, saída de código fonte e animações, tudo isso com um simples arquivos de texto ASCII.
+Para fazer a instalação no Debian e derivados, basta executar o comando:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo apt-get install tpp&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Irei fazer uma apresentação simples de dois slides com o titulo, nome do autor, uma frase centralizada e a data da criação. Para isso, criarei um arquivo de texto e salvá-lo com a extensão .tpp.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ vim apresentacao.tpp&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;E nesse arquivo vou colocar as informações a baixo:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;
+--author Por Allythy Souza
+--date today
+--newpage
+--center Saudações Livres
+&lt;/pre&gt;
+
+&lt;p&gt;Para saber mais sobre os comandos do TPP basta ler o README que esta em  /usr/share/doc/tpp. Você pode ver uma pequena &lt;a href=&quot;https://www.youtube.com/watch?time_continue=29&amp;amp;v=fcC2aKCDGAs&quot;&gt;apresentaçao usando TPP aqui.&lt;/a&gt; Caso você queira ver o código desse vídeo ele vai estar &lt;a href=&quot;https://github.com/allythy/Apresentacao-de-Slides-no-Terminal&quot;&gt;no meu GitHub.&lt;/a&gt;&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como criar uma apresentação de slides no terminal. Não há necessidade de instalar uma tonelada de softwares, afim de criar uma apresentação agradável e informativa.</summary></entry><entry><title type="html">Como deixar o LibreOffice e Firefox em Português</title><link href="http://localhost:4000/2017/03/13/LibreOffice-em-Portugues/" rel="alternate" type="text/html" title="Como deixar o LibreOffice e Firefox em Português" /><published>2017-03-13T11:00:00-03:00</published><updated>2017-03-13T11:00:00-03:00</updated><id>http://localhost:4000/2017/03/13/LibreOffice-em-Portugues</id><content type="html" xml:base="http://localhost:4000/2017/03/13/LibreOffice-em-Portugues/">&lt;p&gt;Essa será uma dica bem rápida, mas muito útil de como deixar o LibreOffice e Firefox em Português. É um procedimento muito fácil e rápido, primeiramente deixaremos o LibreOffice em Português, para isso use o comando abaixo:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt install libreoffice-l10n-pt-br&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Agora é a vez de deixar o Firefox em Português, para isso use o seguinte comando:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt; $ sudo apt install firefox-esr-l10n-br&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;O l10n é a implementação de um idioma específico, nesse caso o Português do Brasil para um programa já internacionalizado. Mas o que seria um programa internacionalizado? Internacionalização é a modificação de um programa para que ele possa lidar com os múltiplos idiomas e culturas do mundo. Simples não?  :)&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Essa será uma dica bem rápida, mas muito útil de como deixar o LibreOffice e Firefox em Português. É um procedimento muito fácil e rápido, primeiramente deixaremos o LibreOffice em Português, para isso use o comando abaixo:</summary></entry></feed>

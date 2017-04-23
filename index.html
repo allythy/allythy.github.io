@@ -1,73 +1,36 @@
 ---
-layout: default
+layout: page
+description: "A mudança é um processo essencial de toda existência"
 ---
 
-<!-- Don't show pagination bar in homepage -->
-{% if paginator.page > 1 %}
-
-	<!-- Include pagination bar -->
-	{% include pagination.html section="top" %}
-
-{% endif %}
-
-<!-- Loop for posts by paginator -->
 {% for post in paginator.posts %}
-
-	<!-- Article -->
-	<article>
-
-		<!-- Article title -->
-		<a href="{{ site.baseurl }}{{ post.url }}" class="h1">{{ post.title }}</a>
-
-			<!-- If article has a cover photo -->
-			{% if post.coverPhoto %}
-
-				<!-- Article image with aspect ratio -->
-				<a href="{{ site.baseurl }}{{ post.url }}" class="ar-container">
-					<span class="ar-content" style="background-image: url({{ post.coverPhoto }});"></span>
-				</a><!-- .ar-container -->
-
-			{% endif %}
-
-		<!-- Article pre description -->
-		<section class="max-height">{{ post.content | strip_html | slice: 0, 200 }}</section>
-
-		<!-- Article date & article continue reading button container -->
-		<div class="article__bottom">
-
-			<!-- Article date -->
-			<span class="article__date">
-				{% if site.lang == "pt-br" %}
-					{% assign m = post.date | date: "%-m" %}
-					{{ post.date | date: "%-d" }}
-					{% case m %}
-						{% when "1" %}JANEIRO
-						{% when "2" %}FEVEREIRO
-						{% when "3" %}MARÇO
-						{% when "4" %}ABRIL
-						{% when "5" %}MAIO
-						{% when "6" %}JUNHO
-						{% when "7" %}JULHO
-						{% when "8" %}AGOSTO
-						{% when "9" %}SETEMBRO
-						{% when "10" %}OUTUBRO
-						{% when "11" %}NOVEMBRO
-						{% when "12" %}DEZEMBRO
-					{% endcase %}
-					{{ post.date | date: "%Y" }}
-				{% else %}
-					{{ post.date | date_to_long_string | upcase }}
-				{% endif %}
-			</span>
-
-			<!-- Article continue reading button -->
-			<a class="article__button" href="{{ site.baseurl }}{{ post.url }}">{% if site.lang == "pt-br" %}LEIA MAIS{% else %}CONTINUE READING{% endif %}</a>
-
-		</div><!-- .article__bottom -->
-
-	</article><!-- article -->
-
+<div class="post-preview">
+    <a href="{{ post.url | prepend: site.baseurl }}">
+        <h2 class="post-title">            {{ post.title }}
+        </h2>
+        {% if post.subtitle %}
+        <h3 class="post-subtitle">
+            {{ post.subtitle }}
+        </h3>
+        {% endif %}
+    </a>
+    <p class="post-meta">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}</p>
+</div>
+<hr>
 {% endfor %}
 
-<!-- Include pagination bar -->
-{% include pagination.html section="bottom" %}
+<!-- Pager -->
+{% if paginator.total_pages > 1 %}
+<ul class="pager">
+    {% if paginator.previous_page %}
+    <li class="previous">
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+    </li>
+    {% endif %}
+    {% if paginator.next_page %}
+    <li class="next">
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+    </li>
+    {% endif %}
+</ul>
+{% endif %}
