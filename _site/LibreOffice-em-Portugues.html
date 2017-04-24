@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Write your site description here. It will be used as your sites meta description as well!">
 
-    <title>Como verificar autenticidade da ISO do Debian - Allythy</title>
+    <title>Como deixar o LibreOffice e Firefox em Português - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/2017/03/17/Como-verificar-a-integridade-da-iso-do-Debian/">
+    <link rel="canonical" href="http://localhost:4000/LibreOffice-em-Portugues">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -63,13 +63,13 @@
                 
 				
                 <li>
-                    <a href="/about/">Quem sou</a>
+                    <a href="/about">Quem sou</a>
                 </li>
 				
                 
 				
                 <li>
-                    <a href="/contact/">Contato</a>
+                    <a href="/contact">Contato</a>
                 </li>
 				
                 
@@ -87,11 +87,11 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>Como verificar autenticidade da ISO do Debian</h1>
+                    <h1>Como deixar o LibreOffice e Firefox em Português</h1>
                     
-                    <h2 class="subheading">Neste artigo, vamos aprender como verificar autenticidade da ISO do Debian. É uma coisa bem rápida de se fazer e importante</h2>
+                    <h2 class="subheading">Essa será uma dica bem rápida, mas muito útil de como deixar o LibreOffice e Firefox em Português.</h2>
                     
-                    <span class="meta">Postador por Allythy em March 17, 2017</span>
+                    <span class="meta">Postador por Allythy em March 13, 2017</span>
                 </div>
             </div>
         </div>
@@ -104,40 +104,24 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-				<p>Neste artigo, vamos aprender como verificar autenticidade da ISO do Debian. É uma coisa bem rápida de se fazer e importante, porque fazendo essa verificação podemos ter certeza que aquela ISO não foi corrompida. Se o pessoal que baixou o ISO do Linux Mint tivesse verificado a assinatura da ISO deles não teria ocorrido aquele escândalo no começo do ano.</p>
+				<p>Essa será uma dica bem rápida, mas muito útil de como deixar o LibreOffice e Firefox em Português. É um procedimento muito fácil e rápido, primeiramente deixaremos o LibreOffice em Português, para isso use o comando abaixo:</p>
 
-<p>Enfim, vamos para o que interessa. Depois de ter baixado a ISO do Debian temos que baixar os arquivos SHA512SUMS e SHA512SUMS.sign e colocar no mesmo diretório da ISO do Debian. Primeiramente, vamos verificar a hash da ISO que baixamos como esse comando:</p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo apt install libreoffice-l10n-pt-br</code></pre></figure>
 
-<p><code class="highlighter-rouge">sha512sum -c SHA512SUMS | grep debian-testing-amd64-netinst.iso</code></p>
+<p>Agora é a vez de deixar o Firefox em Português, para isso use o seguinte comando:</p>
 
-<p><img src="/imagem/terminal01.png" alt="Mostrando que a comparação da hash foi bem sucedida" /></p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo apt install firefox-esr-l10n-br</code></pre></figure>
 
-<p>Vai aparecer uma mensagem com o nome <strong>“SUCESSO”</strong>, isso nos diz que o Download não foi corrompido, mas a gente não sabe se veio do Debian. Para isso temos que verificar a assinatura dos arquivos que contém as hashs. Primeiro, temos que obter a chave pública da pessoa que assinou o arquivo usando o seguinte comando:</p>
-
-<p><code class="highlighter-rouge">gpg —verify SHA512SUMS.sign</code></p>
-
-<p>Você receberá uma mensagem informando que a chave pública com <strong>ID 09EA8AC3</strong> não está actualmente disponível em seu sistema, então precisamos baixar essa chave diretamentamente do keyring server do Debian, para isso vamos usar esse comando:</p>
-
-<p><code class="highlighter-rouge">gpg —keyserver keyring.debian.org —recv 6294BE9B</code></p>
-
-<p>Lembrando que no lugar desse ID <strong>“6294BE9B”</strong> você vai colocar o ID que apareceu pra você com o comando anterior. Feito isso, agora é só fazer a verificação da assinatura com esse comando:</p>
-
-<p><code class="highlighter-rouge">gpg —verify SHA512SUMS.sign SHA512SUMS</code></p>
-
-<p>Se tudo ocorrer bem você irar receber essa mensagem <strong>“ Good signature from “Debian CD signing key “</strong>. Também é bom você verificar se o chave do fingerprint que foi gerado pelo último comando é o mesmo que tem no <a href="https://www.debian.org/CD/verify.pt.html">site do Debian</a>, para ter certeza que ninguém modificou. Agora é só instalar o seu Debian. Com ajuda do Samuel Henrique da comunidade Debian.</p>
+<p>O <strong>l10n</strong> é a implementação de um idioma específico, nesse caso o Português do Brasil para um programa já internacionalizado. Mas o que seria um programa internacionalizado? Internacionalização é a modificação de um programa para que ele possa lidar com os múltiplos idiomas e culturas do mundo.</p>
 
 
                 <hr>
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2017/03/16/Criando-apresentacao-de-slides-no-terminal/" data-toggle="tooltip" data-placement="top" title="Como criar apresentação de slides no terminal">&larr; Postagem anterior</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2017/04/15/conhecendo-o-advanced-packaging-tool-apt/" data-toggle="tooltip" data-placement="top" title="Conhecendo o Advanced Packaging Tool (APT) ">Próxima postagem &rarr;</a>
+                        <a href="/Criando-apresentacao-de-slides-no-terminal" data-toggle="tooltip" data-placement="top" title="Como criar apresentação de slides no terminal">Próxima postagem &rarr;</a>
                     </li>
                     
                 </ul>
