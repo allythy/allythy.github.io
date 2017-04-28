@@ -1,4 +1,101 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-04-27T00:12:28-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como usar o Tmux</title><link href="http://localhost:4000/Como-usar-o-Tmux" rel="alternate" type="text/html" title="Como usar o Tmux" /><published>2017-04-26T20:00:00-03:00</published><updated>2017-04-26T20:00:00-03:00</updated><id>http://localhost:4000/Como-usar-o-Tmux</id><content type="html" xml:base="http://localhost:4000/Como-usar-o-Tmux">&lt;p&gt;Neste artigo, vamos aprender como usar o tmux. O tmux é um multiplexador de terminais, um multiplexador de terminal permite que um número de terminais sejam criados, acessados e controlados a partir de uma única janela. Com o tmux você também pode ser desconectar de uma tela e  a mesma continuar funcionando em segundo plano, e depois você pode se conectar novamente.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-04-28T15:13:21-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como gerenciar plugins no Vim com o Pathogen</title><link href="http://localhost:4000/Como-gerenciar-plugins-no-Vim-com-o-Pathogen" rel="alternate" type="text/html" title="Como gerenciar plugins no Vim com o Pathogen" /><published>2017-04-28T11:00:00-03:00</published><updated>2017-04-28T11:00:00-03:00</updated><id>http://localhost:4000/Como-gerenciar-plugins-no-Vim-com-o-Pathogen</id><content type="html" xml:base="http://localhost:4000/Como-gerenciar-plugins-no-Vim-com-o-Pathogen">&lt;p&gt;O Vim é um editor de texto altamente configurável com centenas de plugins que podem ser instalados. Muitos deles são adaptados para usos específicos, como programação em uma determinada linguagem ou até ajudar na escrita de um texto comum, outros são mais gerais e melhoram as capacidades existentes do Vim. Qualquer que seja a sua finalidade você terá que gerenciar esses plugins.&lt;/p&gt;
+
+&lt;p&gt;Existe uma série de gerenciadores de plugins para o Vim, mas o Pathogen é o mais universal e simples de instalar e usar.&lt;/p&gt;
+
+&lt;p&gt;O Pathogen funciona puxando todos os plugins do Vim em um determinado diretório para sua instalação no editor de texto e depois são ativados com uma linha no arquivo &lt;strong&gt;.vimrc.&lt;/strong&gt; Pacotes necessários
+Antes de começar, você deve ter instalado, claro, o &lt;strong&gt;Vim&lt;/strong&gt;, &lt;strong&gt;Git&lt;/strong&gt; e o &lt;strong&gt;Curl&lt;/strong&gt; em seu sistema. Eles são pacotes muito comuns em qualquer distribuição GNU/Linux, por isso não há muita necessidade de entrar em detalhes aqui. Caso você queira saber sobre o gerenciador de pacotes do Debian e derivados
+&lt;a href=&quot;https://allythy.github.io/conhecendo-o-advanced-packaging-tool-apt&quot;&gt;leia esse artigo&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;instalação-do-vim-git-e-curl&quot;&gt;Instalação do Vim, Git e Curl&lt;/h2&gt;
+
+&lt;p&gt;No Debian, Ubuntu, linux mint e seus derivados:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo apt install vim git curl&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;No CentOS e RHEL&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum install vim git curl
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;No Arch Linux&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo pacman -S vim git curl
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;No Fedora&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo dnf install vim git curl
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;configurando-os-diretórios&quot;&gt;Configurando os diretórios&lt;/h2&gt;
+
+&lt;p&gt;Tudo isso é feito localmente, pelo usuário. Ele requer uma pasta .vim no diretório /home. Se ainda não o tiver, você tem que criar usando o seguinte comando:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkdir ~/.vim
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Vamos entrar na pasta que acabamos de criar, e dentro dela criaremos mais duas pastas &lt;strong&gt;autoload&lt;/strong&gt; e &lt;strong&gt;bundle&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/.vim
+mkdir autoload
+mkdir bundle]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;instalando-o-pathogen&quot;&gt;Instalando o Pathogen&lt;/h2&gt;
+&lt;p&gt;A melhor maneira de instalar o Phathogen é clonado-o diretamente do seu &lt;a href=&quot;https://github.com/tpope/vim-pathogen&quot;&gt;repositório do Github&lt;/a&gt;. Para que o Pathogen seja executado automaticamente, ele precisa ser instalado no diretório &lt;strong&gt;autoload&lt;/strong&gt; que acabou de ser criado. Quando a clonagem do repositório terminar, você terá o Pathogen instalado.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;autoload
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl -LSso ~/.vim/autoload/pathogen.vim https://github.com/tpope/vim-pathogen.git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;configurando-o-vimrc&quot;&gt;Configurando o .vimrc&lt;/h2&gt;
+
+&lt;p&gt;Você precisa adicionar algumas linhas ao arquivo &lt;strong&gt;.vimrc&lt;/strong&gt;. Caso não tenha o arquivo .vimrc, você poderá criá-lo e logo em seguida adicionar o Pathogen.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim ~/.vimrc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;execute pathogen#infect&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+syntax on
+filetype plugin indent on
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Caso já tenha alguma coisa configurado no .vimrc, coloque a seguinte linha no arquivo.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;execute pathogen#infect&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;instalando-plugins-usando-pathogen&quot;&gt;Instalando plugins usando Pathogen&lt;/h2&gt;
+
+&lt;p&gt;Toda a razão pela qual você instalou o Pathogen, foi para instalar os plugins de uma forma mais rápida e aumentar a sua produtividade no Vim. Agora, está tudo pronto para a instalação. Vamos instalar o &lt;strong&gt;Emmet-vim&lt;/strong&gt; usando o Pathongen, para isso use esses comandos:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/.vim/bundle/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/mattn/emmet-vim.git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Os comandos acima faz com que você entre na pasta ~/.vim/bundle e clone o repositório do plugin Emmet-vim que está &lt;a href=&quot;https://github.com/mattn/emmet-vim/&quot;&gt;hospedado no GitHub.&lt;/a&gt; Agora, criaremos um arquivo &lt;strong&gt;index.html&lt;/strong&gt; para testar o Emment.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim index.html
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Pressione a tecla &lt;strong&gt;i&lt;/strong&gt; para entrar no Modo de Inserção, depois digite &lt;strong&gt;html:5&lt;/strong&gt; deixe o cursor na frente do número 5 e pressione ao mesmo tempo as teclas &lt;strong&gt;Ctrl+y&lt;/strong&gt; e logo na sequência pressione &lt;strong&gt;,&lt;/strong&gt; não demore muito para digitar a vírgula. Se você tiver feito tudo certo aparecerá isso:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/vim.png&quot; alt=&quot;tela do index.html feito com Emment&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://linuxconfig.org/manage-vim-plugins-with-pathogen&quot;&gt;Fonte&lt;/a&gt;&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">O Vim é um editor de texto altamente configurável com centenas de plugins que podem ser instalados. Muitos deles são adaptados para usos específicos, como programação em uma determinada linguagem ou até ajudar na escrita de um texto comum, outros são mais gerais e melhoram as capacidades existentes do Vim. Qualquer que seja a sua finalidade você terá que gerenciar esses plugins.</summary></entry><entry><title type="html">Como usar o Tmux</title><link href="http://localhost:4000/Como-usar-o-Tmux" rel="alternate" type="text/html" title="Como usar o Tmux" /><published>2017-04-26T20:00:00-03:00</published><updated>2017-04-26T20:00:00-03:00</updated><id>http://localhost:4000/Como-usar-o-Tmux</id><content type="html" xml:base="http://localhost:4000/Como-usar-o-Tmux">&lt;p&gt;Neste artigo, vamos aprender como usar o tmux. O tmux é um multiplexador de terminais, um multiplexador de terminal permite que um número de terminais sejam criados, acessados e controlados a partir de uma única janela. Com o tmux você também pode ser desconectar de uma tela e  a mesma continuar funcionando em segundo plano, e depois você pode se conectar novamente.&lt;/p&gt;
 
 &lt;h2 id=&quot;como-instalar-o-tmux&quot;&gt;Como instalar o Tmux&lt;/h2&gt;
 

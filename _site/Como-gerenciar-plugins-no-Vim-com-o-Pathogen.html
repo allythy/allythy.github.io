@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Dicas sobre o Debian, Software Livre, linha de comando">
+
+    <title>Como gerenciar plugins no Vim com o Pathogen - Allythy</title>
+
+    <link rel="canonical" href="http://localhost:4000/Como-gerenciar-plugins-no-Vim-com-o-Pathogen">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/clean-blog.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Allythy" />
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Allythy</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                
+				
+                <li>
+                    <a href="/about">Quem sou</a>
+                </li>
+				
+                
+				
+                <li>
+                    <a href="/contact">Contato</a>
+                </li>
+				
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/img/post-bg-01.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Como gerenciar plugins no Vim com o Pathogen</h1>
+                    
+                    <h2 class="subheading">Neste artigo, vamos aprender como gerenciar plugins no Vim com o Pathogen. O Vim é um editor de texto altamente configurável.</h2>
+                    
+                    <span class="meta">Postador por Allythy em April 28, 2017</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<p>O Vim é um editor de texto altamente configurável com centenas de plugins que podem ser instalados. Muitos deles são adaptados para usos específicos, como programação em uma determinada linguagem ou até ajudar na escrita de um texto comum, outros são mais gerais e melhoram as capacidades existentes do Vim. Qualquer que seja a sua finalidade você terá que gerenciar esses plugins.</p>
+
+<p>Existe uma série de gerenciadores de plugins para o Vim, mas o Pathogen é o mais universal e simples de instalar e usar.</p>
+
+<p>O Pathogen funciona puxando todos os plugins do Vim em um determinado diretório para sua instalação no editor de texto e depois são ativados com uma linha no arquivo <strong>.vimrc.</strong> Pacotes necessários
+Antes de começar, você deve ter instalado, claro, o <strong>Vim</strong>, <strong>Git</strong> e o <strong>Curl</strong> em seu sistema. Eles são pacotes muito comuns em qualquer distribuição GNU/Linux, por isso não há muita necessidade de entrar em detalhes aqui. Caso você queira saber sobre o gerenciador de pacotes do Debian e derivados
+<a href="https://allythy.github.io/conhecendo-o-advanced-packaging-tool-apt">leia esse artigo</a></p>
+
+<h2 id="instalação-do-vim-git-e-curl">Instalação do Vim, Git e Curl</h2>
+
+<p>No Debian, Ubuntu, linux mint e seus derivados:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo apt install vim git curl</code></pre></figure>
+
+<p>No CentOS e RHEL</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo yum install vim git curl
+</code></pre>
+</div>
+
+<p>No Arch Linux</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo pacman -S vim git curl
+</code></pre>
+</div>
+
+<p>No Fedora</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo dnf install vim git curl
+</code></pre>
+</div>
+
+<h2 id="configurando-os-diretórios">Configurando os diretórios</h2>
+
+<p>Tudo isso é feito localmente, pelo usuário. Ele requer uma pasta .vim no diretório /home. Se ainda não o tiver, você tem que criar usando o seguinte comando:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>mkdir ~/.vim
+</code></pre>
+</div>
+
+<p>Vamos entrar na pasta que acabamos de criar, e dentro dela criaremos mais duas pastas <strong>autoload</strong> e <strong>bundle</strong>.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">cd</span> ~/.vim
+mkdir autoload
+mkdir bundle]
+</code></pre>
+</div>
+<h2 id="instalando-o-pathogen">Instalando o Pathogen</h2>
+<p>A melhor maneira de instalar o Phathogen é clonado-o diretamente do seu <a href="https://github.com/tpope/vim-pathogen">repositório do Github</a>. Para que o Pathogen seja executado automaticamente, ele precisa ser instalado no diretório <strong>autoload</strong> que acabou de ser criado. Quando a clonagem do repositório terminar, você terá o Pathogen instalado.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">cd </span>autoload
+</code></pre>
+</div>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>curl -LSso ~/.vim/autoload/pathogen.vim https://github.com/tpope/vim-pathogen.git
+</code></pre>
+</div>
+<h2 id="configurando-o-vimrc">Configurando o .vimrc</h2>
+
+<p>Você precisa adicionar algumas linhas ao arquivo <strong>.vimrc</strong>. Caso não tenha o arquivo .vimrc, você poderá criá-lo e logo em seguida adicionar o Pathogen.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>vim ~/.vimrc
+</code></pre>
+</div>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>execute pathogen#infect<span class="o">()</span>
+syntax on
+filetype plugin indent on
+</code></pre>
+</div>
+<p>Caso já tenha alguma coisa configurado no .vimrc, coloque a seguinte linha no arquivo.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>execute pathogen#infect<span class="o">()</span>
+</code></pre>
+</div>
+
+<h2 id="instalando-plugins-usando-pathogen">Instalando plugins usando Pathogen</h2>
+
+<p>Toda a razão pela qual você instalou o Pathogen, foi para instalar os plugins de uma forma mais rápida e aumentar a sua produtividade no Vim. Agora, está tudo pronto para a instalação. Vamos instalar o <strong>Emmet-vim</strong> usando o Pathongen, para isso use esses comandos:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">cd</span> ~/.vim/bundle/
+</code></pre>
+</div>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>git clone https://github.com/mattn/emmet-vim.git
+</code></pre>
+</div>
+<p>Os comandos acima faz com que você entre na pasta ~/.vim/bundle e clone o repositório do plugin Emmet-vim que está <a href="https://github.com/mattn/emmet-vim/">hospedado no GitHub.</a> Agora, criaremos um arquivo <strong>index.html</strong> para testar o Emment.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>vim index.html
+</code></pre>
+</div>
+
+<p>Pressione a tecla <strong>i</strong> para entrar no Modo de Inserção, depois digite <strong>html:5</strong> deixe o cursor na frente do número 5 e pressione ao mesmo tempo as teclas <strong>Ctrl+y</strong> e logo na sequência pressione <strong>,</strong> não demore muito para digitar a vírgula. Se você tiver feito tudo certo aparecerá isso:</p>
+
+<p><img src="/img/vim.png" alt="tela do index.html feito com Emment" /></p>
+
+<p><a href="https://linuxconfig.org/manage-vim-plugins-with-pathogen">Fonte</a></p>
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/Como-usar-o-Tmux" data-toggle="tooltip" data-placement="top" title="Como usar o Tmux">&larr; Postagem anterior</a>
+                    </li>
+                    
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://github.com/allythy "target=_blank">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">Todo conteúdo está licenciado sob <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"> Creative Commons</a>   Allythy 2017</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/clean-blog.min.js "></script>
+
+
+    
+
+
+</body>
+
+</html>
