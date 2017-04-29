@@ -50,7 +50,7 @@ As outras colunas são mais fácies de entende, porque elas são autoexplicativa
 
 ## Vamos aprender a alterar essas permissões
 
-Para alterar essas permissões em arquivos ou diretório, vamos utilizar o comando **chmod** em modo octal, pois é mais fácil para o entendimento.
+Para alterar essas permissões em arquivos ou diretório, vamos utilizar o comando `chmod` em modo octal, pois é mais fácil para o entendimento.
 
 A sintaxe do comando é essa :
 
@@ -72,7 +72,7 @@ chmod 700 Documentos
 
 ## Alterar proprietário e grupo dos arquivos e diretórios
 
-Para alterar o proprietário e grupo de um arquivo ou diretório, vamos usar o comando **chown**. Que possui a seguinte sintaxe:
+Para alterar o proprietário e grupo de um arquivo ou diretório, vamos usar o comando `chown`. Que possui a seguinte sintaxe:
 
 ``` bash
 chown [novo proprietário]:[ novo grupo] [nome do arquivo ou diretório]
@@ -99,7 +99,7 @@ Alterar só o grupo
 
 > Se os dois pontos ou ponto e grupo são fornecidos, mas o  nome
 do  usuário  é  omitido, somente o grupo do arquivo é alterado. Neste
-caso, chown assume a mesma função que chgrp.
+caso, chown assume a mesma função que `chgrp`.
 
 ```bash
 chown [deixa vazio ]:[ novo grupo] [nome do arquivo ou diretório]
