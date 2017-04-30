@@ -1,4 +1,81 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-04-29T16:07:29-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Entendendo as permissões de acesso a arquivos e repositórios e como alterá-las</title><link href="http://localhost:4000/Entendendo-as-permissoes-de-acesso-a-arquivos-e-repositorios-e-como-altera-las" rel="alternate" type="text/html" title="Entendendo as permissões de acesso a arquivos e repositórios e como alterá-las" /><published>2017-04-29T12:00:00-03:00</published><updated>2017-04-29T12:00:00-03:00</updated><id>http://localhost:4000/Entendendo-as-permissoes-de-acesso-a-arquivos-e-repositorios-e-como-altera-las</id><content type="html" xml:base="http://localhost:4000/Entendendo-as-permissoes-de-acesso-a-arquivos-e-repositorios-e-como-altera-las">&lt;p&gt;Neste artigo, vamos entendendo as permissões de acesso a arquivos e repositórios e como alterá-las. Para um Administrador de Sistema é primordial entender as permissões de acesso a arquivos e repositórios e como alterá-las. Isso não se restringe apenas aos Administradores de Sistemas, também é necessário para usuários domésticos, pois algumas vezes temos que alterar a permissão de um arquivo.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-04-30T14:58:06-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Empacotamento e Compactação de arquivos no GNU/Linux</title><link href="http://localhost:4000/Empacotamento-e-compactacao-de-arquivos-no-gnu-linux" rel="alternate" type="text/html" title="Empacotamento e Compactação de arquivos no GNU/Linux" /><published>2017-04-30T12:00:00-03:00</published><updated>2017-04-30T12:00:00-03:00</updated><id>http://localhost:4000/Empacotamento-e-compactacao-de-arquivos-no-gnu-linux</id><content type="html" xml:base="http://localhost:4000/Empacotamento-e-compactacao-de-arquivos-no-gnu-linux">&lt;p&gt;Nesse artigo, vamos aprender sobre empacotamento e compactação de arquivos. Para o empacotamento de arquivos utilizamos o comando tar, é válido ressaltar que o empacotamento não diminui o tamanho do arquivo, ele faz a junção de um ou mais arquivos em um único arquivo, quem diminui o tamanho são os compactadores, que são GNU gzip (gzip) ou bzip2. Primeiro vamos entender a sintaxe do comando tar.&lt;/p&gt;
+
+&lt;h3 id=&quot;sintaxe&quot;&gt;Sintaxe&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;opções] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;nome &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;novo arquivo] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;arquivo de origem]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Vejamos alguma opções do comando tar:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;c &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Cria um novo arquivo tar
+t &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Exibe o conteúdo de um arquivo tar
+p &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Mantém as permissões originais dos arquivos
+r &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Adiciona arquivos a um arquivo tar existente
+f &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Permite especificar o arquivo tar que vai ser usado, por causa disso é a ultima opção
+v &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Exibe detalhes da operação
+x &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Extrai arquivos de uma arquivo tar existente
+C &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; especifica o diretório dos arquivos a serem armazenados
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;usando-o-comando-tar&quot;&gt;Usando o comando tar&lt;/h2&gt;
+
+&lt;p&gt;Primeiro vamos aprender a usar o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;tar&lt;/code&gt; para o empacotamento de arquivos e extração, mais adiante usaremos os compactadores, que não tem nada de difícil.&lt;/p&gt;
+
+&lt;p&gt;Criando um arquivo .tar&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar -cvf artigos.tar telgram.odt mycroft.odt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Exibindo o conteúdo de um arquivo .tar&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar -tf artigos.tar
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Extraindo um arquivo .tar&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar -xvf artigos.tar
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Adicionar um arquivo ao arquivo já empacotado&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar -rf artigos.tar mozilla.odt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Excluindo um arquivo do arquivo.tar&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar -f artigos.tar –-delete mozilla.odt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;usando-os-compactadores&quot;&gt;Usando os compactadores&lt;/h2&gt;
+
+&lt;p&gt;Agora que já sabemos usar o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;tar&lt;/code&gt; para o empacotamento de arquivos, vai ser bem fácil aprender a comprimir arquivos. Primeiros vamos aprender a compactar com o gzip, para  isso temos que acrescentar uma opção ao comando tar que é &lt;code class=&quot;highlighter-rouge&quot;&gt;-z&lt;/code&gt;, essa opção indica que os arquivos serão compactados em &lt;strong&gt;gzip&lt;/strong&gt;, que resultará em um arquivo com extensão &lt;strong&gt;.tar.gz&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Criando um arquivo compactado com gzip&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar -cvzf artigos.tar.gz telgram.odt mycroft.odt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Extraindo arquivos com gzip&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar -xvzf artigos.tar.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Quando for comprimir arquivos usando o &lt;strong&gt;bzip2&lt;/strong&gt;, só acrescentar o parâmetro &lt;code class=&quot;highlighter-rouge&quot;&gt;-j&lt;/code&gt;, essa opção indica que os arquivos serão compactados em bzip2, que resultara um arquivo com a extensão &lt;strong&gt;.tar.bz2&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Criando um arquivo compactado com bzip2&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar -cvjf artigos.tar.bz2 telgram.odt mycroft.odt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Extraindo arquivos com bzip2&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar -xvjf artigos.tar.bz2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content><author><name>Allythy</name></author><summary type="html">Nesse artigo, vamos aprender sobre empacotamento e compactação de arquivos. Para o empacotamento de arquivos utilizamos o comando tar, é válido ressaltar que o empacotamento não diminui o tamanho do arquivo, ele faz a junção de um ou mais arquivos em um único arquivo, quem diminui o tamanho são os compactadores, que são GNU gzip (gzip) ou bzip2. Primeiro vamos entender a sintaxe do comando tar.</summary></entry><entry><title type="html">Entendendo as permissões de acesso a arquivos e repositórios e como alterá-las</title><link href="http://localhost:4000/Entendendo-as-permissoes-de-acesso-a-arquivos-e-repositorios-e-como-altera-las" rel="alternate" type="text/html" title="Entendendo as permissões de acesso a arquivos e repositórios e como alterá-las" /><published>2017-04-29T12:00:00-03:00</published><updated>2017-04-29T12:00:00-03:00</updated><id>http://localhost:4000/Entendendo-as-permissoes-de-acesso-a-arquivos-e-repositorios-e-como-altera-las</id><content type="html" xml:base="http://localhost:4000/Entendendo-as-permissoes-de-acesso-a-arquivos-e-repositorios-e-como-altera-las">&lt;p&gt;Neste artigo, vamos entendendo as permissões de acesso a arquivos e repositórios e como alterá-las. Para um Administrador de Sistema é primordial entender as permissões de acesso a arquivos e repositórios e como alterá-las. Isso não se restringe apenas aos Administradores de Sistemas, também é necessário para usuários domésticos, pois algumas vezes temos que alterar a permissão de um arquivo.&lt;/p&gt;
 
 &lt;p&gt;Para ver as permissões que um arquivo ou diretório possui, temos que executar o seguinte comando:&lt;/p&gt;
 
@@ -41,7 +118,7 @@ x = Permissão de Execução (execution)
 
 &lt;h2 id=&quot;vamos-aprender-a-alterar-essas-permissões&quot;&gt;Vamos aprender a alterar essas permissões&lt;/h2&gt;
 
-&lt;p&gt;Para alterar essas permissões em arquivos ou diretório, vamos utilizar o comando &lt;strong&gt;chmod&lt;/strong&gt; em modo octal, pois é mais fácil para o entendimento.&lt;/p&gt;
+&lt;p&gt;Para alterar essas permissões em arquivos ou diretório, vamos utilizar o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;chmod&lt;/code&gt; em modo octal, pois é mais fácil para o entendimento.&lt;/p&gt;
 
 &lt;p&gt;A sintaxe do comando é essa :&lt;/p&gt;
 
@@ -65,7 +142,7 @@ x = Permissão de Execução (execution)
 
 &lt;h2 id=&quot;alterar-proprietário-e-grupo-dos-arquivos-e-diretórios&quot;&gt;Alterar proprietário e grupo dos arquivos e diretórios&lt;/h2&gt;
 
-&lt;p&gt;Para alterar o proprietário e grupo de um arquivo ou diretório, vamos usar o comando &lt;strong&gt;chown&lt;/strong&gt;. Que possui a seguinte sintaxe:&lt;/p&gt;
+&lt;p&gt;Para alterar o proprietário e grupo de um arquivo ou diretório, vamos usar o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;chown&lt;/code&gt;. Que possui a seguinte sintaxe:&lt;/p&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chown &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;novo proprietário]:[ novo grupo] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;nome &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;arquivo ou diretório]
 &lt;/code&gt;&lt;/pre&gt;
@@ -96,7 +173,7 @@ x = Permissão de Execução (execution)
 &lt;blockquote&gt;
   &lt;p&gt;Se os dois pontos ou ponto e grupo são fornecidos, mas o  nome
 do  usuário  é  omitido, somente o grupo do arquivo é alterado. Neste
-caso, chown assume a mesma função que chgrp.&lt;/p&gt;
+caso, chown assume a mesma função que &lt;code class=&quot;highlighter-rouge&quot;&gt;chgrp&lt;/code&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chown &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;deixa vazio &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;:[ novo grupo] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;nome &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;arquivo ou diretório]
