@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Dicas sobre o Debian, Software Livre, linha de comando">
 
-    <title>Empacotamento e Compactação de arquivos no GNU/Linux - Allythy</title>
+    <title>Como instalar o Jekyll no Debian e derivados  - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/Empacotamento-e-compactacao-de-arquivos-no-gnu-linux">
+    <link rel="canonical" href="http://localhost:4000/Como-instalar-o-Jekyll-no-Debian-e-derivados">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -87,11 +87,11 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>Empacotamento e Compactação de arquivos no GNU/Linux</h1>
+                    <h1>Como instalar o Jekyll no Debian e derivados </h1>
                     
-                    <h2 class="subheading">Nesse artigo, vamos aprender sobre empacotamento e compactação de arquivos.</h2>
+                    <h2 class="subheading">Neste artigo, vamos aprender como instalar o Jekyll no Debian e derivados. O Jekyll é um gerador de site estáticos</h2>
                     
-                    <span class="meta">Postador por Allythy em April 30, 2017</span>
+                    <span class="meta">Postador por Allythy em May 7, 2017</span>
                 </div>
             </div>
         </div>
@@ -104,84 +104,70 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-				<p>Nesse artigo, vamos aprender sobre empacotamento e compactação de arquivos. Para o empacotamento de arquivos utilizamos o comando tar, é válido ressaltar que o empacotamento não diminui o tamanho do arquivo, ele faz a junção de um ou mais arquivos em um único arquivo, quem diminui o tamanho são os compactadores, que são GNU gzip (gzip) ou bzip2. Primeiro vamos entender a sintaxe do comando tar.</p>
+				<p>Neste artigo, vamos aprender como instalar o Jekyll no Debian e derivados. O Jekyll é um gerador de site estáticos, seja ele um blog, site institucional ou o que você queira criar. O jekyll utiliza o <a href="http://yaml.org/">YAML</a>, e  para guardar e organizar informações, ele usa o Front Matter e o <a href="https://github.com/Shopify/liquid/wiki">Liquid</a> como renderizador. Outra coisa muito interessante do Jekyll que você pode fazer os seus post usando <a href="https://daringfireball.net/projects/markdown/">Markdown</a> e hospedar o seu site no <a href="https://github.com/">GitHub</a>.</p>
 
-<h3 id="sintaxe">Sintaxe</h3>
+<h2 id="como-instalar-o-jekyll">Como Instalar o Jekyll?</h2>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tar <span class="o">[</span>opções] <span class="o">[</span>nome <span class="k">do </span>novo arquivo] <span class="o">[</span>arquivo de origem]
-</code></pre>
-</div>
-<p>Vejamos alguma opções do comando tar:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>c <span class="o">=</span> Cria um novo arquivo tar
-t <span class="o">=</span> Exibe o conteúdo de um arquivo tar
-p <span class="o">=</span> Mantém as permissões originais dos arquivos
-r <span class="o">=</span> Adiciona arquivos a um arquivo tar existente
-f <span class="o">=</span> Permite especificar o arquivo tar que vai ser usado, por causa disso é a ultima opção
-v <span class="o">=</span> Exibe detalhes da operação
-x <span class="o">=</span> Extrai arquivos de uma arquivo tar existente
-C <span class="o">=</span> especifica o diretório dos arquivos a serem armazenados
-</code></pre>
-</div>
-<h2 id="usando-o-comando-tar">Usando o comando tar</h2>
+<p>Primeiro temos que instalar o pacote build-essential, pois vamos precisar do gcc e do make. Para isso,  use esse comando:</p>
 
-<p>Primeiro vamos aprender a usar o comando <code class="highlighter-rouge">tar</code> para o empacotamento de arquivos e extração mais adiante usaremos os compactadores, que não tem nada de difícil.</p>
-
-<p>Criando um arquivo .tar</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tar -cvf artigos.tar telgram.odt mycroft.odt
-</code></pre>
-</div>
-<p>Exibindo o conteúdo de um arquivo .tar</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tar -tf artigos.tar
-</code></pre>
-</div>
-<p>Extraindo um arquivo .tar</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tar -xvf artigos.tar
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install build-essential
 </code></pre>
 </div>
 
-<p>Adicionar um arquivo ao arquivo já empacotado</p>
+<p>Também temos que instalar a versão 2.0 do ruby ou superior.  Para isso, use esse comando:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tar -rf artigos.tar mozilla.odt
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install ruby2.3
 </code></pre>
 </div>
 
-<p>Excluindo um arquivo do arquivo.tar</p>
+<p>Cerifique-se que também foi instalado o pacote ruby-dev, caso não tenho sido instalado, use esse comando:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tar -f artigos.tar –-delete mozilla.odt
-</code></pre>
-</div>
-<h2 id="usando-os-compactadores">Usando os compactadores</h2>
-
-<p>Agora que já sabemos usar o comando <code class="highlighter-rouge">tar</code> para o empacotamento de arquivos, vai ser bem fácil aprender a comprimir arquivos. Primeiros vamos aprender a compactar com o gzip, para  isso temos que acrescentar uma opção ao comando tar que é <code class="highlighter-rouge">-z</code>, essa opção indica que os arquivos serão compactados em <strong>gzip</strong>, que resultará em um arquivo com extensão <strong>.tar.gz</strong>.</p>
-
-<p>Criando um arquivo compactado com gzip</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tar -cvzf artigos.tar.gz telgram.odt mycroft.odt
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install ruby2.3-dev
 </code></pre>
 </div>
 
-<p>Extraindo arquivos com gzip</p>
+<p>Agora temos que baixar o RubyGems, que é um gerenciador de pacotes para o Ruby. Você pode <a href="https://rubygems.org/pages/download">acessar o site e baixar</a> ou usar esse comando:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tar -xvzf artigos.tar.gz
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>wget -c https://rubygems.org/rubygems/rubygems-2.6.11.tgz
 </code></pre>
 </div>
 
-<p>Quando for comprimir arquivos usando o <strong>bzip2</strong>, só acrescentar o parâmetro <code class="highlighter-rouge">-j</code>, essa opção indica que os arquivos serão compactados em bzip2, que resultara um arquivo com a extensão <strong>.tar.bz2</strong>.</p>
+<p>Vamos descompactar. Caso você queira saber mais sobre o descompactadores <a href="https://allythy.github.io/Empacotamento-e-compactacao-de-arquivos-no-gnu-linux">tem esse artigo</a>.</p>
 
-<p>Criando um arquivo compactado com bzip2</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tar -xvzf rubygems-2.6.11.tgz
+</code></pre>
+</div>
+<p>Temos que entrar na pasta que descompactar e depois instalar o RubyGems, para isso use esses comandos:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tar -cvjf artigos.tar.bz2 telgram.odt mycroft.odt
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">cd </span>rubygems-2.6.11/
+sudo ruby setup.rb
 </code></pre>
 </div>
 
-<p>Extraindo arquivos com bzip2</p>
+<p>Pronto, agora é só instalar o jekyll com esse comando:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tar -xvjf artigos.tar.bz2
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo gem install jekyll bundler
 </code></pre>
 </div>
+
+<p>Você pode verificar se ele foi instalado com esse comando:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>jekyll -v
+</code></pre>
+</div>
+
+<p>Pronto, você tá com Jekyll instalado. Para criar o seu site digite esse comando, onde tem o nomeSempreUpdate coloque o nome que você vai dar para o seu site.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo jekyll new allythy
+</code></pre>
+</div>
+<p>Esse comando vai gerar uma pasta com o nome que você deu para o seu site, entre nessa pasta e execute esse comando:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo jekyll s
+</code></pre>
+</div>
+
+<p>Esse comando vai executar o seu site localmente na porta 4000. Agora é só você acessar o endereço http://127.0.0.1:4000/ e começar a testar.</p>
 
 
                 <hr>
@@ -189,13 +175,9 @@ C <span class="o">=</span> especifica o diretório dos arquivos a serem armazena
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/Entendendo-as-permissoes-de-acesso-a-arquivos-e-repositorios-e-como-altera-las" data-toggle="tooltip" data-placement="top" title="Entendendo as permissões de acesso a arquivos e repositórios e como alterá-las">&larr; Postagem anterior</a>
+                        <a href="/Empacotamento-e-compactacao-de-arquivos-no-gnu-linux" data-toggle="tooltip" data-placement="top" title="Empacotamento e Compactação de arquivos no GNU/Linux">&larr; Postagem anterior</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/Como-instalar-o-Jekyll-no-Debian-e-derivados" data-toggle="tooltip" data-placement="top" title="Como instalar o Jekyll no Debian e derivados ">Próxima postagem &rarr;</a>
-                    </li>
                     
                 </ul>
 
