@@ -12,7 +12,7 @@ github_username:  allythy
 
 # Google Analytics
 # To enable google analytics, uncomment below line with a valid Google Tracking ID
-google_tracking_id: UA-96197910-1
+google_tracking_id: "UA-96197910-1"
 
 # Build settings
 markdown: kramdown
