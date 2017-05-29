@@ -2,7 +2,7 @@
 layout:     post
 title:      "Como instalar programas pelo código fonte no GNU/Linux"
 subtitle:   "Neste artigo, vamos aprender como instalar programas pelo código fonte, isso pode parecer uma tarefa bem complicada, mas não é."
-date:       2017-05-07 14:00:00
+date:       2017-05-29 19:00:00
 author:     "Allythy"
 header-img: ""
 ---
