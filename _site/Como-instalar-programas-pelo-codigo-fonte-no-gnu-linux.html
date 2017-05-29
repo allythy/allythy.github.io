@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Dicas sobre o Debian, Software Livre, linha de comando">
 
-    <title>Como instalar o Jekyll no Debian e derivados  - Allythy</title>
+    <title>Como instalar programas pelo código fonte no GNU/Linux - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/Como-instalar-o-Jekyll-no-Debian-e-derivados">
+    <link rel="canonical" href="http://localhost:4000/Como-instalar-programas-pelo-codigo-fonte-no-gnu-linux">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -82,14 +82,14 @@
 
 
     <!-- Post Header -->
-<header class="intro-header" style="background-image: url('/img/post-bg-01.jpg')">
+<header class="intro-header" style="background-image: url('/')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>Como instalar o Jekyll no Debian e derivados </h1>
+                    <h1>Como instalar programas pelo código fonte no GNU/Linux</h1>
                     
-                    <h2 class="subheading">Neste artigo, vamos aprender como instalar o Jekyll no Debian e derivados. O Jekyll é um gerador de site estáticos</h2>
+                    <h2 class="subheading">Neste artigo, vamos aprender como instalar programas pelo código fonte, isso pode parecer uma tarefa bem complicada, mas não é.</h2>
                     
                     <span class="meta">Postador por Allythy em May 7, 2017</span>
                 </div>
@@ -104,70 +104,75 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-				<p>Neste artigo, vamos aprender como instalar o Jekyll no Debian e derivados. O Jekyll é um gerador de site estáticos, seja ele um blog, site institucional ou o que você queira criar. O jekyll utiliza o <a href="http://yaml.org/">YAML</a>, e  para guardar e organizar informações, ele usa o Front Matter e o <a href="https://github.com/Shopify/liquid/wiki">Liquid</a> como renderizador. Outra coisa muito interessante do Jekyll que você pode fazer os seus post usando <a href="https://daringfireball.net/projects/markdown/">Markdown</a> e hospedar o seu site no <a href="https://github.com/">GitHub</a>.</p>
+				<p>Neste artigo, vamos aprender como instalar programas pelo código fonte, isso pode parecer uma tarefa bem complicada, mas não é. Na maioria das vezes usamos ferramentas para instalar os programas sem necessidade de compilar ou corrigir dependências, como o apt-get, aptitude, yum ou pacman eles fazem isso tudo para gente. Mas existem alguns programas que vêm apenas com o código fonte, então temos que compilar, que é transformar o “texto” (linguagem de programação) em arquivos binários, pois é essa linguagem que o computador entende.</p>
 
-<h2 id="como-instalar-o-jekyll">Como Instalar o Jekyll?</h2>
-
-<p>Primeiro temos que instalar o pacote build-essential, pois vamos precisar do gcc e do make. Para isso,  use esse comando:</p>
+<p>Primeiro,temos que baixar o pacote <code class="highlighter-rouge">build-essential</code> que contém as ferramentas necessárias para compilação.
+No Debian e derivados, devemos executar o comando:</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install build-essential
 </code></pre>
 </div>
+<p>Feito isso, agora temos que descompactar o arquivo que contém o código fonte, na maioria das vezes o código fonte vem compactados em gzip ou bzip2. Caso você queira saber mais sobre esse compactadores <a href="https://allythy.github.io/Empacotamento-e-compactacao-de-arquivos-no-gnu-linux" target="_ blank">leia esse artigo </a>.</p>
 
-<p>Também temos que instalar a versão 2.0 do ruby ou superior.  Para isso, use esse comando:</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install ruby2.3
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tar -xvzf pacote.tar.gz
 </code></pre>
 </div>
 
-<p>Cerifique-se que também foi instalado o pacote ruby-dev, caso não tenho sido instalado, use esse comando:</p>
+<p>Entre no diretório que foi descompactado.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install ruby2.3-dev
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">cd</span> /pacote
 </code></pre>
 </div>
 
-<p>Agora temos que baixar o RubyGems, que é um gerenciador de pacotes para o Ruby. Você pode <a href="https://rubygems.org/pages/download">acessar o site e baixar</a> ou usar esse comando:</p>
+<p>Dentro do diretório descompactado, é sempre recomendado ler os arquivos <strong>readme</strong> e <strong>install</strong> antes. Agora temos que executar um script, que na maioria da vezes vem como o nome <code class="highlighter-rouge">configure</code>. Esse script verifica no sistema se existem todas as dependências necessárias para a compilação do programa, se for concluído com sucesso, irá gerar o arquivo <strong>Makefile</strong> que contém as informações para compilação. Para executar o script basta usar esse comando:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>wget -c https://rubygems.org/rubygems/rubygems-2.6.11.tgz
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>./configure
 </code></pre>
 </div>
 
-<p>Vamos descompactar. Caso você queira saber mais sobre o descompactadores <a href="https://allythy.github.io/Empacotamento-e-compactacao-de-arquivos-no-gnu-linux">tem esse artigo</a>.</p>
+<p>Para compilar, usamos o comando <code class="highlighter-rouge">make</code>, que vai ler o arquivo Makefile com as instruções de compilação e executar cada etapa. Isso pode demorar um pouco dependendo do software e do seu computador.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tar -xvzf rubygems-2.6.11.tgz
-</code></pre>
-</div>
-<p>Temos que entrar na pasta que descompactar e depois instalar o RubyGems, para isso use esses comandos:</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">cd </span>rubygems-2.6.11/
-sudo ruby setup.rb
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>make
 </code></pre>
 </div>
 
-<p>Pronto, agora é só instalar o jekyll com esse comando:</p>
+<p>Depois que o programa foi compilado, usamos o comando <code class="highlighter-rouge">make install</code> que vai mover os arquivos que foram compilados para os seus devidos lugares, assim concluindo a instalação. Lembrando que esse comando tem que ser executado com a permissão de super usuário (root).</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo gem install jekyll bundler
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo make install
+</code></pre>
+</div>
+<p>Uma dica, depois da instalação use o comando <code class="highlighter-rouge">make clean</code>, ele vai apagar os arquivos temporários que foram gerados durante a instalação.</p>
+
+<h2 id="desinstalação">Desinstalação</h2>
+<p>Para desinstalar um programa que foi instalado pelo código fonte também é muito simples, primeiros temos que entrar  diretório onde foi descompactado o programa.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">cd</span> /pacote
 </code></pre>
 </div>
 
-<p>Você pode verificar se ele foi instalado com esse comando:</p>
+<p>Feito isso, é só digitar o seguinte comando:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>jekyll -v
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo make uninstall
 </code></pre>
 </div>
 
-<p>Pronto, você tá com Jekyll instalado. Para criar o seu site digite esse comando, onde tem o nomeSempreUpdate coloque o nome que você vai dar para o seu site.</p>
+<p>Se por algum motivo essa opção não deu certo, não se preocupe você pode usar o comando <code class="highlighter-rouge">whereis</code> que retorna a localização os binários, código fonte e manuais dos programas.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo jekyll new allythy
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>whereis nome-do-pacote
 </code></pre>
 </div>
-<p>Esse comando vai gerar uma pasta com o nome que você deu para o seu site, entre nessa pasta e execute esse comando:</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo jekyll s
+<p>Sabendo o caminho onde os arquivos foram instalados é só removê-los com o comando <code class="highlighter-rouge">rm -r</code>.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo rm -r caminho-do-pacote
 </code></pre>
 </div>
+<p>Como você pode ver não tem nada de complicado em instalar programas pelo código fonte, basicamente são três comandos :</p>
 
-<p>Esse comando vai executar o seu site localmente na porta 4000. Agora é só você acessar o endereço http://127.0.0.1:4000/ e começar a testar.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>./configure
+make
+sudo make install
+</code></pre>
+</div>
+<p>Espero que tenha sanado suas dúvidas sobre esse assunto.</p>
 
 
                 <hr>
@@ -175,13 +180,9 @@ sudo ruby setup.rb
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/Empacotamento-e-compactacao-de-arquivos-no-gnu-linux" data-toggle="tooltip" data-placement="top" title="Empacotamento e Compactação de arquivos no GNU/Linux">&larr; Postagem anterior</a>
+                        <a href="/Como-instalar-o-Jekyll-no-Debian-e-derivados" data-toggle="tooltip" data-placement="top" title="Como instalar o Jekyll no Debian e derivados ">&larr; Postagem anterior</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/Como-instalar-programas-pelo-codigo-fonte-no-gnu-linux" data-toggle="tooltip" data-placement="top" title="Como instalar programas pelo código fonte no GNU/Linux">Próxima postagem &rarr;</a>
-                    </li>
                     
                 </ul>
 

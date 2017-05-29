@@ -1,4 +1,72 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-05-07T14:08:43-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como instalar o Jekyll no Debian e derivados</title><link href="http://localhost:4000/Como-instalar-o-Jekyll-no-Debian-e-derivados" rel="alternate" type="text/html" title="Como instalar o Jekyll no Debian e derivados " /><published>2017-05-07T11:00:00-03:00</published><updated>2017-05-07T11:00:00-03:00</updated><id>http://localhost:4000/Como-instalar-o-Jekyll-no-Debian-e-derivados</id><content type="html" xml:base="http://localhost:4000/Como-instalar-o-Jekyll-no-Debian-e-derivados">&lt;p&gt;Neste artigo, vamos aprender como instalar o Jekyll no Debian e derivados. O Jekyll é um gerador de site estáticos, seja ele um blog, site institucional ou o que você queira criar. O jekyll utiliza o &lt;a href=&quot;http://yaml.org/&quot;&gt;YAML&lt;/a&gt;, e  para guardar e organizar informações, ele usa o Front Matter e o &lt;a href=&quot;https://github.com/Shopify/liquid/wiki&quot;&gt;Liquid&lt;/a&gt; como renderizador. Outra coisa muito interessante do Jekyll que você pode fazer os seus post usando &lt;a href=&quot;https://daringfireball.net/projects/markdown/&quot;&gt;Markdown&lt;/a&gt; e hospedar o seu site no &lt;a href=&quot;https://github.com/&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-05-29T18:22:53-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como instalar programas pelo código fonte no GNU/Linux</title><link href="http://localhost:4000/Como-instalar-programas-pelo-codigo-fonte-no-gnu-linux" rel="alternate" type="text/html" title="Como instalar programas pelo código fonte no GNU/Linux" /><published>2017-05-07T11:00:00-03:00</published><updated>2017-05-07T11:00:00-03:00</updated><id>http://localhost:4000/Como-instalar-programas-pelo-codigo-fonte-no-gnu-linux</id><content type="html" xml:base="http://localhost:4000/Como-instalar-programas-pelo-codigo-fonte-no-gnu-linux">&lt;p&gt;Neste artigo, vamos aprender como instalar programas pelo código fonte, isso pode parecer uma tarefa bem complicada, mas não é. Na maioria das vezes usamos ferramentas para instalar os programas sem necessidade de compilar ou corrigir dependências, como o apt-get, aptitude, yum ou pacman eles fazem isso tudo para gente. Mas existem alguns programas que vêm apenas com o código fonte, então temos que compilar, que é transformar o “texto” (linguagem de programação) em arquivos binários, pois é essa linguagem que o computador entende.&lt;/p&gt;
+
+&lt;p&gt;Primeiro,temos que baixar o pacote &lt;code class=&quot;highlighter-rouge&quot;&gt;build-essential&lt;/code&gt; que contém as ferramentas necessárias para compilação.
+No Debian e derivados, devemos executar o comando:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install build-essential
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Feito isso, agora temos que descompactar o arquivo que contém o código fonte, na maioria das vezes o código fonte vem compactados em gzip ou bzip2. Caso você queira saber mais sobre esse compactadores &lt;a href=&quot;https://allythy.github.io/Empacotamento-e-compactacao-de-arquivos-no-gnu-linux&quot; target=&quot;_ blank&quot;&gt;leia esse artigo &lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar -xvzf pacote.tar.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Entre no diretório que foi descompactado.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /pacote
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Dentro do diretório descompactado, é sempre recomendado ler os arquivos &lt;strong&gt;readme&lt;/strong&gt; e &lt;strong&gt;install&lt;/strong&gt; antes. Agora temos que executar um script, que na maioria da vezes vem como o nome &lt;code class=&quot;highlighter-rouge&quot;&gt;configure&lt;/code&gt;. Esse script verifica no sistema se existem todas as dependências necessárias para a compilação do programa, se for concluído com sucesso, irá gerar o arquivo &lt;strong&gt;Makefile&lt;/strong&gt; que contém as informações para compilação. Para executar o script basta usar esse comando:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./configure
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Para compilar, usamos o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;make&lt;/code&gt;, que vai ler o arquivo Makefile com as instruções de compilação e executar cada etapa. Isso pode demorar um pouco dependendo do software e do seu computador.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;make
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Depois que o programa foi compilado, usamos o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;make install&lt;/code&gt; que vai mover os arquivos que foram compilados para os seus devidos lugares, assim concluindo a instalação. Lembrando que esse comando tem que ser executado com a permissão de super usuário (root).&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo make install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Uma dica, depois da instalação use o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;make clean&lt;/code&gt;, ele vai apagar os arquivos temporários que foram gerados durante a instalação.&lt;/p&gt;
+
+&lt;h2 id=&quot;desinstalação&quot;&gt;Desinstalação&lt;/h2&gt;
+&lt;p&gt;Para desinstalar um programa que foi instalado pelo código fonte também é muito simples, primeiros temos que entrar  diretório onde foi descompactado o programa.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /pacote
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Feito isso, é só digitar o seguinte comando:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo make uninstall
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Se por algum motivo essa opção não deu certo, não se preocupe você pode usar o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;whereis&lt;/code&gt; que retorna a localização os binários, código fonte e manuais dos programas.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;whereis nome-do-pacote
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Sabendo o caminho onde os arquivos foram instalados é só removê-los com o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;rm -r&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo rm -r caminho-do-pacote
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Como você pode ver não tem nada de complicado em instalar programas pelo código fonte, basicamente são três comandos :&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./configure
+make
+sudo make install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Espero que tenha sanado suas dúvidas sobre esse assunto.&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como instalar programas pelo código fonte, isso pode parecer uma tarefa bem complicada, mas não é. Na maioria das vezes usamos ferramentas para instalar os programas sem necessidade de compilar ou corrigir dependências, como o apt-get, aptitude, yum ou pacman eles fazem isso tudo para gente. Mas existem alguns programas que vêm apenas com o código fonte, então temos que compilar, que é transformar o “texto” (linguagem de programação) em arquivos binários, pois é essa linguagem que o computador entende.</summary></entry><entry><title type="html">Como instalar o Jekyll no Debian e derivados</title><link href="http://localhost:4000/Como-instalar-o-Jekyll-no-Debian-e-derivados" rel="alternate" type="text/html" title="Como instalar o Jekyll no Debian e derivados " /><published>2017-05-07T11:00:00-03:00</published><updated>2017-05-07T11:00:00-03:00</updated><id>http://localhost:4000/Como-instalar-o-Jekyll-no-Debian-e-derivados</id><content type="html" xml:base="http://localhost:4000/Como-instalar-o-Jekyll-no-Debian-e-derivados">&lt;p&gt;Neste artigo, vamos aprender como instalar o Jekyll no Debian e derivados. O Jekyll é um gerador de site estáticos, seja ele um blog, site institucional ou o que você queira criar. O jekyll utiliza o &lt;a href=&quot;http://yaml.org/&quot;&gt;YAML&lt;/a&gt;, e  para guardar e organizar informações, ele usa o Front Matter e o &lt;a href=&quot;https://github.com/Shopify/liquid/wiki&quot;&gt;Liquid&lt;/a&gt; como renderizador. Outra coisa muito interessante do Jekyll que você pode fazer os seus post usando &lt;a href=&quot;https://daringfireball.net/projects/markdown/&quot;&gt;Markdown&lt;/a&gt; e hospedar o seu site no &lt;a href=&quot;https://github.com/&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;como-instalar-o-jekyll&quot;&gt;Como Instalar o Jekyll?&lt;/h2&gt;
 
@@ -462,16 +530,16 @@ Agora que já possuímos um embasamento sobre a origem e porque foi necessário 
 &lt;h2 id=&quot;instalação-de-programas&quot;&gt;Instalação de programas&lt;/h2&gt;
 
 &lt;p&gt;Para Instalar um programa é muito fácil, basta usar o seguinte comando:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-get install nome_do_pacote&lt;/pre&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt install nome_do_pacote&lt;/pre&gt;
 
 &lt;p&gt;Instalando mais de um programa simultaneamente:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-get install pacote1 pacote2 pacote3&lt;/pre&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt install pacote1 pacote2 pacote3&lt;/pre&gt;
 
 &lt;p&gt;Baixa apenas os pacotes, não são desempacotados e nem instalados. Os arquivos baixados são colocados no diretório /var/cache/apt/archives&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-get install -d nome_do_pacote&lt;/pre&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt install -d nome_do_pacote&lt;/pre&gt;
 
 &lt;p&gt;Simulando a instalação de um pacote, isso não altera nada no seu sistema:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-get install -s nome_do_pacote&lt;/pre&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt install -s nome_do_pacote&lt;/pre&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Ainda temos a opção -y que assume “sim” para todas as perguntas, e a opção -u mostrar pacotes que serão atualizados.&lt;/p&gt;
@@ -479,65 +547,65 @@ Agora que já possuímos um embasamento sobre a origem e porque foi necessário 
 
 &lt;h2 id=&quot;desinstalação-de-programas&quot;&gt;Desinstalação de programas&lt;/h2&gt;
 &lt;p&gt;Para remoção de um programa:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-get remove nome_do_pacote&lt;/pre&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt remove nome_do_pacote&lt;/pre&gt;
 
 &lt;p&gt;Removendo mais de um programa simultaneamente:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-get remove pacote1 pacote2 pacote3&lt;/pre&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt remove pacote1 pacote2 pacote3&lt;/pre&gt;
 
-&lt;p&gt;Quando você usa “apt-get remove” para desinstalar um programa, ele ainda deixa suas configurações, por exemplo: Quando você instala o servidor de impressão CUPS e cria uma configuração personalizada. Ao remover com “apt-get remove cups” essas configurações ainda continuam presentes no /etc/, caso você venha a reinstalar esse pacote estas configurações serão mantidas. Para uma desinstalação completa temos que usar esse comando:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-get purge nome_do_pacote&lt;/pre&gt;
+&lt;p&gt;Quando você usa “apt remove” para desinstalar um programa, ele ainda deixa suas configurações, por exemplo: Quando você instala o servidor de impressão CUPS e cria uma configuração personalizada. Ao remover com “apt-get remove cups” essas configurações ainda continuam presentes no /etc/, caso você venha a reinstalar esse pacote estas configurações serão mantidas. Para uma desinstalação completa temos que usar esse comando:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt purge nome_do_pacote&lt;/pre&gt;
 
 &lt;p&gt;Caso você de alguma forma danifique a instalação de um pacote, ou simplesmente deseja que os arquivos do pacote sejam repostos com a versão mais nova que estiver disponível, você pode usar esse comando:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-get --reinstall install nome_do_pacote&lt;/pre&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt --reinstall install nome_do_pacote&lt;/pre&gt;
 
 &lt;h2 id=&quot;atualização&quot;&gt;Atualização&lt;/h2&gt;
 &lt;p&gt;Atualizar lista de repositório do sistema:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-get update&lt;/pre&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt update&lt;/pre&gt;
 
 &lt;p&gt;Instalar as atualizações de todos os pacotes no sistema:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-get upgrade&lt;/pre&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt upgrade&lt;/pre&gt;
 
 &lt;p&gt;O dist-upgrade é quase igual ao upgrade , o dist-upgrade também atualiza o sistema, mas  pode remover pacotes que ele julgue necessário para atualização do sistema.&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-get dist-upgrade&lt;/pre&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt dist-upgrade&lt;/pre&gt;
 
 &lt;h2 id=&quot;obtendo-informações-sobre-os-pacotes&quot;&gt;Obtendo informações sobre os pacotes&lt;/h2&gt;
-&lt;p&gt;Para isso, vamos usar o apt-cahe que é o outra ferramenta para o APT, ela é usada para manipular e obter informações sobre os pacotes no cache (O cache é um sistema de armazenamento temporário usado para acelerar o acesso frequente de dados) do APT.&lt;/p&gt;
+&lt;p&gt;Para isso, vamos usar o &lt;code class=&quot;highlighter-rouge&quot;&gt;apt cahe&lt;/code&gt;. Ela é usada para manipular e obter informações sobre os pacotes no cache (O cache é um sistema de armazenamento temporário usado para acelerar o acesso frequente de dados) do APT.&lt;/p&gt;
 
 &lt;p&gt;Esse comando pesquisa por pacotes que estejam relacionados com a palavra-chave que você deseja, e traz uma breve descrição sobre eles.&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-cache search palavra-chave&lt;/pre&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;apt search palavra-chave&lt;/pre&gt;
 
-&lt;p&gt;Este comando fornece a descrição do pacote, suas dependências, o nome de seu mantenedor, entre outras coisas. Ele traz mais informações do que o apt-cache search.&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-cache show nome_do_pacote&lt;/pre&gt;
+&lt;p&gt;Este comando fornece a descrição do pacote, suas dependências, o nome de seu mantenedor, entre outras coisas. Ele traz mais informações do que o apt search.&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;apt show nome_do_pacote&lt;/pre&gt;
 
 &lt;p&gt;Mostra as dependência de um pacote:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-cache depends nome_do_pacote&lt;/pre&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;apt depends nome_do_pacote&lt;/pre&gt;
 
 &lt;p&gt;Este comando escreve o nome de cada pacote que o APT conhece:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-cache pkgnames&lt;/pre&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;apt-cache pkgnames&lt;/pre&gt;
 
 &lt;p&gt;Para exibir as prioridades de pacote, se ele está instalado ou não, a versão e outras coisas:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-cache policy&lt;/pre&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;apt policy&lt;/pre&gt;
 
 &lt;h2 id=&quot;limpeza&quot;&gt;Limpeza&lt;/h2&gt;
 
 &lt;p&gt;O APT mantém uma cópia de cada arquivo .deb baixado no diretório /var/cache/apt/archives/ . Caso haja atualizações frequentes, este diretório pode rapidamente ocupar uma grande espaço em disco com várias versões de cada pacote. Para efetuar essa limpeza, vamos usar dois comando. O primeiro  esvazia completamente o diretório:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-get clean&lt;/pre&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt clean&lt;/pre&gt;
 
 &lt;p&gt;O segundo remove apenas os pacotes que não podem mais ser baixados, por terem sumido dos repositórios do Debian, e são agora claramente inúteis:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-get autoclean&lt;/pre&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt autoclean&lt;/pre&gt;
 
 &lt;p&gt;O comando a seguir é usado para remover pacotes que foram instalados automaticamente, para satisfazer dependências de outros pacotes, que já não são necessários.&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-get autoremove&lt;/pre&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt autoremove&lt;/pre&gt;
 
 &lt;h2 id=&quot;resolvendo-problemas&quot;&gt;Resolvendo Problemas&lt;/h2&gt;
 &lt;p&gt;Às vezes, um defeito em algum pacote ou um download corrompido pode fazer com que o APT fique “travado”, sem concluir a instalação de um determinado pacote por causa de um erro qualquer e sem aceitar instalar outros antes que o problema inicial seja resolvido.
 Caso isso aconteça, usamos o sistema de resolução de problemas do APT,  que verifica a lista de dependências quebradas e tenta corrigi-las, instalando pacotes necessários. Para isso, usamos esse comando:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt-get -f install&lt;/pre&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;sudo apt -f install&lt;/pre&gt;
 
 &lt;p&gt;Caso você queira saber qual é a dependência que está faltando, o comando a seguir faz a verificação e mostra todas as dependências que o pacote necessita.&lt;/p&gt;
 &lt;pre class=&quot;language-bash&quot;&gt;sudo dpkg –configure -a&lt;/pre&gt;
 
-&lt;p&gt;Caso &lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get -f install&lt;/code&gt; não resolva, o que é bem difícil isso acontecer, experimente o &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get -f remove&lt;/code&gt;, que tem uma função similar à do &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get -f install&lt;/code&gt;, mas dá preferência a remover os pacotes com problemas, ao invés de tentar corrigir a instalação.&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos conhecer um pouco mais o Advanced Packaging Tool (APT), o gerenciador de pacotes do Debian e seus derivados. Então, vamos aprender como esse gerenciador surgiu e alguns comandos que são necessário para os usuários que o utilizam.</summary></entry><entry><title type="html">Como verificar autenticidade da ISO do Debian</title><link href="http://localhost:4000/Como-verificar-a-integridade-da-iso-do-Debian" rel="alternate" type="text/html" title="Como verificar autenticidade da ISO do Debian" /><published>2017-03-17T17:00:00-03:00</published><updated>2017-03-17T17:00:00-03:00</updated><id>http://localhost:4000/Como-verificar-a-integridade-da-iso-do-Debian</id><content type="html" xml:base="http://localhost:4000/Como-verificar-a-integridade-da-iso-do-Debian">&lt;p&gt;Neste artigo, vamos aprender como verificar autenticidade da ISO do Debian. É uma coisa bem rápida de se fazer e importante, porque fazendo essa verificação podemos ter certeza que aquela ISO não foi corrompida. Se o pessoal que baixou o ISO do Linux Mint tivesse verificado a assinatura da ISO deles não teria ocorrido aquele escândalo no começo do ano.&lt;/p&gt;
+&lt;p&gt;Caso &lt;code class=&quot;highlighter-rouge&quot;&gt;apt -f install&lt;/code&gt; não resolva, o que é bem difícil isso acontecer, experimente o &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt -f remove&lt;/code&gt;, que tem uma função similar à do &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get -f install&lt;/code&gt;, mas dá preferência a remover os pacotes com problemas, ao invés de tentar corrigir a instalação.&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos conhecer um pouco mais o Advanced Packaging Tool (APT), o gerenciador de pacotes do Debian e seus derivados. Então, vamos aprender como esse gerenciador surgiu e alguns comandos que são necessário para os usuários que o utilizam.</summary></entry><entry><title type="html">Como verificar autenticidade da ISO do Debian</title><link href="http://localhost:4000/Como-verificar-a-integridade-da-iso-do-Debian" rel="alternate" type="text/html" title="Como verificar autenticidade da ISO do Debian" /><published>2017-03-17T17:00:00-03:00</published><updated>2017-03-17T17:00:00-03:00</updated><id>http://localhost:4000/Como-verificar-a-integridade-da-iso-do-Debian</id><content type="html" xml:base="http://localhost:4000/Como-verificar-a-integridade-da-iso-do-Debian">&lt;p&gt;Neste artigo, vamos aprender como verificar autenticidade da ISO do Debian. É uma coisa bem rápida de se fazer e importante, porque fazendo essa verificação podemos ter certeza que aquela ISO não foi corrompida. Se o pessoal que baixou o ISO do Linux Mint tivesse verificado a assinatura da ISO deles não teria ocorrido aquele escândalo no começo do ano.&lt;/p&gt;
 
 &lt;p&gt;Enfim, vamos para o que interessa. Depois de ter baixado a ISO do Debian temos que baixar os arquivos SHA512SUMS e SHA512SUMS.sign e colocar no mesmo diretório da ISO do Debian. Primeiramente, vamos verificar a hash da ISO que baixamos como esse comando:&lt;/p&gt;
 
