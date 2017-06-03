@@ -4,7 +4,7 @@ title:      "Conhecendo o Advanced Packaging Tool (APT) "
 subtitle:   "Neste artigo, vamos conhecer um pouco mais o Advanced Packaging Tool (APT), o gerenciador de pacotes do Debian e seus derivados."
 date:       2017-04-15 23:00:00
 author:     "Allythy"
-header-img: "img/post-bg-01.jpg"
+header-img: ""
 ---
 Neste artigo, vamos conhecer um pouco mais o Advanced Packaging Tool (APT), o gerenciador de pacotes do Debian e seus derivados. Então, vamos aprender como esse gerenciador surgiu e alguns comandos que são necessário para os usuários que o utilizam.
 

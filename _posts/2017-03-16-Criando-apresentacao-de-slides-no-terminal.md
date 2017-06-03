@@ -4,7 +4,7 @@ title:      "Como criar apresentação de slides no terminal"
 subtitle:   "Neste artigo, vamos aprender como criar uma apresentação de slides no terminal"
 date:       2017-03-16 14:00:00
 author:     "Allythy"
-header-img: "img/post-bg-01.jpg"
+header-img: ""
 ---
 Neste artigo, vamos aprender como criar uma apresentação de slides no terminal.
 Não há necessidade de instalar uma tonelada de softwares, afim de criar uma apresentação agradável e informativa.
