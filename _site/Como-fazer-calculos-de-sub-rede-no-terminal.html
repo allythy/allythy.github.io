@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Dicas sobre o Debian, Software Livre, linha de comando">
 
-    <title>Allythy</title>
+    <title>Como fazer cálculo de sub-redes no terminal - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/">
+    <link rel="canonical" href="http://localhost:4000/Como-fazer-calculos-de-sub-rede-no-terminal">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -81,112 +81,66 @@
 </nav>
 
 
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/post-bg-04.jpg')">
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Allythy</h1>
-                    <hr class="small">
-                    <span class="subheading">A mudança é um processo essencial de toda existência</span>
+                <div class="post-heading">
+                    <h1>Como fazer cálculo de sub-redes no terminal</h1>
+                    
+                    <h2 class="subheading">Neste artigo, vamos aprender a fazer cálculo de sub-rede no terminal.</h2>
+                    
+                    <span class="meta">Postador por Allythy em June 3, 2017</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-			
-<div class="post-preview">
-    <a href="/Como-fazer-calculos-de-sub-rede-no-terminal">
-        <h2 class="post-title">            Como fazer cálculo de sub-redes no terminal
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender a fazer cálculo de sub-rede no terminal.
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em June 3, 2017</p>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<p>Neste artigo, vamos aprender a fazer cálculo de sub-rede no terminal. Hoje eu estava estudando para prova de Redes que eu tenho amanhã, só que eu não tinha como conferir se as respostas estavam corretas, então fui pesquisar algum programa (apt-cache search ) achei ipcalc um programa de linha de comando que mostra o endereço de rede, primeiro host, ultimo host, máscara de rede, endereço de broadcast e faz cálculos de sub-rede para uma determinada quantidade de host. O ipcalc  mostrar todas essas informações tanto em decimal como em binário, mas o ipcalc só é valido para o Ipv4.  A  instalação é bem simples, digite esse comando:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install ipcalc
+</code></pre>
 </div>
-<hr>
+<p>Para  verificar  o endereço de rede, primeiro host, ultimo host, máscara de rede, endereço de broadcast de um determinado IP, use esse comando:</p>
 
-<div class="post-preview">
-    <a href="/Como-instalar-programas-pelo-codigo-fonte-no-gnu-linux">
-        <h2 class="post-title">            Como instalar programas pelo código fonte no GNU/Linux
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender como instalar programas pelo código fonte, isso pode parecer uma tarefa bem complicada, mas não é.
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em May 29, 2017</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code> ipcalc 192.168.0.0/24
+</code></pre>
 </div>
-<hr>
+<p>Para verificar o endereço IP para uma sub-rede com 40 host outra com 25 host e outra com 12 host</p>
 
-<div class="post-preview">
-    <a href="/Como-instalar-o-Jekyll-no-Debian-e-derivados">
-        <h2 class="post-title">            Como instalar o Jekyll no Debian e derivados 
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender como instalar o Jekyll no Debian e derivados. O Jekyll é um gerador de site estáticos
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em May 7, 2017</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>ipcalc 192.100.40.0/24 -s 40 25 12
+</code></pre>
 </div>
-<hr>
+<p>Para fazer 8 sub-redes para um endereço IP de classe C</p>
 
-<div class="post-preview">
-    <a href="/Empacotamento-e-compactacao-de-arquivos-no-gnu-linux">
-        <h2 class="post-title">            Empacotamento e Compactação de arquivos no GNU/Linux
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Nesse artigo, vamos aprender sobre empacotamento e compactação de arquivos.
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em April 30, 2017</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>ipcalc 192.168.0.0/24 27
+</code></pre>
 </div>
-<hr>
-
-<div class="post-preview">
-    <a href="/Entendendo-as-permissoes-de-acesso-a-arquivos-e-repositorios-e-como-altera-las">
-        <h2 class="post-title">            Entendendo as permissões de acesso a arquivos e repositórios e como alterá-las
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos entendendo as permissões de acesso a arquivos e repositórios e como alterá-las.
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em April 29, 2017</p>
-</div>
-<hr>
 
 
-<!-- Pager -->
+                <hr>
 
-<ul class="pager">
-    
-    
-    <li class="next">
-        <a href="/page2">Postagem antigas &rarr;</a>
-    </li>
-    
-</ul>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/Como-instalar-programas-pelo-codigo-fonte-no-gnu-linux" data-toggle="tooltip" data-placement="top" title="Como instalar programas pelo código fonte no GNU/Linux">&larr; Postagem anterior</a>
+                    </li>
+                    
+                    
+                </ul>
 
-
-		</div>
-	</div>
-</div>
+            </div>
+        </div>
+    </div>
+</article>
 
 <hr>
 
