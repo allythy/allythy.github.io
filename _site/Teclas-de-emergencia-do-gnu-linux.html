@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Dicas sobre o Debian, Software Livre, linha de comando">
 
-    <title>Como fazer cálculo de sub-redes no terminal - Allythy</title>
+    <title>Teclas de emergência do GNU/Linux - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/Como-fazer-calculos-de-sub-rede-no-terminal">
+    <link rel="canonical" href="http://localhost:4000/Teclas-de-emergencia-do-gnu-linux">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -87,11 +87,11 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>Como fazer cálculo de sub-redes no terminal</h1>
+                    <h1>Teclas de emergência do GNU/Linux</h1>
                     
-                    <h2 class="subheading">Neste artigo, vamos aprender a fazer cálculo de sub-rede no terminal.</h2>
+                    <h2 class="subheading">Neste artigo vamos aprender algumas teclas de emergência do GNU/Linux.</h2>
                     
-                    <span class="meta">Postador por Allythy em June 3, 2017</span>
+                    <span class="meta">Postador por Allythy em June 9, 2017</span>
                 </div>
             </div>
         </div>
@@ -104,26 +104,31 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-				<p>Neste artigo, vamos aprender a fazer cálculo de sub-rede no terminal. Hoje eu estava estudando para prova de Redes que eu tenho amanhã, só que eu não tinha como conferir se as respostas estavam corretas, então fui pesquisar algum programa (apt-cache search ) achei ipcalc um programa de linha de comando que mostra o endereço de rede, primeiro host, ultimo host, máscara de rede, endereço de broadcast e faz cálculos de sub-rede para uma determinada quantidade de host. O ipcalc  mostrar todas essas informações tanto em decimal como em binário, mas o ipcalc só é valido para o Ipv4.  A  instalação é bem simples, digite esse comando:</p>
+				<p>Neste artigo vamos aprender algumas teclas de emergência do GNU/Linux. Sabemos que os sistemas GNU/Linux não estão a salvo de travamentos(raramente isso acontece), então é bom conhecer o que fazer quando ocorre essa situação, pois não queremos danificar o nosso sistema.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install ipcalc
-</code></pre>
-</div>
-<p>Para  verificar  o endereço de rede, primeiro host, ultimo host, máscara de rede, endereço de broadcast de um determinado IP, use esse comando:</p>
+<h2 id="desligando-o-computador">Desligando o computador</h2>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code> ipcalc 192.168.0.0/24
-</code></pre>
-</div>
-<p>Para verificar o endereço IP para uma sub-rede com 40 host outra com 25 host e outra com 12 host</p>
+<p>A primeira combinação de emergência é usada para sincronizar os discos e desligar o computador instantaneamente, evitando problemas nos sistemas de arquivos. Ela é ideal para quem precisa desligar o computador rapidamente sem danificar seus sistemas de arquivos, ou quando a máquina trava e por qualquer motivo não permite um desligamento natural através do init.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>ipcalc 192.100.40.0/24 -s 40 25 12
-</code></pre>
-</div>
-<p>Para fazer 8 sub-redes para um endereço IP de classe C</p>
+<p>Mantenha <kbd>Alt</kbd>+<kbd>Print Screen</kbd>+<kbd>Shift</kbd>+<kbd>o</kbd></p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>ipcalc 192.168.0.0/24 27
-</code></pre>
-</div>
+<h2 id="reiniciando-o-computador">Reiniciando o computador</h2>
+
+<p>Assim como o Ctrl+Alt+Del do MS-DOS o kernel do Linux também possui uma chamada de emergência que permite reiniciar a máquina, com a vantagem de sincronizar os discos evitando danos no sistema de arquivos.</p>
+
+<p>Mantenha <kbd>Alt</kbd>+<kbd>Print Screen</kbd>+<kbd>Shift</kbd>+<kbd>b</kbd></p>
+
+<h2 id="sincronizando-os-discos">Sincronizando os discos</h2>
+
+<p>Se você acha que a força vai cair e precisa trabalhar até a ultima hora mas tem medo de danificar seu sistema de arquivo, poderá sincronizar seus discos de tempos em tempos. Para sincronizar discos em caso de emergência.</p>
+
+<p>Mantenha <kbd>Alt</kbd>+<kbd>Print Screen</kbd>+<kbd>Shift</kbd>+<kbd>s</kbd></p>
+
+<h2 id="segurança">Segurança</h2>
+
+<p>Se por algum motivo algo está ameaçando a segurança do seu sistema, como a execução acidental de um script malicioso como root ou de programa desconhecido, poderá colocar os discos como somente leitura e evitar danos mais sérios.</p>
+
+<p>Mantenha <kbd>Alt</kbd>+<kbd>Print Screen</kbd>+<kbd>Shift</kbd>+<kbd>u</kbd></p>
 
 
                 <hr>
@@ -131,13 +136,9 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/Como-instalar-programas-pelo-codigo-fonte-no-gnu-linux" data-toggle="tooltip" data-placement="top" title="Como instalar programas pelo código fonte no GNU/Linux">&larr; Postagem anterior</a>
+                        <a href="/Como-fazer-calculos-de-sub-rede-no-terminal" data-toggle="tooltip" data-placement="top" title="Como fazer cálculo de sub-redes no terminal">&larr; Postagem anterior</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/Teclas-de-emergencia-do-gnu-linux" data-toggle="tooltip" data-placement="top" title="Teclas de emergência do GNU/Linux">Próxima postagem &rarr;</a>
-                    </li>
                     
                 </ul>
 
