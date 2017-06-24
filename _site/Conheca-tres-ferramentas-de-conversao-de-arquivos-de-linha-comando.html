@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Dicas sobre o Debian, Software Livre, linha de comando">
 
-    <title>Allythy</title>
+    <title>Conheça três ferramentas de conversão de arquivos de linha de comando para GNU/Linux - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/page2/">
+    <link rel="canonical" href="http://localhost:4000/Conheca-tres-ferramentas-de-conversao-de-arquivos-de-linha-comando">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -81,116 +81,89 @@
 </nav>
 
 
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/post-bg-04.jpg')">
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Allythy</h1>
-                    <hr class="small">
-                    <span class="subheading">A mudança é um processo essencial de toda existência</span>
+                <div class="post-heading">
+                    <h1>Conheça três ferramentas de conversão de arquivos de linha de comando para GNU/Linux</h1>
+                    
+                    <h2 class="subheading">Neste artigo, vamos ver três ferramentas de conversão de arquivos de linha de comando para GNU/Linux.</h2>
+                    
+                    <span class="meta">Postador por Allythy em June 24, 2017</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-			
-<div class="post-preview">
-    <a href="/Empacotamento-e-compactacao-de-arquivos-no-gnu-linux">
-        <h2 class="post-title">            Empacotamento e Compactação de arquivos no GNU/Linux
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Nesse artigo, vamos aprender sobre empacotamento e compactação de arquivos.
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em April 30, 2017</p>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<p>Neste artigo, vamos ver três ferramentas de conversão de arquivos de linha de comando para GNU/Linux.</p>
+
+<h2 id="pandoc">Pandoc</h2>
+
+<p>Pandoc é um ótimo utilitário para converter de uma linguagem de marcação para outra, além de fazer conversões rápidas e boas. Tem um arquivo formatado com Markdown que você deseja converter para um documento do LibreOffice Writer? Ou tem um documento LaTeX que você quer transformar em um EPUB? Ou talvez você tenha um arquivo HTML que deseja transformar em um slide deck. Pandoc está a altura de todas essas tarefas.</p>
+
+<p>Veja como usar Pandoc para uma conversão simples (neste caso, de HTML para reStructuredText). Para mais informações sobre essa ferramenta, leia a <a href="http://pandoc.org/MANUAL.html#options" target="_ blank">documentação do Pandoc</a>.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>pandoc -t rst myfile.htlm -o myfile.rst
+</code></pre>
 </div>
-<hr>
 
-<div class="post-preview">
-    <a href="/Entendendo-as-permissoes-de-acesso-a-arquivos-e-repositorios-e-como-altera-las">
-        <h2 class="post-title">            Entendendo as permissões de acesso a arquivos e repositórios e como alterá-las
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos entendendo as permissões de acesso a arquivos e repositórios e como alterá-las.
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em April 29, 2017</p>
+<h2 id="libreoffice">LibreOffice</h2>
+
+<p>Você provavelmente está pensando: “Espere, o LibreOffice é uma aplicação gráfica”. Sim, mas o que muitas pessoas não sabem é que você pode executar LibreOffice a partir da linha de comando para converter rapidamente um ou mais arquivos. Por exemplo, transformar um conjunto de slides do LibreOffice Impress em PDF, digite o seguinte:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>soffice --headless --convert-to pdf SoftwareLivre.odp
+</code></pre>
 </div>
-<hr>
 
-<div class="post-preview">
-    <a href="/Como-gerenciar-plugins-no-Vim-com-o-Pathogen">
-        <h2 class="post-title">            Como gerenciar plugins no Vim com o Pathogen
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender como gerenciar plugins no Vim com o Pathogen. O Vim é um editor de texto altamente configurável.
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em April 28, 2017</p>
+<p>Você pode substituir a extensão <code class="highlighter-rouge">.pdf</code> para qualquer formato de arquivo que você deseja converter. A opção <code class="highlighter-rouge">--headless</code> permite usar o aplicativo sem a interface gráfica.</p>
+
+<p>Usar o LibreOffice na linha de comando para converter um único arquivo não é uma coisa interessante, pois você poderia fazer isso mais rápido usando a interface gráfica. No entanto, para converter vários arquivos ao mesmo tempo é uma ótima opção. Digamos que você queira converter todos os documentos do Microsoft Word para o formato do LibreOffice Writer, então digite o comando:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>soffice --headless --convert-to odt <span class="k">*</span>.doc
+</code></pre>
 </div>
-<hr>
 
-<div class="post-preview">
-    <a href="/Como-usar-o-Tmux">
-        <h2 class="post-title">            Como usar o Tmux
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender como usar o tmux. O tmux é um multiplexador de terminais.
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em April 26, 2017</p>
+<h2 id="ffmpeg">FFmpeg</h2>
+
+<p>Considerando que o Pandoc é o canivete suíço para conversão entre linguagens de marcação, o FFmpeg é o Pandoc para conversão de áudios e vídeos. O FFmpeg é um conjunto de bibliotecas e executáveis ​​que lhe dão a capacidade de converter seemlessly entre quase qualquer formato.</p>
+
+<p>Aqui está um exemplo de uma simples conversão de um vídeo em um formato AVI para Ogg Theora:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>ffmpeg -i myvideo.avi myvideo.ogg
+</code></pre>
 </div>
-<hr>
 
-<div class="post-preview">
-    <a href="/conhecendo-o-advanced-packaging-tool-apt">
-        <h2 class="post-title">            Conhecendo o Advanced Packaging Tool (APT) 
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos conhecer um pouco mais o Advanced Packaging Tool (APT), o gerenciador de pacotes do Debian e seus derivados.
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em April 15, 2017</p>
-</div>
-<hr>
+<p>FFmpeg pode fazer muito mais do que isso. Você pode definir a taxa de quadros de um vídeo e adicionar legendas para ele, mudar a qualidade de áudio e muito mais.</p>
+
+<p>O FFmpeg tem muitas opões e é fácil esquecê-las, especialmente se você usar o FFmpeg de vez em quando. Então é sempre bom <a href="https://ffmpeg.org/ffmpeg.html" target="_ blank">ler a documentação</a>.</p>
+
+<p><a href="https://opensource.com/life/16/10/3-file-conversion-tools-linux-command-line" target="_ blank">Fonte</a></p>
 
 
-<!-- Pager -->
+                <hr>
 
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/">&larr; Postagem recentes</a>
-    </li>
-    
-    
-    <li class="next">
-        <a href="/page3">Postagem antigas &rarr;</a>
-    </li>
-    
-</ul>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/Teclas-de-emergencia-do-gnu-linux" data-toggle="tooltip" data-placement="top" title="Teclas de emergência do GNU/Linux">&larr; Postagem anterior</a>
+                    </li>
+                    
+                    
+                </ul>
 
-
-		</div>
-	</div>
-</div>
+            </div>
+        </div>
+    </div>
+</article>
 
 <hr>
 

@@ -1,4 +1,46 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-06-11T13:46:17-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Teclas de emergência do GNU/Linux</title><link href="http://localhost:4000/Teclas-de-emergencia-do-gnu-linux" rel="alternate" type="text/html" title="Teclas de emergência do GNU/Linux" /><published>2017-06-09T17:00:00-03:00</published><updated>2017-06-09T17:00:00-03:00</updated><id>http://localhost:4000/Teclas-de-emergencia-do-gnu-linux</id><content type="html" xml:base="http://localhost:4000/Teclas-de-emergencia-do-gnu-linux">&lt;p&gt;Neste artigo vamos aprender algumas teclas de emergência do GNU/Linux. Sabemos que os sistemas GNU/Linux não estão a salvo de travamentos(raramente isso acontece), então é bom conhecer o que fazer quando ocorre essa situação, pois não queremos danificar o nosso sistema.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-06-24T17:25:21-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Conheça três ferramentas de conversão de arquivos de linha de comando para GNU/Linux</title><link href="http://localhost:4000/Conheca-tres-ferramentas-de-conversao-de-arquivos-de-linha-comando" rel="alternate" type="text/html" title="Conheça três ferramentas de conversão de arquivos de linha de comando para GNU/Linux" /><published>2017-06-24T14:00:00-03:00</published><updated>2017-06-24T14:00:00-03:00</updated><id>http://localhost:4000/Conheca-tres-ferramentas-de-conversao-de-arquivos-de-linha-comando</id><content type="html" xml:base="http://localhost:4000/Conheca-tres-ferramentas-de-conversao-de-arquivos-de-linha-comando">&lt;p&gt;Neste artigo, vamos ver três ferramentas de conversão de arquivos de linha de comando para GNU/Linux.&lt;/p&gt;
+
+&lt;h2 id=&quot;pandoc&quot;&gt;Pandoc&lt;/h2&gt;
+
+&lt;p&gt;Pandoc é um ótimo utilitário para converter de uma linguagem de marcação para outra, além de fazer conversões rápidas e boas. Tem um arquivo formatado com Markdown que você deseja converter para um documento do LibreOffice Writer? Ou tem um documento LaTeX que você quer transformar em um EPUB? Ou talvez você tenha um arquivo HTML que deseja transformar em um slide deck. Pandoc está a altura de todas essas tarefas.&lt;/p&gt;
+
+&lt;p&gt;Veja como usar Pandoc para uma conversão simples (neste caso, de HTML para reStructuredText). Para mais informações sobre essa ferramenta, leia a &lt;a href=&quot;http://pandoc.org/MANUAL.html#options&quot; target=&quot;_ blank&quot;&gt;documentação do Pandoc&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pandoc -t rst myfile.htlm -o myfile.rst
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;libreoffice&quot;&gt;LibreOffice&lt;/h2&gt;
+
+&lt;p&gt;Você provavelmente está pensando: “Espere, o LibreOffice é uma aplicação gráfica”. Sim, mas o que muitas pessoas não sabem é que você pode executar LibreOffice a partir da linha de comando para converter rapidamente um ou mais arquivos. Por exemplo, transformar um conjunto de slides do LibreOffice Impress em PDF, digite o seguinte:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;soffice --headless --convert-to pdf SoftwareLivre.odp
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Você pode substituir a extensão &lt;code class=&quot;highlighter-rouge&quot;&gt;.pdf&lt;/code&gt; para qualquer formato de arquivo que você deseja converter. A opção &lt;code class=&quot;highlighter-rouge&quot;&gt;--headless&lt;/code&gt; permite usar o aplicativo sem a interface gráfica.&lt;/p&gt;
+
+&lt;p&gt;Usar o LibreOffice na linha de comando para converter um único arquivo não é uma coisa interessante, pois você poderia fazer isso mais rápido usando a interface gráfica. No entanto, para converter vários arquivos ao mesmo tempo é uma ótima opção. Digamos que você queira converter todos os documentos do Microsoft Word para o formato do LibreOffice Writer, então digite o comando:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;soffice --headless --convert-to odt &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.doc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;ffmpeg&quot;&gt;FFmpeg&lt;/h2&gt;
+
+&lt;p&gt;Considerando que o Pandoc é o canivete suíço para conversão entre linguagens de marcação, o FFmpeg é o Pandoc para conversão de áudios e vídeos. O FFmpeg é um conjunto de bibliotecas e executáveis ​​que lhe dão a capacidade de converter seemlessly entre quase qualquer formato.&lt;/p&gt;
+
+&lt;p&gt;Aqui está um exemplo de uma simples conversão de um vídeo em um formato AVI para Ogg Theora:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ffmpeg -i myvideo.avi myvideo.ogg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;FFmpeg pode fazer muito mais do que isso. Você pode definir a taxa de quadros de um vídeo e adicionar legendas para ele, mudar a qualidade de áudio e muito mais.&lt;/p&gt;
+
+&lt;p&gt;O FFmpeg tem muitas opões e é fácil esquecê-las, especialmente se você usar o FFmpeg de vez em quando. Então é sempre bom &lt;a href=&quot;https://ffmpeg.org/ffmpeg.html&quot; target=&quot;_ blank&quot;&gt;ler a documentação&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://opensource.com/life/16/10/3-file-conversion-tools-linux-command-line&quot; target=&quot;_ blank&quot;&gt;Fonte&lt;/a&gt;&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos ver três ferramentas de conversão de arquivos de linha de comando para GNU/Linux.</summary></entry><entry><title type="html">Teclas de emergência do GNU/Linux</title><link href="http://localhost:4000/Teclas-de-emergencia-do-gnu-linux" rel="alternate" type="text/html" title="Teclas de emergência do GNU/Linux" /><published>2017-06-09T17:00:00-03:00</published><updated>2017-06-09T17:00:00-03:00</updated><id>http://localhost:4000/Teclas-de-emergencia-do-gnu-linux</id><content type="html" xml:base="http://localhost:4000/Teclas-de-emergencia-do-gnu-linux">&lt;p&gt;Neste artigo vamos aprender algumas teclas de emergência do GNU/Linux. Sabemos que os sistemas GNU/Linux não estão a salvo de travamentos(raramente isso acontece), então é bom conhecer o que fazer quando ocorre essa situação, pois não queremos danificar o nosso sistema.&lt;/p&gt;
 
 &lt;h2 id=&quot;desligando-o-computador&quot;&gt;Desligando o computador&lt;/h2&gt;
 
@@ -648,24 +690,4 @@ Caso isso aconteça, usamos o sistema de resolução de problemas do APT,  que v
 &lt;p&gt;Caso você queira saber qual é a dependência que está faltando, o comando a seguir faz a verificação e mostra todas as dependências que o pacote necessita.&lt;/p&gt;
 &lt;pre class=&quot;language-bash&quot;&gt;sudo dpkg –configure -a&lt;/pre&gt;
 
-&lt;p&gt;Caso &lt;code class=&quot;highlighter-rouge&quot;&gt;apt -f install&lt;/code&gt; não resolva, o que é bem difícil isso acontecer, experimente o &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt -f remove&lt;/code&gt;, que tem uma função similar à do &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get -f install&lt;/code&gt;, mas dá preferência a remover os pacotes com problemas, ao invés de tentar corrigir a instalação.&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos conhecer um pouco mais o Advanced Packaging Tool (APT), o gerenciador de pacotes do Debian e seus derivados. Então, vamos aprender como esse gerenciador surgiu e alguns comandos que são necessário para os usuários que o utilizam.</summary></entry><entry><title type="html">Como verificar autenticidade da ISO do Debian</title><link href="http://localhost:4000/Como-verificar-a-integridade-da-iso-do-Debian" rel="alternate" type="text/html" title="Como verificar autenticidade da ISO do Debian" /><published>2017-03-17T17:00:00-03:00</published><updated>2017-03-17T17:00:00-03:00</updated><id>http://localhost:4000/Como-verificar-a-integridade-da-iso-do-Debian</id><content type="html" xml:base="http://localhost:4000/Como-verificar-a-integridade-da-iso-do-Debian">&lt;p&gt;Neste artigo, vamos aprender como verificar autenticidade da ISO do Debian. É uma coisa bem rápida de se fazer e importante, porque fazendo essa verificação podemos ter certeza que aquela ISO não foi corrompida. Se o pessoal que baixou o ISO do Linux Mint tivesse verificado a assinatura da ISO deles não teria ocorrido aquele escândalo no começo do ano.&lt;/p&gt;
-
-&lt;p&gt;Enfim, vamos para o que interessa. Depois de ter baixado a ISO do Debian temos que baixar os arquivos SHA512SUMS e SHA512SUMS.sign e colocar no mesmo diretório da ISO do Debian. Primeiramente, vamos verificar a hash da ISO que baixamos como esse comando:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sha512sum -c SHA512SUMS | grep debian-testing-amd64-netinst.iso&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/terminal01.png&quot; alt=&quot;Mostrando que a comparação da hash foi bem sucedida&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Vai aparecer uma mensagem com o nome &lt;strong&gt;“SUCESSO”&lt;/strong&gt;, isso nos diz que o Download não foi corrompido, mas a gente não sabe se veio do Debian. Para isso temos que verificar a assinatura dos arquivos que contém as hashs. Primeiro, temos que obter a chave pública da pessoa que assinou o arquivo usando o seguinte comando:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;gpg —verify SHA512SUMS.sign&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Você receberá uma mensagem informando que a chave pública com &lt;strong&gt;ID 09EA8AC3&lt;/strong&gt; não está actualmente disponível em seu sistema, então precisamos baixar essa chave diretamentamente do keyring server do Debian, para isso vamos usar esse comando:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;gpg —keyserver keyring.debian.org —recv 6294BE9B&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Lembrando que no lugar desse ID &lt;strong&gt;“6294BE9B”&lt;/strong&gt; você vai colocar o ID que apareceu pra você com o comando anterior. Feito isso, agora é só fazer a verificação da assinatura com esse comando:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;gpg —verify SHA512SUMS.sign SHA512SUMS&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Se tudo ocorrer bem você irar receber essa mensagem &lt;strong&gt;“ Good signature from “Debian CD signing key “&lt;/strong&gt;. Também é bom você verificar se o chave do fingerprint que foi gerado pelo último comando é o mesmo que tem no &lt;a href=&quot;https://www.debian.org/CD/verify.pt.html&quot;&gt;site do Debian&lt;/a&gt;, para ter certeza que ninguém modificou. Agora é só instalar o seu Debian. Com ajuda do Samuel Henrique da comunidade Debian.&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como verificar autenticidade da ISO do Debian. É uma coisa bem rápida de se fazer e importante, porque fazendo essa verificação podemos ter certeza que aquela ISO não foi corrompida. Se o pessoal que baixou o ISO do Linux Mint tivesse verificado a assinatura da ISO deles não teria ocorrido aquele escândalo no começo do ano.</summary></entry></feed>
+&lt;p&gt;Caso &lt;code class=&quot;highlighter-rouge&quot;&gt;apt -f install&lt;/code&gt; não resolva, o que é bem difícil isso acontecer, experimente o &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt -f remove&lt;/code&gt;, que tem uma função similar à do &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get -f install&lt;/code&gt;, mas dá preferência a remover os pacotes com problemas, ao invés de tentar corrigir a instalação.&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos conhecer um pouco mais o Advanced Packaging Tool (APT), o gerenciador de pacotes do Debian e seus derivados. Então, vamos aprender como esse gerenciador surgiu e alguns comandos que são necessário para os usuários que o utilizam.</summary></entry></feed>
