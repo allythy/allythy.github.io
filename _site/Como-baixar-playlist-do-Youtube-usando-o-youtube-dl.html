@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Dicas sobre o Debian, Software Livre, linha de comando">
 
-    <title>Allythy</title>
+    <title>Como baixar playlist do Youtube usando o youtube-dl - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/">
+    <link rel="canonical" href="http://localhost:4000/Como-baixar-playlist-do-Youtube-usando-o-youtube-dl">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -81,112 +81,97 @@
 </nav>
 
 
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/post-bg-04.jpg')">
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Allythy</h1>
-                    <hr class="small">
-                    <span class="subheading">A mudança é um processo essencial de toda existência</span>
+                <div class="post-heading">
+                    <h1>Como baixar playlist do Youtube usando o youtube-dl</h1>
+                    
+                    <h2 class="subheading">Esta vai ser uma dica bem rápida, mas muito útil de como baixar playlist do Youtube usando o youtube-dl</h2>
+                    
+                    <span class="meta">Postador por Allythy em June 30, 2017</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-			
-<div class="post-preview">
-    <a href="/Como-baixar-playlist-do-Youtube-usando-o-youtube-dl">
-        <h2 class="post-title">            Como baixar playlist do Youtube usando o youtube-dl
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Esta vai ser uma dica bem rápida, mas muito útil de como baixar playlist do Youtube usando o youtube-dl
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em June 30, 2017</p>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<p>Esta vai ser uma dica bem rápida, mas muito útil de como baixar playlist do Youtube usando o youtube-dl. Para quem ainda não conhece o youtube-dl é um pequeno programa de linha de comando para baixar vídeos e áudio do YouTube e outros sites, o programa é escrito em python.</p>
+
+<p>Caso você não tenha o programa instalado, use esse comando para instalar o Debian e derivados:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install youtube-dl
+</code></pre>
 </div>
-<hr>
 
-<div class="post-preview">
-    <a href="/Conheca-tres-ferramentas-de-conversao-de-arquivos-de-linha-comando">
-        <h2 class="post-title">            Conheça três ferramentas de conversão de arquivos de linha de comando para GNU/Linux
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos ver três ferramentas de conversão de arquivos de linha de comando para GNU/Linux.
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em June 24, 2017</p>
+<p>Feito isso, vamos pegar o link da playlist do canal do YouTube do SempreUpdate como exemplo.</p>
+
+<p><img src="img/sempreupdate.png" alt="playlist do canal do youtube do SempreUpdate" /></p>
+
+<p>Com o link em mãos, use esse comando para baixar a playlist</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>youtude-dl -cit coloque-aqui-o-link-da-playlist
+</code></pre>
 </div>
-<hr>
+<blockquote>
+  <p><code class="highlighter-rouge">-c</code> Continua do download da onde parou, caso você tenha cancelado ( Ctrl+C)</p>
 
-<div class="post-preview">
-    <a href="/Teclas-de-emergencia-do-gnu-linux">
-        <h2 class="post-title">            Teclas de emergência do GNU/Linux
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo vamos aprender algumas teclas de emergência do GNU/Linux.
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em June 9, 2017</p>
+  <p><code class="highlighter-rouge">-i</code> Continuar caso tenha algum erros de download, por exemplo, para ignorar vídeos indisponíveis em uma playlist</p>
+
+  <p><code class="highlighter-rouge">-t</code> Usa o título do nome do vídeo</p>
+</blockquote>
+
+<p>Legal, mas eu não quero baixar todos os vídeos só quero do vídeo 5 até o 9, então você usa esse comando:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>youtube-dl --playlist-start 5 --playlist-end 9 link-da-playlist
+</code></pre>
 </div>
-<hr>
 
-<div class="post-preview">
-    <a href="/Como-fazer-calculos-de-sub-rede-no-terminal">
-        <h2 class="post-title">            Como fazer cálculo de sub-redes no terminal
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender a fazer cálculo de sub-rede no terminal.
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em June 3, 2017</p>
+<blockquote>
+  <p><code class="highlighter-rouge">--playlist-start</code> Vídeo da playlist que vai começar.</p>
+
+  <p><code class="highlighter-rouge">--playlist-end</code> Vídeo da playlist que vai parar.</p>
+</blockquote>
+
+<p>Interessante, mas eu quero baixar apenas os vídeos 4, 6 e 15. Então, você tem que usar esse comando:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>youtube-dl -cit --playlist-items 4,6,15 link-da-playlist
+</code></pre>
 </div>
-<hr>
+<blockquote>
+  <p><code class="highlighter-rouge">--playlist-items</code> Faz o download de vídeos específicos de uma playlist. Para isso, você tem que especificar o índices dos vídeos na playlist separando-os por vírgulas.</p>
+</blockquote>
 
-<div class="post-preview">
-    <a href="/Como-instalar-programas-pelo-codigo-fonte-no-gnu-linux">
-        <h2 class="post-title">            Como instalar programas pelo código fonte no GNU/Linux
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender como instalar programas pelo código fonte, isso pode parecer uma tarefa bem complicada, mas não é.
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em May 29, 2017</p>
+<p>Você pode também informar ao mesmo tempo os vídeos que gostaria de baixar na playlist e especificar o intervalo. Com esse comando:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>youtube-dl -cit --playlist 4-7,8,10-13 link-da-playlist
+</code></pre>
 </div>
-<hr>
 
 
-<!-- Pager -->
+                <hr>
 
-<ul class="pager">
-    
-    
-    <li class="next">
-        <a href="/page2">Postagem antigas &rarr;</a>
-    </li>
-    
-</ul>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/Conheca-tres-ferramentas-de-conversao-de-arquivos-de-linha-comando" data-toggle="tooltip" data-placement="top" title="Conheça três ferramentas de conversão de arquivos de linha de comando para GNU/Linux">&larr; Postagem anterior</a>
+                    </li>
+                    
+                    
+                </ul>
 
-
-		</div>
-	</div>
-</div>
+            </div>
+        </div>
+    </div>
+</article>
 
 <hr>
 

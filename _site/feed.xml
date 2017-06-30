@@ -1,4 +1,54 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-06-24T17:25:21-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Conheça três ferramentas de conversão de arquivos de linha de comando para GNU/Linux</title><link href="http://localhost:4000/Conheca-tres-ferramentas-de-conversao-de-arquivos-de-linha-comando" rel="alternate" type="text/html" title="Conheça três ferramentas de conversão de arquivos de linha de comando para GNU/Linux" /><published>2017-06-24T14:00:00-03:00</published><updated>2017-06-24T14:00:00-03:00</updated><id>http://localhost:4000/Conheca-tres-ferramentas-de-conversao-de-arquivos-de-linha-comando</id><content type="html" xml:base="http://localhost:4000/Conheca-tres-ferramentas-de-conversao-de-arquivos-de-linha-comando">&lt;p&gt;Neste artigo, vamos ver três ferramentas de conversão de arquivos de linha de comando para GNU/Linux.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-06-30T15:58:08-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como baixar playlist do Youtube usando o youtube-dl</title><link href="http://localhost:4000/Como-baixar-playlist-do-Youtube-usando-o-youtube-dl" rel="alternate" type="text/html" title="Como baixar playlist do Youtube usando o youtube-dl" /><published>2017-06-30T13:00:00-03:00</published><updated>2017-06-30T13:00:00-03:00</updated><id>http://localhost:4000/Como-baixar-playlist-do-Youtube-usando-o-youtube-dl</id><content type="html" xml:base="http://localhost:4000/Como-baixar-playlist-do-Youtube-usando-o-youtube-dl">&lt;p&gt;Esta vai ser uma dica bem rápida, mas muito útil de como baixar playlist do Youtube usando o youtube-dl. Para quem ainda não conhece o youtube-dl é um pequeno programa de linha de comando para baixar vídeos e áudio do YouTube e outros sites, o programa é escrito em python.&lt;/p&gt;
+
+&lt;p&gt;Caso você não tenha o programa instalado, use esse comando para instalar o Debian e derivados:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install youtube-dl
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Feito isso, vamos pegar o link da playlist do canal do YouTube do SempreUpdate como exemplo.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/sempreupdate.png&quot; alt=&quot;playlist do canal do youtube do SempreUpdate&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Com o link em mãos, use esse comando para baixar a playlist&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;youtude-dl -cit coloque-aqui-o-link-da-playlist
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-c&lt;/code&gt; Continua do download da onde parou, caso você tenha cancelado ( Ctrl+C)&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-i&lt;/code&gt; Continuar caso tenha algum erros de download, por exemplo, para ignorar vídeos indisponíveis em uma playlist&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-t&lt;/code&gt; Usa o título do nome do vídeo&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Legal, mas eu não quero baixar todos os vídeos só quero do vídeo 5 até o 9, então você usa esse comando:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;youtube-dl --playlist-start 5 --playlist-end 9 link-da-playlist
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;--playlist-start&lt;/code&gt; Vídeo da playlist que vai começar.&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;--playlist-end&lt;/code&gt; Vídeo da playlist que vai parar.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Interessante, mas eu quero baixar apenas os vídeos 4, 6 e 15. Então, você tem que usar esse comando:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;youtube-dl -cit --playlist-items 4,6,15 link-da-playlist
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;--playlist-items&lt;/code&gt; Faz o download de vídeos específicos de uma playlist. Para isso, você tem que especificar o índices dos vídeos na playlist separando-os por vírgulas.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Você pode também informar ao mesmo tempo os vídeos que gostaria de baixar na playlist e especificar o intervalo. Com esse comando:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;youtube-dl -cit --playlist 4-7,8,10-13 link-da-playlist
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content><author><name>Allythy</name></author><summary type="html">Esta vai ser uma dica bem rápida, mas muito útil de como baixar playlist do Youtube usando o youtube-dl. Para quem ainda não conhece o youtube-dl é um pequeno programa de linha de comando para baixar vídeos e áudio do YouTube e outros sites, o programa é escrito em python.</summary></entry><entry><title type="html">Conheça três ferramentas de conversão de arquivos de linha de comando para GNU/Linux</title><link href="http://localhost:4000/Conheca-tres-ferramentas-de-conversao-de-arquivos-de-linha-comando" rel="alternate" type="text/html" title="Conheça três ferramentas de conversão de arquivos de linha de comando para GNU/Linux" /><published>2017-06-24T14:00:00-03:00</published><updated>2017-06-24T14:00:00-03:00</updated><id>http://localhost:4000/Conheca-tres-ferramentas-de-conversao-de-arquivos-de-linha-comando</id><content type="html" xml:base="http://localhost:4000/Conheca-tres-ferramentas-de-conversao-de-arquivos-de-linha-comando">&lt;p&gt;Neste artigo, vamos ver três ferramentas de conversão de arquivos de linha de comando para GNU/Linux.&lt;/p&gt;
 
 &lt;h2 id=&quot;pandoc&quot;&gt;Pandoc&lt;/h2&gt;
 
@@ -603,91 +653,4 @@ para entrar no modo interativo, quando estiver nele digite esse comando:&lt;/p&g
 
 &lt;p&gt;Mostrar a hora&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;Ctrl+b+t&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como usar o tmux. O tmux é um multiplexador de terminais, um multiplexador de terminal permite que um número de terminais sejam criados, acessados e controlados a partir de uma única janela. Com o tmux você também pode ser desconectar de uma tela e a mesma continuar funcionando em segundo plano, e depois você pode se conectar novamente.</summary></entry><entry><title type="html">Conhecendo o Advanced Packaging Tool (APT)</title><link href="http://localhost:4000/conhecendo-o-advanced-packaging-tool-apt" rel="alternate" type="text/html" title="Conhecendo o Advanced Packaging Tool (APT) " /><published>2017-04-15T20:00:00-03:00</published><updated>2017-04-15T20:00:00-03:00</updated><id>http://localhost:4000/conhecendo-o-advanced-packaging-tool-apt</id><content type="html" xml:base="http://localhost:4000/conhecendo-o-advanced-packaging-tool-apt">&lt;p&gt;Neste artigo, vamos conhecer um pouco mais o Advanced Packaging Tool (APT), o gerenciador de pacotes do Debian e seus derivados. Então, vamos aprender como esse gerenciador surgiu e alguns comandos que são necessário para os usuários que o utilizam.&lt;/p&gt;
-
-&lt;p&gt;No princípio era o .tar.gz. Os usuários tinham que compilar cada programa que quisessem usar em seus sistemas GNU/Linux, ou outro qualquer. Quando o Debian foi criado, uma nova forma de gerenciamento de pacotes tornou-se necessário. Para este sistema, foi dado o nome dpkg. Esse famoso pacote (Pacote é um arquivo binário, compactado ou não, que contém os arquivos binários do software, scripts de configuração, documentação, ícones, imagens, licenças GPL e, por vezes, os próprios arquivos-fonte. Um pacote pode ser criptografado e assinado digitalmente, apesar de nem todos o serem.) foi o primeiro a chegar nos sistemas GNU/Linux. Logo após a Red Hat decidiu criar seu próprio sistema, o RPM.&lt;/p&gt;
-
-&lt;p&gt;Um novo dilema rapidamente tomou conta das mentes dos criadores do GNU/Linux. Eles precisavam de um método rápido, prático e eficiente para instalar pacotes, que deveriam gerenciar automaticamente as dependências e cuidar dos arquivos de configuração ao atualizá-los. Aqui novamente, o Debian mostrou o caminho e deu vida ao APT, o ‘Advanced Packaging Tool’ (ferramenta de pacotes avançada), hoje portado pela Conectiva e incorporado por algumas outras distribuições”.&lt;/p&gt;
-
-&lt;p&gt;APT é um programa C++ cujo código reside principalmente na biblioteca compartilhada libapt-pkg. Usar uma biblioteca compartilhada para facilitar a criação de interfaces de usuário (front-ends), já que o código contido na biblioteca pode facilmente ser reutilizado. Historicamente, apt-get foi projetado apenas como um front-end de teste para libapt-pkg, mas seu sucesso tende a obscurecer esse fato, tornando-se a ferramenta usada no gerenciamento de pacotes padrão do Debian e seus derivados. Você também pode usar outra ferramentas para gerenciar o APT, como Aptitude, que tem uma interface semi-gráfico e o Synaptic que é uma ferramenta em modo gráfico.
-Agora que já possuímos um embasamento sobre a origem e porque foi necessário criar o APT, vamos aprender alguns comandos essenciais.&lt;/p&gt;
-
-&lt;h2 id=&quot;instalação-de-programas&quot;&gt;Instalação de programas&lt;/h2&gt;
-
-&lt;p&gt;Para Instalar um programa é muito fácil, basta usar o seguinte comando:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt install nome_do_pacote&lt;/pre&gt;
-
-&lt;p&gt;Instalando mais de um programa simultaneamente:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt install pacote1 pacote2 pacote3&lt;/pre&gt;
-
-&lt;p&gt;Baixa apenas os pacotes, não são desempacotados e nem instalados. Os arquivos baixados são colocados no diretório /var/cache/apt/archives&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt install -d nome_do_pacote&lt;/pre&gt;
-
-&lt;p&gt;Simulando a instalação de um pacote, isso não altera nada no seu sistema:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt install -s nome_do_pacote&lt;/pre&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Ainda temos a opção -y que assume “sim” para todas as perguntas, e a opção -u mostrar pacotes que serão atualizados.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;desinstalação-de-programas&quot;&gt;Desinstalação de programas&lt;/h2&gt;
-&lt;p&gt;Para remoção de um programa:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt remove nome_do_pacote&lt;/pre&gt;
-
-&lt;p&gt;Removendo mais de um programa simultaneamente:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt remove pacote1 pacote2 pacote3&lt;/pre&gt;
-
-&lt;p&gt;Quando você usa “apt remove” para desinstalar um programa, ele ainda deixa suas configurações, por exemplo: Quando você instala o servidor de impressão CUPS e cria uma configuração personalizada. Ao remover com “apt-get remove cups” essas configurações ainda continuam presentes no /etc/, caso você venha a reinstalar esse pacote estas configurações serão mantidas. Para uma desinstalação completa temos que usar esse comando:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt purge nome_do_pacote&lt;/pre&gt;
-
-&lt;p&gt;Caso você de alguma forma danifique a instalação de um pacote, ou simplesmente deseja que os arquivos do pacote sejam repostos com a versão mais nova que estiver disponível, você pode usar esse comando:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt --reinstall install nome_do_pacote&lt;/pre&gt;
-
-&lt;h2 id=&quot;atualização&quot;&gt;Atualização&lt;/h2&gt;
-&lt;p&gt;Atualizar lista de repositório do sistema:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt update&lt;/pre&gt;
-
-&lt;p&gt;Instalar as atualizações de todos os pacotes no sistema:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt upgrade&lt;/pre&gt;
-
-&lt;p&gt;O dist-upgrade é quase igual ao upgrade , o dist-upgrade também atualiza o sistema, mas  pode remover pacotes que ele julgue necessário para atualização do sistema.&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt dist-upgrade&lt;/pre&gt;
-
-&lt;h2 id=&quot;obtendo-informações-sobre-os-pacotes&quot;&gt;Obtendo informações sobre os pacotes&lt;/h2&gt;
-&lt;p&gt;Para isso, vamos usar o &lt;code class=&quot;highlighter-rouge&quot;&gt;apt cahe&lt;/code&gt;. Ela é usada para manipular e obter informações sobre os pacotes no cache (O cache é um sistema de armazenamento temporário usado para acelerar o acesso frequente de dados) do APT.&lt;/p&gt;
-
-&lt;p&gt;Esse comando pesquisa por pacotes que estejam relacionados com a palavra-chave que você deseja, e traz uma breve descrição sobre eles.&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;apt search palavra-chave&lt;/pre&gt;
-
-&lt;p&gt;Este comando fornece a descrição do pacote, suas dependências, o nome de seu mantenedor, entre outras coisas. Ele traz mais informações do que o apt search.&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;apt show nome_do_pacote&lt;/pre&gt;
-
-&lt;p&gt;Mostra as dependência de um pacote:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;apt depends nome_do_pacote&lt;/pre&gt;
-
-&lt;p&gt;Este comando escreve o nome de cada pacote que o APT conhece:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;apt-cache pkgnames&lt;/pre&gt;
-
-&lt;p&gt;Para exibir as prioridades de pacote, se ele está instalado ou não, a versão e outras coisas:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;apt policy&lt;/pre&gt;
-
-&lt;h2 id=&quot;limpeza&quot;&gt;Limpeza&lt;/h2&gt;
-
-&lt;p&gt;O APT mantém uma cópia de cada arquivo .deb baixado no diretório /var/cache/apt/archives/ . Caso haja atualizações frequentes, este diretório pode rapidamente ocupar uma grande espaço em disco com várias versões de cada pacote. Para efetuar essa limpeza, vamos usar dois comando. O primeiro  esvazia completamente o diretório:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt clean&lt;/pre&gt;
-
-&lt;p&gt;O segundo remove apenas os pacotes que não podem mais ser baixados, por terem sumido dos repositórios do Debian, e são agora claramente inúteis:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt autoclean&lt;/pre&gt;
-
-&lt;p&gt;O comando a seguir é usado para remover pacotes que foram instalados automaticamente, para satisfazer dependências de outros pacotes, que já não são necessários.&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt autoremove&lt;/pre&gt;
-
-&lt;h2 id=&quot;resolvendo-problemas&quot;&gt;Resolvendo Problemas&lt;/h2&gt;
-&lt;p&gt;Às vezes, um defeito em algum pacote ou um download corrompido pode fazer com que o APT fique “travado”, sem concluir a instalação de um determinado pacote por causa de um erro qualquer e sem aceitar instalar outros antes que o problema inicial seja resolvido.
-Caso isso aconteça, usamos o sistema de resolução de problemas do APT,  que verifica a lista de dependências quebradas e tenta corrigi-las, instalando pacotes necessários. Para isso, usamos esse comando:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo apt -f install&lt;/pre&gt;
-
-&lt;p&gt;Caso você queira saber qual é a dependência que está faltando, o comando a seguir faz a verificação e mostra todas as dependências que o pacote necessita.&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;&gt;sudo dpkg –configure -a&lt;/pre&gt;
-
-&lt;p&gt;Caso &lt;code class=&quot;highlighter-rouge&quot;&gt;apt -f install&lt;/code&gt; não resolva, o que é bem difícil isso acontecer, experimente o &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt -f remove&lt;/code&gt;, que tem uma função similar à do &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get -f install&lt;/code&gt;, mas dá preferência a remover os pacotes com problemas, ao invés de tentar corrigir a instalação.&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos conhecer um pouco mais o Advanced Packaging Tool (APT), o gerenciador de pacotes do Debian e seus derivados. Então, vamos aprender como esse gerenciador surgiu e alguns comandos que são necessário para os usuários que o utilizam.</summary></entry></feed>
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;Ctrl+b+t&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como usar o tmux. O tmux é um multiplexador de terminais, um multiplexador de terminal permite que um número de terminais sejam criados, acessados e controlados a partir de uma única janela. Com o tmux você também pode ser desconectar de uma tela e a mesma continuar funcionando em segundo plano, e depois você pode se conectar novamente.</summary></entry></feed>
