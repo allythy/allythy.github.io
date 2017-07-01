@@ -1,4 +1,52 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-06-30T15:58:08-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como baixar playlist do Youtube usando o youtube-dl</title><link href="http://localhost:4000/Como-baixar-playlist-do-Youtube-usando-o-youtube-dl" rel="alternate" type="text/html" title="Como baixar playlist do Youtube usando o youtube-dl" /><published>2017-06-30T13:00:00-03:00</published><updated>2017-06-30T13:00:00-03:00</updated><id>http://localhost:4000/Como-baixar-playlist-do-Youtube-usando-o-youtube-dl</id><content type="html" xml:base="http://localhost:4000/Como-baixar-playlist-do-Youtube-usando-o-youtube-dl">&lt;p&gt;Esta vai ser uma dica bem rápida, mas muito útil de como baixar playlist do Youtube usando o youtube-dl. Para quem ainda não conhece o youtube-dl é um pequeno programa de linha de comando para baixar vídeos e áudio do YouTube e outros sites, o programa é escrito em python.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-07-01T13:54:08-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como configurar uma variável no $PATH do GNU/Linux</title><link href="http://localhost:4000/Como-configurar-uma-vari%C3%A1vel-no-PATH-do-gnu-linux.md" rel="alternate" type="text/html" title="Como configurar uma variável no $PATH do GNU/Linux" /><published>2017-07-01T13:00:00-03:00</published><updated>2017-07-01T13:00:00-03:00</updated><id>http://localhost:4000/Como-configurar-uma-vari%C3%A1vel-no-PATH-do-gnu-linux.md</id><content type="html" xml:base="http://localhost:4000/Como-configurar-uma-vari%C3%A1vel-no-PATH-do-gnu-linux.md">&lt;p&gt;Neste artigo, vamos aprender como configurar uma variável no $PATH do GNU/Linux. Quando você digita um comando no seu Shell o que você está dizendo é pra ele executar um programa. Mesmos comandos simples, como &lt;code class=&quot;highlighter-rouge&quot;&gt;ls&lt;/code&gt; , &lt;code class=&quot;highlighter-rouge&quot;&gt;cd&lt;/code&gt; , &lt;code class=&quot;highlighter-rouge&quot;&gt;mkdir&lt;/code&gt; , &lt;code class=&quot;highlighter-rouge&quot;&gt;rm&lt;/code&gt; e outros, são apenas pequenos programas que geralmente ficam dentro de um diretório no seu computador chamado &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/bin&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Existem outros lugares em seu sistema que geralmente possuem programas executáveis ​​também, os mais comuns são:  &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/local/ bin, /usr/local/sbin e /usr/sbin&lt;/code&gt;. Onde os programas ficam e por que, estão fora do escopo deste artigo, mas um programa executável pode ficar praticamente em qualquer lugar do seu sistema ele não precisa se limitar a um desses diretórios.&lt;/p&gt;
+
+&lt;p&gt;Quando você digita um comando no seu Shell, ele não vai procurar em todos os diretórios para ver se tem um programa com esse nome, mas apenas em diretórios específicos. Como eu sei qual é esses diretórios ? É simples, eles fazem parte de uma variável de ambiente, chamada &lt;code class=&quot;highlighter-rouge&quot;&gt;$PATH&lt;/code&gt;, onde o seu Shell faz uma verificação para saber onde procurar. Para ver o que está no seu &lt;code class=&quot;highlighter-rouge&quot;&gt;$PATH&lt;/code&gt;, digite:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Você provavelmente verá os diretórios mencionados acima, bem como alguns outros e todos são separados por dois pontos.&lt;/p&gt;
+
+&lt;p&gt;Às vezes, você precisa instalar algum programa que está em outro local do seu sistema, mas não que dizer o seu caminho completo. Você pode fazer isso facilmente adicionando um diretório a sua variável ambiente &lt;code class=&quot;highlighter-rouge&quot;&gt;$PATH&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Digamos que você escreveu um pequeno Shell Script chamado &lt;strong&gt;hello.sh&lt;/strong&gt; e ele está localizado em um diretório chamado &lt;strong&gt;shell&lt;/strong&gt; que tem esse caminho &lt;strong&gt;/home/allythy/Documentos/shell&lt;/strong&gt;. Este script fornece alguma função útil e você gostaria de executar ele independentemente do diretório em que você estivesse. Para isso, basta adicionar o caminho do seu arquivo para a variável de ambiente &lt;code class=&quot;highlighter-rouge&quot;&gt;$PATH&lt;/code&gt; com o seguinte comando:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;:/home/allythy/Documentos/shell
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Agora você pode executar o seu script em qualquer lugar do seu sistema apenas digitando seu nome(hello.sh), sem ter que incluir o caminho completo dele.&lt;/p&gt;
+
+&lt;p&gt;Mas o que acontece se você reiniciar seu computador ou abri um terminal ? Sua adição do caminho a variável de ambiente &lt;code class=&quot;highlighter-rouge&quot;&gt;$PATH&lt;/code&gt; desapareceu. A variável &lt;code class=&quot;highlighter-rouge&quot;&gt;$PATH&lt;/code&gt; é definida pelo seu Shell toda vez que você abri um novo terminal, mas você pode configurá-lo para que ele sempre inclua seu novo caminho a cada novo Shell que você vai abrir.&lt;/p&gt;
+
+&lt;p&gt;Você pode configurar para todos os usuários do sistema colocando o comando acima &lt;code class=&quot;highlighter-rouge&quot;&gt;export PATH=$PATH:/home/allythy/Documentos/shell&lt;/code&gt; no final de algum desses arquivos:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/etc/profile /
+/etc/profile.d/   
+/etc/bash.bashrc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Ou para um usuário específico colocando o comando acima nesses arquivos:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;~/.bashrc
+~/.profile
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Vou dá um exemplo colocando o caminho do nosso script no arquivo &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.bashrc&lt;/code&gt;. Primeiro, vamos abri o arquivo com algum editor de texto.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim ~/.bashrc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Feito isso, vamos colocar o esse comando &lt;code class=&quot;highlighter-rouge&quot;&gt;export PATH=$PATH:/home/allythy/Documentos/shell&lt;/code&gt; no final do arquivo e depois salvar. O seu arquivo deve ficar assim.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/vim-bashrc.png&quot; alt=&quot;arquivo ~/.bashrc aperto com o vim&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Pronto agora você pode acessar o seu script em qualquer parte do seu sistema.&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como configurar uma variável no $PATH do GNU/Linux. Quando você digita um comando no seu Shell o que você está dizendo é pra ele executar um programa. Mesmos comandos simples, como ls , cd , mkdir , rm e outros, são apenas pequenos programas que geralmente ficam dentro de um diretório no seu computador chamado /usr/bin.</summary></entry><entry><title type="html">Como baixar playlist do Youtube usando o youtube-dl</title><link href="http://localhost:4000/Como-baixar-playlist-do-Youtube-usando-o-youtube-dl" rel="alternate" type="text/html" title="Como baixar playlist do Youtube usando o youtube-dl" /><published>2017-06-30T13:00:00-03:00</published><updated>2017-06-30T13:00:00-03:00</updated><id>http://localhost:4000/Como-baixar-playlist-do-Youtube-usando-o-youtube-dl</id><content type="html" xml:base="http://localhost:4000/Como-baixar-playlist-do-Youtube-usando-o-youtube-dl">&lt;p&gt;Esta vai ser uma dica bem rápida, mas muito útil de como baixar playlist do Youtube usando o youtube-dl. Para quem ainda não conhece o youtube-dl é um pequeno programa de linha de comando para baixar vídeos e áudio do YouTube e outros sites, o programa é escrito em python.&lt;/p&gt;
 
 &lt;p&gt;Caso você não tenha o programa instalado, use esse comando para instalar o Debian e derivados:&lt;/p&gt;
 
@@ -553,104 +601,4 @@ filetype plugin indent on
 
 &lt;p&gt;&lt;img src=&quot;/img/vim.png&quot; alt=&quot;tela do index.html feito com Emment&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://linuxconfig.org/manage-vim-plugins-with-pathogen&quot;&gt;Fonte&lt;/a&gt;&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">O Vim é um editor de texto altamente configurável com centenas de plugins que podem ser instalados. Muitos deles são adaptados para usos específicos, como programação em uma determinada linguagem ou até ajudar na escrita de um texto comum, outros são mais gerais e melhoram as capacidades existentes do Vim. Qualquer que seja a sua finalidade você terá que gerenciar esses plugins.</summary></entry><entry><title type="html">Como usar o Tmux</title><link href="http://localhost:4000/Como-usar-o-Tmux" rel="alternate" type="text/html" title="Como usar o Tmux" /><published>2017-04-26T20:00:00-03:00</published><updated>2017-04-26T20:00:00-03:00</updated><id>http://localhost:4000/Como-usar-o-Tmux</id><content type="html" xml:base="http://localhost:4000/Como-usar-o-Tmux">&lt;p&gt;Neste artigo, vamos aprender como usar o tmux. O tmux é um multiplexador de terminais, um multiplexador de terminal permite que um número de terminais sejam criados, acessados e controlados a partir de uma única janela. Com o tmux você também pode ser desconectar de uma tela e  a mesma continuar funcionando em segundo plano, e depois você pode se conectar novamente.&lt;/p&gt;
-
-&lt;h2 id=&quot;como-instalar-o-tmux&quot;&gt;Como instalar o Tmux&lt;/h2&gt;
-
-&lt;p&gt;Para instalar o tmux no Debian, Ubuntu, linux mint e seus derivados:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo apt install tmux&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;No CentOS e RHEL&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo yum install tmux&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;No Arch Linux&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo pacman -S tmux&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;No Fedora&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo dnf install tmux -y&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h2 id=&quot;aprenda-como-usar-o-tmux&quot;&gt;Aprenda como usar o Tmux&lt;/h2&gt;
-
-&lt;p&gt;Para iniciar uma sessão no tmux esse comando:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;tmux new -s nomedasessão&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Ao ser iniciado, o aplicativo cria uma nova sessão em uma janela, exibida na tela.
-Uma linha de status, na parte inferior da janela mostra informações sobre a sessão atual e também é usada para digitar comandos interativos. Uma sessão é uma coleção de pseudoterminais sob a gestão do tmux. Cada sessão tem uma ou mais janelas ligadas a ela.&lt;/p&gt;
-
-&lt;p&gt;Com uma sessão criada, vamos aprender alguns comandos do tmux. Primeiro, os comandos no tmux são emitidos por um prefixo de comandos, por padrão é &lt;strong&gt;Ctrl + B&lt;/strong&gt;. Depois de pressionar Ctrl + b você pressionar outra tecla que vai fazer uma determinada ação, logo abaixo segue um exemplos dessas combinações.&lt;/p&gt;
-
-&lt;p&gt;Criar uma sessão com nome:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;tmux new -s nomedasessão&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Listas as sessões:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;tmux list-sessions&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Para ir em sessão que você fechou, caso você só coloque &lt;strong&gt;tmux attach&lt;/strong&gt; ele vai se conectar a última sessão, para ele se conectar a uma sessão específica você tem que usar esse comando:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;tux attach -t nomedasessão&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Para entrar no modo interativo :&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;Ctrl+b+ :&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Desconectar uma sessão ( mas ela ainda vai ficar aberta em segundo plano)&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;Ctrl+b+d&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Fechar uma sessão ( você também pode digitar “exit” ou Ctrl+b+x) Você vai usar o Ctrl+b+:
-para entrar no modo interativo, quando estiver nele digite esse comando:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;kill&lt;/span&gt;-session&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Renomeia a janela atual :&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;Ctrl+b+,&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Renomeia a sessão atual:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;Ctrl+b+&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Navegar entre as sessões:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;Ctrl+b+s&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Criar uma janela:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;Ctrl+b+c&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Navegar entra as janelas, para saber em qual janela você tá fica * depois do nome da janela.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;-Para voltar: Ctrl+b+p
--Para avançar: Ctrl+b+n
- &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;ou você pode usar o número da janela :&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;Ctrl+b+1&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Dividir na horizontal. Depois de pressionar o Ctrl + b você terá que pressionar o &lt;strong&gt;Shift&lt;/strong&gt; ao mesmo tempo que as aspas duplas, caso você não faça isso ele vai usar a aspa simples e não vai fazer nada.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;Ctrl+b+ “&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Dividir na vertical. Depois de pressionar o Ctrl + b você terá que pressionar o &lt;strong&gt;Shift&lt;/strong&gt; ao mesmo tempo que o símbolo de percentagem.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;Ctrl+b+%&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Navegar entra janelas&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;Ctrl+b+ setas_do_teclado&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Organizar as janelas com layout pré-definidos&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;Ctrl+b+espaço&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Mostrar a hora&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;Ctrl+b+t&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como usar o tmux. O tmux é um multiplexador de terminais, um multiplexador de terminal permite que um número de terminais sejam criados, acessados e controlados a partir de uma única janela. Com o tmux você também pode ser desconectar de uma tela e a mesma continuar funcionando em segundo plano, e depois você pode se conectar novamente.</summary></entry></feed>
+&lt;p&gt;&lt;a href=&quot;https://linuxconfig.org/manage-vim-plugins-with-pathogen&quot;&gt;Fonte&lt;/a&gt;&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">O Vim é um editor de texto altamente configurável com centenas de plugins que podem ser instalados. Muitos deles são adaptados para usos específicos, como programação em uma determinada linguagem ou até ajudar na escrita de um texto comum, outros são mais gerais e melhoram as capacidades existentes do Vim. Qualquer que seja a sua finalidade você terá que gerenciar esses plugins.</summary></entry></feed>
