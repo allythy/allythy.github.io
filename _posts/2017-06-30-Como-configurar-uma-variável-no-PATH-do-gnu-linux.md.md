@@ -55,3 +55,5 @@ Feito isso, vamos colocar o esse comando `export PATH=$PATH:/home/allythy/Docume
 ![arquivo ~/.bashrc aperto com o vim](img/vim-bashrc.png)
 
 Pronto agora você pode acessar o seu script em qualquer parte do seu sistema.
+
+<a href="https://opensource.com/article/17/6/set-path-linux" target="_ blank">Fonte</a>
