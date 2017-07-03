@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Dicas sobre o Debian, Software Livre, linha de comando">
 
-    <title>Allythy</title>
+    <title>Automatizando a geração de senhas seguras no GNU/Linux - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/">
+    <link rel="canonical" href="http://localhost:4000/Automatizando-a-gera%C3%A7%C3%A3o-de-senhas-seguras-no-gnu-linux">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -81,112 +81,76 @@
 </nav>
 
 
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/post-bg-04.jpg')">
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Allythy</h1>
-                    <hr class="small">
-                    <span class="subheading">A mudança é um processo essencial de toda existência</span>
+                <div class="post-heading">
+                    <h1>Automatizando a geração de senhas seguras no GNU/Linux</h1>
+                    
+                    <h2 class="subheading">Neste artigo, vamos aprender a automatizar a geração de senhas seguras no GNU/Linux</h2>
+                    
+                    <span class="meta">Postador por Allythy em July 3, 2017</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-			
-<div class="post-preview">
-    <a href="/Automatizando-a-gera%C3%A7%C3%A3o-de-senhas-seguras-no-gnu-linux">
-        <h2 class="post-title">            Automatizando a geração de senhas seguras no GNU/Linux
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender a automatizar a geração de senhas seguras no GNU/Linux
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em July 3, 2017</p>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<p>Neste artigo, vamos aprender a automatizar a geração de senhas seguras no GNU/Linux. Vamos deixar a criação de senha algo mais prático e rápido, porque se você precisar fazer algo mais do que 3 vezes, crie um Shell Script.</p>
+
+<p><strong>Gerando senha com caracteres alfanuméricos</strong></p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>cat /dev/urandom | tr -dc <span class="s1">'a-zA-Z0-9'</span> | fold -w 20 | head -n1
+</code></pre>
 </div>
-<hr>
+<p>No comando acima, utilizo a saída do <code class="highlighter-rouge">/dev/urandom</code> que gera números aleatórios e mando para o <code class="highlighter-rouge">tr</code> que vai deletar todos os caracteres exceto aqueles que estão entre as aspas simples, o <code class="highlighter-rouge">fold</code> vai quebrar a linha a cada 20 caracteres. Em seguida, temos o <code class="highlighter-rouge">head</code> que pegar apenas a primeira linha</p>
 
-<div class="post-preview">
-    <a href="/Como-configurar-uma-vari%C3%A1vel-no-PATH-do-gnu-linux.md">
-        <h2 class="post-title">            Como configurar uma variável no $PATH do GNU/Linux
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender como configurar uma variável no PATH do GNU/Linux. 
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em July 1, 2017</p>
+<p><strong>Gerando senha com caracteres especiais</strong></p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>cat /dev/urandom | tr -dc <span class="s1">'a-zA-Z0-9-_!@#$%&amp;*+?'</span> | fold -w 20 | head -n1
+</code></pre>
 </div>
-<hr>
 
-<div class="post-preview">
-    <a href="/Como-baixar-playlist-do-Youtube-usando-o-youtube-dl">
-        <h2 class="post-title">            Como baixar playlist do Youtube usando o youtube-dl
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Esta vai ser uma dica bem rápida, mas muito útil de como baixar playlist do Youtube usando o youtube-dl
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em June 30, 2017</p>
+<p><strong>Script para geração da senha</strong></p>
+
+<p>Agora vamos a um exemplo de script que pode ser utilizado para gerar senhas. O script vai perguntar quantas senhas o usuário vai querer e a quantidade de caracteres que a senha vai ter.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">read</span> -p <span class="s2">"Informe a quantidade de senhas: "</span> qtdSenha
+<span class="nb">read</span> -p <span class="s2">"Informe a quantidade de caracteres da senha: "</span> cart
+<span class="nb">echo
+
+</span><span class="k">for </span>i <span class="k">in</span> <span class="k">$(</span>seq 1 <span class="nv">$qtdSenha</span><span class="k">)</span>;<span class="k">do
+ </span>cat /dev/urandom | tr -dc <span class="s1">'a-zA-Z0-9-_!@#$%&amp;*+'</span> | fold -w <span class="nv">$cart</span> | head -n1 | tr A-Za-z N-ZA-Mn-za-m
+<span class="k">done
+</span><span class="nb">echo</span>
+</code></pre>
 </div>
-<hr>
-
-<div class="post-preview">
-    <a href="/Conheca-tres-ferramentas-de-conversao-de-arquivos-de-linha-comando">
-        <h2 class="post-title">            Conheça três ferramentas de conversão de arquivos de linha de comando para GNU/Linux
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos ver três ferramentas de conversão de arquivos de linha de comando para GNU/Linux.
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em June 24, 2017</p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/Teclas-de-emergencia-do-gnu-linux">
-        <h2 class="post-title">            Teclas de emergência do GNU/Linux
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo vamos aprender algumas teclas de emergência do GNU/Linux.
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em June 9, 2017</p>
-</div>
-<hr>
+<p><a href="http://sempreupdate.com.br/2016/06/automatizando-geracao-de-senhas-seguras.html" target="_ blank">Fonte</a></p>
 
 
-<!-- Pager -->
+                <hr>
 
-<ul class="pager">
-    
-    
-    <li class="next">
-        <a href="/page2">Postagem antigas &rarr;</a>
-    </li>
-    
-</ul>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/Como-configurar-uma-vari%C3%A1vel-no-PATH-do-gnu-linux.md" data-toggle="tooltip" data-placement="top" title="Como configurar uma variável no $PATH do GNU/Linux">&larr; Postagem anterior</a>
+                    </li>
+                    
+                    
+                </ul>
 
-
-		</div>
-	</div>
-</div>
+            </div>
+        </div>
+    </div>
+</article>
 
 <hr>
 
