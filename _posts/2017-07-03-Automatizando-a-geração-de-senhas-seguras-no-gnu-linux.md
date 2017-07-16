@@ -27,13 +27,20 @@ __Script para geração da senha__
 Agora vamos a um exemplo de script que pode ser utilizado para gerar senhas. O script vai perguntar quantas senhas o usuário vai querer e a quantidade de caracteres que a senha vai ter.
 
 ```bash
-read -p "Informe a quantidade de senhas: " qtdSenha
-read -p "Informe a quantidade de caracteres da senha: " cart
-echo
-
-for i in $(seq 1 $qtdSenha);do
- cat /dev/urandom | tr -dc 'a-zA-Z0-9-_!@#$%&*+' | fold -w $cart | head -n1 | tr A-Za-z N-ZA-Mn-za-m
+#!/bin/bash
+while [ "$menu" != "n" ]
+do
+  echo
+  read -p "Informe a quantidade de senhas: " qtdSenha
+  read -p "Informe a quantidade de caracteres da senha: " cart
+  echo
+  for i in $(seq 1 $qtdSenha);
+    do
+      cat /dev/urandom | tr -dc 'a-zA-Z0-9-_!@#$%&*+' | fold -w $cart | head -n1 | tr A-Za-z N-ZA-Mn-za-m
+    done
+  echo
+  read -p "Deseja voltar ? [S/N]" menu
+  echo
 done
-echo
 ```
 <a href="http://sempreupdate.com.br/2016/06/automatizando-geracao-de-senhas-seguras.html" target="_ blank">Fonte</a>
