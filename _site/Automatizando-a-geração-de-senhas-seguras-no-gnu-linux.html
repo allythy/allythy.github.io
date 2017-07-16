@@ -123,14 +123,21 @@
 
 <p>Agora vamos a um exemplo de script que pode ser utilizado para gerar senhas. O script vai perguntar quantas senhas o usuário vai querer e a quantidade de caracteres que a senha vai ter.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">read</span> -p <span class="s2">"Informe a quantidade de senhas: "</span> qtdSenha
-<span class="nb">read</span> -p <span class="s2">"Informe a quantidade de caracteres da senha: "</span> cart
-<span class="nb">echo
-
-</span><span class="k">for </span>i <span class="k">in</span> <span class="k">$(</span>seq 1 <span class="nv">$qtdSenha</span><span class="k">)</span>;<span class="k">do
- </span>cat /dev/urandom | tr -dc <span class="s1">'a-zA-Z0-9-_!@#$%&amp;*+'</span> | fold -w <span class="nv">$cart</span> | head -n1 | tr A-Za-z N-ZA-Mn-za-m
-<span class="k">done
-</span><span class="nb">echo</span>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="k">while</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$menu</span><span class="s2">"</span> !<span class="o">=</span> <span class="s2">"n"</span> <span class="o">]</span>
+<span class="k">do
+  </span><span class="nb">echo
+  read</span> -p <span class="s2">"Informe a quantidade de senhas: "</span> qtdSenha
+  <span class="nb">read</span> -p <span class="s2">"Informe a quantidade de caracteres da senha: "</span> cart
+  <span class="nb">echo
+  </span><span class="k">for </span>i <span class="k">in</span> <span class="k">$(</span>seq 1 <span class="nv">$qtdSenha</span><span class="k">)</span>;
+    <span class="k">do
+      </span>cat /dev/urandom | tr -dc <span class="s1">'a-zA-Z0-9-_!@#$%&amp;*+'</span> | fold -w <span class="nv">$cart</span> | head -n1
+    <span class="k">done
+  </span><span class="nb">echo
+  read</span> -p <span class="s2">"Deseja voltar ? [S/N]"</span> menu
+  <span class="nb">echo
+</span><span class="k">done</span>
 </code></pre>
 </div>
 <p><a href="http://sempreupdate.com.br/2016/06/automatizando-geracao-de-senhas-seguras.html" target="_ blank">Fonte</a></p>

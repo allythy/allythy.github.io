@@ -36,7 +36,7 @@ do
   echo
   for i in $(seq 1 $qtdSenha);
     do
-      cat /dev/urandom | tr -dc 'a-zA-Z0-9-_!@#$%&*+' | fold -w $cart | head -n1 | tr A-Za-z N-ZA-Mn-za-m
+      cat /dev/urandom | tr -dc 'a-zA-Z0-9-_!@#$%&*+' | fold -w $cart | head -n1
     done
   echo
   read -p "Deseja voltar ? [S/N]" menu
