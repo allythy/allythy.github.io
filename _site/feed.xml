@@ -1,4 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-07-16T20:08:44-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Automatizando a geração de senhas seguras no GNU/Linux</title><link href="http://localhost:4000/Automatizando-a-gera%C3%A7%C3%A3o-de-senhas-seguras-no-gnu-linux" rel="alternate" type="text/html" title="Automatizando a geração de senhas seguras no GNU/Linux" /><published>2017-07-03T11:00:00-03:00</published><updated>2017-07-03T11:00:00-03:00</updated><id>http://localhost:4000/Automatizando-a-gera%C3%A7%C3%A3o-de-senhas-seguras-no-gnu-linux</id><content type="html" xml:base="http://localhost:4000/Automatizando-a-gera%C3%A7%C3%A3o-de-senhas-seguras-no-gnu-linux">&lt;p&gt;Neste artigo, vamos aprender a automatizar a geração de senhas seguras no GNU/Linux. Vamos deixar a criação de senha algo mais prático e rápido, porque se você precisar fazer algo mais do que 3 vezes, crie um Shell Script.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-07-19T00:57:22-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como deixar o pen drive bootável usando a interface gráfica</title><link href="http://localhost:4000/Como-deixar-o-pen-drive-bootavel-usando-a-interface-grafica" rel="alternate" type="text/html" title="Como deixar o pen drive bootável usando a interface gráfica" /><published>2017-07-03T11:00:00-03:00</published><updated>2017-07-03T11:00:00-03:00</updated><id>http://localhost:4000/%20Como-deixar-o-pen-drive-bootavel-usando-a-interface-grafica</id><content type="html" xml:base="http://localhost:4000/Como-deixar-o-pen-drive-bootavel-usando-a-interface-grafica">&lt;p&gt;Neste artigo, vamos aprender como deixar o pen drive bootável usando a interface gráfica. Alguns usuários não gostam ou não estão muito familiarizados com o Terminal, então esse método é uma boa alternativa. O programa que usaremos será o &lt;strong&gt;Utilitário de Discos do GNOME&lt;/strong&gt;, em algumas distribuições como Debian com o ambiente de trabalho GNOME ou Ubuntu ele já vem instalado por padrão. Caso você esteja usando o Debian como outro ambiente de trabalho use o comando abaixo para instalar Utilitário de Discos do GNOME:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install gnome-disk-utility
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Agora vamos formatar o pen drive, do lado esquerdo selecione o pen drive, muito cuidado para não selecionar o seu HD. Clique no ícone da engrenagem e depois em Formatar ou Shift + Ctrl + F.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/disco1.png&quot; alt=&quot;Tela do Utilitário de Disco do Gnome para formatar o pen drive&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Na próxima tela você escolherá o &lt;strong&gt;Sistema de Arquivos&lt;/strong&gt;, que será o &lt;strong&gt;FAT&lt;/strong&gt; e depois digite o nome desse volume. Feito isso, clique em &lt;strong&gt;Formatar&lt;/strong&gt; aparecerá outra tela onde você vai clique em &lt;strong&gt;Formatar&lt;/strong&gt; novamente. Pronto, o seu pen drive foi formatado.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/disco2.png&quot; alt=&quot;Tela para escolher o sistema de arquivos e o nome do pen drive&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Com o pen drive formatado agora vamos deixar ele bootável. Clique novamente na engrenagem e em &lt;strong&gt;Restaurar imagem de disco&lt;/strong&gt;, outra janela abrirá, nela você vai indicar a &lt;strong&gt;localização da sua ISO&lt;/strong&gt;.   Feito isso, clique em &lt;strong&gt;Iniciar Restauração&lt;/strong&gt; e depois digite sua senha.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/disco3.png&quot; alt=&quot;Tela para mostrar onde a ISO está localizada&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Pronto, o seu pen drive já está bootável.&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como deixar o pen drive bootável usando a interface gráfica. Alguns usuários não gostam ou não estão muito familiarizados com o Terminal, então esse método é uma boa alternativa. O programa que usaremos será o Utilitário de Discos do GNOME, em algumas distribuições como Debian com o ambiente de trabalho GNOME ou Ubuntu ele já vem instalado por padrão. Caso você esteja usando o Debian como outro ambiente de trabalho use o comando abaixo para instalar Utilitário de Discos do GNOME:</summary></entry><entry><title type="html">Automatizando a geração de senhas seguras no GNU/Linux</title><link href="http://localhost:4000/Automatizando-a-gera%C3%A7%C3%A3o-de-senhas-seguras-no-gnu-linux" rel="alternate" type="text/html" title="Automatizando a geração de senhas seguras no GNU/Linux" /><published>2017-07-03T11:00:00-03:00</published><updated>2017-07-03T11:00:00-03:00</updated><id>http://localhost:4000/Automatizando-a-gera%C3%A7%C3%A3o-de-senhas-seguras-no-gnu-linux</id><content type="html" xml:base="http://localhost:4000/Automatizando-a-gera%C3%A7%C3%A3o-de-senhas-seguras-no-gnu-linux">&lt;p&gt;Neste artigo, vamos aprender a automatizar a geração de senhas seguras no GNU/Linux. Vamos deixar a criação de senha algo mais prático e rápido, porque se você precisar fazer algo mais do que 3 vezes, crie um Shell Script.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Gerando senha com caracteres alfanuméricos&lt;/strong&gt;&lt;/p&gt;
 
@@ -427,119 +444,4 @@ C &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; especifica o diretório dos arq
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar -xvjf artigos.tar.bz2
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><author><name>Allythy</name></author><summary type="html">Nesse artigo, vamos aprender sobre empacotamento e compactação de arquivos. Para o empacotamento de arquivos utilizamos o comando tar, é válido ressaltar que o empacotamento não diminui o tamanho do arquivo, ele faz a junção de um ou mais arquivos em um único arquivo, quem diminui o tamanho são os compactadores, que são GNU gzip (gzip) ou bzip2. Primeiro vamos entender a sintaxe do comando tar.</summary></entry><entry><title type="html">Entendendo as permissões de acesso a arquivos e repositórios e como alterá-las</title><link href="http://localhost:4000/Entendendo-as-permissoes-de-acesso-a-arquivos-e-repositorios-e-como-altera-las" rel="alternate" type="text/html" title="Entendendo as permissões de acesso a arquivos e repositórios e como alterá-las" /><published>2017-04-29T12:00:00-03:00</published><updated>2017-04-29T12:00:00-03:00</updated><id>http://localhost:4000/Entendendo-as-permissoes-de-acesso-a-arquivos-e-repositorios-e-como-altera-las</id><content type="html" xml:base="http://localhost:4000/Entendendo-as-permissoes-de-acesso-a-arquivos-e-repositorios-e-como-altera-las">&lt;p&gt;Neste artigo, vamos entendendo as permissões de acesso a arquivos e repositórios e como alterá-las. Para um Administrador de Sistema é primordial entender as permissões de acesso a arquivos e repositórios e como alterá-las. Isso não se restringe apenas aos Administradores de Sistemas, também é necessário para usuários domésticos, pois algumas vezes temos que alterar a permissão de um arquivo.&lt;/p&gt;
-
-&lt;p&gt;Para ver as permissões que um arquivo ou diretório possui, temos que executar o seguinte comando:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ls -l
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;O comando &lt;code class=&quot;highlighter-rouge&quot;&gt;ls&lt;/code&gt; lista o conteúdo do diretório, no meu caso é o diretório home e a opção -l trás as informações em um formato longo mostrando as permissões, número e links, proprietário, grupo, tamanho, data de modificação e nome do arquivo.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;img/permissao.png&quot; alt=&quot;nformações da minha pasta de Documentos&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Vamos entender o que cada coluna se trata, primeiro vamos começar pela coluna das permissões, para entender o que cada letra significa.&lt;/p&gt;
-
-&lt;h2 id=&quot;conhecendo-as-permissões&quot;&gt;Conhecendo as Permissões&lt;/h2&gt;
-
-&lt;p&gt;A primeira letra trata da natureza do arquivo, se ele é um diretório, link, arquivo comum de usuário, arquivo de bloco, Socket de comunicação entre processos, Pipe de comunicação entre processos ou arquivo de caractere.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;d = Diretório
-- = Arquivo comum de usuário
-b = Arquivo de bloco
-c = Arquivo de caractere
-l = Link
-s = Socket de comunicação entre processos
-p = Pipe de comunicação entre processos
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Depois temos as letras &lt;strong&gt;rwx&lt;/strong&gt; (que sempre apareceram nessa ordem) que estão divididas em três categorias, dono, grupo e outros. Onde cada letra determina o acesso a um diretório ou arquivo, ao dono, grupo e outros. As letras rwx significam:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;r = Permissão de Leitura (read)
-w =  Permissão de Escrita (write)
-x = Permissão de Execução (execution)
-- = Sem Permissão
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;img/permissao2.png&quot; alt=&quot;Permissões do arquivos&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;As outras colunas são mais fácies de entende, porque elas são autoexplicativas. A coluna do link, mostra a quantidade de link que esse arquivo ou diretório possui. Na Coluna do Proprietário, a pessoa que criou o arquivou ou diretório (dono), nesse caso é allythy. A Coluna do Grupo, o grupo ao qual pertence o arquivo ou diretório, nesse caso o grupo é allythy. A coluna Date e Hora, mostra a última vez que o arquivo foi alterado. E por fim, a última coluna que diz o nome do arquivo.&lt;/p&gt;
-
-&lt;h2 id=&quot;vamos-aprender-a-alterar-essas-permissões&quot;&gt;Vamos aprender a alterar essas permissões&lt;/h2&gt;
-
-&lt;p&gt;Para alterar essas permissões em arquivos ou diretório, vamos utilizar o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;chmod&lt;/code&gt; em modo octal, pois é mais fácil para o entendimento.&lt;/p&gt;
-
-&lt;p&gt;A sintaxe do comando é essa :&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chmod &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;opções] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;permissões] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;nome &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;arquivo ou diretório]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;img/permissao3.png&quot; alt=&quot;Tabela com os números para alterar as permissões em octal&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Os valores que são necessário para você conhecer é: &lt;strong&gt;4 (leitura) 2 (escrita) 1 (execução)&lt;/strong&gt;. Porque a soma deles dão as outras permissões, exemplo: leitura e execução, 4 + 1 = 5. Lembrando, caso não queira conceder nenhuma permissão utilize 0 (zero).&lt;/p&gt;
-
-&lt;p&gt;Ao fornecer novas permissões aos arquivos, utilize um dígito para o dono, grupo e os outros. Por exemplo, para conceder todas as permissões ao dono, porém nenhuma permissão para leitura, escrita ou execução de um arquivo ao grupo e outros, vamos fazer assim:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chmod 700 Documentos
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;OBS: A opção menos -R (recursiva) faz com que as alterações sejam aplicadas aos subdiretórios.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;alterar-proprietário-e-grupo-dos-arquivos-e-diretórios&quot;&gt;Alterar proprietário e grupo dos arquivos e diretórios&lt;/h2&gt;
-
-&lt;p&gt;Para alterar o proprietário e grupo de um arquivo ou diretório, vamos usar o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;chown&lt;/code&gt;. Que possui a seguinte sintaxe:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chown &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;novo proprietário]:[ novo grupo] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;nome &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;arquivo ou diretório]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Só alterar o proprietário e manter o grupo&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Não coloque os colchetes quanto for digitar o comando.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chown &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;novo proprietário] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;nome &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;arquivo]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Alterar o proprietário e o grupo&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Não deixe espaço entre os dois pontos. Na versão GNU você pode usar o ponto ao invés dos dois pontos&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chown &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;novo proprietário]:[ novo grupo] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;nome &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;arquivo ou diretório]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Alterar só o grupo&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Se os dois pontos ou ponto e grupo são fornecidos, mas o  nome
-do  usuário  é  omitido, somente o grupo do arquivo é alterado. Neste
-caso, chown assume a mesma função que &lt;code class=&quot;highlighter-rouge&quot;&gt;chgrp&lt;/code&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chown &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;deixa vazio &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;:[ novo grupo] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;nome &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;arquivo ou diretório]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;Se você colocar os dois pontos ou ponto sem o nome de grupo só com o nome do usuário, aquele  usuário
-torna-se o proprietário do arquivo e o grupo do arquivo é alterado para o grupo de login do usuário.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chown &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;novo proprietário]:[deixa vazio &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;nome &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;arquivo ou diretório]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Lembrando que da forma como foi executado o comando acima, ele alterou somente do diretório ou arquivo, mas  as sub-pastas dentro dele continuam com o proprietário antigo. Para incluir os sub-diretórios acrescente -R de recursiva.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chown -R &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;novo proprietário]:[ novo grupo] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;nome &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;arquivo ou diretório]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos entendendo as permissões de acesso a arquivos e repositórios e como alterá-las. Para um Administrador de Sistema é primordial entender as permissões de acesso a arquivos e repositórios e como alterá-las. Isso não se restringe apenas aos Administradores de Sistemas, também é necessário para usuários domésticos, pois algumas vezes temos que alterar a permissão de um arquivo.</summary></entry></feed>
+&lt;/div&gt;</content><author><name>Allythy</name></author><summary type="html">Nesse artigo, vamos aprender sobre empacotamento e compactação de arquivos. Para o empacotamento de arquivos utilizamos o comando tar, é válido ressaltar que o empacotamento não diminui o tamanho do arquivo, ele faz a junção de um ou mais arquivos em um único arquivo, quem diminui o tamanho são os compactadores, que são GNU gzip (gzip) ou bzip2. Primeiro vamos entender a sintaxe do comando tar.</summary></entry></feed>
