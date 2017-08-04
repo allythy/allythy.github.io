@@ -1,4 +1,102 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-07-20T23:14:37-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como deixar o pen drive bootável usando a interface gráfica</title><link href="http://localhost:4000/Como-deixar-o-pen-drive-bootavel-usando-a-interface-grafica" rel="alternate" type="text/html" title="Como deixar o pen drive bootável usando a interface gráfica" /><published>2017-07-03T11:00:00-03:00</published><updated>2017-07-03T11:00:00-03:00</updated><id>http://localhost:4000/%20Como-deixar-o-pen-drive-bootavel-usando-a-interface-grafica</id><content type="html" xml:base="http://localhost:4000/Como-deixar-o-pen-drive-bootavel-usando-a-interface-grafica">&lt;p&gt;Neste artigo, vamos aprender como deixar o pen drive bootável usando a interface gráfica. Alguns usuários não gostam ou não estão muito familiarizados com o Terminal, então esse método é uma boa alternativa. O programa que usaremos será o &lt;strong&gt;Utilitário de Discos do GNOME&lt;/strong&gt;, em algumas distribuições como Debian com o ambiente de trabalho GNOME ou Ubuntu ele já vem instalado por padrão. Caso você esteja usando o Debian como outro ambiente de trabalho use o comando abaixo para instalar Utilitário de Discos do GNOME:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-08-03T22:01:49-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como criar um novo usuário e conceder permissões no MariaDB e MySQL</title><link href="http://localhost:4000/Como-criar-um-novo-usuario-e-conceder-permissoes-no-MariaD-e-MySQL" rel="alternate" type="text/html" title="Como criar um novo usuário e conceder permissões no MariaDB e MySQL " /><published>2017-08-03T19:00:00-03:00</published><updated>2017-08-03T19:00:00-03:00</updated><id>http://localhost:4000/Como-criar-um-novo-usuario-e-conceder-permissoes-no-MariaD-e-MySQL</id><content type="html" xml:base="http://localhost:4000/Como-criar-um-novo-usuario-e-conceder-permissoes-no-MariaD-e-MySQL">&lt;p&gt;Neste artigo, vamos aprender como criar um novo usuário e conceder permissões no MariaDB e MySQL. O  MariaDB e MySQL são sistemas de gerenciamento de banco de dados (SGBD), que possuem uma variedade de opções para conceder a usuários específicos permissões diferenciadas dentro de tabelas e bases de dados. Este artigo vai lhe dar um breve resumo de algumas das muitas opções que eles oferecem.&lt;/p&gt;
+
+&lt;h2 id=&quot;como-criar-um-novo-usuário&quot;&gt;Como criar um Novo Usuário&lt;/h2&gt;
+
+&lt;p&gt;Vamos fazer toda a edição no MariaDB ou MySQL como usuário root, já que ele tem acesso total a todos os bancos de dados e tabelas dentro desses bancos de dados. Os comandos a seguir vão funcionar tanto no MariaDB como no MySQL.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mysql -u root -p
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Vamos começar criando um novo usuário:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CREATE USER &lt;span class=&quot;s1&quot;&gt;'novousuario'&lt;/span&gt;@&lt;span class=&quot;s1&quot;&gt;'localhost'&lt;/span&gt; IDENTIFIED BY &lt;span class=&quot;s1&quot;&gt;'minhasenha'&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Infelizmente, nesse momento o “novousuario” não tem permissão para fazer nada com as bases de dados. Na verdade, se o “novousuario” tentar fazer login (com a senha “minhasenha”), ele não será capaz de chegar ao shell do MySQL ou do MariaDB.&lt;/p&gt;
+
+&lt;p&gt;Portanto, a primeira coisa a fazer é fornecer ao usuário o acesso às informações que ele vai precisar, com o seguinte comando:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;GRANT ALL PRIVILEGES ON &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; . &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; TO &lt;span class=&quot;s1&quot;&gt;'novousuario'&lt;/span&gt;@&lt;span class=&quot;s1&quot;&gt;'localhost'&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Os asteriscos neste comando referem-se ao banco de dados e à tabela respectivamente que eles podem acessar. Este comando permite ao usuário ler, editar, executar e realizar todas as tarefas em todas as bases de dados e tabelas, tendo assim as mesmas permissões de acesso que o usuário root.&lt;/p&gt;
+
+&lt;p&gt;Feito isso, vamos recarregar as permissões do nosso banco de dados com esse comando:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;FLUSH PRIVILEGES;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;como-conceder-permissões-específicas-para-usuários&quot;&gt;Como conceder permissões específicas para usuários&lt;/h2&gt;
+
+&lt;p&gt;Não é muito inteligente conceder acesso de nível de root a um usuário como a gente fez acima. Imagine que você precisa dar acesso ao banco de dados para uma pessoa que precisa ver as tabelas.&lt;/p&gt;
+
+&lt;p&gt;Ao conceder acesso à nível de root para essa pessoa, ela pode alterar algum dado de alguma tabela, excluir ou fazer alguma coisa pior. Então, é melhor você criar um usuário e especificar as permissões que ele tem acesso, assim você tem mais controle de quem pode acessar o seu banco de dados e o que vai acessar.&lt;/p&gt;
+
+&lt;p&gt;A sintaxe do comando que concede privilégios é essa:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;GRANT tipo-de-permissão ON nome-da-base-de-dados . nome-da-tabela TO &lt;span class=&quot;s1&quot;&gt;'nome-do-usuário'&lt;/span&gt;@&lt;span class=&quot;s1&quot;&gt;'localhost'&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Aqui está uma pequena lista de outras possíveis permissões que os usuários podem utilizar, você pode ver a &lt;a href=&quot;https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html&quot; target=&quot;_ blank&quot;&gt;lista completa aqui.&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ALL PRIVILEGES- como vimos anteriormente, isso daria a um usuário &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;MySQL todo o acesso a uma determinada base de dados &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;ou se nenhuma base de dados &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;selecionada, todo o sistema&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+CREATE- permite criar novas tabelas ou bases de dados
+DROP- permite deletar tableas ou bases de dados
+DELETE- permite deletar linhas das tabelas
+INSERT- permite inserir linhas nas tabelas
+SELECT- permite utilizar o comando Select para ler bases de dados
+UPDATE- permite atualizar linhas das tabelas
+GRANT OPTION- permite conceder ou revogar privilégios de outros usuários
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Para aplicar mais de uma permissão a um usuário é só separar com uma vírgula. Por exemplo, vamos atribuir a um determinado usuário a permissão de UPDATE e DELETE:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;GRANT UPDATE, DELETE ON &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; . &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; TO &lt;span class=&quot;s1&quot;&gt;'nome-do-usuario'&lt;/span&gt;@&lt;span class=&quot;s1&quot;&gt;'localhost'&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Cada vez que você atualizar ou mudar uma permissão certifique-se de utilizar o comando FLUSH PRIVILEGES&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;remover-uma-permissão&quot;&gt;Remover uma permissão&lt;/h2&gt;
+
+&lt;p&gt;Se você precisar revogar uma permissão, a estrutura é quase idêntica a concedê-la:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;REVOKE tipo-de-permissão ON nome-da-base-de-dados . nome-da-tabela FROM &lt;span class=&quot;s1&quot;&gt;'nome-do-usuário'&lt;/span&gt;@&lt;span class=&quot;s1&quot;&gt;'localhost'&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Vamos remover a permissão de UPDATE de um usuário. Exemplo:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;REVOQUE UPDATE ON &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;. &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; FROM &lt;span class=&quot;s1&quot;&gt;'nome-do-usuario'&lt;/span&gt; @ &lt;span class=&quot;s1&quot;&gt;'localhost'&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;excluir-um-usuário&quot;&gt;Excluir um usuário&lt;/h2&gt;
+
+&lt;p&gt;Assim como você pode deletar bases de dados com o DROP, você pode utilizar o DROP para excluir um usuário:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;DROP USER &lt;span class=&quot;s1&quot;&gt;'nome-do-usuario'&lt;/span&gt;@&lt;span class=&quot;s1&quot;&gt;'localhost'&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;testando-o-novo-usuário&quot;&gt;Testando o novo usuário&lt;/h2&gt;
+
+&lt;p&gt;Para testar seu novo usuário, faça logout digitando:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;quit
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;E faça login de novamente com este comando:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql -u nome-do-usuário -p
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.digitalocean.com/community/tutorials/como-criar-um-novo-usuario-e-conceder-permissoes-no-mysql-pt&quot; target=&quot;_ blank&quot;&gt;Fonte&lt;/a&gt;&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como criar um novo usuário e conceder permissões no MariaDB e MySQL. O MariaDB e MySQL são sistemas de gerenciamento de banco de dados (SGBD), que possuem uma variedade de opções para conceder a usuários específicos permissões diferenciadas dentro de tabelas e bases de dados. Este artigo vai lhe dar um breve resumo de algumas das muitas opções que eles oferecem.</summary></entry><entry><title type="html">Como deixar o pen drive bootável usando a interface gráfica</title><link href="http://localhost:4000/Como-deixar-o-pen-drive-bootavel-usando-a-interface-grafica" rel="alternate" type="text/html" title="Como deixar o pen drive bootável usando a interface gráfica" /><published>2017-07-03T11:00:00-03:00</published><updated>2017-07-03T11:00:00-03:00</updated><id>http://localhost:4000/%20Como-deixar-o-pen-drive-bootavel-usando-a-interface-grafica</id><content type="html" xml:base="http://localhost:4000/Como-deixar-o-pen-drive-bootavel-usando-a-interface-grafica">&lt;p&gt;Neste artigo, vamos aprender como deixar o pen drive bootável usando a interface gráfica. Alguns usuários não gostam ou não estão muito familiarizados com o Terminal, então esse método é uma boa alternativa. O programa que usaremos será o &lt;strong&gt;Utilitário de Discos do GNOME&lt;/strong&gt;, em algumas distribuições como Debian com o ambiente de trabalho GNOME ou Ubuntu ele já vem instalado por padrão. Caso você esteja usando o Debian como outro ambiente de trabalho use o comando abaixo para instalar Utilitário de Discos do GNOME:&lt;/p&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install gnome-disk-utility
 &lt;/code&gt;&lt;/pre&gt;
@@ -367,81 +465,4 @@ sudo ruby setup.rb
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Esse comando vai executar o seu site localmente na porta 4000. Agora é só você acessar o endereço http://127.0.0.1:4000/ e começar a testar.&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como instalar o Jekyll no Debian e derivados. O Jekyll é um gerador de site estáticos, seja ele um blog, site institucional ou o que você queira criar. O jekyll utiliza o YAML, e para guardar e organizar informações, ele usa o Front Matter e o Liquid como renderizador. Outra coisa muito interessante do Jekyll que você pode fazer os seus post usando Markdown e hospedar o seu site no GitHub.</summary></entry><entry><title type="html">Empacotamento e Compactação de arquivos no GNU/Linux</title><link href="http://localhost:4000/Empacotamento-e-compactacao-de-arquivos-no-gnu-linux" rel="alternate" type="text/html" title="Empacotamento e Compactação de arquivos no GNU/Linux" /><published>2017-04-30T12:00:00-03:00</published><updated>2017-04-30T12:00:00-03:00</updated><id>http://localhost:4000/Empacotamento-e-compactacao-de-arquivos-no-gnu-linux</id><content type="html" xml:base="http://localhost:4000/Empacotamento-e-compactacao-de-arquivos-no-gnu-linux">&lt;p&gt;Nesse artigo, vamos aprender sobre empacotamento e compactação de arquivos. Para o empacotamento de arquivos utilizamos o comando tar, é válido ressaltar que o empacotamento não diminui o tamanho do arquivo, ele faz a junção de um ou mais arquivos em um único arquivo, quem diminui o tamanho são os compactadores, que são GNU gzip (gzip) ou bzip2. Primeiro vamos entender a sintaxe do comando tar.&lt;/p&gt;
-
-&lt;h3 id=&quot;sintaxe&quot;&gt;Sintaxe&lt;/h3&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;opções] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;nome &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;novo arquivo] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;arquivo de origem]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;Vejamos alguma opções do comando tar:&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;c &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Cria um novo arquivo tar
-t &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Exibe o conteúdo de um arquivo tar
-p &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Mantém as permissões originais dos arquivos
-r &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Adiciona arquivos a um arquivo tar existente
-f &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Permite especificar o arquivo tar que vai ser usado, por causa disso é a ultima opção
-v &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Exibe detalhes da operação
-x &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Extrai arquivos de uma arquivo tar existente
-C &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; especifica o diretório dos arquivos a serem armazenados
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;h2 id=&quot;usando-o-comando-tar&quot;&gt;Usando o comando tar&lt;/h2&gt;
-
-&lt;p&gt;Primeiro vamos aprender a usar o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;tar&lt;/code&gt; para o empacotamento de arquivos e extração mais adiante usaremos os compactadores, que não tem nada de difícil.&lt;/p&gt;
-
-&lt;p&gt;Criando um arquivo .tar&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar -cvf artigos.tar telgram.odt mycroft.odt
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;Exibindo o conteúdo de um arquivo .tar&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar -tf artigos.tar
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;Extraindo um arquivo .tar&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar -xvf artigos.tar
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Adicionar um arquivo ao arquivo já empacotado&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar -rf artigos.tar mozilla.odt
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Excluindo um arquivo do arquivo.tar&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar -f artigos.tar –-delete mozilla.odt
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;h2 id=&quot;usando-os-compactadores&quot;&gt;Usando os compactadores&lt;/h2&gt;
-
-&lt;p&gt;Agora que já sabemos usar o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;tar&lt;/code&gt; para o empacotamento de arquivos, vai ser bem fácil aprender a comprimir arquivos. Primeiros vamos aprender a compactar com o gzip, para  isso temos que acrescentar uma opção ao comando tar que é &lt;code class=&quot;highlighter-rouge&quot;&gt;-z&lt;/code&gt;, essa opção indica que os arquivos serão compactados em &lt;strong&gt;gzip&lt;/strong&gt;, que resultará em um arquivo com extensão &lt;strong&gt;.tar.gz&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Criando um arquivo compactado com gzip&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar -cvzf artigos.tar.gz telgram.odt mycroft.odt
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Extraindo arquivos com gzip&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar -xvzf artigos.tar.gz
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Quando for comprimir arquivos usando o &lt;strong&gt;bzip2&lt;/strong&gt;, só acrescentar o parâmetro &lt;code class=&quot;highlighter-rouge&quot;&gt;-j&lt;/code&gt;, essa opção indica que os arquivos serão compactados em bzip2, que resultara um arquivo com a extensão &lt;strong&gt;.tar.bz2&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Criando um arquivo compactado com bzip2&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar -cvjf artigos.tar.bz2 telgram.odt mycroft.odt
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Extraindo arquivos com bzip2&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar -xvjf artigos.tar.bz2
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><author><name>Allythy</name></author><summary type="html">Nesse artigo, vamos aprender sobre empacotamento e compactação de arquivos. Para o empacotamento de arquivos utilizamos o comando tar, é válido ressaltar que o empacotamento não diminui o tamanho do arquivo, ele faz a junção de um ou mais arquivos em um único arquivo, quem diminui o tamanho são os compactadores, que são GNU gzip (gzip) ou bzip2. Primeiro vamos entender a sintaxe do comando tar.</summary></entry></feed>
+&lt;p&gt;Esse comando vai executar o seu site localmente na porta 4000. Agora é só você acessar o endereço http://127.0.0.1:4000/ e começar a testar.&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como instalar o Jekyll no Debian e derivados. O Jekyll é um gerador de site estáticos, seja ele um blog, site institucional ou o que você queira criar. O jekyll utiliza o YAML, e para guardar e organizar informações, ele usa o Front Matter e o Liquid como renderizador. Outra coisa muito interessante do Jekyll que você pode fazer os seus post usando Markdown e hospedar o seu site no GitHub.</summary></entry></feed>
