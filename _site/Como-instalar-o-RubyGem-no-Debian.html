@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Dicas sobre o Debian, Software Livre, linha de comando">
 
-    <title>Allythy</title>
+    <title>Como instalar o RubyGems no Debian - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/">
+    <link rel="canonical" href="http://localhost:4000/Como-instalar-o-RubyGem-no-Debian">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -80,112 +80,91 @@
 </nav>
 
 
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/post-bg-04.jpg')">
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Allythy</h1>
-                    <hr class="small">
-                    <span class="subheading">A mudança é um processo essencial de toda existência</span>
+                <div class="post-heading">
+                    <h1>Como instalar o RubyGems no Debian</h1>
+                    
+                    <h2 class="subheading">Neste artigo, vamos aprender a instalar o RubyGems do Debian</h2>
+                    
+                    <span class="meta">Postador por Allythy em August 24, 2017</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-			
-<div class="post-preview">
-    <a href="/Como-instalar-o-RubyGem-no-Debian">
-        <h2 class="post-title">            Como instalar o RubyGems no Debian
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender a instalar o RubyGems do Debian
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em August 24, 2017</p>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<p>Neste artigo, vamos aprender a instalar o RubyGems do Debian. O RubyGems é o gerenciador de pacotes para o Ruby. Primeiramente, temos que instalar o pacote build-essential, porque vamos compilar algumas coisas.</p>
+
+<h2 id="instalação">Instalação</h2>
+
+<p>Para instalação, use o seguinte comando:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install build-essential
+</code></pre>
 </div>
-<hr>
+<p>Também temos que instalar o Ruby. Para isso, use esse comando:</p>
 
-<div class="post-preview">
-    <a href="/Como-criar-um-novo-usuario-e-conceder-permissoes-no-MariaD-e-MySQL">
-        <h2 class="post-title">            Como criar um novo usuário e conceder permissões no MariaDB e MySQL 
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender como criar um novo usuário e conceder permissões no MariaDB e MySQL
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em August 3, 2017</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install ruby-full
+</code></pre>
 </div>
-<hr>
 
-<div class="post-preview">
-    <a href="/Como-deixar-o-pen-drive-bootavel-usando-a-interface-grafica">
-        <h2 class="post-title">            Como deixar o pen drive bootável usando a interface gráfica
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender como deixar o pen drive bootável usando a interface gráfica
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em July 3, 2017</p>
+<p>Agora temos que baixar o RubyGems, você pode <a href="https://rubygems.org/pages/download#formats" target="_ blank">acessar o site e baixar</a> ou usar esse comando:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>wget -c https://rubygems.org/rubygems/rubygems-2.6.12.tgz
+</code></pre>
 </div>
-<hr>
 
-<div class="post-preview">
-    <a href="/Automatizando-a-gera%C3%A7%C3%A3o-de-senhas-seguras-no-gnu-linux">
-        <h2 class="post-title">            Automatizando a geração de senhas seguras no GNU/Linux
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender a automatizar a geração de senhas seguras no GNU/Linux
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em July 3, 2017</p>
+<p>Vamos descompactar o arquivo baixado. Caso você queira saber mais sobre o descompactadores  <a href="https://allythy.github.io/Empacotamento-e-compactacao-de-arquivos-no-gnu-linux" target="_ blank">tem esse artigo.</a></p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tar -xvzf rubygems-2.6.12.tgz
+</code></pre>
 </div>
-<hr>
 
-<div class="post-preview">
-    <a href="/Como-configurar-uma-vari%C3%A1vel-no-PATH-do-gnu-linux.md">
-        <h2 class="post-title">            Como configurar uma variável no $PATH do GNU/Linux
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender como configurar uma variável no PATH do GNU/Linux. 
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em July 1, 2017</p>
+<p>Temos agora que entrar na pasta que descompactar o arquivo baixado:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">cd </span>rubygems-2.6.12
+</code></pre>
 </div>
-<hr>
 
+<p>Feito isso, vamos instalar o RubyGems com esse comando:</p>
 
-<!-- Pager -->
-
-<ul class="pager">
-    
-    
-    <li class="next">
-        <a href="/page2">Postagem antigas &rarr;</a>
-    </li>
-    
-</ul>
-
-
-		</div>
-	</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo ruby setup.rb
+</code></pre>
 </div>
+
+<p>Pronto, o RubyGems está instalado. Você pode fazer um teste instalando o Gulp com
+esse comando:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo gem install gulp
+</code></pre>
+</div>
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/Como-criar-um-novo-usuario-e-conceder-permissoes-no-MariaD-e-MySQL" data-toggle="tooltip" data-placement="top" title="Como criar um novo usuário e conceder permissões no MariaDB e MySQL ">&larr; Postagem anterior</a>
+                    </li>
+                    
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
 
 <hr>
 

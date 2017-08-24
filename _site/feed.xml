@@ -1,4 +1,48 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-08-03T22:01:49-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como criar um novo usuário e conceder permissões no MariaDB e MySQL</title><link href="http://localhost:4000/Como-criar-um-novo-usuario-e-conceder-permissoes-no-MariaD-e-MySQL" rel="alternate" type="text/html" title="Como criar um novo usuário e conceder permissões no MariaDB e MySQL " /><published>2017-08-03T19:00:00-03:00</published><updated>2017-08-03T19:00:00-03:00</updated><id>http://localhost:4000/Como-criar-um-novo-usuario-e-conceder-permissoes-no-MariaD-e-MySQL</id><content type="html" xml:base="http://localhost:4000/Como-criar-um-novo-usuario-e-conceder-permissoes-no-MariaD-e-MySQL">&lt;p&gt;Neste artigo, vamos aprender como criar um novo usuário e conceder permissões no MariaDB e MySQL. O  MariaDB e MySQL são sistemas de gerenciamento de banco de dados (SGBD), que possuem uma variedade de opções para conceder a usuários específicos permissões diferenciadas dentro de tabelas e bases de dados. Este artigo vai lhe dar um breve resumo de algumas das muitas opções que eles oferecem.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-08-24T15:10:17-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como instalar o RubyGems no Debian</title><link href="http://localhost:4000/Como-instalar-o-RubyGem-no-Debian" rel="alternate" type="text/html" title="Como instalar o RubyGems no Debian" /><published>2017-08-24T12:00:00-03:00</published><updated>2017-08-24T12:00:00-03:00</updated><id>http://localhost:4000/Como-instalar-o-RubyGem-no-Debian</id><content type="html" xml:base="http://localhost:4000/Como-instalar-o-RubyGem-no-Debian">&lt;p&gt;Neste artigo, vamos aprender a instalar o RubyGems do Debian. O RubyGems é o gerenciador de pacotes para o Ruby. Primeiramente, temos que instalar o pacote build-essential, porque vamos compilar algumas coisas.&lt;/p&gt;
+
+&lt;h2 id=&quot;instalação&quot;&gt;Instalação&lt;/h2&gt;
+
+&lt;p&gt;Para instalação, use o seguinte comando:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install build-essential
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Também temos que instalar o Ruby. Para isso, use esse comando:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install ruby-full
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Agora temos que baixar o RubyGems, você pode &lt;a href=&quot;https://rubygems.org/pages/download#formats&quot; target=&quot;_ blank&quot;&gt;acessar o site e baixar&lt;/a&gt; ou usar esse comando:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget -c https://rubygems.org/rubygems/rubygems-2.6.12.tgz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Vamos descompactar o arquivo baixado. Caso você queira saber mais sobre o descompactadores  &lt;a href=&quot;https://allythy.github.io/Empacotamento-e-compactacao-de-arquivos-no-gnu-linux&quot; target=&quot;_ blank&quot;&gt;tem esse artigo.&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar -xvzf rubygems-2.6.12.tgz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Temos agora que entrar na pasta que descompactar o arquivo baixado:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;rubygems-2.6.12
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Feito isso, vamos instalar o RubyGems com esse comando:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo ruby setup.rb
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Pronto, o RubyGems está instalado. Você pode fazer um teste instalando o Gulp com
+esse comando:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo gem install gulp
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender a instalar o RubyGems do Debian. O RubyGems é o gerenciador de pacotes para o Ruby. Primeiramente, temos que instalar o pacote build-essential, porque vamos compilar algumas coisas.</summary></entry><entry><title type="html">Como criar um novo usuário e conceder permissões no MariaDB e MySQL</title><link href="http://localhost:4000/Como-criar-um-novo-usuario-e-conceder-permissoes-no-MariaD-e-MySQL" rel="alternate" type="text/html" title="Como criar um novo usuário e conceder permissões no MariaDB e MySQL " /><published>2017-08-03T19:00:00-03:00</published><updated>2017-08-03T19:00:00-03:00</updated><id>http://localhost:4000/Como-criar-um-novo-usuario-e-conceder-permissoes-no-MariaD-e-MySQL</id><content type="html" xml:base="http://localhost:4000/Como-criar-um-novo-usuario-e-conceder-permissoes-no-MariaD-e-MySQL">&lt;p&gt;Neste artigo, vamos aprender como criar um novo usuário e conceder permissões no MariaDB e MySQL. O  MariaDB e MySQL são sistemas de gerenciamento de banco de dados (SGBD), que possuem uma variedade de opções para conceder a usuários específicos permissões diferenciadas dentro de tabelas e bases de dados. Este artigo vai lhe dar um breve resumo de algumas das muitas opções que eles oferecem.&lt;/p&gt;
 
 &lt;h2 id=&quot;como-criar-um-novo-usuário&quot;&gt;Como criar um Novo Usuário&lt;/h2&gt;
 
@@ -402,67 +446,4 @@ make
 sudo make install
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;Espero que tenha sanado suas dúvidas sobre esse assunto.&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como instalar programas pelo código fonte, isso pode parecer uma tarefa bem complicada, mas não é. Na maioria das vezes usamos ferramentas para instalar os programas sem necessidade de compilar ou corrigir dependências, como o apt-get, aptitude, yum ou pacman eles fazem isso tudo para gente. Mas existem alguns programas que vêm apenas com o código fonte, então temos que compilar, que é transformar o “texto” (linguagem de programação) em arquivos binários, pois é essa linguagem que o computador entende.</summary></entry><entry><title type="html">Como instalar o Jekyll no Debian e derivados</title><link href="http://localhost:4000/Como-instalar-o-Jekyll-no-Debian-e-derivados" rel="alternate" type="text/html" title="Como instalar o Jekyll no Debian e derivados " /><published>2017-05-07T11:00:00-03:00</published><updated>2017-05-07T11:00:00-03:00</updated><id>http://localhost:4000/Como-instalar-o-Jekyll-no-Debian-e-derivados</id><content type="html" xml:base="http://localhost:4000/Como-instalar-o-Jekyll-no-Debian-e-derivados">&lt;p&gt;Neste artigo, vamos aprender como instalar o Jekyll no Debian e derivados. O Jekyll é um gerador de site estáticos, seja ele um blog, site institucional ou o que você queira criar. O jekyll utiliza o &lt;a href=&quot;http://yaml.org/&quot;&gt;YAML&lt;/a&gt;, e  para guardar e organizar informações, ele usa o Front Matter e o &lt;a href=&quot;https://github.com/Shopify/liquid/wiki&quot;&gt;Liquid&lt;/a&gt; como renderizador. Outra coisa muito interessante do Jekyll que você pode fazer os seus post usando &lt;a href=&quot;https://daringfireball.net/projects/markdown/&quot;&gt;Markdown&lt;/a&gt; e hospedar o seu site no &lt;a href=&quot;https://github.com/&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;como-instalar-o-jekyll&quot;&gt;Como Instalar o Jekyll?&lt;/h2&gt;
-
-&lt;p&gt;Primeiro temos que instalar o pacote build-essential, pois vamos precisar do gcc e do make. Para isso,  use esse comando:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install build-essential
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Também temos que instalar a versão 2.0 do ruby ou superior.  Para isso, use esse comando:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install ruby2.3
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Cerifique-se que também foi instalado o pacote ruby-dev, caso não tenho sido instalado, use esse comando:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install ruby2.3-dev
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Agora temos que baixar o RubyGems, que é um gerenciador de pacotes para o Ruby. Você pode &lt;a href=&quot;https://rubygems.org/pages/download&quot;&gt;acessar o site e baixar&lt;/a&gt; ou usar esse comando:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget -c https://rubygems.org/rubygems/rubygems-2.6.11.tgz
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Vamos descompactar. Caso você queira saber mais sobre o descompactadores &lt;a href=&quot;https://allythy.github.io/Empacotamento-e-compactacao-de-arquivos-no-gnu-linux&quot;&gt;tem esse artigo&lt;/a&gt;.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar -xvzf rubygems-2.6.11.tgz
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;Temos que entrar na pasta que descompactar e depois instalar o RubyGems, para isso use esses comandos:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;rubygems-2.6.11/
-sudo ruby setup.rb
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Pronto, agora é só instalar o jekyll com esse comando:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo gem install jekyll bundler
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Você pode verificar se ele foi instalado com esse comando:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll -v
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Pronto, você tá com Jekyll instalado. Para criar o seu site digite esse comando, onde tem o nomeSempreUpdate coloque o nome que você vai dar para o seu site.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo jekyll new allythy
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;Esse comando vai gerar uma pasta com o nome que você deu para o seu site, entre nessa pasta e execute esse comando:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo jekyll s
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Esse comando vai executar o seu site localmente na porta 4000. Agora é só você acessar o endereço http://127.0.0.1:4000/ e começar a testar.&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como instalar o Jekyll no Debian e derivados. O Jekyll é um gerador de site estáticos, seja ele um blog, site institucional ou o que você queira criar. O jekyll utiliza o YAML, e para guardar e organizar informações, ele usa o Front Matter e o Liquid como renderizador. Outra coisa muito interessante do Jekyll que você pode fazer os seus post usando Markdown e hospedar o seu site no GitHub.</summary></entry></feed>
+&lt;p&gt;Espero que tenha sanado suas dúvidas sobre esse assunto.&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como instalar programas pelo código fonte, isso pode parecer uma tarefa bem complicada, mas não é. Na maioria das vezes usamos ferramentas para instalar os programas sem necessidade de compilar ou corrigir dependências, como o apt-get, aptitude, yum ou pacman eles fazem isso tudo para gente. Mas existem alguns programas que vêm apenas com o código fonte, então temos que compilar, que é transformar o “texto” (linguagem de programação) em arquivos binários, pois é essa linguagem que o computador entende.</summary></entry></feed>
