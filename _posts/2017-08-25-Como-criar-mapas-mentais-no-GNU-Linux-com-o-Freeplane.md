@@ -18,8 +18,7 @@ Algumas funções:
     Estilo de nó automático de acordo com a hierarquia
     Exportar o mapa mental como html, svg, png, pdf e outros formatos
 
-
-![](/img/freeplane.png)
+![Mostrando a interface gráfica do Freeplane](/img/freeplane.png)
 ## Instalação
 
 Debian e derivados

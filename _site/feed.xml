@@ -1,4 +1,94 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-08-25T20:40:09-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como criar mapas mentais no GNU/Linux</title><link href="http://localhost:4000/Como-criar-mapas-mentais-no-GNU-Linux-com-o-Freeplane" rel="alternate" type="text/html" title="Como criar mapas mentais no GNU/Linux" /><published>2017-08-25T17:00:00-03:00</published><updated>2017-08-25T17:00:00-03:00</updated><id>http://localhost:4000/Como-criar-mapas-mentais-no-GNU-Linux-com-o-Freeplane</id><content type="html" xml:base="http://localhost:4000/Como-criar-mapas-mentais-no-GNU-Linux-com-o-Freeplane">&lt;p&gt;Uma ótima ferramenta para criação de mapas mentais no GNU/Linux é o Freeplane. O Freeplane é software livre e está no repositório da maioria das distribuições GNU/Linux.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-08-27T00:36:53-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como instalar o pip para gerenciar pacotes do Python no GNU/Linux</title><link href="http://localhost:4000/Como-instalar-o-pip-para-gerenciar-pacotes-do-Python-no-GNU-Linux" rel="alternate" type="text/html" title="Como instalar o pip para gerenciar pacotes do Python no GNU/Linux" /><published>2017-08-26T21:35:00-03:00</published><updated>2017-08-26T21:35:00-03:00</updated><id>http://localhost:4000/Como-instalar-o-pip-para-gerenciar-pacotes-do-Python-no-GNU-Linux</id><content type="html" xml:base="http://localhost:4000/Como-instalar-o-pip-para-gerenciar-pacotes-do-Python-no-GNU-Linux">&lt;p&gt;Neste artigo, vamos aprender como instalar o pip no GNU/Linux. O pip é um gerenciador de pacotes multiplataforma para instalar e gerenciar pacotes Python.&lt;/p&gt;
+
+&lt;h2 id=&quot;instalação-no-debian-e-derivados&quot;&gt;Instalação no Debian e derivados&lt;/h2&gt;
+
+&lt;p&gt;Para o Python 2&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install python-pip
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Para o Python 3&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install python3-pip
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;instalação-no-centos-e-rhel&quot;&gt;Instalação no CentOS e RHEL&lt;/h2&gt;
+
+&lt;p&gt;Infelizmente, o pip não é está no repositório oficial do CentOS/RHEL. Então, você precisa primeiro habilitar o repositório EPEL e depois instalar o pip.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum install epel-release
+sudo yum install python-pip
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;instalação-no-fedora&quot;&gt;Instalação no Fedora&lt;/h2&gt;
+
+&lt;p&gt;Para o Python 2&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo dnf install python-pip
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Para o Python 3&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo dnf install python3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;instalação-no-arch-linux&quot;&gt;Instalação no Arch Linux&lt;/h2&gt;
+
+&lt;p&gt;Para o Python 2&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo pacman -S python2-pip
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Para o Python 3&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo pacman -S python-pip
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;instalação-no-opensuse&quot;&gt;Instalação no openSUSE&lt;/h2&gt;
+
+&lt;p&gt;Para o Python 2&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo zypper install python-pip
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Para o Python 3&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo zypper install python3-pip
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;como-usar-o-pip&quot;&gt;Como usar o Pip&lt;/h2&gt;
+
+&lt;p&gt;Eu vou usar como exemplo o pip3 que usar o Python 3, caso você queira usar o Python 2 use o pip no lugar do pip3.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Instalação de pacotes:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo pip3 install nome-do-pacote
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Desinstalação de um pacote:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo uninstall nome-do-pacote
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Procurar um pacote:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip3 search nome-do-pacote
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Listar os pacotes instalados:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip3 list
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Mostrar informações sobre um pacote:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip3 show nome-do-pacote
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Para ver a lista completa de comandos:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip3 &lt;span class=&quot;nb&quot;&gt;help&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.tecmint.com/install-pip-in-linux/&quot; target=&quot;_ blank&quot;&gt;Fonte&lt;/a&gt;&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como instalar o pip no GNU/Linux. O pip é um gerenciador de pacotes multiplataforma para instalar e gerenciar pacotes Python.</summary></entry><entry><title type="html">Como criar mapas mentais no GNU/Linux</title><link href="http://localhost:4000/Como-criar-mapas-mentais-no-GNU-Linux-com-o-Freeplane" rel="alternate" type="text/html" title="Como criar mapas mentais no GNU/Linux" /><published>2017-08-25T17:00:00-03:00</published><updated>2017-08-25T17:00:00-03:00</updated><id>http://localhost:4000/Como-criar-mapas-mentais-no-GNU-Linux-com-o-Freeplane</id><content type="html" xml:base="http://localhost:4000/Como-criar-mapas-mentais-no-GNU-Linux-com-o-Freeplane">&lt;p&gt;Uma ótima ferramenta para criação de mapas mentais no GNU/Linux é o Freeplane. O Freeplane é software livre e está no repositório da maioria das distribuições GNU/Linux.&lt;/p&gt;
 
 &lt;p&gt;Algumas funções:&lt;/p&gt;
 
@@ -391,23 +481,4 @@ GRANT OPTION- permite conceder ou revogar privilégios de outros usuários
 
 &lt;p&gt;Se por algum motivo algo está ameaçando a segurança do seu sistema, como a execução acidental de um script malicioso como root ou de programa desconhecido, poderá colocar os discos como somente leitura e evitar danos mais sérios.&lt;/p&gt;
 
-&lt;p&gt;Mantenha &lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;Print Screen&lt;/kbd&gt;+&lt;kbd&gt;Shift&lt;/kbd&gt;+&lt;kbd&gt;u&lt;/kbd&gt;&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo vamos aprender algumas teclas de emergência do GNU/Linux. Sabemos que os sistemas GNU/Linux não estão a salvo de travamentos(raramente isso acontece), então é bom conhecer o que fazer quando ocorre essa situação, pois não queremos danificar o nosso sistema.</summary></entry><entry><title type="html">Como fazer cálculo de sub-redes no terminal</title><link href="http://localhost:4000/Como-fazer-calculos-de-sub-rede-no-terminal" rel="alternate" type="text/html" title="Como fazer cálculo de sub-redes no terminal" /><published>2017-06-03T16:00:00-03:00</published><updated>2017-06-03T16:00:00-03:00</updated><id>http://localhost:4000/Como-fazer-calculos-de-sub-rede-no-terminal</id><content type="html" xml:base="http://localhost:4000/Como-fazer-calculos-de-sub-rede-no-terminal">&lt;p&gt;Neste artigo, vamos aprender a fazer cálculo de sub-rede no terminal. Hoje eu estava estudando para prova de Redes que eu tenho amanhã, só que eu não tinha como conferir se as respostas estavam corretas, então fui pesquisar algum programa (apt-cache search ) achei ipcalc um programa de linha de comando que mostra o endereço de rede, primeiro host, ultimo host, máscara de rede, endereço de broadcast e faz cálculos de sub-rede para uma determinada quantidade de host. O ipcalc  mostrar todas essas informações tanto em decimal como em binário, mas o ipcalc só é valido para o Ipv4.  A  instalação é bem simples, digite esse comando:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install ipcalc
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;Para  verificar  o endereço de rede, primeiro host, ultimo host, máscara de rede, endereço de broadcast de um determinado IP, use esse comando:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; ipcalc 192.168.0.0/24
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;Para verificar o endereço IP para uma sub-rede com 40 host outra com 25 host e outra com 12 host&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ipcalc 192.100.40.0/24 -s 40 25 12
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;Para fazer 8 sub-redes para um endereço IP de classe C&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ipcalc 192.168.0.0/24 27
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender a fazer cálculo de sub-rede no terminal. Hoje eu estava estudando para prova de Redes que eu tenho amanhã, só que eu não tinha como conferir se as respostas estavam corretas, então fui pesquisar algum programa (apt-cache search ) achei ipcalc um programa de linha de comando que mostra o endereço de rede, primeiro host, ultimo host, máscara de rede, endereço de broadcast e faz cálculos de sub-rede para uma determinada quantidade de host. O ipcalc mostrar todas essas informações tanto em decimal como em binário, mas o ipcalc só é valido para o Ipv4. A instalação é bem simples, digite esse comando:</summary></entry></feed>
+&lt;p&gt;Mantenha &lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;Print Screen&lt;/kbd&gt;+&lt;kbd&gt;Shift&lt;/kbd&gt;+&lt;kbd&gt;u&lt;/kbd&gt;&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo vamos aprender algumas teclas de emergência do GNU/Linux. Sabemos que os sistemas GNU/Linux não estão a salvo de travamentos(raramente isso acontece), então é bom conhecer o que fazer quando ocorre essa situação, pois não queremos danificar o nosso sistema.</summary></entry></feed>

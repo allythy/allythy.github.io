@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Dicas sobre o Debian, Software Livre, linha de comando">
 
-    <title>Allythy</title>
+    <title>Como instalar o pip para gerenciar pacotes do Python no GNU/Linux - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/">
+    <link rel="canonical" href="http://localhost:4000/Como-instalar-o-pip-para-gerenciar-pacotes-do-Python-no-GNU-Linux">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -80,112 +80,137 @@
 </nav>
 
 
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/post-bg-04.jpg')">
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Allythy</h1>
-                    <hr class="small">
-                    <span class="subheading">A mudança é um processo essencial de toda existência</span>
+                <div class="post-heading">
+                    <h1>Como instalar o pip para gerenciar pacotes do Python no GNU/Linux</h1>
+                    
+                    <h2 class="subheading">Neste artigo, vamos aprender como instalar o pip para gerenciar pacotes do Python no GNU/Linux.</h2>
+                    
+                    <span class="meta">Postador por Allythy em August 26, 2017</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-			
-<div class="post-preview">
-    <a href="/Como-instalar-o-pip-para-gerenciar-pacotes-do-Python-no-GNU-Linux">
-        <h2 class="post-title">            Como instalar o pip para gerenciar pacotes do Python no GNU/Linux
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender como instalar o pip para gerenciar pacotes do Python no GNU/Linux.
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em August 26, 2017</p>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<p>Neste artigo, vamos aprender como instalar o pip no GNU/Linux. O pip é um gerenciador de pacotes multiplataforma para instalar e gerenciar pacotes Python.</p>
+
+<h2 id="instalação-no-debian-e-derivados">Instalação no Debian e derivados</h2>
+
+<p>Para o Python 2</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install python-pip
+</code></pre>
 </div>
-<hr>
-
-<div class="post-preview">
-    <a href="/Como-criar-mapas-mentais-no-GNU-Linux-com-o-Freeplane">
-        <h2 class="post-title">            Como criar mapas mentais no GNU/Linux
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender como criar mapas mentais no GNU/Linux.
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em August 25, 2017</p>
+<p>Para o Python 3</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install python3-pip
+</code></pre>
 </div>
-<hr>
+<h2 id="instalação-no-centos-e-rhel">Instalação no CentOS e RHEL</h2>
 
-<div class="post-preview">
-    <a href="/Como-instalar-o-RubyGem-no-Debian">
-        <h2 class="post-title">            Como instalar o RubyGems no Debian
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender a instalar o RubyGems do Debian
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em August 24, 2017</p>
+<p>Infelizmente, o pip não é está no repositório oficial do CentOS/RHEL. Então, você precisa primeiro habilitar o repositório EPEL e depois instalar o pip.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo yum install epel-release
+sudo yum install python-pip
+</code></pre>
 </div>
-<hr>
 
-<div class="post-preview">
-    <a href="/Como-criar-um-novo-usuario-e-conceder-permissoes-no-MariaD-e-MySQL">
-        <h2 class="post-title">            Como criar um novo usuário e conceder permissões no MariaDB e MySQL 
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender como criar um novo usuário e conceder permissões no MariaDB e MySQL
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em August 3, 2017</p>
+<h2 id="instalação-no-fedora">Instalação no Fedora</h2>
+
+<p>Para o Python 2</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo dnf install python-pip
+</code></pre>
 </div>
-<hr>
 
-<div class="post-preview">
-    <a href="/Como-deixar-o-pen-drive-bootavel-usando-a-interface-grafica">
-        <h2 class="post-title">            Como deixar o pen drive bootável usando a interface gráfica
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender como deixar o pen drive bootável usando a interface gráfica
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em July 3, 2017</p>
+<p>Para o Python 3</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo dnf install python3
+</code></pre>
 </div>
-<hr>
 
+<h2 id="instalação-no-arch-linux">Instalação no Arch Linux</h2>
 
-<!-- Pager -->
-
-<ul class="pager">
-    
-    
-    <li class="next">
-        <a href="/page2">Postagem antigas &rarr;</a>
-    </li>
-    
-</ul>
-
-
-		</div>
-	</div>
+<p>Para o Python 2</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo pacman -S python2-pip
+</code></pre>
 </div>
+
+<p>Para o Python 3</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo pacman -S python-pip
+</code></pre>
+</div>
+
+<h2 id="instalação-no-opensuse">Instalação no openSUSE</h2>
+
+<p>Para o Python 2</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo zypper install python-pip
+</code></pre>
+</div>
+
+<p>Para o Python 3</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo zypper install python3-pip
+</code></pre>
+</div>
+
+<h2 id="como-usar-o-pip">Como usar o Pip</h2>
+
+<p>Eu vou usar como exemplo o pip3 que usar o Python 3, caso você queira usar o Python 2 use o pip no lugar do pip3.</p>
+
+<p><strong>Instalação de pacotes:</strong></p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo pip3 install nome-do-pacote
+</code></pre>
+</div>
+
+<p><strong>Desinstalação de um pacote:</strong></p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo uninstall nome-do-pacote
+</code></pre>
+</div>
+
+<p><strong>Procurar um pacote:</strong></p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>pip3 search nome-do-pacote
+</code></pre>
+</div>
+
+<p><strong>Listar os pacotes instalados:</strong></p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>pip3 list
+</code></pre>
+</div>
+<p><strong>Mostrar informações sobre um pacote:</strong></p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>pip3 show nome-do-pacote
+</code></pre>
+</div>
+
+<p><strong>Para ver a lista completa de comandos:</strong></p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>pip3 <span class="nb">help</span>
+</code></pre>
+</div>
+
+<p><a href="https://www.tecmint.com/install-pip-in-linux/" target="_ blank">Fonte</a></p>
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/Como-criar-mapas-mentais-no-GNU-Linux-com-o-Freeplane" data-toggle="tooltip" data-placement="top" title="Como criar mapas mentais no GNU/Linux">&larr; Postagem anterior</a>
+                    </li>
+                    
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
 
 <hr>
 
