@@ -1,4 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-08-27T00:36:53-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como instalar o pip para gerenciar pacotes do Python no GNU/Linux</title><link href="http://localhost:4000/Como-instalar-o-pip-para-gerenciar-pacotes-do-Python-no-GNU-Linux" rel="alternate" type="text/html" title="Como instalar o pip para gerenciar pacotes do Python no GNU/Linux" /><published>2017-08-26T21:35:00-03:00</published><updated>2017-08-26T21:35:00-03:00</updated><id>http://localhost:4000/Como-instalar-o-pip-para-gerenciar-pacotes-do-Python-no-GNU-Linux</id><content type="html" xml:base="http://localhost:4000/Como-instalar-o-pip-para-gerenciar-pacotes-do-Python-no-GNU-Linux">&lt;p&gt;Neste artigo, vamos aprender como instalar o pip no GNU/Linux. O pip é um gerenciador de pacotes multiplataforma para instalar e gerenciar pacotes Python.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-09-10T22:08:59-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como instalar o corretor ortográfico no LibreOffice</title><link href="http://localhost:4000/Como-instalar-o-corretor-ortografico-no-LibreOffice" rel="alternate" type="text/html" title="Como instalar o corretor ortográfico no LibreOffice" /><published>2017-09-10T19:00:00-03:00</published><updated>2017-09-10T19:00:00-03:00</updated><id>http://localhost:4000/Como-instalar%20o-corretor-ortografico-no-LibreOffice</id><content type="html" xml:base="http://localhost:4000/Como-instalar-o-corretor-ortografico-no-LibreOffice">&lt;p&gt;Essa será uma dica bem rápida, mas muito útil de como instalar o corretor ortográfico no LibreOffice. O LibreOffice que vem no Debian ou derivados não contém o corretor ortográfico, porque infelizmente ninguém empacotou para ele ainda. Mas, se você baixar o LibreOffice direto do site ele já vem com o corretor ortográfico. Para que você não tenha o trabalho de desinstalar o LibreOffice que está na nossa distribuição e baixar a do site, vamos apenas instalar o corretor ortográfico, o VERO.&lt;/p&gt;
+
+&lt;h2 id=&quot;instalação&quot;&gt;Instalação&lt;/h2&gt;
+
+&lt;p&gt;Primeiro, você têm que acessar o site do VERO e baixar ou usar esse comando para isso:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget -c https://pt-br.libreoffice.org/assets/Uploads/PT-BR-Documents/VERO/VeroptBRV320AOC.oxt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Feito isso, vamos abrir o LibreOffice e ir em &lt;strong&gt;Ferrementas &amp;gt; Gerenciador de Extensões&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/libreoffice.png&quot; alt=&quot;Tela principal do LibreOffice mostrando onde está o gerenciador de extensões&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Com o gerenciador de extensões aberto vamos clicar em adicionar.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/libreoffice2png&quot; alt=&quot;Tela do gerenciador de extensões do LibreOffice&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;E depois informar o caminho onde salvamos o Vero e clicamos em abrir.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/libreoffice3.png&quot; alt=&quot;Tela para informar o caminho onde salvamos o Vero&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Feito isso, você pode fechar o gerenciador de extensões que o corretor ortográfico do LibreOffice já estará funcionando.&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Essa será uma dica bem rápida, mas muito útil de como instalar o corretor ortográfico no LibreOffice. O LibreOffice que vem no Debian ou derivados não contém o corretor ortográfico, porque infelizmente ninguém empacotou para ele ainda. Mas, se você baixar o LibreOffice direto do site ele já vem com o corretor ortográfico. Para que você não tenha o trabalho de desinstalar o LibreOffice que está na nossa distribuição e baixar a do site, vamos apenas instalar o corretor ortográfico, o VERO.</summary></entry><entry><title type="html">Como instalar o pip para gerenciar pacotes do Python no GNU/Linux</title><link href="http://localhost:4000/Como-instalar-o-pip-para-gerenciar-pacotes-do-Python-no-GNU-Linux" rel="alternate" type="text/html" title="Como instalar o pip para gerenciar pacotes do Python no GNU/Linux" /><published>2017-08-26T21:35:00-03:00</published><updated>2017-08-26T21:35:00-03:00</updated><id>http://localhost:4000/Como-instalar-o-pip-para-gerenciar-pacotes-do-Python-no-GNU-Linux</id><content type="html" xml:base="http://localhost:4000/Como-instalar-o-pip-para-gerenciar-pacotes-do-Python-no-GNU-Linux">&lt;p&gt;Neste artigo, vamos aprender como instalar o pip no GNU/Linux. O pip é um gerenciador de pacotes multiplataforma para instalar e gerenciar pacotes Python.&lt;/p&gt;
 
 &lt;h2 id=&quot;instalação-no-debian-e-derivados&quot;&gt;Instalação no Debian e derivados&lt;/h2&gt;
 
@@ -102,7 +123,7 @@ Exportar o mapa mental como html, svg, png, pdf e outros formatos
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/freeplane.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/freeplane.png&quot; alt=&quot;Mostrando a interface gráfica do Freeplane&quot; /&gt;&lt;/p&gt;
 &lt;h2 id=&quot;instalação&quot;&gt;Instalação&lt;/h2&gt;
 
 &lt;p&gt;Debian e derivados&lt;/p&gt;
@@ -457,28 +478,4 @@ GRANT OPTION- permite conceder ou revogar privilégios de outros usuários
 
 &lt;p&gt;O FFmpeg tem muitas opões e é fácil esquecê-las, especialmente se você usar o FFmpeg de vez em quando. Então é sempre bom &lt;a href=&quot;https://ffmpeg.org/ffmpeg.html&quot; target=&quot;_ blank&quot;&gt;ler a documentação&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://opensource.com/life/16/10/3-file-conversion-tools-linux-command-line&quot; target=&quot;_ blank&quot;&gt;Fonte&lt;/a&gt;&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos ver três ferramentas de conversão de arquivos de linha de comando para GNU/Linux.</summary></entry><entry><title type="html">Teclas de emergência do GNU/Linux</title><link href="http://localhost:4000/Teclas-de-emergencia-do-gnu-linux" rel="alternate" type="text/html" title="Teclas de emergência do GNU/Linux" /><published>2017-06-09T17:00:00-03:00</published><updated>2017-06-09T17:00:00-03:00</updated><id>http://localhost:4000/Teclas-de-emergencia-do-gnu-linux</id><content type="html" xml:base="http://localhost:4000/Teclas-de-emergencia-do-gnu-linux">&lt;p&gt;Neste artigo vamos aprender algumas teclas de emergência do GNU/Linux. Sabemos que os sistemas GNU/Linux não estão a salvo de travamentos(raramente isso acontece), então é bom conhecer o que fazer quando ocorre essa situação, pois não queremos danificar o nosso sistema.&lt;/p&gt;
-
-&lt;h2 id=&quot;desligando-o-computador&quot;&gt;Desligando o computador&lt;/h2&gt;
-
-&lt;p&gt;A primeira combinação de emergência é usada para sincronizar os discos e desligar o computador instantaneamente, evitando problemas nos sistemas de arquivos. Ela é ideal para quem precisa desligar o computador rapidamente sem danificar seus sistemas de arquivos, ou quando a máquina trava e por qualquer motivo não permite um desligamento natural através do init.&lt;/p&gt;
-
-&lt;p&gt;Mantenha &lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;Print Screen&lt;/kbd&gt;+&lt;kbd&gt;Shift&lt;/kbd&gt;+&lt;kbd&gt;o&lt;/kbd&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;reiniciando-o-computador&quot;&gt;Reiniciando o computador&lt;/h2&gt;
-
-&lt;p&gt;Assim como o Ctrl+Alt+Del do MS-DOS o kernel do Linux também possui uma chamada de emergência que permite reiniciar a máquina, com a vantagem de sincronizar os discos evitando danos no sistema de arquivos.&lt;/p&gt;
-
-&lt;p&gt;Mantenha &lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;Print Screen&lt;/kbd&gt;+&lt;kbd&gt;Shift&lt;/kbd&gt;+&lt;kbd&gt;b&lt;/kbd&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;sincronizando-os-discos&quot;&gt;Sincronizando os discos&lt;/h2&gt;
-
-&lt;p&gt;Se você acha que a força vai cair e precisa trabalhar até a ultima hora mas tem medo de danificar seu sistema de arquivo, poderá sincronizar seus discos de tempos em tempos. Para sincronizar discos em caso de emergência.&lt;/p&gt;
-
-&lt;p&gt;Mantenha &lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;Print Screen&lt;/kbd&gt;+&lt;kbd&gt;Shift&lt;/kbd&gt;+&lt;kbd&gt;s&lt;/kbd&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;segurança&quot;&gt;Segurança&lt;/h2&gt;
-
-&lt;p&gt;Se por algum motivo algo está ameaçando a segurança do seu sistema, como a execução acidental de um script malicioso como root ou de programa desconhecido, poderá colocar os discos como somente leitura e evitar danos mais sérios.&lt;/p&gt;
-
-&lt;p&gt;Mantenha &lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;Print Screen&lt;/kbd&gt;+&lt;kbd&gt;Shift&lt;/kbd&gt;+&lt;kbd&gt;u&lt;/kbd&gt;&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo vamos aprender algumas teclas de emergência do GNU/Linux. Sabemos que os sistemas GNU/Linux não estão a salvo de travamentos(raramente isso acontece), então é bom conhecer o que fazer quando ocorre essa situação, pois não queremos danificar o nosso sistema.</summary></entry></feed>
+&lt;p&gt;&lt;a href=&quot;https://opensource.com/life/16/10/3-file-conversion-tools-linux-command-line&quot; target=&quot;_ blank&quot;&gt;Fonte&lt;/a&gt;&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos ver três ferramentas de conversão de arquivos de linha de comando para GNU/Linux.</summary></entry></feed>
