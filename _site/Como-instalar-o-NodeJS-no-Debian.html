@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Dicas sobre o Debian, Software Livre, linha de comando">
 
-    <title>Allythy</title>
+    <title>Como instalar o NodeJS no Debian - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/page2/">
+    <link rel="canonical" href="http://localhost:4000/Como-instalar-o-NodeJS-no-Debian">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -80,116 +80,94 @@
 </nav>
 
 
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/post-bg-04.jpg')">
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Allythy</h1>
-                    <hr class="small">
-                    <span class="subheading">A mudança é um processo essencial de toda existência</span>
+                <div class="post-heading">
+                    <h1>Como instalar o NodeJS no Debian</h1>
+                    
+                    <h2 class="subheading">Neste artigo, vamos aprender como instalar o NodeJS no Debian</h2>
+                    
+                    <span class="meta">Postador por Allythy em September 12, 2017</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-			
-<div class="post-preview">
-    <a href="/Como-criar-um-novo-usuario-e-conceder-permissoes-no-MariaD-e-MySQL">
-        <h2 class="post-title">            Como criar um novo usuário e conceder permissões no MariaDB e MySQL 
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender como criar um novo usuário e conceder permissões no MariaDB e MySQL
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em August 3, 2017</p>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<p>Neste artigo, vamos aprender como instalar o NodeJS no Debian. Node.js é uma plataforma para desenvolvimento de aplicações server-side baseadas em rede utilizando JavaScript e o V8 JavaScript Engine, ou seja, com Node.js podemos criar uma variedade de aplicações Web utilizando apenas código em JavaScript.</p>
+
+<h2 id="baixando-e-executando-script">Baixando e executando script</h2>
+
+<p>Esta parte é super fácil. Na verdade, é o que é recomendado pela NodeJS Foundation. Use cURL para baixar script. O script detecta sua distribuição e configura o repositório para você. Ele ainda executa <code class="highlighter-rouge">apt update</code>. Você provavelmente deve ter o <code class="highlighter-rouge">sudo</code> instalado. Caso contrário, você precisa executar o script com o usuário <code class="highlighter-rouge">root</code> e os comandos onde eu utilizo o sudo você deve omitir o mesmo, porque se você não fizer isso vai da um erro dizendo que o comando não foi encontrado.</p>
+
+<p>Caso você não tenho o cURL, use esse comando para instalar:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install curl
+</code></pre>
 </div>
-<hr>
 
-<div class="post-preview">
-    <a href="/Como-deixar-o-pen-drive-bootavel-usando-a-interface-grafica">
-        <h2 class="post-title">            Como deixar o pen drive bootável usando a interface gráfica
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender como deixar o pen drive bootável usando a interface gráfica
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em July 3, 2017</p>
+<p><strong>Versão LTS do Nodejs</strong></p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+</code></pre>
 </div>
-<hr>
 
-<div class="post-preview">
-    <a href="/Automatizando-a-gera%C3%A7%C3%A3o-de-senhas-seguras-no-gnu-linux">
-        <h2 class="post-title">            Automatizando a geração de senhas seguras no GNU/Linux
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender a automatizar a geração de senhas seguras no GNU/Linux
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em July 3, 2017</p>
+<p><strong>Última versão do Nodejs</strong></p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+</code></pre>
 </div>
-<hr>
 
-<div class="post-preview">
-    <a href="/Como-configurar-uma-vari%C3%A1vel-no-PATH-do-gnu-linux.md">
-        <h2 class="post-title">            Como configurar uma variável no $PATH do GNU/Linux
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender como configurar uma variável no PATH do GNU/Linux. 
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em July 1, 2017</p>
+<h2 id="instalando-o-nodejs">Instalando o NodeJs</h2>
+
+<p>Agora que temos o repositório configura. Você pode instalar o NodeJS normalmente através do <code class="highlighter-rouge">apt</code>.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install nodejs
+</code></pre>
 </div>
-<hr>
 
-<div class="post-preview">
-    <a href="/Como-baixar-playlist-do-Youtube-usando-o-youtube-dl">
-        <h2 class="post-title">            Como baixar playlist do Youtube usando o youtube-dl
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Esta vai ser uma dica bem rápida, mas muito útil de como baixar playlist do Youtube usando o youtube-dl
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em June 30, 2017</p>
+<h2 id="testando-nodejs">Testando NodeJS</h2>
+
+<p>Certifique-se que o NodeJS foi instalado e está funcionando corretamente. Você pode fazer isso usando esse comando:</p>
+<pre><code class="language-nodejs">node -v
+</code></pre>
+
+<h2 id="instalando-um-pacote-com-o-npm">Instalando um pacote com o NPM</h2>
+
+<p>Antes de começar a usar o NPM, verifique se está instalado no seu Debian o pacote <code class="highlighter-rouge">build-essential</code> para evitar problemas futuros quando encontra pacote fonte. Caso você não tenha instalado, use o comando abaixo para instalar:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install build-essential
+</code></pre>
 </div>
-<hr>
 
+<p>O NPM é um gerenciador de pacotes do NodeJS. Com ele você pode instalar, remover, procurar pacotes entre outras coisas como a gente faz com <code class="highlighter-rouge">apt</code> no Debian e seus derivados. Vamos instalar o Express para testar o npm. O Express é um popular  framwork NodeJS.</p>
 
-<!-- Pager -->
-
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/">&larr; Postagem recentes</a>
-    </li>
-    
-    
-    <li class="next">
-        <a href="/page3">Postagem antigas &rarr;</a>
-    </li>
-    
-</ul>
-
-
-		</div>
-	</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo npm install express
+</code></pre>
 </div>
+
+<p><a href="https://linuxconfig.org/how-to-install-nodejs-on-debian-9-stretch-linux" target="_ blank">Fonte</a></p>
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/Como-instalar-o-corretor-ortografico-no-LibreOffice" data-toggle="tooltip" data-placement="top" title="Como instalar o corretor ortográfico no LibreOffice">&larr; Postagem anterior</a>
+                    </li>
+                    
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
 
 <hr>
 

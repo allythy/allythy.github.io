@@ -1,4 +1,51 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-09-10T22:08:59-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como instalar o corretor ortográfico no LibreOffice</title><link href="http://localhost:4000/Como-instalar-o-corretor-ortografico-no-LibreOffice" rel="alternate" type="text/html" title="Como instalar o corretor ortográfico no LibreOffice" /><published>2017-09-10T19:00:00-03:00</published><updated>2017-09-10T19:00:00-03:00</updated><id>http://localhost:4000/Como-instalar%20o-corretor-ortografico-no-LibreOffice</id><content type="html" xml:base="http://localhost:4000/Como-instalar-o-corretor-ortografico-no-LibreOffice">&lt;p&gt;Essa será uma dica bem rápida, mas muito útil de como instalar o corretor ortográfico no LibreOffice. O LibreOffice que vem no Debian ou derivados não contém o corretor ortográfico, porque infelizmente ninguém empacotou para ele ainda. Mas, se você baixar o LibreOffice direto do site ele já vem com o corretor ortográfico. Para que você não tenha o trabalho de desinstalar o LibreOffice que está na nossa distribuição e baixar a do site, vamos apenas instalar o corretor ortográfico, o VERO.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-09-12T16:56:57-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como instalar o NodeJS no Debian</title><link href="http://localhost:4000/Como-instalar-o-NodeJS-no-Debian" rel="alternate" type="text/html" title="Como instalar o NodeJS no Debian" /><published>2017-09-12T14:00:00-03:00</published><updated>2017-09-12T14:00:00-03:00</updated><id>http://localhost:4000/Como-instalar-o-NodeJS-no-Debian</id><content type="html" xml:base="http://localhost:4000/Como-instalar-o-NodeJS-no-Debian">&lt;p&gt;Neste artigo, vamos aprender como instalar o NodeJS no Debian. Node.js é uma plataforma para desenvolvimento de aplicações server-side baseadas em rede utilizando JavaScript e o V8 JavaScript Engine, ou seja, com Node.js podemos criar uma variedade de aplicações Web utilizando apenas código em JavaScript.&lt;/p&gt;
+
+&lt;h2 id=&quot;baixando-e-executando-script&quot;&gt;Baixando e executando script&lt;/h2&gt;
+
+&lt;p&gt;Esta parte é super fácil. Na verdade, é o que é recomendado pela NodeJS Foundation. Use cURL para baixar script. O script detecta sua distribuição e configura o repositório para você. Ele ainda executa &lt;code class=&quot;highlighter-rouge&quot;&gt;apt update&lt;/code&gt;. Você provavelmente deve ter o &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo&lt;/code&gt; instalado. Caso contrário, você precisa executar o script com o usuário &lt;code class=&quot;highlighter-rouge&quot;&gt;root&lt;/code&gt; e os comandos onde eu utilizo o sudo você deve omitir o mesmo, porque se você não fizer isso vai da um erro dizendo que o comando não foi encontrado.&lt;/p&gt;
+
+&lt;p&gt;Caso você não tenho o cURL, use esse comando para instalar:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install curl
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Versão LTS do Nodejs&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Última versão do Nodejs&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;instalando-o-nodejs&quot;&gt;Instalando o NodeJs&lt;/h2&gt;
+
+&lt;p&gt;Agora que temos o repositório configura. Você pode instalar o NodeJS normalmente através do &lt;code class=&quot;highlighter-rouge&quot;&gt;apt&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install nodejs
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;testando-nodejs&quot;&gt;Testando NodeJS&lt;/h2&gt;
+
+&lt;p&gt;Certifique-se que o NodeJS foi instalado e está funcionando corretamente. Você pode fazer isso usando esse comando:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-nodejs&quot;&gt;node -v
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;instalando-um-pacote-com-o-npm&quot;&gt;Instalando um pacote com o NPM&lt;/h2&gt;
+
+&lt;p&gt;Antes de começar a usar o NPM, verifique se está instalado no seu Debian o pacote &lt;code class=&quot;highlighter-rouge&quot;&gt;build-essential&lt;/code&gt; para evitar problemas futuros quando encontra pacote fonte. Caso você não tenha instalado, use o comando abaixo para instalar:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install build-essential
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;O NPM é um gerenciador de pacotes do NodeJS. Com ele você pode instalar, remover, procurar pacotes entre outras coisas como a gente faz com &lt;code class=&quot;highlighter-rouge&quot;&gt;apt&lt;/code&gt; no Debian e seus derivados. Vamos instalar o Express para testar o npm. O Express é um popular  framwork NodeJS.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo npm install express
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://linuxconfig.org/how-to-install-nodejs-on-debian-9-stretch-linux&quot; target=&quot;_ blank&quot;&gt;Fonte&lt;/a&gt;&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como instalar o NodeJS no Debian. Node.js é uma plataforma para desenvolvimento de aplicações server-side baseadas em rede utilizando JavaScript e o V8 JavaScript Engine, ou seja, com Node.js podemos criar uma variedade de aplicações Web utilizando apenas código em JavaScript.</summary></entry><entry><title type="html">Como instalar o corretor ortográfico no LibreOffice</title><link href="http://localhost:4000/Como-instalar-o-corretor-ortografico-no-LibreOffice" rel="alternate" type="text/html" title="Como instalar o corretor ortográfico no LibreOffice" /><published>2017-09-10T19:00:00-03:00</published><updated>2017-09-10T19:00:00-03:00</updated><id>http://localhost:4000/Como-instalar%20o-corretor-ortografico-no-LibreOffice</id><content type="html" xml:base="http://localhost:4000/Como-instalar-o-corretor-ortografico-no-LibreOffice">&lt;p&gt;Essa será uma dica bem rápida, mas muito útil de como instalar o corretor ortográfico no LibreOffice. O LibreOffice que vem no Debian ou derivados não contém o corretor ortográfico, porque infelizmente ninguém empacotou para ele ainda. Mas, se você baixar o LibreOffice direto do site ele já vem com o corretor ortográfico. Para que você não tenha o trabalho de desinstalar o LibreOffice que está na nossa distribuição e baixar a do site, vamos apenas instalar o corretor ortográfico, o VERO.&lt;/p&gt;
 
 &lt;h2 id=&quot;instalação&quot;&gt;Instalação&lt;/h2&gt;
 
@@ -436,46 +483,4 @@ GRANT OPTION- permite conceder ou revogar privilégios de outros usuários
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;youtube-dl -cit --playlist 4-7,8,10-13 link-da-playlist
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><author><name>Allythy</name></author><summary type="html">Esta vai ser uma dica bem rápida, mas muito útil de como baixar playlist do Youtube usando o youtube-dl. Para quem ainda não conhece o youtube-dl é um pequeno programa de linha de comando para baixar vídeos e áudio do YouTube e outros sites, o programa é escrito em python.</summary></entry><entry><title type="html">Conheça três ferramentas de conversão de arquivos de linha de comando para GNU/Linux</title><link href="http://localhost:4000/Conheca-tres-ferramentas-de-conversao-de-arquivos-de-linha-comando" rel="alternate" type="text/html" title="Conheça três ferramentas de conversão de arquivos de linha de comando para GNU/Linux" /><published>2017-06-24T14:00:00-03:00</published><updated>2017-06-24T14:00:00-03:00</updated><id>http://localhost:4000/Conheca-tres-ferramentas-de-conversao-de-arquivos-de-linha-comando</id><content type="html" xml:base="http://localhost:4000/Conheca-tres-ferramentas-de-conversao-de-arquivos-de-linha-comando">&lt;p&gt;Neste artigo, vamos ver três ferramentas de conversão de arquivos de linha de comando para GNU/Linux.&lt;/p&gt;
-
-&lt;h2 id=&quot;pandoc&quot;&gt;Pandoc&lt;/h2&gt;
-
-&lt;p&gt;Pandoc é um ótimo utilitário para converter de uma linguagem de marcação para outra, além de fazer conversões rápidas e boas. Tem um arquivo formatado com Markdown que você deseja converter para um documento do LibreOffice Writer? Ou tem um documento LaTeX que você quer transformar em um EPUB? Ou talvez você tenha um arquivo HTML que deseja transformar em um slide deck. Pandoc está a altura de todas essas tarefas.&lt;/p&gt;
-
-&lt;p&gt;Veja como usar Pandoc para uma conversão simples (neste caso, de HTML para reStructuredText). Para mais informações sobre essa ferramenta, leia a &lt;a href=&quot;http://pandoc.org/MANUAL.html#options&quot; target=&quot;_ blank&quot;&gt;documentação do Pandoc&lt;/a&gt;.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pandoc -t rst myfile.htlm -o myfile.rst
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;libreoffice&quot;&gt;LibreOffice&lt;/h2&gt;
-
-&lt;p&gt;Você provavelmente está pensando: “Espere, o LibreOffice é uma aplicação gráfica”. Sim, mas o que muitas pessoas não sabem é que você pode executar LibreOffice a partir da linha de comando para converter rapidamente um ou mais arquivos. Por exemplo, transformar um conjunto de slides do LibreOffice Impress em PDF, digite o seguinte:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;soffice --headless --convert-to pdf SoftwareLivre.odp
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Você pode substituir a extensão &lt;code class=&quot;highlighter-rouge&quot;&gt;.pdf&lt;/code&gt; para qualquer formato de arquivo que você deseja converter. A opção &lt;code class=&quot;highlighter-rouge&quot;&gt;--headless&lt;/code&gt; permite usar o aplicativo sem a interface gráfica.&lt;/p&gt;
-
-&lt;p&gt;Usar o LibreOffice na linha de comando para converter um único arquivo não é uma coisa interessante, pois você poderia fazer isso mais rápido usando a interface gráfica. No entanto, para converter vários arquivos ao mesmo tempo é uma ótima opção. Digamos que você queira converter todos os documentos do Microsoft Word para o formato do LibreOffice Writer, então digite o comando:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;soffice --headless --convert-to odt &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.doc
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;ffmpeg&quot;&gt;FFmpeg&lt;/h2&gt;
-
-&lt;p&gt;Considerando que o Pandoc é o canivete suíço para conversão entre linguagens de marcação, o FFmpeg é o Pandoc para conversão de áudios e vídeos. O FFmpeg é um conjunto de bibliotecas e executáveis ​​que lhe dão a capacidade de converter seemlessly entre quase qualquer formato.&lt;/p&gt;
-
-&lt;p&gt;Aqui está um exemplo de uma simples conversão de um vídeo em um formato AVI para Ogg Theora:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ffmpeg -i myvideo.avi myvideo.ogg
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;FFmpeg pode fazer muito mais do que isso. Você pode definir a taxa de quadros de um vídeo e adicionar legendas para ele, mudar a qualidade de áudio e muito mais.&lt;/p&gt;
-
-&lt;p&gt;O FFmpeg tem muitas opões e é fácil esquecê-las, especialmente se você usar o FFmpeg de vez em quando. Então é sempre bom &lt;a href=&quot;https://ffmpeg.org/ffmpeg.html&quot; target=&quot;_ blank&quot;&gt;ler a documentação&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://opensource.com/life/16/10/3-file-conversion-tools-linux-command-line&quot; target=&quot;_ blank&quot;&gt;Fonte&lt;/a&gt;&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos ver três ferramentas de conversão de arquivos de linha de comando para GNU/Linux.</summary></entry></feed>
+&lt;/div&gt;</content><author><name>Allythy</name></author><summary type="html">Esta vai ser uma dica bem rápida, mas muito útil de como baixar playlist do Youtube usando o youtube-dl. Para quem ainda não conhece o youtube-dl é um pequeno programa de linha de comando para baixar vídeos e áudio do YouTube e outros sites, o programa é escrito em python.</summary></entry></feed>
