@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Dicas sobre o Debian, Software Livre, linha de comando">
 
-    <title>Allythy</title>
+    <title>3 maneiras de alterar o Shell padrão de um usuário no GNU/Linux - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/page2/">
+    <link rel="canonical" href="http://localhost:4000/3-Maneiras-de-alterar-o-Shell-padrao-de-um-usuario-no-GNU-Linux">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -80,116 +80,95 @@
 </nav>
 
 
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/post-bg-04.jpg')">
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Allythy</h1>
-                    <hr class="small">
-                    <span class="subheading">A mudança é um processo essencial de toda existência</span>
+                <div class="post-heading">
+                    <h1>3 maneiras de alterar o Shell padrão de um usuário no GNU/Linux</h1>
+                    
+                    <h2 class="subheading">Neste artigo, vamos aprender 3 maneiras de alterar o Shell padrão de um usuário no GNU/Linux.</h2>
+                    
+                    <span class="meta">Postador por Allythy em September 12, 2017</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-			
-<div class="post-preview">
-    <a href="/Como-instalar-o-RubyGem-no-Debian">
-        <h2 class="post-title">            Como instalar o RubyGems no Debian
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender a instalar o RubyGems do Debian
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em August 24, 2017</p>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<p>Neste artigo, vamos aprender 3 maneiras de alterar o Shell padrão de um usuário no GNU/Linux. O Shell é interpretador de comandos e é a uma camada entre o Kernel e o usuário. O Shell é simplesmente o programa que lê o comando que você digitou e converte-o em uma forma mais simplificada e legível para o Sistema GNU, diminuindo o tempo gasto pelo Sistema GNU (ou kernel) na execução deste comando. Existem vários tipos de Shells, como: bash, sh, ksh, zsh, fish e muitos outros.</p>
+
+<p>Vamos primeiro listar todos os Shells disponíveis em seu sistema GNU/Linux, digite:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>cat /etc/shells
+</code></pre>
 </div>
-<hr>
 
-<div class="post-preview">
-    <a href="/Como-criar-um-novo-usuario-e-conceder-permissoes-no-MariaD-e-MySQL">
-        <h2 class="post-title">            Como criar um novo usuário e conceder permissões no MariaDB e MySQL 
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender como criar um novo usuário e conceder permissões no MariaDB e MySQL
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em August 3, 2017</p>
+<p>O Shell padrão para a maioria dos Sistemas GNU/Liunx é o Bash <strong>(/ bin / bash)</strong>. Antes de prosseguir, observe que:</p>
+
+<blockquote>
+  <p>– Um usuário pode alterar seu Shell para qualquer Shell que esteja listado no arquivo / etc/shells.
+– Somente o superusuário (root) ou usuário com privilégio de superusuário pode alterar o Shell.</p>
+</blockquote>
+
+<h2 id="1-usermod">1. usermod</h2>
+
+<p><code class="highlighter-rouge">usermod</code> é um utilitário para modificar os detalhes da conta de um usuário, armazenado no arquivo / <strong>etc/passwd</strong> e a opção <code class="highlighter-rouge">-s</code> ou <code class="highlighter-rouge">--shell</code> é usada para alterar o Shell de login do usuário.</p>
+
+<p>Neste exemplo, primeiro verificamos as informações da conta do usuário para ver seu Shell de login padrão.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>grep allythy /etc/passwd
+</code></pre>
 </div>
-<hr>
 
-<div class="post-preview">
-    <a href="/Como-deixar-o-pen-drive-bootavel-usando-a-interface-grafica">
-        <h2 class="post-title">            Como deixar o pen drive bootável usando a interface gráfica
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender como deixar o pen drive bootável usando a interface gráfica
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em July 3, 2017</p>
+<p>Em seguida, altere seu shell de login de <code class="highlighter-rouge">/bin/bash</code> para <code class="highlighter-rouge">/bin/sh</code> da seguinte maneira:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo usermod --shell /bin/bash allythy
+</code></pre>
 </div>
-<hr>
 
-<div class="post-preview">
-    <a href="/Automatizando-a-gera%C3%A7%C3%A3o-de-senhas-seguras-no-gnu-linux">
-        <h2 class="post-title">            Automatizando a geração de senhas seguras no GNU/Linux
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender a automatizar a geração de senhas seguras no GNU/Linux
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em July 3, 2017</p>
+<h2 id="2-chsh">2. chsh</h2>
+
+<p><code class="highlighter-rouge">chsh</code> é um utilitário de linha de comando para alterar o Shell de um usuário. Você alterar o Shell passando a opção <code class="highlighter-rouge">-s</code> ou <code class="highlighter-rouge">--shell</code>, depois informando o Shell que vai ser usado e o nome do usuário.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo chsh --shell /bin/sh allythy
+</code></pre>
 </div>
-<hr>
 
-<div class="post-preview">
-    <a href="/Como-configurar-uma-vari%C3%A1vel-no-PATH-do-gnu-linux.md">
-        <h2 class="post-title">            Como configurar uma variável no $PATH do GNU/Linux
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender como configurar uma variável no PATH do GNU/Linux. 
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em July 1, 2017</p>
-</div>
-<hr>
+<h2 id="3-alterando-diretamente-o-arquivo-etcpasswd">3. Alterando diretamente o arquivo /etc/passwd</h2>
+
+<p>Neste método, basta abrir o arquivo <strong>/etc/passwd</strong> usando qualquer editor de texto e alterar o Shell do usuário que você queira.</p>
+
+<pre><code class="language-basta">sudo vim /etc/passwd
+</code></pre>
+
+<p><img src="img/etc-passwd.png" alt="Mostrando o conteúdo do arquivo etc/passwd e ressaltando o shell do usuário, que é o último campo do arquivo" /></p>
+
+<p>Quando tiver feito a edição, salve e feche o arquivo.</p>
 
 
-<!-- Pager -->
+                <hr>
 
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/">&larr; Postagem recentes</a>
-    </li>
-    
-    
-    <li class="next">
-        <a href="/page3">Postagem antigas &rarr;</a>
-    </li>
-    
-</ul>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/Como-instalar-o-NodeJS-no-Debian" data-toggle="tooltip" data-placement="top" title="Como instalar o NodeJS no Debian">&larr; Postagem anterior</a>
+                    </li>
+                    
+                    
+                </ul>
 
-
-		</div>
-	</div>
-</div>
+            </div>
+        </div>
+    </div>
+</article>
 
 <hr>
 
