@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Dicas sobre o Debian, Software Livre, linha de comando">
 
-    <title>Allythy</title>
+    <title>Como alterar o diretório padrão do Apache - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/page3/">
+    <link rel="canonical" href="http://localhost:4000/Como-alterar-o-diretorio-padrao-do-Apache">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -80,116 +80,85 @@
 </nav>
 
 
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/post-bg-04.jpg')">
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Allythy</h1>
-                    <hr class="small">
-                    <span class="subheading">A mudança é um processo essencial de toda existência</span>
+                <div class="post-heading">
+                    <h1>Como alterar o diretório padrão do Apache</h1>
+                    
+                    <h2 class="subheading">Neste artigo, vamos aprender como alterar o diretório padrão do Apache.</h2>
+                    
+                    <span class="meta">Postador por Allythy em December 23, 2017</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-			
-<div class="post-preview">
-    <a href="/Como-configurar-uma-vari%C3%A1vel-no-PATH-do-gnu-linux.md">
-        <h2 class="post-title">            Como configurar uma variável no $PATH do GNU/Linux
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender como configurar uma variável no PATH do GNU/Linux. 
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em July 1, 2017</p>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<p>Neste artigo, vamos aprender como alterar o diretório padrão do Apache. Digamos que você está desenvolvendo uma aplicação em PHP na sua máquina, mas toda vez que você tem que editar um arquivo, criar ou fazer algum tipo de manipulação no seu projeto é necessário entrar como superusuário (root), o que não é tão interessante. Por conta disso, vamos alterar o diretório padrão do Apache.</p>
+
+<h2 id="como-alterar-o-diretório-padrão-do-apache">Como alterar o diretório padrão do Apache</h2>
+
+<p>Primeiro vamos abrir o arquivo de configuração do Apache:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo nano /etc/apache2/apache2.conf
+</code></pre>
 </div>
-<hr>
 
-<div class="post-preview">
-    <a href="/Como-baixar-playlist-do-Youtube-usando-o-youtube-dl">
-        <h2 class="post-title">            Como baixar playlist do Youtube usando o youtube-dl
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Esta vai ser uma dica bem rápida, mas muito útil de como baixar playlist do Youtube usando o youtube-dl
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em June 30, 2017</p>
+<p>Você vai procurar pele linha que tenha <code class="highlighter-rouge">&lt;Directory /var/www&gt;</code>, que deve estar igual à imagem abaixo:</p>
+
+<p><img src="img/apache1.png" alt="Arquivo de configuracao do apache2" /></p>
+
+<p>Substitua <code class="highlighter-rouge">/var/www</code> pelo diretório que você deseja. Eu coloquei esse diretório que vocês podem ver abaixo:</p>
+
+<p><img src="img/apache2.png" alt="Substitui o /var/www/ por /home/allythy/Documentos/desenvolvimento" /></p>
+
+<p>Feito isso, vamos alterar esse arquivo <code class="highlighter-rouge">000-default.conf</code></p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo nano /etc/apache2/sites-available/000-default.conf
+</code></pre>
 </div>
-<hr>
 
-<div class="post-preview">
-    <a href="/Conheca-tres-ferramentas-de-conversao-de-arquivos-de-linha-comando">
-        <h2 class="post-title">            Conheça três ferramentas de conversão de arquivos de linha de comando para GNU/Linux
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos ver três ferramentas de conversão de arquivos de linha de comando para GNU/Linux.
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em June 24, 2017</p>
+<p>Procure pela linha que tenha <strong>DocumentRoot</strong>, que deve estar igual à imagem abaixo:</p>
+
+<p><img src="img/apache3.png" alt="Mostrando que a linha que tem o DocumentRoot é onde tem o caminho /var/www " /></p>
+
+<p>Onde tem <code class="highlighter-rouge">/var/www</code> coloque o mesmo diretório que você colocou no arquivo apache2.conf.</p>
+
+<p><img src="img/apache4.png" alt="Substitui o /var/www/ por /home/allythy/Documentos/desenvolvimento " /></p>
+
+<p>Feito isso, temos que reiniciar o Apache. Para isso, use o seguinte comando:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo systemctl restart apache2
+</code></pre>
 </div>
-<hr>
 
-<div class="post-preview">
-    <a href="/Teclas-de-emergencia-do-gnu-linux">
-        <h2 class="post-title">            Teclas de emergência do GNU/Linux
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo vamos aprender algumas teclas de emergência do GNU/Linux.
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em June 9, 2017</p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/Como-fazer-calculos-de-sub-rede-no-terminal">
-        <h2 class="post-title">            Como fazer cálculo de sub-redes no terminal
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender a fazer cálculo de sub-rede no terminal.
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em June 3, 2017</p>
-</div>
-<hr>
+<p>Pronto, já alteramos o diretório padrão do Apache.</p>
 
 
-<!-- Pager -->
+                <hr>
 
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/page2">&larr; Postagem recentes</a>
-    </li>
-    
-    
-    <li class="next">
-        <a href="/page4">Postagem antigas &rarr;</a>
-    </li>
-    
-</ul>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/3-Maneiras-de-alterar-o-Shell-padrao-de-um-usuario-no-GNU-Linux" data-toggle="tooltip" data-placement="top" title="3 maneiras de alterar o Shell padrão de um usuário no GNU/Linux">&larr; Postagem anterior</a>
+                    </li>
+                    
+                    
+                </ul>
 
-
-		</div>
-	</div>
-</div>
+            </div>
+        </div>
+    </div>
+</article>
 
 <hr>
 

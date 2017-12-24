@@ -1,4 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-10-22T11:56:41-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">3 maneiras de alterar o Shell padrão de um usuário no GNU/Linux</title><link href="http://localhost:4000/3-Maneiras-de-alterar-o-Shell-padrao-de-um-usuario-no-GNU-Linux" rel="alternate" type="text/html" title="3 maneiras de alterar o Shell padrão de um usuário no GNU/Linux" /><published>2017-09-12T14:00:00-03:00</published><updated>2017-09-12T14:00:00-03:00</updated><id>http://localhost:4000/3-Maneiras-de-alterar-o-Shell-padrao-de-um-usuario-no-GNU-Linux</id><content type="html" xml:base="http://localhost:4000/3-Maneiras-de-alterar-o-Shell-padrao-de-um-usuario-no-GNU-Linux">&lt;p&gt;Neste artigo, vamos aprender 3 maneiras de alterar o Shell padrão de um usuário no GNU/Linux. O Shell é interpretador de comandos e é a uma camada entre o Kernel e o usuário. O Shell é simplesmente o programa que lê o comando que você digitou e converte-o em uma forma mais simplificada e legível para o Sistema GNU, diminuindo o tempo gasto pelo Sistema GNU (ou kernel) na execução deste comando. Existem vários tipos de Shells, como: bash, sh, ksh, zsh, fish e muitos outros.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-12-23T22:17:38-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como alterar o diretório padrão do Apache</title><link href="http://localhost:4000/Como-alterar-o-diretorio-padrao-do-Apache" rel="alternate" type="text/html" title="Como alterar o diretório padrão do Apache" /><published>2017-12-23T19:00:00-03:00</published><updated>2017-12-23T19:00:00-03:00</updated><id>http://localhost:4000/Como-alterar-o-diretorio-padrao-do-Apache</id><content type="html" xml:base="http://localhost:4000/Como-alterar-o-diretorio-padrao-do-Apache">&lt;p&gt;Neste artigo, vamos aprender como alterar o diretório padrão do Apache. Digamos que você está desenvolvendo uma aplicação em PHP na sua máquina, mas toda vez que você tem que editar um arquivo, criar ou fazer algum tipo de manipulação no seu projeto é necessário entrar como superusuário (root), o que não é tão interessante. Por conta disso, vamos alterar o diretório padrão do Apache.&lt;/p&gt;
+
+&lt;h2 id=&quot;como-alterar-o-diretório-padrão-do-apache&quot;&gt;Como alterar o diretório padrão do Apache&lt;/h2&gt;
+
+&lt;p&gt;Primeiro vamos abrir o arquivo de configuração do Apache:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo nano /etc/apache2/apache2.conf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Você vai procurar pele linha que tenha &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;Directory /var/www&amp;gt;&lt;/code&gt;, que deve estar igual à imagem abaixo:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/apache1.png&quot; alt=&quot;Arquivo de configuracao do apache2&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Substitua &lt;code class=&quot;highlighter-rouge&quot;&gt;/var/www&lt;/code&gt; pelo diretório que você deseja. Eu coloquei esse diretório que vocês podem ver abaixo:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/apache2.png&quot; alt=&quot;Substitui o /var/www/ por /home/allythy/Documentos/desenvolvimento&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Feito isso, vamos alterar esse arquivo &lt;code class=&quot;highlighter-rouge&quot;&gt;000-default.conf&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo nano /etc/apache2/sites-available/000-default.conf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Procure pela linha que tenha &lt;strong&gt;DocumentRoot&lt;/strong&gt;, que deve estar igual à imagem abaixo:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/apache3.png&quot; alt=&quot;Mostrando que a linha que tem o DocumentRoot é onde tem o caminho /var/www &quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Onde tem &lt;code class=&quot;highlighter-rouge&quot;&gt;/var/www&lt;/code&gt; coloque o mesmo diretório que você colocou no arquivo apache2.conf.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/apache4.png&quot; alt=&quot;Substitui o /var/www/ por /home/allythy/Documentos/desenvolvimento &quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Feito isso, temos que reiniciar o Apache. Para isso, use o seguinte comando:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo systemctl restart apache2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Pronto, já alteramos o diretório padrão do Apache.&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como alterar o diretório padrão do Apache. Digamos que você está desenvolvendo uma aplicação em PHP na sua máquina, mas toda vez que você tem que editar um arquivo, criar ou fazer algum tipo de manipulação no seu projeto é necessário entrar como superusuário (root), o que não é tão interessante. Por conta disso, vamos alterar o diretório padrão do Apache.</summary></entry><entry><title type="html">3 maneiras de alterar o Shell padrão de um usuário no GNU/Linux</title><link href="http://localhost:4000/3-Maneiras-de-alterar-o-Shell-padrao-de-um-usuario-no-GNU-Linux" rel="alternate" type="text/html" title="3 maneiras de alterar o Shell padrão de um usuário no GNU/Linux" /><published>2017-09-12T14:00:00-03:00</published><updated>2017-09-12T14:00:00-03:00</updated><id>http://localhost:4000/3-Maneiras-de-alterar-o-Shell-padrao-de-um-usuario-no-GNU-Linux</id><content type="html" xml:base="http://localhost:4000/3-Maneiras-de-alterar-o-Shell-padrao-de-um-usuario-no-GNU-Linux">&lt;p&gt;Neste artigo, vamos aprender 3 maneiras de alterar o Shell padrão de um usuário no GNU/Linux. O Shell é interpretador de comandos e é a uma camada entre o Kernel e o usuário. O Shell é simplesmente o programa que lê o comando que você digitou e converte-o em uma forma mais simplificada e legível para o Sistema GNU, diminuindo o tempo gasto pelo Sistema GNU (ou kernel) na execução deste comando. Existem vários tipos de Shells, como: bash, sh, ksh, zsh, fish e muitos outros.&lt;/p&gt;
 
 &lt;p&gt;Vamos primeiro listar todos os Shells disponíveis em seu sistema GNU/Linux, digite:&lt;/p&gt;
 
@@ -431,54 +469,4 @@ GRANT OPTION- permite conceder ou revogar privilégios de outros usuários
 &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;a href=&quot;http://sempreupdate.com.br/2016/06/automatizando-geracao-de-senhas-seguras.html&quot; target=&quot;_ blank&quot;&gt;Fonte&lt;/a&gt;&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender a automatizar a geração de senhas seguras no GNU/Linux. Vamos deixar a criação de senha algo mais prático e rápido, porque se você precisar fazer algo mais do que 3 vezes, crie um Shell Script.</summary></entry><entry><title type="html">Como configurar uma variável no $PATH do GNU/Linux</title><link href="http://localhost:4000/Como-configurar-uma-vari%C3%A1vel-no-PATH-do-gnu-linux.md" rel="alternate" type="text/html" title="Como configurar uma variável no $PATH do GNU/Linux" /><published>2017-07-01T13:00:00-03:00</published><updated>2017-07-01T13:00:00-03:00</updated><id>http://localhost:4000/Como-configurar-uma-vari%C3%A1vel-no-PATH-do-gnu-linux.md</id><content type="html" xml:base="http://localhost:4000/Como-configurar-uma-vari%C3%A1vel-no-PATH-do-gnu-linux.md">&lt;p&gt;Neste artigo, vamos aprender como configurar uma variável no $PATH do GNU/Linux. Quando você digita um comando no seu Shell o que você está dizendo é pra ele executar um programa. Mesmos comandos simples, como &lt;code class=&quot;highlighter-rouge&quot;&gt;ls&lt;/code&gt; , &lt;code class=&quot;highlighter-rouge&quot;&gt;cd&lt;/code&gt; , &lt;code class=&quot;highlighter-rouge&quot;&gt;mkdir&lt;/code&gt; , &lt;code class=&quot;highlighter-rouge&quot;&gt;rm&lt;/code&gt; e outros, são apenas pequenos programas que geralmente ficam dentro de um diretório no seu computador chamado &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/bin&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Existem outros lugares em seu sistema que geralmente possuem programas executáveis ​​também, os mais comuns são:  &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/local/ bin, /usr/local/sbin e /usr/sbin&lt;/code&gt;. Onde os programas ficam e por que, estão fora do escopo deste artigo, mas um programa executável pode ficar praticamente em qualquer lugar do seu sistema ele não precisa se limitar a um desses diretórios.&lt;/p&gt;
-
-&lt;p&gt;Quando você digita um comando no seu Shell, ele não vai procurar em todos os diretórios para ver se tem um programa com esse nome, mas apenas em diretórios específicos. Como eu sei qual é esses diretórios ? É simples, eles fazem parte de uma variável de ambiente, chamada &lt;code class=&quot;highlighter-rouge&quot;&gt;$PATH&lt;/code&gt;, onde o seu Shell faz uma verificação para saber onde procurar. Para ver o que está no seu &lt;code class=&quot;highlighter-rouge&quot;&gt;$PATH&lt;/code&gt;, digite:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;Você provavelmente verá os diretórios mencionados acima, bem como alguns outros e todos são separados por dois pontos.&lt;/p&gt;
-
-&lt;p&gt;Às vezes, você precisa instalar algum programa que está em outro local do seu sistema, mas não que dizer o seu caminho completo. Você pode fazer isso facilmente adicionando um diretório a sua variável ambiente &lt;code class=&quot;highlighter-rouge&quot;&gt;$PATH&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Digamos que você escreveu um pequeno Shell Script chamado &lt;strong&gt;hello.sh&lt;/strong&gt; e ele está localizado em um diretório chamado &lt;strong&gt;shell&lt;/strong&gt; que tem esse caminho &lt;strong&gt;/home/allythy/Documentos/shell&lt;/strong&gt;. Este script fornece alguma função útil e você gostaria de executar ele independentemente do diretório em que você estivesse. Para isso, basta adicionar o caminho do seu arquivo para a variável de ambiente &lt;code class=&quot;highlighter-rouge&quot;&gt;$PATH&lt;/code&gt; com o seguinte comando:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;:/home/allythy/Documentos/shell
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Agora você pode executar o seu script em qualquer lugar do seu sistema apenas digitando seu nome(hello.sh), sem ter que incluir o caminho completo dele.&lt;/p&gt;
-
-&lt;p&gt;Mas o que acontece se você reiniciar seu computador ou abri um terminal ? Sua adição do caminho a variável de ambiente &lt;code class=&quot;highlighter-rouge&quot;&gt;$PATH&lt;/code&gt; desapareceu. A variável &lt;code class=&quot;highlighter-rouge&quot;&gt;$PATH&lt;/code&gt; é definida pelo seu Shell toda vez que você abri um novo terminal, mas você pode configurá-lo para que ele sempre inclua seu novo caminho a cada novo Shell que você vai abrir.&lt;/p&gt;
-
-&lt;p&gt;Você pode configurar para todos os usuários do sistema colocando o comando acima &lt;code class=&quot;highlighter-rouge&quot;&gt;export PATH=$PATH:/home/allythy/Documentos/shell&lt;/code&gt; no final de algum desses arquivos:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/etc/profile /
-/etc/profile.d/   
-/etc/bash.bashrc
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Ou para um usuário específico colocando o comando acima nesses arquivos:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;~/.bashrc
-~/.profile
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Vou dá um exemplo colocando o caminho do nosso script no arquivo &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.bashrc&lt;/code&gt;. Primeiro, vamos abri o arquivo com algum editor de texto.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim ~/.bashrc
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Feito isso, vamos colocar o esse comando &lt;code class=&quot;highlighter-rouge&quot;&gt;export PATH=$PATH:/home/allythy/Documentos/shell&lt;/code&gt; no final do arquivo e depois salvar. O seu arquivo deve ficar assim.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;img/vim-bashrc.png&quot; alt=&quot;arquivo ~/.bashrc aperto com o vim&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Pronto agora você pode acessar o seu script em qualquer parte do seu sistema.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://opensource.com/article/17/6/set-path-linux&quot; target=&quot;_ blank&quot;&gt;Fonte&lt;/a&gt;&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como configurar uma variável no $PATH do GNU/Linux. Quando você digita um comando no seu Shell o que você está dizendo é pra ele executar um programa. Mesmos comandos simples, como ls , cd , mkdir , rm e outros, são apenas pequenos programas que geralmente ficam dentro de um diretório no seu computador chamado /usr/bin.</summary></entry></feed>
+&lt;p&gt;&lt;a href=&quot;http://sempreupdate.com.br/2016/06/automatizando-geracao-de-senhas-seguras.html&quot; target=&quot;_ blank&quot;&gt;Fonte&lt;/a&gt;&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender a automatizar a geração de senhas seguras no GNU/Linux. Vamos deixar a criação de senha algo mais prático e rápido, porque se você precisar fazer algo mais do que 3 vezes, crie um Shell Script.</summary></entry></feed>
