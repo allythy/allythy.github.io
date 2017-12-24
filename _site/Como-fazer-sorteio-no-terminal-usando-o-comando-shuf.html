@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Dicas sobre o Debian, Software Livre, linha de comando">
 
-    <title>Como alterar o diretório padrão do Apache - Allythy</title>
+    <title>Como fazer sorteio no terminal usando o comando shuf - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/Como-alterar-o-diretorio-padrao-do-Apache">
+    <link rel="canonical" href="http://localhost:4000/Como-fazer-sorteio-no-terminal-usando-o-comando-shuf">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -86,11 +86,11 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>Como alterar o diretório padrão do Apache</h1>
+                    <h1>Como fazer sorteio no terminal usando o comando shuf</h1>
                     
-                    <h2 class="subheading">Neste artigo, vamos aprender como alterar o diretório padrão do Apache.</h2>
+                    <h2 class="subheading">Neste artigo, vamos aprender como fazer sorteio no terminal com o comando shuf.</h2>
                     
-                    <span class="meta">Postador por Allythy em December 23, 2017</span>
+                    <span class="meta">Postador por Allythy em December 24, 2017</span>
                 </div>
             </div>
         </div>
@@ -103,45 +103,49 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-				<p>Neste artigo, vamos aprender como alterar o diretório padrão do Apache. Digamos que você está desenvolvendo uma aplicação em PHP na sua máquina, mas toda vez que você tem que editar um arquivo, criar ou fazer algum tipo de manipulação no seu projeto é necessário entrar como superusuário (root), o que não é tão interessante. Por conta disso, vamos alterar o diretório padrão do Apache.</p>
+				<p>Neste artigo, vamos aprender como fazer sorteio no terminal com o comando shuf. O shuf é um comando que gerar permutações aleatórias, com isso a gente pode gerar um número aleatório de um terminado intervalo ou de algum arquivo. Digamos que você tem a quantidade de pessoas que estão participando de um evento ou lista com todos os nomes das pessoas, com uma dessas informações você gostaria de realizar um sorteio. Você pode fazer isso de uma forma rápida e fácil usando o comando shuf.</p>
 
-<h2 id="como-alterar-o-diretório-padrão-do-apache">Como alterar o diretório padrão do Apache</h2>
+<h2 id="gerando-números-aleatórios-de-um-intervalo-numérico">Gerando números aleatórios de um intervalo numérico</h2>
 
-<p>Primeiro vamos abrir o arquivo de configuração do Apache:</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo nano /etc/apache2/apache2.conf
+<p><strong>Sintaxe</strong>:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>shuf -i <span class="o">[</span>NÚMERO INICIAL]-[NUMERO FINAL]
 </code></pre>
 </div>
 
-<p>Você vai procurar pele linha que tenha <code class="highlighter-rouge">&lt;Directory /var/www&gt;</code>, que deve estar igual à imagem abaixo:</p>
+<p>A opção <code class="highlighter-rouge">-i</code> é usada para informar o intervalo número. Exemplo:</p>
 
-<p><img src="img/apache1.png" alt="Arquivo de configuracao do apache2" /></p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>shuf -i 2-70
+</code></pre>
+</div>
+<p><img src="/img/shuf-1.png" alt="Gerou números aleatórios de 2 até 70." /></p>
 
-<p>Substitua <code class="highlighter-rouge">/var/www</code> pelo diretório que você deseja. Eu coloquei esse diretório que vocês podem ver abaixo:</p>
+<p>Ele vai gerar as permutações e mostrar a saída padrão (tela do seu emulador de terminal). Mas digamos que você queira apenas o primeiro número. Para isso, você deve usar a opção <code class="highlighter-rouge">-n</code> para informar a quantidade de números você gostaria de ver na saída padrão. Exemplo:</p>
 
-<p><img src="img/apache2.png" alt="Substitui o /var/www/ por /home/allythy/Documentos/desenvolvimento" /></p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>shuf -i 10-20 -n1
+</code></pre>
+</div>
+<p><img src="/img/shuf-2.png" alt="Gerou números aleatórios de 10 até 20, mostrando apenas o primeiro número." /></p>
 
-<p>Feito isso, vamos alterar esse arquivo <code class="highlighter-rouge">000-default.conf</code></p>
+<h2 id="gerando-nomes-aleatórios-de-um-arquivo">Gerando nomes aleatórios de um arquivo</h2>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo nano /etc/apache2/sites-available/000-default.conf
+<p><strong>Sintaxe</strong>:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>shuf <span class="o">[</span>NOME DO ARQUIVO] -n1
 </code></pre>
 </div>
 
-<p>Procure pela linha que tenha <strong>DocumentRoot</strong>, que deve estar igual à imagem abaixo:</p>
+<p>Exemplo:</p>
 
-<p><img src="img/apache3.png" alt="Mostrando que a linha que tem o DocumentRoot é onde tem o caminho /var/www " /></p>
-
-<p>Onde tem <code class="highlighter-rouge">/var/www</code> coloque o mesmo diretório que você colocou no arquivo apache2.conf.</p>
-
-<p><img src="img/apache4.png" alt="Substitui o /var/www/ por /home/allythy/Documentos/desenvolvimento " /></p>
-
-<p>Feito isso, temos que reiniciar o Apache. Para isso, use o seguinte comando:</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo systemctl restart apache2
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code> shuf nomes -n1
 </code></pre>
 </div>
+<p><img src="/img/shuf-3.png" alt="Pegou um nome aleatório do arquivo nome, neste casso Francisco." /></p>
 
-<p>Pronto, já alteramos o diretório padrão do Apache.</p>
+<p>Você também pode guardar a saída do comando em um arquivo usando os redirecionadores (&gt;, »), mas o próprio comando tem uma opção para isso a <code class="highlighter-rouge">-o</code> . Exemplo:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>shuf nomes -n2 -o ganhadores
+</code></pre>
+</div>
 
 
                 <hr>
@@ -149,13 +153,9 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/3-Maneiras-de-alterar-o-Shell-padrao-de-um-usuario-no-GNU-Linux" data-toggle="tooltip" data-placement="top" title="3 maneiras de alterar o Shell padrão de um usuário no GNU/Linux">&larr; Postagem anterior</a>
+                        <a href="/Como-alterar-o-diretorio-padrao-do-Apache" data-toggle="tooltip" data-placement="top" title="Como alterar o diretório padrão do Apache">&larr; Postagem anterior</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/Como-fazer-sorteio-no-terminal-usando-o-comando-shuf" data-toggle="tooltip" data-placement="top" title="Como fazer sorteio no terminal usando o comando shuf">Próxima postagem &rarr;</a>
-                    </li>
                     
                 </ul>
 

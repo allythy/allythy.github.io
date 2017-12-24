@@ -1,4 +1,46 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-12-23T22:17:38-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como alterar o diretório padrão do Apache</title><link href="http://localhost:4000/Como-alterar-o-diretorio-padrao-do-Apache" rel="alternate" type="text/html" title="Como alterar o diretório padrão do Apache" /><published>2017-12-23T19:00:00-03:00</published><updated>2017-12-23T19:00:00-03:00</updated><id>http://localhost:4000/Como-alterar-o-diretorio-padrao-do-Apache</id><content type="html" xml:base="http://localhost:4000/Como-alterar-o-diretorio-padrao-do-Apache">&lt;p&gt;Neste artigo, vamos aprender como alterar o diretório padrão do Apache. Digamos que você está desenvolvendo uma aplicação em PHP na sua máquina, mas toda vez que você tem que editar um arquivo, criar ou fazer algum tipo de manipulação no seu projeto é necessário entrar como superusuário (root), o que não é tão interessante. Por conta disso, vamos alterar o diretório padrão do Apache.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-12-24T19:48:47-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como fazer sorteio no terminal usando o comando shuf</title><link href="http://localhost:4000/Como-fazer-sorteio-no-terminal-usando-o-comando-shuf" rel="alternate" type="text/html" title="Como fazer sorteio no terminal usando o comando shuf" /><published>2017-12-24T17:00:00-03:00</published><updated>2017-12-24T17:00:00-03:00</updated><id>http://localhost:4000/Como-fazer-sorteio-no-terminal-usando-o-comando-shuf</id><content type="html" xml:base="http://localhost:4000/Como-fazer-sorteio-no-terminal-usando-o-comando-shuf">&lt;p&gt;Neste artigo, vamos aprender como fazer sorteio no terminal com o comando shuf. O shuf é um comando que gerar permutações aleatórias, com isso a gente pode gerar um número aleatório de um terminado intervalo ou de algum arquivo. Digamos que você tem a quantidade de pessoas que estão participando de um evento ou lista com todos os nomes das pessoas, com uma dessas informações você gostaria de realizar um sorteio. Você pode fazer isso de uma forma rápida e fácil usando o comando shuf.&lt;/p&gt;
+
+&lt;h2 id=&quot;gerando-números-aleatórios-de-um-intervalo-numérico&quot;&gt;Gerando números aleatórios de um intervalo numérico&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Sintaxe&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;shuf -i &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;NÚMERO INICIAL]-[NUMERO FINAL]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;A opção &lt;code class=&quot;highlighter-rouge&quot;&gt;-i&lt;/code&gt; é usada para informar o intervalo número. Exemplo:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;shuf -i 2-70
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/img/shuf-1.png&quot; alt=&quot;Gerou números aleatórios de 2 até 70.&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ele vai gerar as permutações e mostrar a saída padrão (tela do seu emulador de terminal). Mas digamos que você queira apenas o primeiro número. Para isso, você deve usar a opção &lt;code class=&quot;highlighter-rouge&quot;&gt;-n&lt;/code&gt; para informar a quantidade de números você gostaria de ver na saída padrão. Exemplo:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;shuf -i 10-20 -n1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/img/shuf-2.png&quot; alt=&quot;Gerou números aleatórios de 10 até 20, mostrando apenas o primeiro número.&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;gerando-nomes-aleatórios-de-um-arquivo&quot;&gt;Gerando nomes aleatórios de um arquivo&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Sintaxe&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;shuf &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;NOME DO ARQUIVO] -n1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Exemplo:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; shuf nomes -n1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/img/shuf-3.png&quot; alt=&quot;Pegou um nome aleatório do arquivo nome, neste casso Francisco.&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Você também pode guardar a saída do comando em um arquivo usando os redirecionadores (&amp;gt;, »), mas o próprio comando tem uma opção para isso a &lt;code class=&quot;highlighter-rouge&quot;&gt;-o&lt;/code&gt; . Exemplo:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;shuf nomes -n2 -o ganhadores
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como fazer sorteio no terminal com o comando shuf. O shuf é um comando que gerar permutações aleatórias, com isso a gente pode gerar um número aleatório de um terminado intervalo ou de algum arquivo. Digamos que você tem a quantidade de pessoas que estão participando de um evento ou lista com todos os nomes das pessoas, com uma dessas informações você gostaria de realizar um sorteio. Você pode fazer isso de uma forma rápida e fácil usando o comando shuf.</summary></entry><entry><title type="html">Como alterar o diretório padrão do Apache</title><link href="http://localhost:4000/Como-alterar-o-diretorio-padrao-do-Apache" rel="alternate" type="text/html" title="Como alterar o diretório padrão do Apache" /><published>2017-12-23T19:00:00-03:00</published><updated>2017-12-23T19:00:00-03:00</updated><id>http://localhost:4000/Como-alterar-o-diretorio-padrao-do-Apache</id><content type="html" xml:base="http://localhost:4000/Como-alterar-o-diretorio-padrao-do-Apache">&lt;p&gt;Neste artigo, vamos aprender como alterar o diretório padrão do Apache. Digamos que você está desenvolvendo uma aplicação em PHP na sua máquina, mas toda vez que você tem que editar um arquivo, criar ou fazer algum tipo de manipulação no seu projeto é necessário entrar como superusuário (root), o que não é tão interessante. Por conta disso, vamos alterar o diretório padrão do Apache.&lt;/p&gt;
 
 &lt;h2 id=&quot;como-alterar-o-diretório-padrão-do-apache&quot;&gt;Como alterar o diretório padrão do Apache&lt;/h2&gt;
 
@@ -433,40 +475,4 @@ GRANT OPTION- permite conceder ou revogar privilégios de outros usuários
 
 &lt;p&gt;&lt;img src=&quot;/img/disco3.png&quot; alt=&quot;Tela para mostrar onde a ISO está localizada&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Pronto, o seu pen drive já está bootável.&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como deixar o pen drive bootável usando a interface gráfica. Alguns usuários não gostam ou não estão muito familiarizados com o Terminal, então esse método é uma boa alternativa. O programa que usaremos será o Utilitário de Discos do GNOME, em algumas distribuições como Debian com o ambiente de trabalho GNOME ou Ubuntu ele já vem instalado por padrão. Caso você esteja usando o Debian como outro ambiente de trabalho use o comando abaixo para instalar Utilitário de Discos do GNOME:</summary></entry><entry><title type="html">Automatizando a geração de senhas seguras no GNU/Linux</title><link href="http://localhost:4000/Automatizando-a-gera%C3%A7%C3%A3o-de-senhas-seguras-no-gnu-linux" rel="alternate" type="text/html" title="Automatizando a geração de senhas seguras no GNU/Linux" /><published>2017-07-03T11:00:00-03:00</published><updated>2017-07-03T11:00:00-03:00</updated><id>http://localhost:4000/Automatizando-a-gera%C3%A7%C3%A3o-de-senhas-seguras-no-gnu-linux</id><content type="html" xml:base="http://localhost:4000/Automatizando-a-gera%C3%A7%C3%A3o-de-senhas-seguras-no-gnu-linux">&lt;p&gt;Neste artigo, vamos aprender a automatizar a geração de senhas seguras no GNU/Linux. Vamos deixar a criação de senha algo mais prático e rápido, porque se você precisar fazer algo mais do que 3 vezes, crie um Shell Script.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Gerando senha com caracteres alfanuméricos&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cat /dev/urandom | tr -dc &lt;span class=&quot;s1&quot;&gt;'a-zA-Z0-9'&lt;/span&gt; | fold -w 20 | head -n1
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;No comando acima, utilizo a saída do &lt;code class=&quot;highlighter-rouge&quot;&gt;/dev/urandom&lt;/code&gt; que gera números aleatórios e mando para o &lt;code class=&quot;highlighter-rouge&quot;&gt;tr&lt;/code&gt; que vai deletar todos os caracteres exceto aqueles que estão entre as aspas simples, o &lt;code class=&quot;highlighter-rouge&quot;&gt;fold&lt;/code&gt; vai quebrar a linha a cada 20 caracteres. Em seguida, temos o &lt;code class=&quot;highlighter-rouge&quot;&gt;head&lt;/code&gt; que pegar apenas a primeira linha&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Gerando senha com caracteres especiais&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cat /dev/urandom | tr -dc &lt;span class=&quot;s1&quot;&gt;'a-zA-Z0-9-_!@#$%&amp;amp;*+?'&lt;/span&gt; | fold -w 20 | head -n1
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Script para geração da senha&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Agora vamos a um exemplo de script que pode ser utilizado para gerar senhas. O script vai perguntar quantas senhas o usuário vai querer e a quantidade de caracteres que a senha vai ter.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$menu&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; !&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;n&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;do
-  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo
-  read&lt;/span&gt; -p &lt;span class=&quot;s2&quot;&gt;&quot;Informe a quantidade de senhas: &quot;&lt;/span&gt; qtdSenha
-  &lt;span class=&quot;nb&quot;&gt;read&lt;/span&gt; -p &lt;span class=&quot;s2&quot;&gt;&quot;Informe a quantidade de caracteres da senha: &quot;&lt;/span&gt; cart
-  &lt;span class=&quot;nb&quot;&gt;echo
-  &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;i &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;seq 1 &lt;span class=&quot;nv&quot;&gt;$qtdSenha&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;;
-    &lt;span class=&quot;k&quot;&gt;do
-      &lt;/span&gt;cat /dev/urandom | tr -dc &lt;span class=&quot;s1&quot;&gt;'a-zA-Z0-9-_!@#$%&amp;amp;*+'&lt;/span&gt; | fold -w &lt;span class=&quot;nv&quot;&gt;$cart&lt;/span&gt; | head -n1
-    &lt;span class=&quot;k&quot;&gt;done
-  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo
-  read&lt;/span&gt; -p &lt;span class=&quot;s2&quot;&gt;&quot;Deseja voltar ? [S/N]&quot;&lt;/span&gt; menu
-  &lt;span class=&quot;nb&quot;&gt;echo
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;a href=&quot;http://sempreupdate.com.br/2016/06/automatizando-geracao-de-senhas-seguras.html&quot; target=&quot;_ blank&quot;&gt;Fonte&lt;/a&gt;&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender a automatizar a geração de senhas seguras no GNU/Linux. Vamos deixar a criação de senha algo mais prático e rápido, porque se você precisar fazer algo mais do que 3 vezes, crie um Shell Script.</summary></entry></feed>
+&lt;p&gt;Pronto, o seu pen drive já está bootável.&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como deixar o pen drive bootável usando a interface gráfica. Alguns usuários não gostam ou não estão muito familiarizados com o Terminal, então esse método é uma boa alternativa. O programa que usaremos será o Utilitário de Discos do GNOME, em algumas distribuições como Debian com o ambiente de trabalho GNOME ou Ubuntu ele já vem instalado por padrão. Caso você esteja usando o Debian como outro ambiente de trabalho use o comando abaixo para instalar Utilitário de Discos do GNOME:</summary></entry></feed>
