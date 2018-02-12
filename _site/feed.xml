@@ -1,4 +1,200 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-12-24T19:48:47-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como fazer sorteio no terminal usando o comando shuf</title><link href="http://localhost:4000/Como-fazer-sorteio-no-terminal-usando-o-comando-shuf" rel="alternate" type="text/html" title="Como fazer sorteio no terminal usando o comando shuf" /><published>2017-12-24T17:00:00-03:00</published><updated>2017-12-24T17:00:00-03:00</updated><id>http://localhost:4000/Como-fazer-sorteio-no-terminal-usando-o-comando-shuf</id><content type="html" xml:base="http://localhost:4000/Como-fazer-sorteio-no-terminal-usando-o-comando-shuf">&lt;p&gt;Neste artigo, vamos aprender como fazer sorteio no terminal com o comando shuf. O shuf é um comando que gerar permutações aleatórias, com isso a gente pode gerar um número aleatório de um terminado intervalo ou de algum arquivo. Digamos que você tem a quantidade de pessoas que estão participando de um evento ou lista com todos os nomes das pessoas, com uma dessas informações você gostaria de realizar um sorteio. Você pode fazer isso de uma forma rápida e fácil usando o comando shuf.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-02-11T22:19:50-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como instalar o Zabbix Server 3.4 no Debian 9</title><link href="http://localhost:4000/Como-instalar-o-Zabbix-Server-3-4-no-Debian-9" rel="alternate" type="text/html" title="Como instalar o Zabbix Server 3.4 no Debian 9" /><published>2018-02-11T18:00:00-03:00</published><updated>2018-02-11T18:00:00-03:00</updated><id>http://localhost:4000/Como-instalar-o-Zabbix-Server-3-4-no-Debian-9</id><content type="html" xml:base="http://localhost:4000/Como-instalar-o-Zabbix-Server-3-4-no-Debian-9">&lt;p&gt;Este artigo vai tomar como base o material e os conhecimentos adqueridos no treinamento que fiz mês passado sobre o Zabbix, ministrado pelo Werneck Costa que é Zabbix Certified Specialist e Zabbix Certified Professional. Vamos aprender como instalar o Zabbix Server 3.4 no Debian 9.&lt;/p&gt;
+
+&lt;p&gt;A solução de monitoramento Zabbix é um Software Livre de última geração com classe empresarial. Ele é projetado para monitorar disponibilidade e desempenho dos componentes de uma infraestruturada de TI. O Zabbix é capaz de monitorar um número ilimitado de métricas e fornecer análises sofisticadas sobre a saúde da infraestrutura de TI. Sendo capaz de identificar a fonte de um problema nos sistemas de T.I, permite aos usuários Zabbix (SysOps) agirem rapidamente, reduzindo os custos associados com a paralisação.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Roteiro para instalação do Zabbix:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;ol&gt;
+    &lt;li&gt;Instalação do repositório Debian;&lt;/li&gt;
+    &lt;li&gt;Instalação dos pacotes Zabbix (servidor e cliente) e suas dependências;&lt;/li&gt;
+    &lt;li&gt;Configuração do banco de dados;&lt;/li&gt;
+    &lt;li&gt;Configurar interface web;&lt;/li&gt;
+    &lt;li&gt;Testar e validar a instalação acessado via navegador.&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;1-instalação-do-repositório-debian&quot;&gt;1. Instalação do repositório Debian&lt;/h3&gt;
+
+&lt;p&gt;Primeiro, vamos logar como root para fazer a instalação. Feito isso, vamos baixar o pacote do Zabbix 3.4:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;su
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; wget http://repo.zabbix.com/zabbix/3.4/debian/pool/main/z/zabbix-release/zabbix-release_3.4-1+stretch_all.deb
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Agora vamos instalar o pacote que baixamos, digite:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dpkg -i zabbix-release_3.4-1+stretch_all.deb
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Vamos atualizar o repositório do sistema:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt update
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;2-instalação-dos-pacotes-zabbix&quot;&gt;2. Instalação dos pacotes Zabbix&lt;/h2&gt;
+
+&lt;p&gt;Temos que instalar o pacote Zabbix Server e suas dependências:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt install zabbix-server-mysql zabbix-frontend-php zabbix-agent zabbix-get -y
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Após a execução do comando anterior, todos os componentes estarão instalados (servidor web, php, banco de dados e servidor Zabbix). Para fazer o primeiro acesso (teste), recarregue o Apache e abra o seu navegador e acesse o ip do seu servidor barra zabbix:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl reload apache2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;192.168.0.106/zabbix
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;img/zabbix1.png&quot; alt=&quot;Página de boas-vindas do Zabbix&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Feito o primeiro teste, vamos voltar para emulador de terminal e editar alguns parâmetros de configuração do Apache para o frontend do Zabbix. Algumas configurações do PHP estão corretas, mas é necessário configurar o time zone. Para isso, vou usar o editor de linha de comando, o vim. Caso você não tenha instalado, use esse comando:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt install vim
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Vamos abrir o arquivo de configuração:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim /etc/apache2/conf-available/zabbix.conf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Procure o seguinte bloco de código &lt;strong&gt;mod_php7.c&lt;/strong&gt;, quando encontrar pressione a tecla &lt;code class=&quot;highlighter-rouge&quot;&gt;i&lt;/code&gt; para entrar no modo de inserção do vim.
+Retire o comentário (“#”) da linha &lt;strong&gt;php_value date.timezone&lt;/strong&gt; e altere para o time zone do seu Estado,
+&lt;a href=&quot;https://secure.php.net/manual/en/timezones.america.php&quot; target=&quot;_ blank&quot;&gt;caso você não saiba o seu time zone, procure aqui.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/zabbix2.png&quot; alt=&quot;Arquivo de configuração do Zabbiz Server&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Feito isso, pressione &lt;code class=&quot;highlighter-rouge&quot;&gt;Esc&lt;/code&gt; para sair do modo de inserção e depois &lt;code class=&quot;highlighter-rouge&quot;&gt;:x&lt;/code&gt; que vai salvar o arquivo e sair do vim.&lt;/p&gt;
+
+&lt;p&gt;Agora vamos reiniciar o servidor Apache para aplicação da configuração feita no arquivo do PHP:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl restart apache2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;3-configuração-do-banco-de-dados&quot;&gt;3. Configuração do banco de dados&lt;/h2&gt;
+
+&lt;p&gt;Antes de voltar à interface web, será preciso executar algumas operações no banco de dados:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Setar senha de root&lt;/li&gt;
+    &lt;li&gt;Criar banco Zabbix&lt;/li&gt;
+    &lt;li&gt;Criar usuário para acesso&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Vamos executar o comando a seguir para melhorar a segurança do nosso banco de dados MariaDB, configurando uma senha para o root, remover o usuário de conexão anônima, desabilitar acesso de root feito de fora deste servidor, remover a base de test que possui acesso anônimo.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql_secure_installation
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;O utilitário solicitará uma senha de root para se conectar. Como não existe, pode deixar em branco e apertar o Enter:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/zabbix3.png&quot; alt=&quot;Tela que solicita a senha do root do bando de dados&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;O utilitário perguntará se deve ser setada uma senha para o root. Responda com um &lt;strong&gt;“y”&lt;/strong&gt; e informe sua senha, vou colocar &lt;strong&gt;Allythy!&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/zabbix4.png&quot; alt=&quot;Tela para configurar a senha do usuário root&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Agora é só responder &lt;strong&gt;“y”&lt;/strong&gt; para as próximas perguntas. No final o programa informará que a configuração foi finalizada:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/zabbix5.png&quot; alt=&quot;Tela informando que todos os campos foram preenchidos&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ainda no terminal, logue no console do MariaDB com usuário root e senha que você colocou acima.&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;mariadb&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;u&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Vamos criar um banco de dados chamado zabbix_db:&lt;/p&gt;
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;create&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;database&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zabbix_db&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;character&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;collate&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8_bin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Depois criaremos um usuário chamado &lt;strong&gt;zabbix_usr&lt;/strong&gt; para o banco que acabamos de criar e colocar como senha para esse usuário &lt;strong&gt;@Allythye@!&lt;/strong&gt;. Caso você queira saber como criar usuário e conceder permissão,
+&lt;a href=&quot;https://allythy.github.io/Como-criar-um-novo-usuario-e-conceder-permissoes-no-MariaD-e-MySQL&quot; target=&quot;_ blank&quot;&gt;temos esse artigo sobre o assunto.&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;grant&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;all&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;privileges&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;on&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zabbix_db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zabbix_usr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;localhost&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;identified&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;by&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@Allythye@!'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Feito isso, podemos sair do console do MariaDB:&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Agora temos que fazer importação dos dados iniciais para o banco de dados que criamos, o zabbix_db:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;zcat /usr/share/doc/zabbix-server-mysql/create.sql.gz | mysql -u zabbix_usr -p@Allythye@! zabbix_db
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Vamos editar o arquivo de configuração do banco de dados do servidor Zabbix que se encontra no diretório /etc/zabbix:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim /etc/zabbix/zabbix_server.conf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Procure pelos parâmetros abaixo e coloque as informações do seu banco de dados. Lembrando, pressione a tecla &lt;code class=&quot;highlighter-rouge&quot;&gt;i&lt;/code&gt; para entrar no modo de inserção do vim, depois de alterar os parâmetros pressione &lt;code class=&quot;highlighter-rouge&quot;&gt;Esc&lt;/code&gt; e depois &lt;code class=&quot;highlighter-rouge&quot;&gt;:x&lt;/code&gt; para salvar e depois sair do vim.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;DBName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;zabbix_db
+&lt;span class=&quot;nv&quot;&gt;DBUser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;zabbix_usr
+&lt;span class=&quot;nv&quot;&gt;DBPassword&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;@Sempre#Update@!
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;img/zabbix6.png&quot; alt=&quot;Tela do arquivo de configuração do zabbix server mostrando as variáveis alteradas&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Feito isso, vamos reiniciar o servidor Zabbix:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl restart zabbix-server
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Configurando o Zabbix para inicializar junto ao sistema:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl &lt;span class=&quot;nb&quot;&gt;enable &lt;/span&gt;zabbix-server
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;4-configurar-interface-web&quot;&gt;4. Configurar interface web&lt;/h2&gt;
+
+&lt;p&gt;Vamos voltar para a interface web, coloque o ip do seu servidor e no final coloque &lt;strong&gt;“/zabbix”&lt;/strong&gt;, depois clique em Next step:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;192.168.0.106/zabbix
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;img/zabbix1.png&quot; alt=&quot;Tela de boas-vindas do Zabbix&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Verifique se está tudo OK, se tiver, clique Next step:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/zabbix7.png&quot; alt=&quot;Tela mostrando a checagem dos pré-requisitos&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Preencha os campos com as informações do banco de dados e depois clique em Next step:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/zabbix8.png&quot; alt=&quot;Tela para colocar as informações do banco de dados&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Coloque um nome ,ip e porta do seu Servidor Zabbix:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/zabbix9.png&quot; alt=&quot;Tela para colocar as informações do servidor&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Confirme tudo:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/zabbix11.png&quot; alt=&quot;Tela para confirmar as configurações feitas anteriomente&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Instalação finalizada com sucesso, clique em Finish:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/zabbix12.png&quot; alt=&quot;Tela mostrando que a instalação foi finalizada com sucesso&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;O acesso padrão é:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Usuário: Admin
+Senha: zabbix
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Pronto, com o servidor Zabbix instalado é só começar o monitoramento da sua rede, servidores e tudo que essa poderosa ferramenta tem a oferecer.&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Este artigo vai tomar como base o material e os conhecimentos adqueridos no treinamento que fiz mês passado sobre o Zabbix, ministrado pelo Werneck Costa que é Zabbix Certified Specialist e Zabbix Certified Professional. Vamos aprender como instalar o Zabbix Server 3.4 no Debian 9.</summary></entry><entry><title type="html">Como fazer sorteio no terminal usando o comando shuf</title><link href="http://localhost:4000/Como-fazer-sorteio-no-terminal-usando-o-comando-shuf" rel="alternate" type="text/html" title="Como fazer sorteio no terminal usando o comando shuf" /><published>2017-12-24T17:00:00-03:00</published><updated>2017-12-24T17:00:00-03:00</updated><id>http://localhost:4000/Como-fazer-sorteio-no-terminal-usando-o-comando-shuf</id><content type="html" xml:base="http://localhost:4000/Como-fazer-sorteio-no-terminal-usando-o-comando-shuf">&lt;p&gt;Neste artigo, vamos aprender como fazer sorteio no terminal com o comando shuf. O shuf é um comando que gerar permutações aleatórias, com isso a gente pode gerar um número aleatório de um terminado intervalo ou de algum arquivo. Digamos que você tem a quantidade de pessoas que estão participando de um evento ou lista com todos os nomes das pessoas, com uma dessas informações você gostaria de realizar um sorteio. Você pode fazer isso de uma forma rápida e fácil usando o comando shuf.&lt;/p&gt;
 
 &lt;h2 id=&quot;gerando-números-aleatórios-de-um-intervalo-numérico&quot;&gt;Gerando números aleatórios de um intervalo numérico&lt;/h2&gt;
 
@@ -458,21 +654,4 @@ GRANT OPTION- permite conceder ou revogar privilégios de outros usuários
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql -u nome-do-usuário -p
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.digitalocean.com/community/tutorials/como-criar-um-novo-usuario-e-conceder-permissoes-no-mysql-pt&quot; target=&quot;_ blank&quot;&gt;Fonte&lt;/a&gt;&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como criar um novo usuário e conceder permissões no MariaDB e MySQL. O MariaDB e MySQL são sistemas de gerenciamento de banco de dados (SGBD), que possuem uma variedade de opções para conceder a usuários específicos permissões diferenciadas dentro de tabelas e bases de dados. Este artigo vai lhe dar um breve resumo de algumas das muitas opções que eles oferecem.</summary></entry><entry><title type="html">Como deixar o pen drive bootável usando a interface gráfica</title><link href="http://localhost:4000/Como-deixar-o-pen-drive-bootavel-usando-a-interface-grafica" rel="alternate" type="text/html" title="Como deixar o pen drive bootável usando a interface gráfica" /><published>2017-07-03T11:00:00-03:00</published><updated>2017-07-03T11:00:00-03:00</updated><id>http://localhost:4000/%20Como-deixar-o-pen-drive-bootavel-usando-a-interface-grafica</id><content type="html" xml:base="http://localhost:4000/Como-deixar-o-pen-drive-bootavel-usando-a-interface-grafica">&lt;p&gt;Neste artigo, vamos aprender como deixar o pen drive bootável usando a interface gráfica. Alguns usuários não gostam ou não estão muito familiarizados com o Terminal, então esse método é uma boa alternativa. O programa que usaremos será o &lt;strong&gt;Utilitário de Discos do GNOME&lt;/strong&gt;, em algumas distribuições como Debian com o ambiente de trabalho GNOME ou Ubuntu ele já vem instalado por padrão. Caso você esteja usando o Debian como outro ambiente de trabalho use o comando abaixo para instalar Utilitário de Discos do GNOME:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install gnome-disk-utility
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;Agora vamos formatar o pen drive, do lado esquerdo selecione o pen drive, muito cuidado para não selecionar o seu HD. Clique no ícone da engrenagem e depois em Formatar ou Shift + Ctrl + F.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/disco1.png&quot; alt=&quot;Tela do Utilitário de Disco do Gnome para formatar o pen drive&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Na próxima tela você escolherá o &lt;strong&gt;Sistema de Arquivos&lt;/strong&gt;, que será o &lt;strong&gt;FAT&lt;/strong&gt; e depois digite o nome desse volume. Feito isso, clique em &lt;strong&gt;Formatar&lt;/strong&gt; aparecerá outra tela onde você vai clique em &lt;strong&gt;Formatar&lt;/strong&gt; novamente. Pronto, o seu pen drive foi formatado.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/disco2.png&quot; alt=&quot;Tela para escolher o sistema de arquivos e o nome do pen drive&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Com o pen drive formatado agora vamos deixar ele bootável. Clique novamente na engrenagem e em &lt;strong&gt;Restaurar imagem de disco&lt;/strong&gt;, outra janela abrirá, nela você vai indicar a &lt;strong&gt;localização da sua ISO&lt;/strong&gt;.   Feito isso, clique em &lt;strong&gt;Iniciar Restauração&lt;/strong&gt; e depois digite sua senha.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/disco3.png&quot; alt=&quot;Tela para mostrar onde a ISO está localizada&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Pronto, o seu pen drive já está bootável.&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como deixar o pen drive bootável usando a interface gráfica. Alguns usuários não gostam ou não estão muito familiarizados com o Terminal, então esse método é uma boa alternativa. O programa que usaremos será o Utilitário de Discos do GNOME, em algumas distribuições como Debian com o ambiente de trabalho GNOME ou Ubuntu ele já vem instalado por padrão. Caso você esteja usando o Debian como outro ambiente de trabalho use o comando abaixo para instalar Utilitário de Discos do GNOME:</summary></entry></feed>
+&lt;p&gt;&lt;a href=&quot;https://www.digitalocean.com/community/tutorials/como-criar-um-novo-usuario-e-conceder-permissoes-no-mysql-pt&quot; target=&quot;_ blank&quot;&gt;Fonte&lt;/a&gt;&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como criar um novo usuário e conceder permissões no MariaDB e MySQL. O MariaDB e MySQL são sistemas de gerenciamento de banco de dados (SGBD), que possuem uma variedade de opções para conceder a usuários específicos permissões diferenciadas dentro de tabelas e bases de dados. Este artigo vai lhe dar um breve resumo de algumas das muitas opções que eles oferecem.</summary></entry></feed>
