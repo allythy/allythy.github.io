@@ -1,4 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-02-11T22:19:50-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como instalar o Zabbix Server 3.4 no Debian 9</title><link href="http://localhost:4000/Como-instalar-o-Zabbix-Server-3-4-no-Debian-9" rel="alternate" type="text/html" title="Como instalar o Zabbix Server 3.4 no Debian 9" /><published>2018-02-11T18:00:00-03:00</published><updated>2018-02-11T18:00:00-03:00</updated><id>http://localhost:4000/Como-instalar-o-Zabbix-Server-3-4-no-Debian-9</id><content type="html" xml:base="http://localhost:4000/Como-instalar-o-Zabbix-Server-3-4-no-Debian-9">&lt;p&gt;Este artigo vai tomar como base o material e os conhecimentos adqueridos no treinamento que fiz mês passado sobre o Zabbix, ministrado pelo Werneck Costa que é Zabbix Certified Specialist e Zabbix Certified Professional. Vamos aprender como instalar o Zabbix Server 3.4 no Debian 9.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-03-11T14:58:25-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como usar a tecla super, meta ou tecla do windows para abrir o menu no KDE Plasma</title><link href="http://localhost:4000/como-usar-a-tecla-super-meta-ou-tecla-do-windows-para-abrir-o-menu-no-kde-plasma" rel="alternate" type="text/html" title="Como usar a tecla super, meta ou tecla do windows para abrir o menu no KDE Plasma" /><published>2018-03-11T12:00:00-03:00</published><updated>2018-03-11T12:00:00-03:00</updated><id>http://localhost:4000/como-usar-a-tecla-super-meta-ou-tecla-do-windows-para-abrir-o-menu-no-kde-plasma</id><content type="html" xml:base="http://localhost:4000/como-usar-a-tecla-super-meta-ou-tecla-do-windows-para-abrir-o-menu-no-kde-plasma">&lt;p&gt;Essa vai ser uma dica rápida, mas que pode ser bem útil e livrar você de algumas dores de cabeça. Vou mostrar como usar a tecla super, meta ou tecla do Windows para abrir o menu no KDE Plasma.&lt;/p&gt;
+
+&lt;p&gt;Primeiro, você tem que clicar com o botão direito do mouse no widget do menu e depois em &lt;strong&gt;Configurações de Lançador de Aplicativos&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/kde-menu.png&quot; alt=&quot;Widget do menu de configuração, com o mouse sobre Configurações de Lançador de Aplicativos &quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Feito isso, você vai clicar em &lt;strong&gt;Atalhos de teclado:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/kde-menu2.png&quot; alt=&quot;Tela de configurações de lançador de aplicativos, selecionada a opção do menu lateral Atalhos de teclado &quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Onde tem o botão com nome &lt;strong&gt;Nenhum&lt;/strong&gt; você clica nele. Quando você fizer isso ele vai mudar de cor e nome para &lt;strong&gt;Entrada&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/kde-menu3.png&quot; alt=&quot;Tela de Atalhos do Teclado com o botão Entrada selecionado &quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Nesse momento, você tem que pressionar a combinação &lt;strong&gt;Alt+F1&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/kde-menu4.png&quot; alt=&quot;Tela de Atalhos do Teclado com o botão Entrada selecionado &quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Feito isso, é só clicar no botão de &lt;strong&gt;Aplicar&lt;/strong&gt; e depois no botão de &lt;strong&gt;OK&lt;/strong&gt;. Pronto, você já pode pressionar a tecla super que ela vai abrir o menu do sistema.&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Essa vai ser uma dica rápida, mas que pode ser bem útil e livrar você de algumas dores de cabeça. Vou mostrar como usar a tecla super, meta ou tecla do Windows para abrir o menu no KDE Plasma.</summary></entry><entry><title type="html">Como instalar o Zabbix Server 3.4 no Debian 9</title><link href="http://localhost:4000/Como-instalar-o-Zabbix-Server-3-4-no-Debian-9" rel="alternate" type="text/html" title="Como instalar o Zabbix Server 3.4 no Debian 9" /><published>2018-02-11T18:00:00-03:00</published><updated>2018-02-11T18:00:00-03:00</updated><id>http://localhost:4000/Como-instalar-o-Zabbix-Server-3-4-no-Debian-9</id><content type="html" xml:base="http://localhost:4000/Como-instalar-o-Zabbix-Server-3-4-no-Debian-9">&lt;p&gt;Este artigo vai tomar como base o material e os conhecimentos adqueridos no treinamento que fiz mês passado sobre o Zabbix, ministrado pelo Werneck Costa que é Zabbix Certified Specialist e Zabbix Certified Professional. Vamos aprender como instalar o Zabbix Server 3.4 no Debian 9.&lt;/p&gt;
 
 &lt;p&gt;A solução de monitoramento Zabbix é um Software Livre de última geração com classe empresarial. Ele é projetado para monitorar disponibilidade e desempenho dos componentes de uma infraestruturada de TI. O Zabbix é capaz de monitorar um número ilimitado de métricas e fornecer análises sofisticadas sobre a saúde da infraestrutura de TI. Sendo capaz de identificar a fonte de um problema nos sistemas de T.I, permite aos usuários Zabbix (SysOps) agirem rapidamente, reduzindo os custos associados com a paralisação.&lt;/p&gt;
 
@@ -556,102 +574,4 @@ esse comando:&lt;/p&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo gem install gulp
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender a instalar o RubyGems do Debian. O RubyGems é o gerenciador de pacotes para o Ruby. Primeiramente, temos que instalar o pacote build-essential, porque vamos compilar algumas coisas.</summary></entry><entry><title type="html">Como criar um novo usuário e conceder permissões no MariaDB e MySQL</title><link href="http://localhost:4000/Como-criar-um-novo-usuario-e-conceder-permissoes-no-MariaD-e-MySQL" rel="alternate" type="text/html" title="Como criar um novo usuário e conceder permissões no MariaDB e MySQL " /><published>2017-08-03T19:00:00-03:00</published><updated>2017-08-03T19:00:00-03:00</updated><id>http://localhost:4000/Como-criar-um-novo-usuario-e-conceder-permissoes-no-MariaD-e-MySQL</id><content type="html" xml:base="http://localhost:4000/Como-criar-um-novo-usuario-e-conceder-permissoes-no-MariaD-e-MySQL">&lt;p&gt;Neste artigo, vamos aprender como criar um novo usuário e conceder permissões no MariaDB e MySQL. O  MariaDB e MySQL são sistemas de gerenciamento de banco de dados (SGBD), que possuem uma variedade de opções para conceder a usuários específicos permissões diferenciadas dentro de tabelas e bases de dados. Este artigo vai lhe dar um breve resumo de algumas das muitas opções que eles oferecem.&lt;/p&gt;
-
-&lt;h2 id=&quot;como-criar-um-novo-usuário&quot;&gt;Como criar um Novo Usuário&lt;/h2&gt;
-
-&lt;p&gt;Vamos fazer toda a edição no MariaDB ou MySQL como usuário root, já que ele tem acesso total a todos os bancos de dados e tabelas dentro desses bancos de dados. Os comandos a seguir vão funcionar tanto no MariaDB como no MySQL.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mysql -u root -p
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;Vamos começar criando um novo usuário:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CREATE USER &lt;span class=&quot;s1&quot;&gt;'novousuario'&lt;/span&gt;@&lt;span class=&quot;s1&quot;&gt;'localhost'&lt;/span&gt; IDENTIFIED BY &lt;span class=&quot;s1&quot;&gt;'minhasenha'&lt;/span&gt;;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Infelizmente, nesse momento o “novousuario” não tem permissão para fazer nada com as bases de dados. Na verdade, se o “novousuario” tentar fazer login (com a senha “minhasenha”), ele não será capaz de chegar ao shell do MySQL ou do MariaDB.&lt;/p&gt;
-
-&lt;p&gt;Portanto, a primeira coisa a fazer é fornecer ao usuário o acesso às informações que ele vai precisar, com o seguinte comando:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;GRANT ALL PRIVILEGES ON &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; . &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; TO &lt;span class=&quot;s1&quot;&gt;'novousuario'&lt;/span&gt;@&lt;span class=&quot;s1&quot;&gt;'localhost'&lt;/span&gt;;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Os asteriscos neste comando referem-se ao banco de dados e à tabela respectivamente que eles podem acessar. Este comando permite ao usuário ler, editar, executar e realizar todas as tarefas em todas as bases de dados e tabelas, tendo assim as mesmas permissões de acesso que o usuário root.&lt;/p&gt;
-
-&lt;p&gt;Feito isso, vamos recarregar as permissões do nosso banco de dados com esse comando:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;FLUSH PRIVILEGES;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;como-conceder-permissões-específicas-para-usuários&quot;&gt;Como conceder permissões específicas para usuários&lt;/h2&gt;
-
-&lt;p&gt;Não é muito inteligente conceder acesso de nível de root a um usuário como a gente fez acima. Imagine que você precisa dar acesso ao banco de dados para uma pessoa que precisa ver as tabelas.&lt;/p&gt;
-
-&lt;p&gt;Ao conceder acesso à nível de root para essa pessoa, ela pode alterar algum dado de alguma tabela, excluir ou fazer alguma coisa pior. Então, é melhor você criar um usuário e especificar as permissões que ele tem acesso, assim você tem mais controle de quem pode acessar o seu banco de dados e o que vai acessar.&lt;/p&gt;
-
-&lt;p&gt;A sintaxe do comando que concede privilégios é essa:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;GRANT tipo-de-permissão ON nome-da-base-de-dados . nome-da-tabela TO &lt;span class=&quot;s1&quot;&gt;'nome-do-usuário'&lt;/span&gt;@&lt;span class=&quot;s1&quot;&gt;'localhost'&lt;/span&gt;;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Aqui está uma pequena lista de outras possíveis permissões que os usuários podem utilizar, você pode ver a &lt;a href=&quot;https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html&quot; target=&quot;_ blank&quot;&gt;lista completa aqui.&lt;/a&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ALL PRIVILEGES- como vimos anteriormente, isso daria a um usuário &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;MySQL todo o acesso a uma determinada base de dados &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;ou se nenhuma base de dados &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;selecionada, todo o sistema&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-CREATE- permite criar novas tabelas ou bases de dados
-DROP- permite deletar tableas ou bases de dados
-DELETE- permite deletar linhas das tabelas
-INSERT- permite inserir linhas nas tabelas
-SELECT- permite utilizar o comando Select para ler bases de dados
-UPDATE- permite atualizar linhas das tabelas
-GRANT OPTION- permite conceder ou revogar privilégios de outros usuários
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Para aplicar mais de uma permissão a um usuário é só separar com uma vírgula. Por exemplo, vamos atribuir a um determinado usuário a permissão de UPDATE e DELETE:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;GRANT UPDATE, DELETE ON &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; . &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; TO &lt;span class=&quot;s1&quot;&gt;'nome-do-usuario'&lt;/span&gt;@&lt;span class=&quot;s1&quot;&gt;'localhost'&lt;/span&gt;;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Cada vez que você atualizar ou mudar uma permissão certifique-se de utilizar o comando FLUSH PRIVILEGES&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;remover-uma-permissão&quot;&gt;Remover uma permissão&lt;/h2&gt;
-
-&lt;p&gt;Se você precisar revogar uma permissão, a estrutura é quase idêntica a concedê-la:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;REVOKE tipo-de-permissão ON nome-da-base-de-dados . nome-da-tabela FROM &lt;span class=&quot;s1&quot;&gt;'nome-do-usuário'&lt;/span&gt;@&lt;span class=&quot;s1&quot;&gt;'localhost'&lt;/span&gt;;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;Vamos remover a permissão de UPDATE de um usuário. Exemplo:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;REVOQUE UPDATE ON &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;. &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; FROM &lt;span class=&quot;s1&quot;&gt;'nome-do-usuario'&lt;/span&gt; @ &lt;span class=&quot;s1&quot;&gt;'localhost'&lt;/span&gt;;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;excluir-um-usuário&quot;&gt;Excluir um usuário&lt;/h2&gt;
-
-&lt;p&gt;Assim como você pode deletar bases de dados com o DROP, você pode utilizar o DROP para excluir um usuário:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;DROP USER &lt;span class=&quot;s1&quot;&gt;'nome-do-usuario'&lt;/span&gt;@&lt;span class=&quot;s1&quot;&gt;'localhost'&lt;/span&gt;;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;testando-o-novo-usuário&quot;&gt;Testando o novo usuário&lt;/h2&gt;
-
-&lt;p&gt;Para testar seu novo usuário, faça logout digitando:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;quit
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;E faça login de novamente com este comando:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql -u nome-do-usuário -p
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.digitalocean.com/community/tutorials/como-criar-um-novo-usuario-e-conceder-permissoes-no-mysql-pt&quot; target=&quot;_ blank&quot;&gt;Fonte&lt;/a&gt;&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como criar um novo usuário e conceder permissões no MariaDB e MySQL. O MariaDB e MySQL são sistemas de gerenciamento de banco de dados (SGBD), que possuem uma variedade de opções para conceder a usuários específicos permissões diferenciadas dentro de tabelas e bases de dados. Este artigo vai lhe dar um breve resumo de algumas das muitas opções que eles oferecem.</summary></entry></feed>
+&lt;/div&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender a instalar o RubyGems do Debian. O RubyGems é o gerenciador de pacotes para o Ruby. Primeiramente, temos que instalar o pacote build-essential, porque vamos compilar algumas coisas.</summary></entry></feed>
