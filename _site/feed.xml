@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-04-26T23:57:36-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como usar a tecla super, meta ou tecla do windows para abrir o menu no KDE Plasma</title><link href="http://localhost:4000/como-usar-a-tecla-super-meta-ou-tecla-do-windows-para-abrir-o-menu-no-kde-plasma" rel="alternate" type="text/html" title="Como usar a tecla super, meta ou tecla do windows para abrir o menu no KDE Plasma" /><published>2018-03-11T12:00:00-03:00</published><updated>2018-03-11T12:00:00-03:00</updated><id>http://localhost:4000/como-usar-a-tecla-super-meta-ou-tecla-do-windows-para-abrir-o-menu-no-kde-plasma</id><content type="html" xml:base="http://localhost:4000/como-usar-a-tecla-super-meta-ou-tecla-do-windows-para-abrir-o-menu-no-kde-plasma">&lt;p&gt;Essa vai ser uma dica rápida, mas que pode ser bem útil e livrar você de algumas dores de cabeça. Vou mostrar como usar a tecla super, meta ou tecla do Windows para abrir o menu no KDE Plasma.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-04-27T00:09:56-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como alterar o tempo autenticação da senha do sudo</title><link href="http://localhost:4000/Como-alterar-o-tempo-autenticacao-da-senha-do-sudo" rel="alternate" type="text/html" title=" Como alterar o tempo autenticação da senha do sudo" /><published>2018-04-26T21:10:00-03:00</published><updated>2018-04-26T21:10:00-03:00</updated><id>http://localhost:4000/Como-alterar-o-tempo-autenticacao-da-senha-do-sudo</id><content type="html" xml:base="http://localhost:4000/Como-alterar-o-tempo-autenticacao-da-senha-do-sudo">&lt;p&gt;Essa vai ser uma dica rápida, mas é bem útil. Vamos aprender como alterar o tempo de autenticação da senha do &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo&lt;/code&gt;. Por padrão, quando executamos algum comando com privilégios de superusuário, como &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt update&lt;/code&gt;, as credencias de autenticação são armazenadas em cache por 15 minutos. Assim, para alguns esse tempo é pouco, mas para outros é muito tempo. Então, vamos saber como alterar o tempo autenticação da senha do sudo.&lt;/p&gt;
+
+&lt;p&gt;Assim, primeiro, temos que abrir o arquivo de configuração do sudo, que está localizando em &lt;code class=&quot;highlighter-rouge&quot;&gt;etc/sudoers&lt;/code&gt;. Então, para isso, vamos usar o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;visudo&lt;/code&gt;, porque não é recomendado alterar direto no arquivo de configuração.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo visudo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/sudo.png&quot; alt=&quot;Tela do arquivo de configuração do sudo, selecionado a linha onde tem Defaults env_reset &quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Vamos alterar a linha onde tem &lt;strong&gt;Defaults env_reset&lt;/strong&gt; acrescentando o parâmetro &lt;strong&gt;timestamp_timeout=xx&lt;/strong&gt;. Onde tem &lt;code class=&quot;highlighter-rouge&quot;&gt;“xx”&lt;/code&gt; é o valor em minutos que você vai colocar para que o sudo peça a senha. Nesse exemplo eu vou colocar 5 minutos:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/sudo2.png&quot; alt=&quot;Tela do arquivo de configuração do sudo, selecionado a linha onde tem timestamp_timeout=5 &quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Feito isso, pressione &lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl+x&lt;/code&gt; para sair e depois &lt;code class=&quot;highlighter-rouge&quot;&gt;s&lt;/code&gt; para salvar.&lt;/p&gt;
+
+&lt;p&gt;Se você quiser que peça a senha toda vez que executar o sudo, altere o valor do timestamp_timeout para 0 (zero). Você também pode desabilitar a senha colocando o valor -1, o que não é recomendando por motivos de segurança.&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Essa vai ser uma dica rápida, mas é bem útil. Vamos aprender como alterar o tempo de autenticação da senha do sudo. Por padrão, quando executamos algum comando com privilégios de superusuário, como sudo apt update, as credencias de autenticação são armazenadas em cache por 15 minutos. Assim, para alguns esse tempo é pouco, mas para outros é muito tempo. Então, vamos saber como alterar o tempo autenticação da senha do sudo.</summary></entry><entry><title type="html">Como usar a tecla super, meta ou tecla do windows para abrir o menu no KDE Plasma</title><link href="http://localhost:4000/como-usar-a-tecla-super-meta-ou-tecla-do-windows-para-abrir-o-menu-no-kde-plasma" rel="alternate" type="text/html" title="Como usar a tecla super, meta ou tecla do windows para abrir o menu no KDE Plasma" /><published>2018-03-11T12:00:00-03:00</published><updated>2018-03-11T12:00:00-03:00</updated><id>http://localhost:4000/como-usar-a-tecla-super-meta-ou-tecla-do-windows-para-abrir-o-menu-no-kde-plasma</id><content type="html" xml:base="http://localhost:4000/como-usar-a-tecla-super-meta-ou-tecla-do-windows-para-abrir-o-menu-no-kde-plasma">&lt;p&gt;Essa vai ser uma dica rápida, mas que pode ser bem útil e livrar você de algumas dores de cabeça. Vou mostrar como usar a tecla super, meta ou tecla do Windows para abrir o menu no KDE Plasma.&lt;/p&gt;
 
 &lt;p&gt;Primeiro, você tem que clicar com o botão direito do mouse no widget do menu e depois em &lt;strong&gt;Configurações de Lançador de Aplicativos&lt;/strong&gt;:&lt;/p&gt;
 
@@ -530,48 +546,4 @@ Exportar o mapa mental como html, svg, png, pdf e outros formatos
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pacman -S freeplane
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><author><name>Allythy</name></author><summary type="html">Uma ótima ferramenta para criação de mapas mentais no GNU/Linux é o Freeplane. O Freeplane é software livre e está no repositório da maioria das distribuições GNU/Linux.</summary></entry><entry><title type="html">Como instalar o RubyGems no Debian</title><link href="http://localhost:4000/Como-instalar-o-RubyGem-no-Debian" rel="alternate" type="text/html" title="Como instalar o RubyGems no Debian" /><published>2017-08-24T12:00:00-03:00</published><updated>2017-08-24T12:00:00-03:00</updated><id>http://localhost:4000/Como-instalar-o-RubyGem-no-Debian</id><content type="html" xml:base="http://localhost:4000/Como-instalar-o-RubyGem-no-Debian">&lt;p&gt;Neste artigo, vamos aprender a instalar o RubyGems do Debian. O RubyGems é o gerenciador de pacotes para o Ruby. Primeiramente, temos que instalar o pacote build-essential, porque vamos compilar algumas coisas.&lt;/p&gt;
-
-&lt;h2 id=&quot;instalação&quot;&gt;Instalação&lt;/h2&gt;
-
-&lt;p&gt;Para instalação, use o seguinte comando:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install build-essential
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;Também temos que instalar o Ruby. Para isso, use esse comando:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install ruby-full
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Agora temos que baixar o RubyGems, você pode &lt;a href=&quot;https://rubygems.org/pages/download#formats&quot; target=&quot;_ blank&quot;&gt;acessar o site e baixar&lt;/a&gt; ou usar esse comando:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget -c https://rubygems.org/rubygems/rubygems-2.6.12.tgz
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Vamos descompactar o arquivo baixado. Caso você queira saber mais sobre o descompactadores  &lt;a href=&quot;https://allythy.github.io/Empacotamento-e-compactacao-de-arquivos-no-gnu-linux&quot; target=&quot;_ blank&quot;&gt;tem esse artigo.&lt;/a&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar -xvzf rubygems-2.6.12.tgz
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Temos agora que entrar na pasta que descompactar o arquivo baixado:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;rubygems-2.6.12
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Feito isso, vamos instalar o RubyGems com esse comando:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo ruby setup.rb
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Pronto, o RubyGems está instalado. Você pode fazer um teste instalando o Gulp com
-esse comando:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo gem install gulp
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender a instalar o RubyGems do Debian. O RubyGems é o gerenciador de pacotes para o Ruby. Primeiramente, temos que instalar o pacote build-essential, porque vamos compilar algumas coisas.</summary></entry></feed>
+&lt;/div&gt;</content><author><name>Allythy</name></author><summary type="html">Uma ótima ferramenta para criação de mapas mentais no GNU/Linux é o Freeplane. O Freeplane é software livre e está no repositório da maioria das distribuições GNU/Linux.</summary></entry></feed>
