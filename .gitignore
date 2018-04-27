@@ -1,2 +1,4 @@
 .directory
 node_modules
+.bundle
+vendor/
