@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Dicas sobre o Debian, Software Livre, linha de comando">
 
-    <title>Allythy</title>
+    <title>Como usar o Trimage para comprimir imagens - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/page3/">
+    <link rel="canonical" href="http://localhost:4000/como-usar-o-trimage-para-comprimir-imagens">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -80,116 +80,92 @@
 </nav>
 
 
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/post-bg-04.jpg')">
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Allythy</h1>
-                    <hr class="small">
-                    <span class="subheading">A mudança é um processo essencial de toda existência</span>
+                <div class="post-heading">
+                    <h1>Como usar o Trimage para comprimir imagens</h1>
+                    
+                    <h2 class="subheading">Neste artigo, vamos aprender como instalar o Trimage para comprimir nossas imagens. O Trimage é uma GUI multiplataforma e interface de linha de comando para otimizar imagem.</h2>
+                    
+                    <span class="meta">Postador por Allythy em May 8, 2018</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-			
-<div class="post-preview">
-    <a href="/Como-criar-mapas-mentais-no-GNU-Linux-com-o-Freeplane">
-        <h2 class="post-title">            Como criar mapas mentais no GNU/Linux
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender como criar mapas mentais no GNU/Linux.
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em August 25, 2017</p>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<p>Neste artigo, vamos aprender como instalar o Trimage para comprimir nossas imagens. O Trimage é uma GUI multiplataforma e interface de linha de comando para otimizar imagem, usando optipng, pngcrush, advpng e jpegoptim, dependendo do tipo de arquivo (atualmente, os arquivos PNG e JPG são suportados),foi inspirado no imageoptim.</p>
+
+<p>Todas as imagem são comprimidos com o Trimage sem perdas nos níveis mais altos de compressão disponíveis, o EXIF e outros metadados são removidos. O Trimage oferece várias funções de entrada para ajustar o seu próprio fluxo de trabalho: Uma caixa de diálogo de arquivo comum, arrastando e soltando e várias opções de linha de comando.</p>
+
+<h2 id="instalação">Instalação</h2>
+
+<p><strong>Debian, Ubuntu e derivados</strong></p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install trimage
+</code></pre>
 </div>
-<hr>
-
-<div class="post-preview">
-    <a href="/Como-instalar-o-RubyGem-no-Debian">
-        <h2 class="post-title">            Como instalar o RubyGems no Debian
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender a instalar o RubyGems do Debian
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em August 24, 2017</p>
+<p><strong>Arch Linux</strong></p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>yaourt -S trimage-git
+</code></pre>
 </div>
-<hr>
+<p><strong>Outras distribuições</strong></p>
 
-<div class="post-preview">
-    <a href="/Como-criar-um-novo-usuario-e-conceder-permissoes-no-MariaD-e-MySQL">
-        <h2 class="post-title">            Como criar um novo usuário e conceder permissões no MariaDB e MySQL 
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender como criar um novo usuário e conceder permissões no MariaDB e MySQL
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em August 3, 2017</p>
+<p>1- Faça o download no projeto no <a href="http://github.com/Kilian/Trimage" target="_ blank">GitHub</a> ou no  <a href="https://launchpad.net/trimage" target="_ blank">Launchpad</a></p>
+
+<p>2- Feito isso, você tem que instalar os pacotes necessário para instalação:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install python python-qt4 optipng pngcrush advancecomp jpegoptim
+</code></pre>
 </div>
-<hr>
-
-<div class="post-preview">
-    <a href="/Como-deixar-o-pen-drive-bootavel-usando-a-interface-grafica">
-        <h2 class="post-title">            Como deixar o pen drive bootável usando a interface gráfica
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender como deixar o pen drive bootável usando a interface gráfica
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em July 3, 2017</p>
+<p>3- Digite esse comando para começar a instalação:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo python setup.py install
+</code></pre>
 </div>
-<hr>
+<p>4- Pronto, agora é só procurar por Trimage no seu lançador de arquivos.</p>
 
-<div class="post-preview">
-    <a href="/Automatizando-a-gera%C3%A7%C3%A3o-de-senhas-seguras-no-gnu-linux">
-        <h2 class="post-title">            Automatizando a geração de senhas seguras no GNU/Linux
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender a automatizar a geração de senhas seguras no GNU/Linux
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em July 3, 2017</p>
+<h2 id="como-usar">Como usar</h2>
+
+<h3 id="interface-gráfica">Interface gráfica</h3>
+<p>Ele é um programa bem simples de usar, para comprimir suas imagens clique em <strong>Add and compress</strong> e selecione os arquivos. Se você achar isso muito trabalhoso é só arrasta as imagens para o programa ou a pasta. Quando a imagem é comprimida ele mostra de quantos porcentos foi a compressão e o tamanho que a imagem tinha e o tamanho que ele ficou depois.</p>
+
+<p><img src="img/trimage.png" alt="Interface do trimamge comprimindo cinco imagens" /></p>
+
+<h3 id="linha-de-comando">Linha de comando</h3>
+
+<p>Comprimir um arquivo:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>trimage -f nome-do-arquivo
+</code></pre>
 </div>
-<hr>
 
-
-<!-- Pager -->
-
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/page2">&larr; Postagem recentes</a>
-    </li>
-    
-    
-    <li class="next">
-        <a href="/page4">Postagem antigas &rarr;</a>
-    </li>
-    
-</ul>
-
-
-		</div>
-	</div>
+<p>Comprimir um diretórios com várias imagem:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>trimage -d nome-da-pasta
+</code></pre>
 </div>
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/Como-alterar-o-tempo-autenticacao-da-senha-do-sudo" data-toggle="tooltip" data-placement="top" title=" Como alterar o tempo autenticação da senha do sudo">&larr; Postagem anterior</a>
+                    </li>
+                    
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
 
 <hr>
 

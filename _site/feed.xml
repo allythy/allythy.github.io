@@ -1,4 +1,49 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-04-27T00:09:56-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como alterar o tempo autenticação da senha do sudo</title><link href="http://localhost:4000/Como-alterar-o-tempo-autenticacao-da-senha-do-sudo" rel="alternate" type="text/html" title=" Como alterar o tempo autenticação da senha do sudo" /><published>2018-04-26T21:10:00-03:00</published><updated>2018-04-26T21:10:00-03:00</updated><id>http://localhost:4000/Como-alterar-o-tempo-autenticacao-da-senha-do-sudo</id><content type="html" xml:base="http://localhost:4000/Como-alterar-o-tempo-autenticacao-da-senha-do-sudo">&lt;p&gt;Essa vai ser uma dica rápida, mas é bem útil. Vamos aprender como alterar o tempo de autenticação da senha do &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo&lt;/code&gt;. Por padrão, quando executamos algum comando com privilégios de superusuário, como &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt update&lt;/code&gt;, as credencias de autenticação são armazenadas em cache por 15 minutos. Assim, para alguns esse tempo é pouco, mas para outros é muito tempo. Então, vamos saber como alterar o tempo autenticação da senha do sudo.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-05-08T13:00:09-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como usar o Trimage para comprimir imagens</title><link href="http://localhost:4000/como-usar-o-trimage-para-comprimir-imagens" rel="alternate" type="text/html" title="Como usar o Trimage para comprimir imagens" /><published>2018-05-08T10:10:00-03:00</published><updated>2018-05-08T10:10:00-03:00</updated><id>http://localhost:4000/como-usar-o-trimage-para-comprimir-imagens</id><content type="html" xml:base="http://localhost:4000/como-usar-o-trimage-para-comprimir-imagens">&lt;p&gt;Neste artigo, vamos aprender como instalar o Trimage para comprimir nossas imagens. O Trimage é uma GUI multiplataforma e interface de linha de comando para otimizar imagem, usando optipng, pngcrush, advpng e jpegoptim, dependendo do tipo de arquivo (atualmente, os arquivos PNG e JPG são suportados),foi inspirado no imageoptim.&lt;/p&gt;
+
+&lt;p&gt;Todas as imagem são comprimidos com o Trimage sem perdas nos níveis mais altos de compressão disponíveis, o EXIF e outros metadados são removidos. O Trimage oferece várias funções de entrada para ajustar o seu próprio fluxo de trabalho: Uma caixa de diálogo de arquivo comum, arrastando e soltando e várias opções de linha de comando.&lt;/p&gt;
+
+&lt;h2 id=&quot;instalação&quot;&gt;Instalação&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Debian, Ubuntu e derivados&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install trimage
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Arch Linux&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yaourt -S trimage-git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Outras distribuições&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;1- Faça o download no projeto no &lt;a href=&quot;http://github.com/Kilian/Trimage&quot; target=&quot;_ blank&quot;&gt;GitHub&lt;/a&gt; ou no  &lt;a href=&quot;https://launchpad.net/trimage&quot; target=&quot;_ blank&quot;&gt;Launchpad&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;2- Feito isso, você tem que instalar os pacotes necessário para instalação:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install python python-qt4 optipng pngcrush advancecomp jpegoptim
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;3- Digite esse comando para começar a instalação:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo python setup.py install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;4- Pronto, agora é só procurar por Trimage no seu lançador de arquivos.&lt;/p&gt;
+
+&lt;h2 id=&quot;como-usar&quot;&gt;Como usar&lt;/h2&gt;
+
+&lt;h3 id=&quot;interface-gráfica&quot;&gt;Interface gráfica&lt;/h3&gt;
+&lt;p&gt;Ele é um programa bem simples de usar, para comprimir suas imagens clique em &lt;strong&gt;Add and compress&lt;/strong&gt; e selecione os arquivos. Se você achar isso muito trabalhoso é só arrasta as imagens para o programa ou a pasta. Quando a imagem é comprimida ele mostra de quantos porcentos foi a compressão e o tamanho que a imagem tinha e o tamanho que ele ficou depois.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/trimage.png&quot; alt=&quot;Interface do trimamge comprimindo cinco imagens&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;linha-de-comando&quot;&gt;Linha de comando&lt;/h3&gt;
+
+&lt;p&gt;Comprimir um arquivo:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;trimage -f nome-do-arquivo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Comprimir um diretórios com várias imagem:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;trimage -d nome-da-pasta
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como instalar o Trimage para comprimir nossas imagens. O Trimage é uma GUI multiplataforma e interface de linha de comando para otimizar imagem, usando optipng, pngcrush, advpng e jpegoptim, dependendo do tipo de arquivo (atualmente, os arquivos PNG e JPG são suportados),foi inspirado no imageoptim.</summary></entry><entry><title type="html">Como alterar o tempo autenticação da senha do sudo</title><link href="http://localhost:4000/Como-alterar-o-tempo-autenticacao-da-senha-do-sudo" rel="alternate" type="text/html" title=" Como alterar o tempo autenticação da senha do sudo" /><published>2018-04-26T21:10:00-03:00</published><updated>2018-04-26T21:10:00-03:00</updated><id>http://localhost:4000/Como-alterar-o-tempo-autenticacao-da-senha-do-sudo</id><content type="html" xml:base="http://localhost:4000/Como-alterar-o-tempo-autenticacao-da-senha-do-sudo">&lt;p&gt;Essa vai ser uma dica rápida, mas é bem útil. Vamos aprender como alterar o tempo de autenticação da senha do &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo&lt;/code&gt;. Por padrão, quando executamos algum comando com privilégios de superusuário, como &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt update&lt;/code&gt;, as credencias de autenticação são armazenadas em cache por 15 minutos. Assim, para alguns esse tempo é pouco, mas para outros é muito tempo. Então, vamos saber como alterar o tempo autenticação da senha do sudo.&lt;/p&gt;
 
 &lt;p&gt;Assim, primeiro, temos que abrir o arquivo de configuração do sudo, que está localizando em &lt;code class=&quot;highlighter-rouge&quot;&gt;etc/sudoers&lt;/code&gt;. Então, para isso, vamos usar o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;visudo&lt;/code&gt;, porque não é recomendado alterar direto no arquivo de configuração.&lt;/p&gt;
 
@@ -514,36 +559,4 @@ sudo yum install python-pip
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://www.tecmint.com/install-pip-in-linux/&quot; target=&quot;_ blank&quot;&gt;Fonte&lt;/a&gt;&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como instalar o pip no GNU/Linux. O pip é um gerenciador de pacotes multiplataforma para instalar e gerenciar pacotes Python.</summary></entry><entry><title type="html">Como criar mapas mentais no GNU/Linux</title><link href="http://localhost:4000/Como-criar-mapas-mentais-no-GNU-Linux-com-o-Freeplane" rel="alternate" type="text/html" title="Como criar mapas mentais no GNU/Linux" /><published>2017-08-25T17:00:00-03:00</published><updated>2017-08-25T17:00:00-03:00</updated><id>http://localhost:4000/Como-criar-mapas-mentais-no-GNU-Linux-com-o-Freeplane</id><content type="html" xml:base="http://localhost:4000/Como-criar-mapas-mentais-no-GNU-Linux-com-o-Freeplane">&lt;p&gt;Uma ótima ferramenta para criação de mapas mentais no GNU/Linux é o Freeplane. O Freeplane é software livre e está no repositório da maioria das distribuições GNU/Linux.&lt;/p&gt;
-
-&lt;p&gt;Algumas funções:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Proteção com senha para mapas mentais ou nó individual com criptografia DES
-Suporte para fórmulas LaTeX
-Integração com a suíte de literatura acadêmica Docear
-Tarefas com calendário e lembretes;
-Agrupando nós com contêineres visuais
-Estilo de nó automático de acordo com a hierarquia
-Exportar o mapa mental como html, svg, png, pdf e outros formatos
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/freeplane.png&quot; alt=&quot;Mostrando a interface gráfica do Freeplane&quot; /&gt;&lt;/p&gt;
-&lt;h2 id=&quot;instalação&quot;&gt;Instalação&lt;/h2&gt;
-
-&lt;p&gt;Debian e derivados&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install freeplane
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;Fedora&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo dnf install freeplane
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Arch Linux&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pacman -S freeplane
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><author><name>Allythy</name></author><summary type="html">Uma ótima ferramenta para criação de mapas mentais no GNU/Linux é o Freeplane. O Freeplane é software livre e está no repositório da maioria das distribuições GNU/Linux.</summary></entry></feed>
+&lt;p&gt;&lt;a href=&quot;https://www.tecmint.com/install-pip-in-linux/&quot; target=&quot;_ blank&quot;&gt;Fonte&lt;/a&gt;&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como instalar o pip no GNU/Linux. O pip é um gerenciador de pacotes multiplataforma para instalar e gerenciar pacotes Python.</summary></entry></feed>
