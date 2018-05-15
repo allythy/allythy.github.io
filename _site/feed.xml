@@ -1,4 +1,57 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-05-08T13:00:09-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como usar o Trimage para comprimir imagens</title><link href="http://localhost:4000/como-usar-o-trimage-para-comprimir-imagens" rel="alternate" type="text/html" title="Como usar o Trimage para comprimir imagens" /><published>2018-05-08T10:10:00-03:00</published><updated>2018-05-08T10:10:00-03:00</updated><id>http://localhost:4000/como-usar-o-trimage-para-comprimir-imagens</id><content type="html" xml:base="http://localhost:4000/como-usar-o-trimage-para-comprimir-imagens">&lt;p&gt;Neste artigo, vamos aprender como instalar o Trimage para comprimir nossas imagens. O Trimage é uma GUI multiplataforma e interface de linha de comando para otimizar imagem, usando optipng, pngcrush, advpng e jpegoptim, dependendo do tipo de arquivo (atualmente, os arquivos PNG e JPG são suportados),foi inspirado no imageoptim.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-05-15T17:14:04-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como mostrar a branch do Git no Bash</title><link href="http://localhost:4000/como-mostrar-a-branch-do-git-no-bash" rel="alternate" type="text/html" title="Como mostrar a branch do Git no Bash" /><published>2018-05-15T14:10:00-03:00</published><updated>2018-05-15T14:10:00-03:00</updated><id>http://localhost:4000/como-mostrar-a-branch-do-git-no-bash</id><content type="html" xml:base="http://localhost:4000/como-mostrar-a-branch-do-git-no-bash">&lt;p&gt;Se você é um usuário do Bash, pode aproveitar alguns recursos dele para tornar sua experiência com o Git muito mais amigável. Neste caso, como mostrar a branch do Git que você está trabalhando.&lt;/p&gt;
+
+&lt;p&gt;Primeiro, vamos abrir o arquivo .bashrc:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim .bashrc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Procure pela variável &lt;code class=&quot;highlighter-rouge&quot;&gt;PS1&lt;/code&gt; e coloque antes do &lt;code class=&quot;highlighter-rouge&quot;&gt;\$&lt;/code&gt; isso:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-bashrc&quot;&gt;__git_ps1 &quot; (%s)&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Deve ficar assim sua PS1:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/branch.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Agora vamos entender o que acabamos de fazer. O &lt;code class=&quot;highlighter-rouge&quot;&gt;__git_ps1 &quot;(% s)&quot;&lt;/code&gt; chama uma função fornecida pelo git-prompt.sh com um argumento de formatação o &lt;code class=&quot;highlighter-rouge&quot;&gt;(%s)&lt;/code&gt;. Feito isso, vamos salvar o nosso arquivo e recarregar o .bashrc:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; .bashrc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Pronto, agora entre em algum diretório que você tenha um projeto versionado com o Git que o Bash vai mostrar a branch que você está.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/branch2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Caso, aparecer essa mensagem:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bash: __git_ps1: comando não encontrado
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Você tem que carregar essa função que está no &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/lib/git-core/git-sh-prompt&lt;/code&gt;. Para isso, você tem que acrescentar no começo do seu .bashrc esse comando:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; /usr/lib/git-core/git-sh-prompt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Feito isso, recarregue novamente o .bashrc:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; .bashrc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Se você estiver usando o Fedora o arquivo que você tem que acrescentar no seu .bashrc é esse:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;source /usr/share/git-core/contrib/completion/git-prompt.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Eu testei essas alterações no Debian 9, 10 , Ubuntu 16.04, Fedora e deu tudo certo. Nas outras distribuições não tive como testar. Caso você queira deixar o seu Bash igual ao meu, é assim que está a minha PS1:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;PS1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'${debian_chroot:+($debian_chroot)}\[\033[36m\]\u\[\033[37m\]@\[\033[33m\]\h:\[\033[32m\]\w\[\033[31;1m\]$(__git_ps1 &quot;(%s)&quot;)\[\033[00m\]\$ '&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;
+Regerência:
+&lt;a href=&quot;https://git-scm.com/book/en/v2/Appendix-A:-Git-in-Other-Environments-Git-in-Bash&quot; target=&quot;_ blank&quot;&gt;Git-Pro&lt;/a&gt;,
+&lt;a href=&quot;https://fedoraproject.org/wiki/Git_quick_reference&quot; target=&quot;_ blank&quot;&gt;Fedora Project&lt;/a&gt;
+
+&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Se você é um usuário do Bash, pode aproveitar alguns recursos dele para tornar sua experiência com o Git muito mais amigável. Neste caso, como mostrar a branch do Git que você está trabalhando.</summary></entry><entry><title type="html">Como usar o Trimage para comprimir imagens</title><link href="http://localhost:4000/como-usar-o-trimage-para-comprimir-imagens" rel="alternate" type="text/html" title="Como usar o Trimage para comprimir imagens" /><published>2018-05-08T10:10:00-03:00</published><updated>2018-05-08T10:10:00-03:00</updated><id>http://localhost:4000/como-usar-o-trimage-para-comprimir-imagens</id><content type="html" xml:base="http://localhost:4000/como-usar-o-trimage-para-comprimir-imagens">&lt;p&gt;Neste artigo, vamos aprender como instalar o Trimage para comprimir nossas imagens. O Trimage é uma GUI multiplataforma e interface de linha de comando para otimizar imagem, usando optipng, pngcrush, advpng e jpegoptim, dependendo do tipo de arquivo (atualmente, os arquivos PNG e JPG são suportados),foi inspirado no imageoptim.&lt;/p&gt;
 
 &lt;p&gt;Todas as imagem são comprimidos com o Trimage sem perdas nos níveis mais altos de compressão disponíveis, o EXIF e outros metadados são removidos. O Trimage oferece várias funções de entrada para ajustar o seu próprio fluxo de trabalho: Uma caixa de diálogo de arquivo comum, arrastando e soltando e várias opções de linha de comando.&lt;/p&gt;
 
@@ -469,94 +522,4 @@ Senha: zabbix
 
 &lt;p&gt;&lt;img src=&quot;img/libreoffice3.png&quot; alt=&quot;Tela para informar o caminho onde salvamos o Vero&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Feito isso, você pode fechar o gerenciador de extensões que o corretor ortográfico do LibreOffice já estará funcionando.&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Essa será uma dica bem rápida, mas muito útil de como instalar o corretor ortográfico no LibreOffice. O LibreOffice que vem no Debian ou derivados não contém o corretor ortográfico, porque infelizmente ninguém empacotou para ele ainda. Mas, se você baixar o LibreOffice direto do site ele já vem com o corretor ortográfico. Para que você não tenha o trabalho de desinstalar o LibreOffice que está na nossa distribuição e baixar a do site, vamos apenas instalar o corretor ortográfico, o VERO.</summary></entry><entry><title type="html">Como instalar o pip para gerenciar pacotes do Python no GNU/Linux</title><link href="http://localhost:4000/Como-instalar-o-pip-para-gerenciar-pacotes-do-Python-no-GNU-Linux" rel="alternate" type="text/html" title="Como instalar o pip para gerenciar pacotes do Python no GNU/Linux" /><published>2017-08-26T21:35:00-03:00</published><updated>2017-08-26T21:35:00-03:00</updated><id>http://localhost:4000/Como-instalar-o-pip-para-gerenciar-pacotes-do-Python-no-GNU-Linux</id><content type="html" xml:base="http://localhost:4000/Como-instalar-o-pip-para-gerenciar-pacotes-do-Python-no-GNU-Linux">&lt;p&gt;Neste artigo, vamos aprender como instalar o pip no GNU/Linux. O pip é um gerenciador de pacotes multiplataforma para instalar e gerenciar pacotes Python.&lt;/p&gt;
-
-&lt;h2 id=&quot;instalação-no-debian-e-derivados&quot;&gt;Instalação no Debian e derivados&lt;/h2&gt;
-
-&lt;p&gt;Para o Python 2&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install python-pip
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;Para o Python 3&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install python3-pip
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;h2 id=&quot;instalação-no-centos-e-rhel&quot;&gt;Instalação no CentOS e RHEL&lt;/h2&gt;
-
-&lt;p&gt;Infelizmente, o pip não é está no repositório oficial do CentOS/RHEL. Então, você precisa primeiro habilitar o repositório EPEL e depois instalar o pip.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum install epel-release
-sudo yum install python-pip
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;instalação-no-fedora&quot;&gt;Instalação no Fedora&lt;/h2&gt;
-
-&lt;p&gt;Para o Python 2&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo dnf install python-pip
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Para o Python 3&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo dnf install python3
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;instalação-no-arch-linux&quot;&gt;Instalação no Arch Linux&lt;/h2&gt;
-
-&lt;p&gt;Para o Python 2&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo pacman -S python2-pip
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Para o Python 3&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo pacman -S python-pip
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;instalação-no-opensuse&quot;&gt;Instalação no openSUSE&lt;/h2&gt;
-
-&lt;p&gt;Para o Python 2&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo zypper install python-pip
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Para o Python 3&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo zypper install python3-pip
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;como-usar-o-pip&quot;&gt;Como usar o Pip&lt;/h2&gt;
-
-&lt;p&gt;Eu vou usar como exemplo o pip3 que usar o Python 3, caso você queira usar o Python 2 use o pip no lugar do pip3.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Instalação de pacotes:&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo pip3 install nome-do-pacote
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Desinstalação de um pacote:&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo uninstall nome-do-pacote
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Procurar um pacote:&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip3 search nome-do-pacote
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Listar os pacotes instalados:&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip3 list
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;Mostrar informações sobre um pacote:&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip3 show nome-do-pacote
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Para ver a lista completa de comandos:&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip3 &lt;span class=&quot;nb&quot;&gt;help&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.tecmint.com/install-pip-in-linux/&quot; target=&quot;_ blank&quot;&gt;Fonte&lt;/a&gt;&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como instalar o pip no GNU/Linux. O pip é um gerenciador de pacotes multiplataforma para instalar e gerenciar pacotes Python.</summary></entry></feed>
+&lt;p&gt;Feito isso, você pode fechar o gerenciador de extensões que o corretor ortográfico do LibreOffice já estará funcionando.&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Essa será uma dica bem rápida, mas muito útil de como instalar o corretor ortográfico no LibreOffice. O LibreOffice que vem no Debian ou derivados não contém o corretor ortográfico, porque infelizmente ninguém empacotou para ele ainda. Mas, se você baixar o LibreOffice direto do site ele já vem com o corretor ortográfico. Para que você não tenha o trabalho de desinstalar o LibreOffice que está na nossa distribuição e baixar a do site, vamos apenas instalar o corretor ortográfico, o VERO.</summary></entry></feed>

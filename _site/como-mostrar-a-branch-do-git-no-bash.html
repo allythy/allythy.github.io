@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Dicas sobre o Debian, Software Livre, linha de comando">
 
-    <title>Allythy</title>
+    <title>Como mostrar a branch do Git no Bash - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/page4/">
+    <link rel="canonical" href="http://localhost:4000/como-mostrar-a-branch-do-git-no-bash">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -80,116 +80,100 @@
 </nav>
 
 
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/post-bg-04.jpg')">
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Allythy</h1>
-                    <hr class="small">
-                    <span class="subheading">A mudança é um processo essencial de toda existência</span>
+                <div class="post-heading">
+                    <h1>Como mostrar a branch do Git no Bash</h1>
+                    
+                    <h2 class="subheading">Neste artigo, vamos aprender como mostrar a branch do Git no Bash.</h2>
+                    
+                    <span class="meta">Postador por Allythy em May 15, 2018</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-			
-<div class="post-preview">
-    <a href="/Automatizando-a-gera%C3%A7%C3%A3o-de-senhas-seguras-no-gnu-linux">
-        <h2 class="post-title">            Automatizando a geração de senhas seguras no GNU/Linux
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender a automatizar a geração de senhas seguras no GNU/Linux
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em July 3, 2017</p>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<p>Se você é um usuário do Bash, pode aproveitar alguns recursos dele para tornar sua experiência com o Git muito mais amigável. Neste caso, como mostrar a branch do Git que você está trabalhando.</p>
+
+<p>Primeiro, vamos abrir o arquivo .bashrc:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>vim .bashrc
+</code></pre>
 </div>
-<hr>
 
-<div class="post-preview">
-    <a href="/Como-configurar-uma-vari%C3%A1vel-no-PATH-do-gnu-linux.md">
-        <h2 class="post-title">            Como configurar uma variável no $PATH do GNU/Linux
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos aprender como configurar uma variável no PATH do GNU/Linux. 
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em July 1, 2017</p>
+<p>Procure pela variável <code class="highlighter-rouge">PS1</code> e coloque antes do <code class="highlighter-rouge">\$</code> isso:</p>
+
+<pre><code class="language-bashrc">__git_ps1 " (%s)"
+</code></pre>
+
+<p>Deve ficar assim sua PS1:</p>
+
+<p><img src="img/branch.png" alt="" /></p>
+
+<p>Agora vamos entender o que acabamos de fazer. O <code class="highlighter-rouge">__git_ps1 "(% s)"</code> chama uma função fornecida pelo git-prompt.sh com um argumento de formatação o <code class="highlighter-rouge">(%s)</code>. Feito isso, vamos salvar o nosso arquivo e recarregar o .bashrc:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">source</span> .bashrc
+</code></pre>
 </div>
-<hr>
 
-<div class="post-preview">
-    <a href="/Como-baixar-playlist-do-Youtube-usando-o-youtube-dl">
-        <h2 class="post-title">            Como baixar playlist do Youtube usando o youtube-dl
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Esta vai ser uma dica bem rápida, mas muito útil de como baixar playlist do Youtube usando o youtube-dl
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em June 30, 2017</p>
+<p>Pronto, agora entre em algum diretório que você tenha um projeto versionado com o Git que o Bash vai mostrar a branch que você está.</p>
+
+<p><img src="img/branch2.png" alt="" /></p>
+
+<p>Caso, aparecer essa mensagem:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>bash: __git_ps1: comando não encontrado
+</code></pre>
 </div>
-<hr>
+<p>Você tem que carregar essa função que está no <code class="highlighter-rouge">/usr/lib/git-core/git-sh-prompt</code>. Para isso, você tem que acrescentar no começo do seu .bashrc esse comando:</p>
 
-<div class="post-preview">
-    <a href="/Conheca-tres-ferramentas-de-conversao-de-arquivos-de-linha-comando">
-        <h2 class="post-title">            Conheça três ferramentas de conversão de arquivos de linha de comando para GNU/Linux
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo, vamos ver três ferramentas de conversão de arquivos de linha de comando para GNU/Linux.
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em June 24, 2017</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">source</span> /usr/lib/git-core/git-sh-prompt
+</code></pre>
 </div>
-<hr>
+<p>Feito isso, recarregue novamente o .bashrc:</p>
 
-<div class="post-preview">
-    <a href="/Teclas-de-emergencia-do-gnu-linux">
-        <h2 class="post-title">            Teclas de emergência do GNU/Linux
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Neste artigo vamos aprender algumas teclas de emergência do GNU/Linux.
-        </h3>
-        
-    </a>
-    <p class="post-meta">Postador por Allythy em June 9, 2017</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">source</span> .bashrc
+</code></pre>
 </div>
-<hr>
-
-
-<!-- Pager -->
-
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/page3">&larr; Postagem recentes</a>
-    </li>
-    
-    
-    <li class="next">
-        <a href="/page5">Postagem antigas &rarr;</a>
-    </li>
-    
-</ul>
-
-
-		</div>
-	</div>
+<p>Se você estiver usando o Fedora o arquivo que você tem que acrescentar no seu .bashrc é esse:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>source /usr/share/git-core/contrib/completion/git-prompt.sh
+</code></pre>
 </div>
+<p>Eu testei essas alterações no Debian 9, 10 , Ubuntu 16.04, Fedora e deu tudo certo. Nas outras distribuições não tive como testar. Caso você queira deixar o seu Bash igual ao meu, é assim que está a minha PS1:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nv">PS1</span><span class="o">=</span><span class="s1">'${debian_chroot:+($debian_chroot)}\[\033[36m\]\u\[\033[37m\]@\[\033[33m\]\h:\[\033[32m\]\w\[\033[31;1m\]$(__git_ps1 "(%s)")\[\033[00m\]\$ '</span>
+</code></pre>
+</div>
+<p>
+Regerência:
+<a href="https://git-scm.com/book/en/v2/Appendix-A:-Git-in-Other-Environments-Git-in-Bash" target="_ blank">Git-Pro</a>,
+<a href="https://fedoraproject.org/wiki/Git_quick_reference" target="_ blank">Fedora Project</a>
+
+</p>
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/como-usar-o-trimage-para-comprimir-imagens" data-toggle="tooltip" data-placement="top" title="Como usar o Trimage para comprimir imagens">&larr; Postagem anterior</a>
+                    </li>
+                    
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
 
 <hr>
 
