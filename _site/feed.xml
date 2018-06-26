@@ -1,4 +1,212 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-05-15T17:14:04-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como mostrar a branch do Git no Bash</title><link href="http://localhost:4000/como-mostrar-a-branch-do-git-no-bash" rel="alternate" type="text/html" title="Como mostrar a branch do Git no Bash" /><published>2018-05-15T14:10:00-03:00</published><updated>2018-05-15T14:10:00-03:00</updated><id>http://localhost:4000/como-mostrar-a-branch-do-git-no-bash</id><content type="html" xml:base="http://localhost:4000/como-mostrar-a-branch-do-git-no-bash">&lt;p&gt;Se você é um usuário do Bash, pode aproveitar alguns recursos dele para tornar sua experiência com o Git muito mais amigável. Neste caso, como mostrar a branch do Git que você está trabalhando.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-06-26T18:45:26-03:00</updated><id>http://localhost:4000/</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como criar docomentação com o MkDocs</title><link href="http://localhost:4000/como-criar-documentacao-com-mkdocs" rel="alternate" type="text/html" title="Como criar docomentação com o MkDocs" /><published>2018-06-21T14:10:00-03:00</published><updated>2018-06-21T14:10:00-03:00</updated><id>http://localhost:4000/como-criar-documentacao-com-mkdocs</id><content type="html" xml:base="http://localhost:4000/como-criar-documentacao-com-mkdocs">&lt;p&gt;O MkDocs é gerador de site estático para documentação simples, rápido e um bonito para seu projeto. Ele é feito em Python, então já entendemos da onde vem sua simplicidade, mas não confunda simplicidade com falta de recursos, porque o MkDocs tem muito recursos que você pode usar com poucas linhas de código. A documentação é escrita em Markdown, que é uma forma de escrever HTML bem mais simples e bonita e a configuração do MkDocs é feita em apenas um arquivo YAML.&lt;/p&gt;
+
+&lt;p&gt;Na hora do build o MKDocs vai gerar arquivos estáticos (HTML, CSS e JS), com isso você pode hospedar o site da sua documentação sem pagar nada no GitHub ou GitLab, porque esses serviços possuem os recursos &lt;a href=&quot;https://pages.github.com/&quot; target=&quot;_ blank&quot;&gt;GitHub Pages&lt;/a&gt; e &lt;a href=&quot;https://about.gitlab.com/features/pages/&quot; target=&quot;_ blank&quot;&gt;GitLab Pages&lt;/a&gt;, respectivamente, que permite a utilização dos arquivos estáticos.&lt;/p&gt;
+
+&lt;p&gt;O MkDocs ainda possui um servidor de desenvolvimento integrado, isso permite pré-visualizar a documentação à medida que a escreve. Ele também vai recarregar automaticamente e atualizar seu navegador sempre que você salvar suas alterações.&lt;/p&gt;
+
+&lt;h2 id=&quot;instalação&quot;&gt;Instalação&lt;/h2&gt;
+
+&lt;p&gt;Se você estiver usando qualquer distribuição GNU, você pode instalar o MkDocs pelo seu gerenciador de pacotes. Como eu estou usando o Debian só tenho que digitar esse comando:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install mkdocs
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Acredito ser seja mais interessante instalar o MkDocs pelo gerenciador de pacotes do Python, o pip, porque se você estiver usando um ambiente virtual vai ficar tudo mais organizado e não vai “poluir” o seu sistema. Neste post não vou mostrar como você faz isso, porque vai sair do escopo desse post. Quem não souber instalar o pip &lt;a href=&quot;https://allythy.github.io/Como-instalar-o-pip-para-gerenciar-pacotes-do-Python-no-GNU-Linux&quot; target=&quot;_ blank&quot;&gt;tem esse post que demostra como faz&lt;/a&gt;. Com o pip instalado, você só tem que digitar esse comando:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;pip&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mkdocs&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Para verificar se tudo deu certo, execute esse comando:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;mkdocs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;version&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;criando-a-documentação&quot;&gt;Criando a documentação&lt;/h2&gt;
+
+&lt;p&gt;Para começar a nossa documentação é muito fácil, basta digitar esse comando:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;mkdocs&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;project&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Onde tem &lt;code class=&quot;highlighter-rouge&quot;&gt;my-project&lt;/code&gt; você coloca o nome da sua docomentação&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Depois entre no diretório que foi criado:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;project&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Dentro desse diretório você vai ter uma estrutura igual a essa:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;├── docs
+│ └── index.md
+└── mkdocs.yml
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Agora vamos entender o que são esses arquivos e pasta. O MkDocs tem apenas um arquivo de configuração, como eu tinha falando acima, esse arquivo é o &lt;code class=&quot;highlighter-rouge&quot;&gt;mkdocs.yml&lt;/code&gt; e uma pasta chamada &lt;code class=&quot;highlighter-rouge&quot;&gt;docs&lt;/code&gt; que conterá os nossos arquivos da documentação escritos em Markdown. No momento, a pasta docs contém apenas uma única página de documentação, chamada index.md.&lt;/p&gt;
+
+&lt;h2 id=&quot;inicializando-o-servidor&quot;&gt;Inicializando o servidor&lt;/h2&gt;
+
+&lt;p&gt;Vamos inicializar o servidor do MkDocs para verificar como está a nossa documentação até agora:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Lembre-se de estar no mesmo diretório que o arquivo de configuração &lt;code class=&quot;highlighter-rouge&quot;&gt;mkdocs.yml&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;mkdocs&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serve&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Abra o seu navegador e digite a seguinte URL &lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost:8000/&lt;/code&gt;, encontrará uma página igual a essa:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/mkdocs.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;editando-as-páginas&quot;&gt;Editando as páginas&lt;/h2&gt;
+
+&lt;p&gt;Vamos adicionar uma segunda página a nossa documentação, o nome dela será &lt;code class=&quot;highlighter-rouge&quot;&gt;about.md&lt;/code&gt; e deve ficar dentro da pasta &lt;strong&gt;docs&lt;/strong&gt;. O conteúdo dela vai ser esse:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# About
+
+## Random
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+## Random2
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+## Random3
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Feito isso, o MkDocs colocará automaticamente a nossa página no menu de navegação. Como vocês podem observar, cada título do documento virou um hyperlink no menu lateral e a URL que será exibida é o nome que você deu para o arquivo, neste casso &lt;code class=&quot;highlighter-rouge&quot;&gt;about&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/mkdocs2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;O nome &lt;strong&gt;Welcome to MkDocs&lt;/strong&gt; no menu de navegação não está muito interessante, quero deixar apenas o nome &lt;strong&gt;home&lt;/strong&gt;, porque o MkDocs utiliza o primeiro título do documento e define como nome do menu de navegação. Então vamos alterar isso, primeiro que temos abrir o arquivo de configuração do MkDocs (mkdocs.yml) e colocar essas informações:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;site_name: My Docs
+pages:
+        - Home: index.md
+        - About: about.md
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/mkdocs3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;O que acabamos de fazer foi adicionar o parâmetro &lt;code class=&quot;highlighter-rouge&quot;&gt;pages&lt;/code&gt; ao arquivo de configuração, onde primeiro argumento é o nome que vai aparecer no menu de navegação e o segundo é caminho da página. Você também podem alterar o nome da documentação, para isso mude onde tem &lt;code class=&quot;highlighter-rouge&quot;&gt;My Docs&lt;/code&gt; e colocar o nome da sua documentação.&lt;/p&gt;
+
+&lt;h2 id=&quot;campo-de-pesquisa&quot;&gt;Campo de Pesquisa&lt;/h2&gt;
+
+&lt;p&gt;Uma coisa que me chamou muito atenção foi o campo de pesquisa do MkDocs, porque os resultados da pesquisa incluem todas as ocorrências do termo de pesquisa no site e vinculam diretamente à seção da página em que o termo é exibido. Você tem tudo isso sem esforço ou configuração nenhuma da sua parte.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/mkdocs4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;alterando-o-tema&quot;&gt;Alterando o tema&lt;/h2&gt;
+
+&lt;p&gt;O MkDocs vem com dois temas: &lt;strong&gt;mkdocs&lt;/strong&gt; e o &lt;strong&gt;readthedocs&lt;/strong&gt;. O  mkdocs é o tema que estavamos usando até o momento, então vamos habilitar o readthedocs. Para isso, abra o arquivo &lt;code class=&quot;highlighter-rouge&quot;&gt;mkdocs.yml&lt;/code&gt; e adicione o parâmetro &lt;code class=&quot;highlighter-rouge&quot;&gt;theme&lt;/code&gt; ao arquivo e passe o nome do tema.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;site_name: My Docs
+pages:
+        - Home: index.md
+        - About: about.md
+theme: readthedocs
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/mkdocs5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Você também pode instalar temas feitos por outras pessoas &lt;a href=&quot;https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes&quot; target=&quot;_ blank&quot;&gt;acessando a Wiki do MkDocs&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;gerando-os-arquivos-estáticos&quot;&gt;Gerando os arquivos estáticos&lt;/h2&gt;
+
+&lt;p&gt;Digamos que já fizemos toda a nossa documentação, então agora temos que gerar os arquivos estáticos. Para isso, só temos que digitar esse comado:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkdocs build
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Esse comando vai criar um diretório chamado &lt;code class=&quot;highlighter-rouge&quot;&gt;site&lt;/code&gt; e ele vai conter os nossos arquivos estáticos.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;404.html  about  css  fonts  img  index.html  js  search  search.html  sitemap.xml
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;deploy-para-o-github&quot;&gt;Deploy para o GitHub&lt;/h2&gt;
+
+&lt;p&gt;Essa parte é importante que você tenha um conhecido básico de como usar o git. O MkDocs possui um comando que facilita o deploy para o GitHub, o  &lt;code class=&quot;highlighter-rouge&quot;&gt;mkdocs gh-deploy&lt;/code&gt;, mas antes temos que ir no GitHub e criar um repositório vazio, eu vou colocar o nome de &lt;strong&gt;test-mkdocs&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/mkdocs6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Quando clicamos em &lt;code class=&quot;highlighter-rouge&quot;&gt;Create repository&lt;/code&gt;, vamos ser enviado para essa página:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/mkdocs7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Não feche essa página vamos precisar dela daqui a pouco.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Volte a pasta do projeto e inicializar o git com esse comando:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git init
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Feito isso, vamos criar um arquivo chamando &lt;code class=&quot;highlighter-rouge&quot;&gt;.gitignore&lt;/code&gt;, esse arquivo vai dizer para o git ignorar uma pasta ou arquivo, no nosso caso vamos ignorar a pasta &lt;strong&gt;site&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo &quot;site/&quot; &amp;gt;&amp;gt; .gitignore
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Agora vamos adicionar todos os arquivos e realizar o commit deles:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add .
+git commit -m &quot;first commit&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Volte ao GitHub e pegue o link do repositório remoto que ele deu e adicione ao seu projeto, o meu vai ser esse:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git remote add origin https://github.com/allythy/test-mkdocs.git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Feito isso, vamos enviar nossa documentação para o GitHub:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git push -u origin master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Volte ao GitHub e atualize a página e verá que nossa documentação já está lá.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/mkdocs8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Certo, mas cadê o site da documentação? Calma, primeiro tivemos que colocar no nosso projeto no GitHub, porque se ele não tivesse lá o comando a seguir falharia. Então vamos voltar ao nosso projeto e executar esse comando:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkdocs gh-deploy
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Esse comando gerar o build do site, copiar os arquivos para a branch &lt;code class=&quot;highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; caso não tenha essa branch ele vai criar (que é o nosso caso) e enviar os arquivos para o GitHub, por conta disso ele vai solicitar o seu usuário e senha do GitHub. Feito isso, ele vai gerar a URL da sua documentação.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/mkdocs9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;É só pegar ela URL e colocar no seu navegador. Pronto, a sua documentarão feita com o MkDocs está online. O código desse projeto está &lt;a href=&quot;https://github.com/allythy/test-mkdocs&quot; target=&quot;_ blank&quot;&gt;disponível no meu GitHub&lt;/a&gt;, se gostou dá uma star lá.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/mkdocs10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;
+Regerência:
+&lt;a href=&quot;https://www.mkdocs.org/&quot; target=&quot;_ blank&quot;&gt;MkDocs&lt;/a&gt;
+
+&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">O MkDocs é gerador de site estático para documentação simples, rápido e um bonito para seu projeto. Ele é feito em Python, então já entendemos da onde vem sua simplicidade, mas não confunda simplicidade com falta de recursos, porque o MkDocs tem muito recursos que você pode usar com poucas linhas de código. A documentação é escrita em Markdown, que é uma forma de escrever HTML bem mais simples e bonita e a configuração do MkDocs é feita em apenas um arquivo YAML.</summary></entry><entry><title type="html">Como mostrar a branch do Git no Bash</title><link href="http://localhost:4000/como-mostrar-a-branch-do-git-no-bash" rel="alternate" type="text/html" title="Como mostrar a branch do Git no Bash" /><published>2018-05-15T14:10:00-03:00</published><updated>2018-05-15T14:10:00-03:00</updated><id>http://localhost:4000/como-mostrar-a-branch-do-git-no-bash</id><content type="html" xml:base="http://localhost:4000/como-mostrar-a-branch-do-git-no-bash">&lt;p&gt;Se você é um usuário do Bash, pode aproveitar alguns recursos dele para tornar sua experiência com o Git muito mais amigável. Neste caso, como mostrar a branch do Git que você está trabalhando.&lt;/p&gt;
 
 &lt;p&gt;Primeiro, vamos abrir o arquivo .bashrc:&lt;/p&gt;
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim .bashrc
@@ -501,25 +709,4 @@ Senha: zabbix
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://linuxconfig.org/how-to-install-nodejs-on-debian-9-stretch-linux&quot; target=&quot;_ blank&quot;&gt;Fonte&lt;/a&gt;&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como instalar o NodeJS no Debian. Node.js é uma plataforma para desenvolvimento de aplicações server-side baseadas em rede utilizando JavaScript e o V8 JavaScript Engine, ou seja, com Node.js podemos criar uma variedade de aplicações Web utilizando apenas código em JavaScript.</summary></entry><entry><title type="html">Como instalar o corretor ortográfico no LibreOffice</title><link href="http://localhost:4000/Como-instalar-o-corretor-ortografico-no-LibreOffice" rel="alternate" type="text/html" title="Como instalar o corretor ortográfico no LibreOffice" /><published>2017-09-10T19:00:00-03:00</published><updated>2017-09-10T19:00:00-03:00</updated><id>http://localhost:4000/Como-instalar%20o-corretor-ortografico-no-LibreOffice</id><content type="html" xml:base="http://localhost:4000/Como-instalar-o-corretor-ortografico-no-LibreOffice">&lt;p&gt;Essa será uma dica bem rápida, mas muito útil de como instalar o corretor ortográfico no LibreOffice. O LibreOffice que vem no Debian ou derivados não contém o corretor ortográfico, porque infelizmente ninguém empacotou para ele ainda. Mas, se você baixar o LibreOffice direto do site ele já vem com o corretor ortográfico. Para que você não tenha o trabalho de desinstalar o LibreOffice que está na nossa distribuição e baixar a do site, vamos apenas instalar o corretor ortográfico, o VERO.&lt;/p&gt;
-
-&lt;h2 id=&quot;instalação&quot;&gt;Instalação&lt;/h2&gt;
-
-&lt;p&gt;Primeiro, você têm que acessar o site do VERO e baixar ou usar esse comando para isso:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget -c https://pt-br.libreoffice.org/assets/Uploads/PT-BR-Documents/VERO/VeroptBRV320AOC.oxt
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;Feito isso, vamos abrir o LibreOffice e ir em &lt;strong&gt;Ferrementas &amp;gt; Gerenciador de Extensões&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/libreoffice.png&quot; alt=&quot;Tela principal do LibreOffice mostrando onde está o gerenciador de extensões&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Com o gerenciador de extensões aberto vamos clicar em adicionar.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/libreoffice2png&quot; alt=&quot;Tela do gerenciador de extensões do LibreOffice&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;E depois informar o caminho onde salvamos o Vero e clicamos em abrir.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;img/libreoffice3.png&quot; alt=&quot;Tela para informar o caminho onde salvamos o Vero&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Feito isso, você pode fechar o gerenciador de extensões que o corretor ortográfico do LibreOffice já estará funcionando.&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Essa será uma dica bem rápida, mas muito útil de como instalar o corretor ortográfico no LibreOffice. O LibreOffice que vem no Debian ou derivados não contém o corretor ortográfico, porque infelizmente ninguém empacotou para ele ainda. Mas, se você baixar o LibreOffice direto do site ele já vem com o corretor ortográfico. Para que você não tenha o trabalho de desinstalar o LibreOffice que está na nossa distribuição e baixar a do site, vamos apenas instalar o corretor ortográfico, o VERO.</summary></entry></feed>
+&lt;p&gt;&lt;a href=&quot;https://linuxconfig.org/how-to-install-nodejs-on-debian-9-stretch-linux&quot; target=&quot;_ blank&quot;&gt;Fonte&lt;/a&gt;&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como instalar o NodeJS no Debian. Node.js é uma plataforma para desenvolvimento de aplicações server-side baseadas em rede utilizando JavaScript e o V8 JavaScript Engine, ou seja, com Node.js podemos criar uma variedade de aplicações Web utilizando apenas código em JavaScript.</summary></entry></feed>
