@@ -206,7 +206,7 @@ Esse comando gerar o build do site, copiar os arquivos para a branch `gh-pages` 
 ![](img/mkdocs10.png)
 
 <p>
-Regerência:
+Referência:
 <a href="https://www.mkdocs.org/" target="_ blank">MkDocs</a>
 
 </p>
