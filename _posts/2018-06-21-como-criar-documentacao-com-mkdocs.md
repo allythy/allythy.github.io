@@ -6,9 +6,9 @@ date:       2018-06-21 17:10:00
 author:     "Allythy"
 header-img: ""
 ---
-O MkDocs é gerador de site estático para documentação simples, rápido e um bonito para seu projeto. Ele é feito em Python, então já entendemos da onde vem sua simplicidade, mas não confunda simplicidade com falta de recursos, porque o MkDocs tem muito recursos que você pode usar com poucas linhas de código. A documentação é escrita em Markdown, que é uma forma de escrever HTML bem mais simples e bonita e a configuração do MkDocs é feita em apenas um arquivo YAML.
+O MkDocs é gerador de site estático para documentação simples, rápido e um bonito para seu projeto. Ele é feito em Python, então já entendemos a origem da sua simplicidade, mas não confunda simplicidade com falta de recursos, porque o MkDocs tem muito recursos que você pode usar com poucas linhas de código. A documentação é escrita em Markdown, que é uma forma de escrever HTML bem mais simples e bonita e a configuração do MkDocs é feita em apenas um arquivo YAML.
 
-Na hora do build o MKDocs vai gerar arquivos estáticos (HTML, CSS e JS), com isso você pode hospedar o site da sua documentação sem pagar nada no GitHub ou GitLab, porque esses serviços possuem os recursos <a href="https://pages.github.com/" target="_ blank">GitHub Pages</a> e <a href="https://about.gitlab.com/features/pages/" target="_ blank">GitLab Pages</a>, respectivamente, que permite a utilização dos arquivos estáticos.
+Quando ocorre o build o MKDocs vai gerar arquivos estáticos (HTML, CSS e JS), com isso você pode hospedar o site da sua documentação sem pagar nada no GitHub ou GitLab, porque esses serviços possuem os recursos <a href="https://pages.github.com/" target="_ blank">GitHub Pages</a> e <a href="https://about.gitlab.com/features/pages/" target="_ blank">GitLab Pages</a>, respectivamente, que permite a utilização dos arquivos estáticos.
 
 O MkDocs ainda possui um servidor de desenvolvimento integrado, isso permite pré-visualizar a documentação à medida que a escreve. Ele também vai recarregar automaticamente e atualizar seu navegador sempre que você salvar suas alterações.
 
@@ -20,7 +20,9 @@ Se você estiver usando qualquer distribuição GNU, você pode instalar o MkDoc
 sudo apt install mkdocs
 ```
 
-Acredito ser seja mais interessante instalar o MkDocs pelo gerenciador de pacotes do Python, o pip, porque se você estiver usando um ambiente virtual vai ficar tudo mais organizado e não vai “poluir” o seu sistema. Neste post não vou mostrar como você faz isso, porque vai sair do escopo desse post. Quem não souber instalar o pip <a href="https://allythy.github.io/Como-instalar-o-pip-para-gerenciar-pacotes-do-Python-no-GNU-Linux" target="_ blank">tem esse post que demostra como faz</a>. Com o pip instalado, você só tem que digitar esse comando:
+Acredito ser seja mais interessante instalar o MkDocs pelo gerenciador de pacotes do Python, o pip, porque se você estiver usando um ambiente virtual vai ficar tudo mais organizado e não vai “poluir” o seu sistema. Neste post não vou mostrar como você faz isso, pois sairia do escopo do texto.
+Entretanto, se você não souber como instalar o pip,
+<a href="https://allythy.github.io/Como-instalar-o-pip-para-gerenciar-pacotes-do-Python-no-GNU-Linux" target="_ blank">preparei esse post que demostra como faz</a>. Com o pip instalado, você só tem que digitar esse comando:
 
 ```python
 pip install mkdocs
