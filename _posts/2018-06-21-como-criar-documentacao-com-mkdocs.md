@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Como criar docomentação com o MkDocs"
+title:      "Como criar documentação com MkDocs"
 subtitle:   "Neste artigo, vamos aprender como criar uma docomentação com o MkDocs."
 date:       2018-06-21 17:10:00
 author:     "Allythy"
