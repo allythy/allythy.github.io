@@ -10,7 +10,7 @@
 
     <title>Como instalar o Jekyll no Debian e derivados  - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/Como-instalar-o-Jekyll-no-Debian-e-derivados">
+    <link rel="canonical" href="/Como-instalar-o-Jekyll-no-Debian-e-derivados">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -109,62 +109,52 @@
 
 <p>Primeiro temos que instalar o pacote build-essential, pois vamos precisar do gcc e do make. Para isso,  use esse comando:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install build-essential
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>build-essential
+</code></pre></div></div>
 
 <p>Também temos que instalar a versão 2.0 do ruby ou superior.  Para isso, use esse comando:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install ruby2.3
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>ruby2.3
+</code></pre></div></div>
 
 <p>Cerifique-se que também foi instalado o pacote ruby-dev, caso não tenho sido instalado, use esse comando:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install ruby2.3-dev
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>ruby2.3-dev
+</code></pre></div></div>
 
 <p>Agora temos que baixar o RubyGems, que é um gerenciador de pacotes para o Ruby. Você pode <a href="https://rubygems.org/pages/download">acessar o site e baixar</a> ou usar esse comando:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>wget -c https://rubygems.org/rubygems/rubygems-2.6.11.tgz
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget <span class="nt">-c</span> https://rubygems.org/rubygems/rubygems-2.6.11.tgz
+</code></pre></div></div>
 
 <p>Vamos descompactar. Caso você queira saber mais sobre o descompactadores <a href="https://allythy.github.io/Empacotamento-e-compactacao-de-arquivos-no-gnu-linux">tem esse artigo</a>.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tar -xvzf rubygems-2.6.11.tgz
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar</span> <span class="nt">-xvzf</span> rubygems-2.6.11.tgz
+</code></pre></div></div>
 <p>Temos que entrar na pasta que descompactar e depois instalar o RubyGems, para isso use esses comandos:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">cd </span>rubygems-2.6.11/
-sudo ruby setup.rb
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>rubygems-2.6.11/
+<span class="nb">sudo </span>ruby setup.rb
+</code></pre></div></div>
 
 <p>Pronto, agora é só instalar o jekyll com esse comando:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo gem install jekyll bundler
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>gem <span class="nb">install </span>jekyll bundler
+</code></pre></div></div>
 
 <p>Você pode verificar se ele foi instalado com esse comando:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>jekyll -v
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jekyll <span class="nt">-v</span>
+</code></pre></div></div>
 
 <p>Pronto, você tá com Jekyll instalado. Para criar o seu site digite esse comando, onde tem o nomeSempreUpdate coloque o nome que você vai dar para o seu site.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo jekyll new allythy
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>jekyll new allythy
+</code></pre></div></div>
 <p>Esse comando vai gerar uma pasta com o nome que você deu para o seu site, entre nessa pasta e execute esse comando:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo jekyll s
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>jekyll s
+</code></pre></div></div>
 
 <p>Esse comando vai executar o seu site localmente na porta 4000. Agora é só você acessar o endereço http://127.0.0.1:4000/ e começar a testar.</p>
 

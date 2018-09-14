@@ -10,7 +10,7 @@
 
     <title>3 maneiras de alterar o Shell padrão de um usuário no GNU/Linux - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/3-Maneiras-de-alterar-o-Shell-padrao-de-um-usuario-no-GNU-Linux">
+    <link rel="canonical" href="/3-Maneiras-de-alterar-o-Shell-padrao-de-um-usuario-no-GNU-Linux">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -107,9 +107,8 @@
 
 <p>Vamos primeiro listar todos os Shells disponíveis em seu sistema GNU/Linux, digite:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>cat /etc/shells
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> /etc/shells
+</code></pre></div></div>
 
 <p>O Shell padrão para a maioria dos Sistemas GNU/Liunx é o Bash <strong>(/ bin / bash)</strong>. Antes de prosseguir, observe que:</p>
 
@@ -124,23 +123,20 @@
 
 <p>Neste exemplo, primeiro verificamos as informações da conta do usuário para ver seu Shell de login padrão.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>grep allythy /etc/passwd
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">grep </span>allythy /etc/passwd
+</code></pre></div></div>
 
 <p>Em seguida, altere seu shell de login de <code class="highlighter-rouge">/bin/bash</code> para <code class="highlighter-rouge">/bin/sh</code> da seguinte maneira:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo usermod --shell /bin/bash allythy
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>usermod <span class="nt">--shell</span> /bin/bash allythy
+</code></pre></div></div>
 
 <h2 id="2-chsh">2. chsh</h2>
 
 <p><code class="highlighter-rouge">chsh</code> é um utilitário de linha de comando para alterar o Shell de um usuário. Você alterar o Shell passando a opção <code class="highlighter-rouge">-s</code> ou <code class="highlighter-rouge">--shell</code>, depois informando o Shell que vai ser usado e o nome do usuário.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo chsh --shell /bin/sh allythy
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>chsh <span class="nt">--shell</span> /bin/sh allythy
+</code></pre></div></div>
 
 <h2 id="3-alterando-diretamente-o-arquivo-etcpasswd">3. Alterando diretamente o arquivo /etc/passwd</h2>
 

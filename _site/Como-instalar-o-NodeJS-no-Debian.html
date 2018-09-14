@@ -10,7 +10,7 @@
 
     <title>Como instalar o NodeJS no Debian - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/Como-instalar-o-NodeJS-no-Debian">
+    <link rel="canonical" href="/Como-instalar-o-NodeJS-no-Debian">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -110,26 +110,22 @@
 <p>Esta parte é super fácil. Na verdade, é o que é recomendado pela NodeJS Foundation. Use cURL para baixar script. O script detecta sua distribuição e configura o repositório para você. Ele ainda executa <code class="highlighter-rouge">apt update</code>. Você provavelmente deve ter o <code class="highlighter-rouge">sudo</code> instalado. Caso contrário, você precisa executar o script com o usuário <code class="highlighter-rouge">root</code> e os comandos onde eu utilizo o sudo você deve omitir o mesmo, porque se você não fizer isso vai da um erro dizendo que o comando não foi encontrado.</p>
 
 <p>Caso você não tenho o cURL, use esse comando para instalar:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install curl
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>curl
+</code></pre></div></div>
 
 <p><strong>Versão LTS do Nodejs</strong></p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-sL</span> https://deb.nodesource.com/setup_6.x | <span class="nb">sudo</span> <span class="nt">-E</span> bash -
+</code></pre></div></div>
 
 <p><strong>Última versão do Nodejs</strong></p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-sL</span> https://deb.nodesource.com/setup_8.x | <span class="nb">sudo</span> <span class="nt">-E</span> bash -
+</code></pre></div></div>
 
 <h2 id="instalando-o-nodejs">Instalando o NodeJs</h2>
 
 <p>Agora que temos o repositório configura. Você pode instalar o NodeJS normalmente através do <code class="highlighter-rouge">apt</code>.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install nodejs
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>nodejs
+</code></pre></div></div>
 
 <h2 id="testando-nodejs">Testando NodeJS</h2>
 
@@ -140,15 +136,13 @@
 <h2 id="instalando-um-pacote-com-o-npm">Instalando um pacote com o NPM</h2>
 
 <p>Antes de começar a usar o NPM, verifique se está instalado no seu Debian o pacote <code class="highlighter-rouge">build-essential</code> para evitar problemas futuros quando encontra pacote fonte. Caso você não tenha instalado, use o comando abaixo para instalar:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install build-essential
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>build-essential
+</code></pre></div></div>
 
 <p>O NPM é um gerenciador de pacotes do NodeJS. Com ele você pode instalar, remover, procurar pacotes entre outras coisas como a gente faz com <code class="highlighter-rouge">apt</code> no Debian e seus derivados. Vamos instalar o Express para testar o npm. O Express é um popular  framwork NodeJS.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo npm install express
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>npm <span class="nb">install </span>express
+</code></pre></div></div>
 
 <p><a href="https://linuxconfig.org/how-to-install-nodejs-on-debian-9-stretch-linux" target="_ blank">Fonte</a></p>
 

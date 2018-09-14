@@ -10,7 +10,7 @@
 
     <title>Entendendo as permissões de acesso a arquivos e repositórios e como alterá-las - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/Entendendo-as-permissoes-de-acesso-a-arquivos-e-repositorios-e-como-altera-las">
+    <link rel="canonical" href="/Entendendo-as-permissoes-de-acesso-a-arquivos-e-repositorios-e-como-altera-las">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -107,9 +107,8 @@
 
 <p>Para ver as permissões que um arquivo ou diretório possui, temos que executar o seguinte comando:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>ls -l
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span> <span class="nt">-l</span>
+</code></pre></div></div>
 
 <p>O comando <code class="highlighter-rouge">ls</code> lista o conteúdo do diretório, no meu caso é o diretório home e a opção -l trás as informações em um formato longo mostrando as permissões, número e links, proprietário, grupo, tamanho, data de modificação e nome do arquivo.</p>
 
@@ -121,24 +120,22 @@
 
 <p>A primeira letra trata da natureza do arquivo, se ele é um diretório, link, arquivo comum de usuário, arquivo de bloco, Socket de comunicação entre processos, Pipe de comunicação entre processos ou arquivo de caractere.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>d = Diretório
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d = Diretório
 - = Arquivo comum de usuário
 b = Arquivo de bloco
 c = Arquivo de caractere
 l = Link
 s = Socket de comunicação entre processos
 p = Pipe de comunicação entre processos
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Depois temos as letras <strong>rwx</strong> (que sempre apareceram nessa ordem) que estão divididas em três categorias, dono, grupo e outros. Onde cada letra determina o acesso a um diretório ou arquivo, ao dono, grupo e outros. As letras rwx significam:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>r = Permissão de Leitura (read)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>r = Permissão de Leitura (read)
 w =  Permissão de Escrita (write)
 x = Permissão de Execução (execution)
 - = Sem Permissão
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="img/permissao2.png" alt="Permissões do arquivos" /></p>
 
@@ -150,9 +147,8 @@ x = Permissão de Execução (execution)
 
 <p>A sintaxe do comando é essa :</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>chmod <span class="o">[</span>opções] <span class="o">[</span>permissões] <span class="o">[</span>nome <span class="k">do </span>arquivo ou diretório]
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chmod</span> <span class="o">[</span>opções] <span class="o">[</span>permissões] <span class="o">[</span>nome <span class="k">do </span>arquivo ou diretório]
+</code></pre></div></div>
 
 <p><img src="img/permissao3.png" alt="Tabela com os números para alterar as permissões em octal" /></p>
 
@@ -160,9 +156,8 @@ x = Permissão de Execução (execution)
 
 <p>Ao fornecer novas permissões aos arquivos, utilize um dígito para o dono, grupo e os outros. Por exemplo, para conceder todas as permissões ao dono, porém nenhuma permissão para leitura, escrita ou execução de um arquivo ao grupo e outros, vamos fazer assim:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>chmod 700 Documentos
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chmod </span>700 Documentos
+</code></pre></div></div>
 
 <blockquote>
   <p>OBS: A opção menos -R (recursiva) faz com que as alterações sejam aplicadas aos subdiretórios.</p>
@@ -172,9 +167,8 @@ x = Permissão de Execução (execution)
 
 <p>Para alterar o proprietário e grupo de um arquivo ou diretório, vamos usar o comando <code class="highlighter-rouge">chown</code>. Que possui a seguinte sintaxe:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>chown <span class="o">[</span>novo proprietário]:[ novo grupo] <span class="o">[</span>nome <span class="k">do </span>arquivo ou diretório]
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chown</span> <span class="o">[</span>novo proprietário]:[ novo grupo] <span class="o">[</span>nome <span class="k">do </span>arquivo ou diretório]
+</code></pre></div></div>
 
 <p>Só alterar o proprietário e manter o grupo</p>
 
@@ -182,9 +176,8 @@ x = Permissão de Execução (execution)
   <p>Não coloque os colchetes quanto for digitar o comando.</p>
 </blockquote>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>chown <span class="o">[</span>novo proprietário] <span class="o">[</span>nome <span class="k">do </span>arquivo]
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chown</span> <span class="o">[</span>novo proprietário] <span class="o">[</span>nome <span class="k">do </span>arquivo]
+</code></pre></div></div>
 
 <p>Alterar o proprietário e o grupo</p>
 
@@ -192,9 +185,8 @@ x = Permissão de Execução (execution)
   <p>Não deixe espaço entre os dois pontos. Na versão GNU você pode usar o ponto ao invés dos dois pontos</p>
 </blockquote>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>chown <span class="o">[</span>novo proprietário]:[ novo grupo] <span class="o">[</span>nome <span class="k">do </span>arquivo ou diretório]
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chown</span> <span class="o">[</span>novo proprietário]:[ novo grupo] <span class="o">[</span>nome <span class="k">do </span>arquivo ou diretório]
+</code></pre></div></div>
 
 <p>Alterar só o grupo</p>
 
@@ -204,21 +196,18 @@ do  usuário  é  omitido, somente o grupo do arquivo é alterado. Neste
 caso, chown assume a mesma função que <code class="highlighter-rouge">chgrp</code>.</p>
 </blockquote>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>chown <span class="o">[</span>deixa vazio <span class="o">]</span>:[ novo grupo] <span class="o">[</span>nome <span class="k">do </span>arquivo ou diretório]
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chown</span> <span class="o">[</span>deixa vazio <span class="o">]</span>:[ novo grupo] <span class="o">[</span>nome <span class="k">do </span>arquivo ou diretório]
+</code></pre></div></div>
 <p>Se você colocar os dois pontos ou ponto sem o nome de grupo só com o nome do usuário, aquele  usuário
 torna-se o proprietário do arquivo e o grupo do arquivo é alterado para o grupo de login do usuário.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>chown <span class="o">[</span>novo proprietário]:[deixa vazio <span class="o">]</span> <span class="o">[</span>nome <span class="k">do </span>arquivo ou diretório]
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chown</span> <span class="o">[</span>novo proprietário]:[deixa vazio <span class="o">]</span> <span class="o">[</span>nome <span class="k">do </span>arquivo ou diretório]
+</code></pre></div></div>
 
 <p>Lembrando que da forma como foi executado o comando acima, ele alterou somente do diretório ou arquivo, mas  as sub-pastas dentro dele continuam com o proprietário antigo. Para incluir os sub-diretórios acrescente -R de recursiva.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>chown -R <span class="o">[</span>novo proprietário]:[ novo grupo] <span class="o">[</span>nome <span class="k">do </span>arquivo ou diretório]
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chown</span> <span class="nt">-R</span> <span class="o">[</span>novo proprietário]:[ novo grupo] <span class="o">[</span>nome <span class="k">do </span>arquivo ou diretório]
+</code></pre></div></div>
 
 
                 <hr>

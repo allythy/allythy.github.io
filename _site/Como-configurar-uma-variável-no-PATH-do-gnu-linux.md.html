@@ -10,7 +10,7 @@
 
     <title>Como configurar uma variável no $PATH do GNU/Linux - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/Como-configurar-uma-vari%C3%A1vel-no-PATH-do-gnu-linux.md">
+    <link rel="canonical" href="/Como-configurar-uma-vari%C3%A1vel-no-PATH-do-gnu-linux.md">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -109,18 +109,16 @@
 
 <p>Quando você digita um comando no seu Shell, ele não vai procurar em todos os diretórios para ver se tem um programa com esse nome, mas apenas em diretórios específicos. Como eu sei qual é esses diretórios ? É simples, eles fazem parte de uma variável de ambiente, chamada <code class="highlighter-rouge">$PATH</code>, onde o seu Shell faz uma verificação para saber onde procurar. Para ver o que está no seu <code class="highlighter-rouge">$PATH</code>, digite:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">echo</span> <span class="nv">$PATH</span>
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="nv">$PATH</span>
+</code></pre></div></div>
 <p>Você provavelmente verá os diretórios mencionados acima, bem como alguns outros e todos são separados por dois pontos.</p>
 
 <p>Às vezes, você precisa instalar algum programa que está em outro local do seu sistema, mas não que dizer o seu caminho completo. Você pode fazer isso facilmente adicionando um diretório a sua variável ambiente <code class="highlighter-rouge">$PATH</code>.</p>
 
 <p>Digamos que você escreveu um pequeno Shell Script chamado <strong>hello.sh</strong> e ele está localizado em um diretório chamado <strong>shell</strong> que tem esse caminho <strong>/home/allythy/Documentos/shell</strong>. Este script fornece alguma função útil e você gostaria de executar ele independentemente do diretório em que você estivesse. Para isso, basta adicionar o caminho do seu arquivo para a variável de ambiente <code class="highlighter-rouge">$PATH</code> com o seguinte comando:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/home/allythy/Documentos/shell
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/home/allythy/Documentos/shell
+</code></pre></div></div>
 
 <p>Agora você pode executar o seu script em qualquer lugar do seu sistema apenas digitando seu nome(hello.sh), sem ter que incluir o caminho completo dele.</p>
 
@@ -128,24 +126,21 @@
 
 <p>Você pode configurar para todos os usuários do sistema colocando o comando acima <code class="highlighter-rouge">export PATH=$PATH:/home/allythy/Documentos/shell</code> no final de algum desses arquivos:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>/etc/profile /
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/etc/profile /
 /etc/profile.d/   
 /etc/bash.bashrc
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Ou para um usuário específico colocando o comando acima nesses arquivos:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>~/.bashrc
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/.bashrc
 ~/.profile
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Vou dá um exemplo colocando o caminho do nosso script no arquivo <code class="highlighter-rouge">~/.bashrc</code>. Primeiro, vamos abri o arquivo com algum editor de texto.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>vim ~/.bashrc
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim ~/.bashrc
+</code></pre></div></div>
 
 <p>Feito isso, vamos colocar o esse comando <code class="highlighter-rouge">export PATH=$PATH:/home/allythy/Documentos/shell</code> no final do arquivo e depois salvar. O seu arquivo deve ficar assim.</p>
 

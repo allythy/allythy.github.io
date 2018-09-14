@@ -10,7 +10,7 @@
 
     <title>Como criar documentação com MkDocs - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/como-criar-documentacao-com-mkdocs">
+    <link rel="canonical" href="/como-criar-documentacao-com-mkdocs">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -113,30 +113,26 @@
 
 <p>Se você estiver usando qualquer distribuição GNU, você pode instalar o MkDocs pelo seu gerenciador de pacotes. Como eu estou usando o Debian só tenho que digitar esse comando:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install mkdocs
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>mkdocs
+</code></pre></div></div>
 
 <p>Acredito que seja mais interessante instalar o MkDocs pelo gerenciador de pacotes do Python, o pip, porque se você estiver usando um ambiente virtual vai ficar tudo mais organizado e não vai “poluir” o seu sistema. Neste post não vou mostrar como você faz isso, pois sairia do escopo do texto.
 Entretanto, se você não souber como instalar o pip,
 <a href="https://allythy.github.io/Como-instalar-o-pip-para-gerenciar-pacotes-do-Python-no-GNU-Linux" target="_ blank">preparei esse post que demostra como faz</a>. Com o pip instalado, você só tem que digitar esse comando:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">pip</span> <span class="n">install</span> <span class="n">mkdocs</span>
-</code></pre>
-</div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pip</span> <span class="n">install</span> <span class="n">mkdocs</span>
+</code></pre></div></div>
 <p>Para verificar se tudo deu certo, execute esse comando:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">mkdocs</span> <span class="o">--</span><span class="n">version</span>
-</code></pre>
-</div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mkdocs</span> <span class="o">--</span><span class="n">version</span>
+</code></pre></div></div>
 
 <h2 id="criando-a-documentação">Criando a documentação</h2>
 
 <p>Para começar a nossa documentação é muito fácil, basta digitar esse comando:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">mkdocs</span> <span class="n">new</span> <span class="n">my</span><span class="o">-</span><span class="n">project</span>
-</code></pre>
-</div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mkdocs</span> <span class="n">new</span> <span class="n">my</span><span class="o">-</span><span class="n">project</span>
+</code></pre></div></div>
 
 <blockquote>
   <p>Onde tem <code class="highlighter-rouge">my-project</code> você coloca o nome da sua docomentação</p>
@@ -144,16 +140,14 @@ Entretanto, se você não souber como instalar o pip,
 
 <p>Depois entre no diretório que foi criado:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">cd</span> <span class="n">my</span><span class="o">-</span><span class="n">project</span>
-</code></pre>
-</div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cd</span> <span class="n">my</span><span class="o">-</span><span class="n">project</span>
+</code></pre></div></div>
 <p>Dentro desse diretório você vai ter uma estrutura igual a essa:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>├── docs
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>├── docs
 │ └── index.md
 └── mkdocs.yml
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Agora vamos entender o que são esses arquivos e pasta. O MkDocs tem apenas um arquivo de configuração, como eu tinha falando acima, esse arquivo é o <code class="highlighter-rouge">mkdocs.yml</code> e uma pasta chamada <code class="highlighter-rouge">docs</code> que conterá os nossos arquivos da documentação escritos em Markdown. No momento, a pasta docs contém apenas uma única página de documentação, chamada index.md.</p>
 
@@ -165,9 +159,8 @@ Entretanto, se você não souber como instalar o pip,
   <p>Lembre-se de estar no mesmo diretório que o arquivo de configuração <code class="highlighter-rouge">mkdocs.yml</code></p>
 </blockquote>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">mkdocs</span> <span class="n">serve</span>
-</code></pre>
-</div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mkdocs</span> <span class="n">serve</span>
+</code></pre></div></div>
 
 <p>Abra o seu navegador e digite a seguinte URL <code class="highlighter-rouge">http://localhost:8000/</code>, encontrará uma página igual a essa:</p>
 
@@ -177,7 +170,7 @@ Entretanto, se você não souber como instalar o pip,
 
 <p>Vamos adicionar uma segunda página a nossa documentação, o nome dela será <code class="highlighter-rouge">about.md</code> e deve ficar dentro da pasta <strong>docs</strong>. O conteúdo dela vai ser esse:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># About
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># About
 
 ## Random
 
@@ -190,8 +183,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 ## Random3
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Feito isso, o MkDocs colocará automaticamente a nossa página no menu de navegação. Como vocês podem observar, cada título do documento virou um hyperlink no menu lateral e a URL que será exibida é o nome que você deu para o arquivo, neste casso <code class="highlighter-rouge">about</code>.</p>
 
@@ -199,12 +191,11 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 
 <p>O nome <strong>Welcome to MkDocs</strong> no menu de navegação não está muito interessante, quero deixar apenas o nome <strong>home</strong>, porque o MkDocs utiliza o primeiro título do documento e define como nome do menu de navegação. Então vamos alterar isso, primeiro que temos abrir o arquivo de configuração do MkDocs (mkdocs.yml) e colocar essas informações:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>site_name: My Docs
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>site_name: My Docs
 pages:
         - Home: index.md
         - About: about.md
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="img/mkdocs3.png" alt="" /></p>
 
@@ -220,13 +211,12 @@ pages:
 
 <p>O MkDocs vem com dois temas: <strong>mkdocs</strong> e o <strong>readthedocs</strong>. O  mkdocs é o tema que estavamos usando até o momento, então vamos habilitar o readthedocs. Para isso, abra o arquivo <code class="highlighter-rouge">mkdocs.yml</code> e adicione o parâmetro <code class="highlighter-rouge">theme</code> ao arquivo e passe o nome do tema.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>site_name: My Docs
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>site_name: My Docs
 pages:
         - Home: index.md
         - About: about.md
 theme: readthedocs
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="img/mkdocs5.png" alt="" /></p>
 
@@ -236,15 +226,13 @@ theme: readthedocs
 
 <p>Digamos que já fizemos toda a nossa documentação, então agora temos que gerar os arquivos estáticos. Para isso, só temos que digitar esse comado:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>mkdocs build
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdocs build
+</code></pre></div></div>
 
 <p>Esse comando vai criar um diretório chamado <code class="highlighter-rouge">site</code> e ele vai conter os nossos arquivos estáticos.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>404.html  about  css  fonts  img  index.html  js  search  search.html  sitemap.xml
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>404.html  about  css  fonts  img  index.html  js  search  search.html  sitemap.xml
+</code></pre></div></div>
 
 <h2 id="deploy-para-o-github">Deploy para o GitHub</h2>
 
@@ -262,34 +250,29 @@ theme: readthedocs
 
 <p>Volte a pasta do projeto e inicializar o git com esse comando:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git init
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git init
+</code></pre></div></div>
 
 <p>Feito isso, vamos criar um arquivo chamando <code class="highlighter-rouge">.gitignore</code>, esse arquivo vai dizer para o git ignorar uma pasta ou arquivo, no nosso caso vamos ignorar a pasta <strong>site</strong>.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>echo "site/" &gt;&gt; .gitignore
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "site/" &gt;&gt; .gitignore
+</code></pre></div></div>
 
 <p>Agora vamos adicionar todos os arquivos e realizar o commit deles:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git add .
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add .
 git commit -m "first commit"
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Volte ao GitHub e pegue o link do repositório remoto que ele deu e adicione ao seu projeto, o meu vai ser esse:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git remote add origin https://github.com/allythy/test-mkdocs.git
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote add origin https://github.com/allythy/test-mkdocs.git
+</code></pre></div></div>
 
 <p>Feito isso, vamos enviar nossa documentação para o GitHub:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git push -u origin master
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push -u origin master
+</code></pre></div></div>
 
 <p>Volte ao GitHub e atualize a página e verá que nossa documentação já está lá.</p>
 
@@ -297,9 +280,8 @@ git commit -m "first commit"
 
 <p>Certo, mas cadê o site da documentação? Calma, primeiro tivemos que colocar no nosso projeto no GitHub, porque se ele não tivesse lá o comando a seguir falharia. Então vamos voltar ao nosso projeto e executar esse comando:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>mkdocs gh-deploy
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdocs gh-deploy
+</code></pre></div></div>
 
 <p>Esse comando gerar o build do site, copiar os arquivos para a branch <code class="highlighter-rouge">gh-pages</code> caso não tenha essa branch ele vai criar (que é o nosso caso) e enviar os arquivos para o GitHub, por conta disso ele vai solicitar o seu usuário e senha do GitHub. Feito isso, ele vai gerar a URL da sua documentação.</p>
 
@@ -324,6 +306,10 @@ Referência:
                         <a href="/como-mostrar-a-branch-do-git-no-bash" data-toggle="tooltip" data-placement="top" title="Como mostrar a branch do Git no Bash">&larr; Postagem anterior</a>
                     </li>
                     
+                    
+                    <li class="next">
+                        <a href="/como-gerenciar-senhas-com-o-pass" data-toggle="tooltip" data-placement="top" title="Como Gerenciar Senhas Com O Pass ">Próxima postagem &rarr;</a>
+                    </li>
                     
                 </ul>
 

@@ -10,7 +10,7 @@
 
     <title>Como instalar o pip para gerenciar pacotes do Python no GNU/Linux - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/Como-instalar-o-pip-para-gerenciar-pacotes-do-Python-no-GNU-Linux">
+    <link rel="canonical" href="/Como-instalar-o-pip-para-gerenciar-pacotes-do-Python-no-GNU-Linux">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -108,90 +108,75 @@
 <h2 id="instalação-no-debian-e-derivados">Instalação no Debian e derivados</h2>
 
 <p>Para o Python 2</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install python-pip
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>python-pip
+</code></pre></div></div>
 <p>Para o Python 3</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install python3-pip
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>python3-pip
+</code></pre></div></div>
 <h2 id="instalação-no-centos-e-rhel">Instalação no CentOS e RHEL</h2>
 
 <p>Infelizmente, o pip não é está no repositório oficial do CentOS/RHEL. Então, você precisa primeiro habilitar o repositório EPEL e depois instalar o pip.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo yum install epel-release
-sudo yum install python-pip
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>yum <span class="nb">install </span>epel-release
+<span class="nb">sudo </span>yum <span class="nb">install </span>python-pip
+</code></pre></div></div>
 
 <h2 id="instalação-no-fedora">Instalação no Fedora</h2>
 
 <p>Para o Python 2</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo dnf install python-pip
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dnf <span class="nb">install </span>python-pip
+</code></pre></div></div>
 
 <p>Para o Python 3</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo dnf install python3
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dnf <span class="nb">install </span>python3
+</code></pre></div></div>
 
 <h2 id="instalação-no-arch-linux">Instalação no Arch Linux</h2>
 
 <p>Para o Python 2</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo pacman -S python2-pip
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>pacman <span class="nt">-S</span> python2-pip
+</code></pre></div></div>
 
 <p>Para o Python 3</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo pacman -S python-pip
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>pacman <span class="nt">-S</span> python-pip
+</code></pre></div></div>
 
 <h2 id="instalação-no-opensuse">Instalação no openSUSE</h2>
 
 <p>Para o Python 2</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo zypper install python-pip
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>zypper <span class="nb">install </span>python-pip
+</code></pre></div></div>
 
 <p>Para o Python 3</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo zypper install python3-pip
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>zypper <span class="nb">install </span>python3-pip
+</code></pre></div></div>
 
 <h2 id="como-usar-o-pip">Como usar o Pip</h2>
 
 <p>Eu vou usar como exemplo o pip3 que usar o Python 3, caso você queira usar o Python 2 use o pip no lugar do pip3.</p>
 
 <p><strong>Instalação de pacotes:</strong></p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo pip3 install nome-do-pacote
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>pip3 <span class="nb">install </span>nome-do-pacote
+</code></pre></div></div>
 
 <p><strong>Desinstalação de um pacote:</strong></p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo uninstall nome-do-pacote
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>uninstall nome-do-pacote
+</code></pre></div></div>
 
 <p><strong>Procurar um pacote:</strong></p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>pip3 search nome-do-pacote
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip3 search nome-do-pacote
+</code></pre></div></div>
 
 <p><strong>Listar os pacotes instalados:</strong></p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>pip3 list
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip3 list
+</code></pre></div></div>
 <p><strong>Mostrar informações sobre um pacote:</strong></p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>pip3 show nome-do-pacote
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip3 show nome-do-pacote
+</code></pre></div></div>
 
 <p><strong>Para ver a lista completa de comandos:</strong></p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>pip3 <span class="nb">help</span>
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip3 <span class="nb">help</span>
+</code></pre></div></div>
 
 <p><a href="https://www.tecmint.com/install-pip-in-linux/" target="_ blank">Fonte</a></p>
 

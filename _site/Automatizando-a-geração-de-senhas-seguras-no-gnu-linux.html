@@ -10,7 +10,7 @@
 
     <title>Automatizando a geração de senhas seguras no GNU/Linux - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/Automatizando-a-gera%C3%A7%C3%A3o-de-senhas-seguras-no-gnu-linux">
+    <link rel="canonical" href="/Automatizando-a-gera%C3%A7%C3%A3o-de-senhas-seguras-no-gnu-linux">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -107,38 +107,35 @@
 
 <p><strong>Gerando senha com caracteres alfanuméricos</strong></p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>cat /dev/urandom | tr -dc <span class="s1">'a-zA-Z0-9'</span> | fold -w 20 | head -n1
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> /dev/urandom | <span class="nb">tr</span> <span class="nt">-dc</span> <span class="s1">'a-zA-Z0-9'</span> | <span class="nb">fold</span> <span class="nt">-w</span> 20 | <span class="nb">head</span> <span class="nt">-n1</span>
+</code></pre></div></div>
 <p>No comando acima, utilizo a saída do <code class="highlighter-rouge">/dev/urandom</code> que gera números aleatórios e mando para o <code class="highlighter-rouge">tr</code> que vai deletar todos os caracteres exceto aqueles que estão entre as aspas simples, o <code class="highlighter-rouge">fold</code> vai quebrar a linha a cada 20 caracteres. Em seguida, temos o <code class="highlighter-rouge">head</code> que pegar apenas a primeira linha</p>
 
 <p><strong>Gerando senha com caracteres especiais</strong></p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>cat /dev/urandom | tr -dc <span class="s1">'a-zA-Z0-9-_!@#$%&amp;*+?'</span> | fold -w 20 | head -n1
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> /dev/urandom | <span class="nb">tr</span> <span class="nt">-dc</span> <span class="s1">'a-zA-Z0-9-_!@#$%&amp;*+?'</span> | <span class="nb">fold</span> <span class="nt">-w</span> 20 | <span class="nb">head</span> <span class="nt">-n1</span>
+</code></pre></div></div>
 
 <p><strong>Script para geração da senha</strong></p>
 
 <p>Agora vamos a um exemplo de script que pode ser utilizado para gerar senhas. O script vai perguntar quantas senhas o usuário vai querer e a quantidade de caracteres que a senha vai ter.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
-<span class="k">while</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$menu</span><span class="s2">"</span> !<span class="o">=</span> <span class="s2">"n"</span> <span class="o">]</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="k">while</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$menu</span><span class="s2">"</span> <span class="o">!=</span> <span class="s2">"n"</span> <span class="o">]</span>
 <span class="k">do
   </span><span class="nb">echo
-  read</span> -p <span class="s2">"Informe a quantidade de senhas: "</span> qtdSenha
-  <span class="nb">read</span> -p <span class="s2">"Informe a quantidade de caracteres da senha: "</span> cart
+  read</span> <span class="nt">-p</span> <span class="s2">"Informe a quantidade de senhas: "</span> qtdSenha
+  <span class="nb">read</span> <span class="nt">-p</span> <span class="s2">"Informe a quantidade de caracteres da senha: "</span> cart
   <span class="nb">echo
-  </span><span class="k">for </span>i <span class="k">in</span> <span class="k">$(</span>seq 1 <span class="nv">$qtdSenha</span><span class="k">)</span>;
+  </span><span class="k">for </span>i <span class="k">in</span> <span class="k">$(</span><span class="nb">seq </span>1 <span class="nv">$qtdSenha</span><span class="k">)</span><span class="p">;</span>
     <span class="k">do
-      </span>cat /dev/urandom | tr -dc <span class="s1">'a-zA-Z0-9-_!@#$%&amp;*+'</span> | fold -w <span class="nv">$cart</span> | head -n1
+      </span><span class="nb">cat</span> /dev/urandom | <span class="nb">tr</span> <span class="nt">-dc</span> <span class="s1">'a-zA-Z0-9-_!@#$%&amp;*+'</span> | <span class="nb">fold</span> <span class="nt">-w</span> <span class="nv">$cart</span> | <span class="nb">head</span> <span class="nt">-n1</span>
     <span class="k">done
   </span><span class="nb">echo
-  read</span> -p <span class="s2">"Deseja voltar ? [S/N]"</span> menu
+  read</span> <span class="nt">-p</span> <span class="s2">"Deseja voltar ? [S/N]"</span> menu
   <span class="nb">echo
 </span><span class="k">done</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><a href="http://sempreupdate.com.br/2016/06/automatizando-geracao-de-senhas-seguras.html" target="_ blank">Fonte</a></p>
 
 

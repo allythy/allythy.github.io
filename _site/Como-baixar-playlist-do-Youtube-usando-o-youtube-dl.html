@@ -10,7 +10,7 @@
 
     <title>Como baixar playlist do Youtube usando o youtube-dl - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/Como-baixar-playlist-do-Youtube-usando-o-youtube-dl">
+    <link rel="canonical" href="/Como-baixar-playlist-do-Youtube-usando-o-youtube-dl">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -107,9 +107,8 @@
 
 <p>Caso você não tenha o programa instalado, use esse comando para instalar o Debian e derivados:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install youtube-dl
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>youtube-dl
+</code></pre></div></div>
 
 <p>Feito isso, vamos pegar o link da playlist do canal do YouTube do SempreUpdate como exemplo.</p>
 
@@ -117,9 +116,8 @@
 
 <p>Com o link em mãos, use esse comando para baixar a playlist</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>youtude-dl -cit coloque-aqui-o-link-da-playlist
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>youtude-dl <span class="nt">-cit</span> coloque-aqui-o-link-da-playlist
+</code></pre></div></div>
 <blockquote>
   <p><code class="highlighter-rouge">-c</code> Continua do download da onde parou, caso você tenha cancelado ( Ctrl+C)</p>
 
@@ -130,9 +128,8 @@
 
 <p>Legal, mas eu não quero baixar todos os vídeos só quero do vídeo 5 até o 9, então você usa esse comando:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>youtube-dl --playlist-start 5 --playlist-end 9 link-da-playlist
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>youtube-dl <span class="nt">--playlist-start</span> 5 <span class="nt">--playlist-end</span> 9 link-da-playlist
+</code></pre></div></div>
 
 <blockquote>
   <p><code class="highlighter-rouge">--playlist-start</code> Vídeo da playlist que vai começar.</p>
@@ -142,18 +139,16 @@
 
 <p>Interessante, mas eu quero baixar apenas os vídeos 4, 6 e 15. Então, você tem que usar esse comando:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>youtube-dl -cit --playlist-items 4,6,15 link-da-playlist
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>youtube-dl <span class="nt">-cit</span> <span class="nt">--playlist-items</span> 4,6,15 link-da-playlist
+</code></pre></div></div>
 <blockquote>
   <p><code class="highlighter-rouge">--playlist-items</code> Faz o download de vídeos específicos de uma playlist. Para isso, você tem que especificar o índices dos vídeos na playlist separando-os por vírgulas.</p>
 </blockquote>
 
 <p>Você pode também informar ao mesmo tempo os vídeos que gostaria de baixar na playlist e especificar o intervalo. Com esse comando:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>youtube-dl -cit --playlist 4-7,8,10-13 link-da-playlist
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>youtube-dl <span class="nt">-cit</span> <span class="nt">--playlist</span> 4-7,8,10-13 link-da-playlist
+</code></pre></div></div>
 
 
                 <hr>

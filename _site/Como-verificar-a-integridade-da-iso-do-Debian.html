@@ -10,7 +10,7 @@
 
     <title>Como verificar autenticidade da ISO do Debian - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/Como-verificar-a-integridade-da-iso-do-Debian">
+    <link rel="canonical" href="/Como-verificar-a-integridade-da-iso-do-Debian">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -107,7 +107,7 @@
 
 <p>Enfim, vamos para o que interessa. Depois de ter baixado a ISO do Debian temos que baixar os arquivos SHA512SUMS e SHA512SUMS.sign e colocar no mesmo diretório da ISO do Debian. Primeiramente, vamos verificar a hash da ISO que baixamos como esse comando:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sha512sum -c SHA512SUMS | grep debian-testing-amd64-netinst.iso</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sha512sum</span> <span class="nt">-c</span> SHA512SUMS | <span class="nb">grep </span>debian-testing-amd64-netinst.iso</code></pre></figure>
 
 <p><img src="/img/terminal01.png" alt="Mostrando que a comparação da hash foi bem sucedida" /></p>
 

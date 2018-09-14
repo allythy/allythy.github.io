@@ -10,7 +10,7 @@
 
     <title>Como instalar o Zabbix Server 3.4 no Debian 9 - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/Como-instalar-o-Zabbix-Server-3-4-no-Debian-9">
+    <link rel="canonical" href="/Como-instalar-o-Zabbix-Server-3-4-no-Debian-9">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -123,49 +123,40 @@
 
 <p>Primeiro, vamos logar como root para fazer a instalação. Feito isso, vamos baixar o pacote do Zabbix 3.4:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>su
-</code></pre>
-</div>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code> wget http://repo.zabbix.com/zabbix/3.4/debian/pool/main/z/zabbix-release/zabbix-release_3.4-1+stretch_all.deb
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>su
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> wget http://repo.zabbix.com/zabbix/3.4/debian/pool/main/z/zabbix-release/zabbix-release_3.4-1+stretch_all.deb
+</code></pre></div></div>
 
 <p>Agora vamos instalar o pacote que baixamos, digite:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>dpkg -i zabbix-release_3.4-1+stretch_all.deb
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dpkg <span class="nt">-i</span> zabbix-release_3.4-1+stretch_all.deb
+</code></pre></div></div>
 
 <p>Vamos atualizar o repositório do sistema:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>apt update
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt update
+</code></pre></div></div>
 
 <h2 id="2-instalação-dos-pacotes-zabbix">2. Instalação dos pacotes Zabbix</h2>
 
 <p>Temos que instalar o pacote Zabbix Server e suas dependências:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>apt install zabbix-server-mysql zabbix-frontend-php zabbix-agent zabbix-get -y
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt <span class="nb">install </span>zabbix-server-mysql zabbix-frontend-php zabbix-agent zabbix-get <span class="nt">-y</span>
+</code></pre></div></div>
 
 <p>Após a execução do comando anterior, todos os componentes estarão instalados (servidor web, php, banco de dados e servidor Zabbix). Para fazer o primeiro acesso (teste), recarregue o Apache e abra o seu navegador e acesse o ip do seu servidor barra zabbix:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>systemctl reload apache2
-</code></pre>
-</div>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>192.168.0.106/zabbix
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl reload apache2
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>192.168.0.106/zabbix
+</code></pre></div></div>
 <p><img src="img/zabbix1.png" alt="Página de boas-vindas do Zabbix" /></p>
 
 <p>Feito o primeiro teste, vamos voltar para emulador de terminal e editar alguns parâmetros de configuração do Apache para o frontend do Zabbix. Algumas configurações do PHP estão corretas, mas é necessário configurar o time zone. Para isso, vou usar o editor de linha de comando, o vim. Caso você não tenha instalado, use esse comando:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>apt install vim
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt <span class="nb">install </span>vim
+</code></pre></div></div>
 
 <p>Vamos abrir o arquivo de configuração:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>vim /etc/apache2/conf-available/zabbix.conf
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim /etc/apache2/conf-available/zabbix.conf
+</code></pre></div></div>
 
 <p>Procure o seguinte bloco de código <strong>mod_php7.c</strong>, quando encontrar pressione a tecla <code class="highlighter-rouge">i</code> para entrar no modo de inserção do vim.
 Retire o comentário (“#”) da linha <strong>php_value date.timezone</strong> e altere para o time zone do seu Estado,
@@ -177,9 +168,8 @@ Retire o comentário (“#”) da linha <strong>php_value date.timezone</strong>
 
 <p>Agora vamos reiniciar o servidor Apache para aplicação da configuração feita no arquivo do PHP:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>systemctl restart apache2
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart apache2
+</code></pre></div></div>
 
 <h2 id="3-configuração-do-banco-de-dados">3. Configuração do banco de dados</h2>
 
@@ -195,9 +185,8 @@ Retire o comentário (“#”) da linha <strong>php_value date.timezone</strong>
 
 <p>Vamos executar o comando a seguir para melhorar a segurança do nosso banco de dados MariaDB, configurando uma senha para o root, remover o usuário de conexão anônima, desabilitar acesso de root feito de fora deste servidor, remover a base de test que possui acesso anônimo.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>mysql_secure_installation
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql_secure_installation
+</code></pre></div></div>
 
 <p>O utilitário solicitará uma senha de root para se conectar. Como não existe, pode deixar em branco e apertar o Enter:</p>
 
@@ -213,64 +202,54 @@ Retire o comentário (“#”) da linha <strong>php_value date.timezone</strong>
 
 <p>Ainda no terminal, logue no console do MariaDB com usuário root e senha que você colocou acima.</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="n">mariadb</span> <span class="o">-</span><span class="n">u</span> <span class="n">root</span> <span class="o">-</span><span class="n">p</span>
-</code></pre>
-</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mariadb</span> <span class="o">-</span><span class="n">u</span> <span class="n">root</span> <span class="o">-</span><span class="n">p</span>
+</code></pre></div></div>
 
 <p>Vamos criar um banco de dados chamado zabbix_db:</p>
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">create</span> <span class="k">database</span> <span class="n">zabbix_db</span> <span class="n">character</span> <span class="k">set</span> <span class="n">utf8</span> <span class="k">collate</span> <span class="n">utf8_bin</span><span class="p">;</span>
-</code></pre>
-</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">create</span> <span class="k">database</span> <span class="n">zabbix_db</span> <span class="n">character</span> <span class="k">set</span> <span class="n">utf8</span> <span class="k">collate</span> <span class="n">utf8_bin</span><span class="p">;</span>
+</code></pre></div></div>
 
 <p>Depois criaremos um usuário chamado <strong>zabbix_usr</strong> para o banco que acabamos de criar e colocar como senha para esse usuário <strong>@Allythye@!</strong>. Caso você queira saber como criar usuário e conceder permissão,
 <a href="https://allythy.github.io/Como-criar-um-novo-usuario-e-conceder-permissoes-no-MariaD-e-MySQL" target="_ blank">temos esse artigo sobre o assunto.</a></p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">grant</span> <span class="k">all</span> <span class="k">privileges</span> <span class="k">on</span> <span class="n">zabbix_db</span><span class="p">.</span><span class="o">*</span> <span class="k">to</span> <span class="n">zabbix_usr</span><span class="o">@</span><span class="n">localhost</span> <span class="n">identified</span> <span class="k">by</span> <span class="s1">'@Allythye@!'</span><span class="p">;</span>
-</code></pre>
-</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">grant</span> <span class="k">all</span> <span class="k">privileges</span> <span class="k">on</span> <span class="n">zabbix_db</span><span class="p">.</span><span class="o">*</span> <span class="k">to</span> <span class="n">zabbix_usr</span><span class="o">@</span><span class="n">localhost</span> <span class="n">identified</span> <span class="k">by</span> <span class="s1">'@Allythye@!'</span><span class="p">;</span>
+</code></pre></div></div>
 <p>Feito isso, podemos sair do console do MariaDB:</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="n">exit</span><span class="p">;</span>
-</code></pre>
-</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">exit</span><span class="p">;</span>
+</code></pre></div></div>
 
 <p>Agora temos que fazer importação dos dados iniciais para o banco de dados que criamos, o zabbix_db:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>zcat /usr/share/doc/zabbix-server-mysql/create.sql.gz | mysql -u zabbix_usr -p@Allythye@! zabbix_db
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zcat /usr/share/doc/zabbix-server-mysql/create.sql.gz | mysql <span class="nt">-u</span> zabbix_usr <span class="nt">-p</span>@Allythye@! zabbix_db
+</code></pre></div></div>
 <p>Vamos editar o arquivo de configuração do banco de dados do servidor Zabbix que se encontra no diretório /etc/zabbix:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>vim /etc/zabbix/zabbix_server.conf
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim /etc/zabbix/zabbix_server.conf
+</code></pre></div></div>
 <p>Procure pelos parâmetros abaixo e coloque as informações do seu banco de dados. Lembrando, pressione a tecla <code class="highlighter-rouge">i</code> para entrar no modo de inserção do vim, depois de alterar os parâmetros pressione <code class="highlighter-rouge">Esc</code> e depois <code class="highlighter-rouge">:x</code> para salvar e depois sair do vim.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nv">DBName</span><span class="o">=</span>zabbix_db
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">DBName</span><span class="o">=</span>zabbix_db
 <span class="nv">DBUser</span><span class="o">=</span>zabbix_usr
 <span class="nv">DBPassword</span><span class="o">=</span>@Sempre#Update@!
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><img src="img/zabbix6.png" alt="Tela do arquivo de configuração do zabbix server mostrando as variáveis alteradas" /></p>
 
 <p>Feito isso, vamos reiniciar o servidor Zabbix:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>systemctl restart zabbix-server
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart zabbix-server
+</code></pre></div></div>
 <p>Configurando o Zabbix para inicializar junto ao sistema:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>systemctl <span class="nb">enable </span>zabbix-server
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl <span class="nb">enable </span>zabbix-server
+</code></pre></div></div>
 
 <h2 id="4-configurar-interface-web">4. Configurar interface web</h2>
 
 <p>Vamos voltar para a interface web, coloque o ip do seu servidor e no final coloque <strong>“/zabbix”</strong>, depois clique em Next step:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>192.168.0.106/zabbix
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>192.168.0.106/zabbix
+</code></pre></div></div>
 <p><img src="img/zabbix1.png" alt="Tela de boas-vindas do Zabbix" /></p>
 
 <p>Verifique se está tudo OK, se tiver, clique Next step:</p>
@@ -295,10 +274,9 @@ Retire o comentário (“#”) da linha <strong>php_value date.timezone</strong>
 
 <p>O acesso padrão é:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Usuário: Admin
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Usuário: Admin
 Senha: zabbix
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Pronto, com o servidor Zabbix instalado é só começar o monitoramento da sua rede, servidores e tudo que essa poderosa ferramenta tem a oferecer.</p>
 
 

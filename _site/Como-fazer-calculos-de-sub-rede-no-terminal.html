@@ -10,7 +10,7 @@
 
     <title>Como fazer cálculo de sub-redes no terminal - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/Como-fazer-calculos-de-sub-rede-no-terminal">
+    <link rel="canonical" href="/Como-fazer-calculos-de-sub-rede-no-terminal">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -105,24 +105,20 @@
 
 				<p>Neste artigo, vamos aprender a fazer cálculo de sub-rede no terminal. Hoje eu estava estudando para prova de Redes que eu tenho amanhã, só que eu não tinha como conferir se as respostas estavam corretas, então fui pesquisar algum programa (apt-cache search ) achei ipcalc um programa de linha de comando que mostra o endereço de rede, primeiro host, ultimo host, máscara de rede, endereço de broadcast e faz cálculos de sub-rede para uma determinada quantidade de host. O ipcalc  mostrar todas essas informações tanto em decimal como em binário, mas o ipcalc só é valido para o Ipv4.  A  instalação é bem simples, digite esse comando:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install ipcalc
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>ipcalc
+</code></pre></div></div>
 <p>Para  verificar  o endereço de rede, primeiro host, ultimo host, máscara de rede, endereço de broadcast de um determinado IP, use esse comando:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code> ipcalc 192.168.0.0/24
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ipcalc 192.168.0.0/24
+</code></pre></div></div>
 <p>Para verificar o endereço IP para uma sub-rede com 40 host outra com 25 host e outra com 12 host</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>ipcalc 192.100.40.0/24 -s 40 25 12
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ipcalc 192.100.40.0/24 <span class="nt">-s</span> 40 25 12
+</code></pre></div></div>
 <p>Para fazer 8 sub-redes para um endereço IP de classe C</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>ipcalc 192.168.0.0/24 27
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ipcalc 192.168.0.0/24 27
+</code></pre></div></div>
 
 
                 <hr>

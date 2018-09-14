@@ -10,7 +10,7 @@
 
     <title>Empacotamento e Compactação de arquivos no GNU/Linux - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/Empacotamento-e-compactacao-de-arquivos-no-gnu-linux">
+    <link rel="canonical" href="/Empacotamento-e-compactacao-de-arquivos-no-gnu-linux">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -107,80 +107,69 @@
 
 <h3 id="sintaxe">Sintaxe</h3>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tar <span class="o">[</span>opções] <span class="o">[</span>nome <span class="k">do </span>novo arquivo] <span class="o">[</span>arquivo de origem]
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar</span> <span class="o">[</span>opções] <span class="o">[</span>nome <span class="k">do </span>novo arquivo] <span class="o">[</span>arquivo de origem]
+</code></pre></div></div>
 <p>Vejamos alguma opções do comando tar:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>c <span class="o">=</span> Cria um novo arquivo tar
-t <span class="o">=</span> Exibe o conteúdo de um arquivo tar
-p <span class="o">=</span> Mantém as permissões originais dos arquivos
-r <span class="o">=</span> Adiciona arquivos a um arquivo tar existente
-f <span class="o">=</span> Permite especificar o arquivo tar que vai ser usado, por causa disso é a ultima opção
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>c <span class="o">=</span> Cria um novo arquivo <span class="nb">tar
+</span>t <span class="o">=</span> Exibe o conteúdo de um arquivo <span class="nb">tar
+</span>p <span class="o">=</span> Mantém as permissões originais dos arquivos
+r <span class="o">=</span> Adiciona arquivos a um arquivo <span class="nb">tar </span>existente
+f <span class="o">=</span> Permite especificar o arquivo <span class="nb">tar </span>que vai ser usado, por causa disso é a ultima opção
 v <span class="o">=</span> Exibe detalhes da operação
-x <span class="o">=</span> Extrai arquivos de uma arquivo tar existente
+x <span class="o">=</span> Extrai arquivos de uma arquivo <span class="nb">tar </span>existente
 C <span class="o">=</span> especifica o diretório dos arquivos a serem armazenados
-</code></pre>
-</div>
+</code></pre></div></div>
 <h2 id="usando-o-comando-tar">Usando o comando tar</h2>
 
 <p>Primeiro vamos aprender a usar o comando <code class="highlighter-rouge">tar</code> para o empacotamento de arquivos e extração mais adiante usaremos os compactadores, que não tem nada de difícil.</p>
 
 <p>Criando um arquivo .tar</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tar -cvf artigos.tar telgram.odt mycroft.odt
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar</span> <span class="nt">-cvf</span> artigos.tar telgram.odt mycroft.odt
+</code></pre></div></div>
 <p>Exibindo o conteúdo de um arquivo .tar</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tar -tf artigos.tar
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar</span> <span class="nt">-tf</span> artigos.tar
+</code></pre></div></div>
 <p>Extraindo um arquivo .tar</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tar -xvf artigos.tar
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar</span> <span class="nt">-xvf</span> artigos.tar
+</code></pre></div></div>
 
 <p>Adicionar um arquivo ao arquivo já empacotado</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tar -rf artigos.tar mozilla.odt
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar</span> <span class="nt">-rf</span> artigos.tar mozilla.odt
+</code></pre></div></div>
 
 <p>Excluindo um arquivo do arquivo.tar</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tar -f artigos.tar –-delete mozilla.odt
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar</span> <span class="nt">-f</span> artigos.tar –-delete mozilla.odt
+</code></pre></div></div>
 <h2 id="usando-os-compactadores">Usando os compactadores</h2>
 
 <p>Agora que já sabemos usar o comando <code class="highlighter-rouge">tar</code> para o empacotamento de arquivos, vai ser bem fácil aprender a comprimir arquivos. Primeiros vamos aprender a compactar com o gzip, para  isso temos que acrescentar uma opção ao comando tar que é <code class="highlighter-rouge">-z</code>, essa opção indica que os arquivos serão compactados em <strong>gzip</strong>, que resultará em um arquivo com extensão <strong>.tar.gz</strong>.</p>
 
 <p>Criando um arquivo compactado com gzip</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tar -cvzf artigos.tar.gz telgram.odt mycroft.odt
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar</span> <span class="nt">-cvzf</span> artigos.tar.gz telgram.odt mycroft.odt
+</code></pre></div></div>
 
 <p>Extraindo arquivos com gzip</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tar -xvzf artigos.tar.gz
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar</span> <span class="nt">-xvzf</span> artigos.tar.gz
+</code></pre></div></div>
 
 <p>Quando for comprimir arquivos usando o <strong>bzip2</strong>, só acrescentar o parâmetro <code class="highlighter-rouge">-j</code>, essa opção indica que os arquivos serão compactados em bzip2, que resultara um arquivo com a extensão <strong>.tar.bz2</strong>.</p>
 
 <p>Criando um arquivo compactado com bzip2</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tar -cvjf artigos.tar.bz2 telgram.odt mycroft.odt
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar</span> <span class="nt">-cvjf</span> artigos.tar.bz2 telgram.odt mycroft.odt
+</code></pre></div></div>
 
 <p>Extraindo arquivos com bzip2</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tar -xvjf artigos.tar.bz2
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar</span> <span class="nt">-xvjf</span> artigos.tar.bz2
+</code></pre></div></div>
 
 
                 <hr>

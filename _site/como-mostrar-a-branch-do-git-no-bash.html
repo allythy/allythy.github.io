@@ -10,7 +10,7 @@
 
     <title>Como mostrar a branch do Git no Bash - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/como-mostrar-a-branch-do-git-no-bash">
+    <link rel="canonical" href="/como-mostrar-a-branch-do-git-no-bash">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -106,9 +106,8 @@
 				<p>Se você é um usuário do Bash, pode aproveitar alguns recursos dele para tornar sua experiência com o Git muito mais amigável. Neste caso, como mostrar a branch do Git que você está trabalhando.</p>
 
 <p>Primeiro, vamos abrir o arquivo .bashrc:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>vim .bashrc
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim .bashrc
+</code></pre></div></div>
 
 <p>Procure pela variável <code class="highlighter-rouge">PS1</code> e coloque antes do <code class="highlighter-rouge">\$</code> isso:</p>
 
@@ -121,36 +120,30 @@
 
 <p>Agora vamos entender o que acabamos de fazer. O <code class="highlighter-rouge">__git_ps1 "(% s)"</code> chama uma função fornecida pelo git-prompt.sh com um argumento de formatação o <code class="highlighter-rouge">(%s)</code>. Feito isso, vamos salvar o nosso arquivo e recarregar o .bashrc:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">source</span> .bashrc
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">source</span> .bashrc
+</code></pre></div></div>
 
 <p>Pronto, agora entre em algum diretório que você tenha um projeto versionado com o Git que o Bash vai mostrar a branch que você está.</p>
 
 <p><img src="img/branch2.png" alt="" /></p>
 
 <p>Caso, aparecer essa mensagem:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>bash: __git_ps1: comando não encontrado
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash: __git_ps1: comando não encontrado
+</code></pre></div></div>
 <p>Você tem que carregar essa função que está no <code class="highlighter-rouge">/usr/lib/git-core/git-sh-prompt</code>. Para isso, você tem que acrescentar no começo do seu .bashrc esse comando:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">source</span> /usr/lib/git-core/git-sh-prompt
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">source</span> /usr/lib/git-core/git-sh-prompt
+</code></pre></div></div>
 <p>Feito isso, recarregue novamente o .bashrc:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">source</span> .bashrc
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">source</span> .bashrc
+</code></pre></div></div>
 <p>Se você estiver usando o Fedora o arquivo que você tem que acrescentar no seu .bashrc é esse:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>source /usr/share/git-core/contrib/completion/git-prompt.sh
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>source /usr/share/git-core/contrib/completion/git-prompt.sh
+</code></pre></div></div>
 <p>Eu testei essas alterações no Debian 9, 10 , Ubuntu 16.04, Fedora e deu tudo certo. Nas outras distribuições não tive como testar. Caso você queira deixar o seu Bash igual ao meu, é assim que está a minha PS1:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nv">PS1</span><span class="o">=</span><span class="s1">'${debian_chroot:+($debian_chroot)}\[\033[36m\]\u\[\033[37m\]@\[\033[33m\]\h:\[\033[32m\]\w\[\033[31;1m\]$(__git_ps1 "(%s)")\[\033[00m\]\$ '</span>
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">PS1</span><span class="o">=</span><span class="s1">'${debian_chroot:+($debian_chroot)}\[\033[36m\]\u\[\033[37m\]@\[\033[33m\]\h:\[\033[32m\]\w\[\033[31;1m\]$(__git_ps1 "(%s)")\[\033[00m\]\$ '</span>
+</code></pre></div></div>
 <p>
 Regerência:
 <a href="https://git-scm.com/book/en/v2/Appendix-A:-Git-in-Other-Environments-Git-in-Bash" target="_ blank">Git-Pro</a>,

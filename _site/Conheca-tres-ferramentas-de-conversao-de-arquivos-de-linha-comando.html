@@ -10,7 +10,7 @@
 
     <title>Conheça três ferramentas de conversão de arquivos de linha de comando para GNU/Linux - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/Conheca-tres-ferramentas-de-conversao-de-arquivos-de-linha-comando">
+    <link rel="canonical" href="/Conheca-tres-ferramentas-de-conversao-de-arquivos-de-linha-comando">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -111,25 +111,22 @@
 
 <p>Veja como usar Pandoc para uma conversão simples (neste caso, de HTML para reStructuredText). Para mais informações sobre essa ferramenta, leia a <a href="http://pandoc.org/MANUAL.html#options" target="_ blank">documentação do Pandoc</a>.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>pandoc -t rst myfile.htlm -o myfile.rst
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pandoc <span class="nt">-t</span> rst myfile.htlm <span class="nt">-o</span> myfile.rst
+</code></pre></div></div>
 
 <h2 id="libreoffice">LibreOffice</h2>
 
 <p>Você provavelmente está pensando: “Espere, o LibreOffice é uma aplicação gráfica”. Sim, mas o que muitas pessoas não sabem é que você pode executar LibreOffice a partir da linha de comando para converter rapidamente um ou mais arquivos. Por exemplo, transformar um conjunto de slides do LibreOffice Impress em PDF, digite o seguinte:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>soffice --headless --convert-to pdf SoftwareLivre.odp
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>soffice <span class="nt">--headless</span> <span class="nt">--convert-to</span> pdf SoftwareLivre.odp
+</code></pre></div></div>
 
 <p>Você pode substituir a extensão <code class="highlighter-rouge">.pdf</code> para qualquer formato de arquivo que você deseja converter. A opção <code class="highlighter-rouge">--headless</code> permite usar o aplicativo sem a interface gráfica.</p>
 
 <p>Usar o LibreOffice na linha de comando para converter um único arquivo não é uma coisa interessante, pois você poderia fazer isso mais rápido usando a interface gráfica. No entanto, para converter vários arquivos ao mesmo tempo é uma ótima opção. Digamos que você queira converter todos os documentos do Microsoft Word para o formato do LibreOffice Writer, então digite o comando:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>soffice --headless --convert-to odt <span class="k">*</span>.doc
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>soffice <span class="nt">--headless</span> <span class="nt">--convert-to</span> odt <span class="k">*</span>.doc
+</code></pre></div></div>
 
 <h2 id="ffmpeg">FFmpeg</h2>
 
@@ -137,9 +134,8 @@
 
 <p>Aqui está um exemplo de uma simples conversão de um vídeo em um formato AVI para Ogg Theora:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>ffmpeg -i myvideo.avi myvideo.ogg
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ffmpeg <span class="nt">-i</span> myvideo.avi myvideo.ogg
+</code></pre></div></div>
 
 <p>FFmpeg pode fazer muito mais do que isso. Você pode definir a taxa de quadros de um vídeo e adicionar legendas para ele, mudar a qualidade de áudio e muito mais.</p>
 

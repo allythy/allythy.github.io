@@ -10,7 +10,7 @@
 
     <title>Como instalar o RubyGems no Debian - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/Como-instalar-o-RubyGem-no-Debian">
+    <link rel="canonical" href="/Como-instalar-o-RubyGem-no-Debian">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -109,45 +109,38 @@
 
 <p>Para instalação, use o seguinte comando:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install build-essential
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>build-essential
+</code></pre></div></div>
 <p>Também temos que instalar o Ruby. Para isso, use esse comando:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install ruby-full
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>ruby-full
+</code></pre></div></div>
 
 <p>Agora temos que baixar o RubyGems, você pode <a href="https://rubygems.org/pages/download#formats" target="_ blank">acessar o site e baixar</a> ou usar esse comando:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>wget -c https://rubygems.org/rubygems/rubygems-2.6.12.tgz
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget <span class="nt">-c</span> https://rubygems.org/rubygems/rubygems-2.6.12.tgz
+</code></pre></div></div>
 
 <p>Vamos descompactar o arquivo baixado. Caso você queira saber mais sobre o descompactadores  <a href="https://allythy.github.io/Empacotamento-e-compactacao-de-arquivos-no-gnu-linux" target="_ blank">tem esse artigo.</a></p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tar -xvzf rubygems-2.6.12.tgz
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar</span> <span class="nt">-xvzf</span> rubygems-2.6.12.tgz
+</code></pre></div></div>
 
 <p>Temos agora que entrar na pasta que descompactar o arquivo baixado:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">cd </span>rubygems-2.6.12
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>rubygems-2.6.12
+</code></pre></div></div>
 
 <p>Feito isso, vamos instalar o RubyGems com esse comando:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo ruby setup.rb
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>ruby setup.rb
+</code></pre></div></div>
 
 <p>Pronto, o RubyGems está instalado. Você pode fazer um teste instalando o Gulp com
 esse comando:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo gem install gulp
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>gem <span class="nb">install </span>gulp
+</code></pre></div></div>
 
 
                 <hr>

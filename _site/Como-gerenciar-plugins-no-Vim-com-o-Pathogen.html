@@ -10,7 +10,7 @@
 
     <title>Como gerenciar plugins no Vim com o Pathogen - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/Como-gerenciar-plugins-no-Vim-com-o-Pathogen">
+    <link rel="canonical" href="/Como-gerenciar-plugins-no-Vim-com-o-Pathogen">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -115,86 +115,73 @@ Antes de começar, você deve ter instalado, claro, o <strong>Vim</strong>, <str
 
 <p>No Debian, Ubuntu, linux mint e seus derivados:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo apt install vim git curl</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>apt <span class="nb">install </span>vim git curl</code></pre></figure>
 
 <p>No CentOS e RHEL</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo yum install vim git curl
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>yum <span class="nb">install </span>vim git curl
+</code></pre></div></div>
 
 <p>No Arch Linux</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo pacman -S vim git curl
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>pacman <span class="nt">-S</span> vim git curl
+</code></pre></div></div>
 
 <p>No Fedora</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo dnf install vim git curl
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dnf <span class="nb">install </span>vim git curl
+</code></pre></div></div>
 
 <h2 id="configurando-os-diretórios">Configurando os diretórios</h2>
 
 <p>Tudo isso é feito localmente, pelo usuário. Ele requer uma pasta .vim no diretório /home. Se ainda não o tiver, você tem que criar usando o seguinte comando:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>mkdir ~/.vim
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> ~/.vim
+</code></pre></div></div>
 
 <p>Vamos entrar na pasta que acabamos de criar, e dentro dela criaremos mais duas pastas <strong>autoload</strong> e <strong>bundle</strong>.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">cd</span> ~/.vim
-mkdir autoload
-mkdir bundle]
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/.vim
+<span class="nb">mkdir </span>autoload
+<span class="nb">mkdir </span>bundle]
+</code></pre></div></div>
 <h2 id="instalando-o-pathogen">Instalando o Pathogen</h2>
 <p>A melhor maneira de instalar o Phathogen é clonado-o diretamente do seu <a href="https://github.com/tpope/vim-pathogen">repositório do Github</a>. Para que o Pathogen seja executado automaticamente, ele precisa ser instalado no diretório <strong>autoload</strong> que acabou de ser criado. Quando a clonagem do repositório terminar, você terá o Pathogen instalado.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">cd </span>autoload
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>autoload
+</code></pre></div></div>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>curl -LSso ~/.vim/autoload/pathogen.vim https://github.com/tpope/vim-pathogen.git
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-LSso</span> ~/.vim/autoload/pathogen.vim https://github.com/tpope/vim-pathogen.git
+</code></pre></div></div>
 <h2 id="configurando-o-vimrc">Configurando o .vimrc</h2>
 
 <p>Você precisa adicionar algumas linhas ao arquivo <strong>.vimrc</strong>. Caso não tenha o arquivo .vimrc, você poderá criá-lo e logo em seguida adicionar o Pathogen.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>vim ~/.vimrc
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim ~/.vimrc
+</code></pre></div></div>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>execute pathogen#infect<span class="o">()</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>execute pathogen#infect<span class="o">()</span>
 syntax on
 filetype plugin indent on
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Caso já tenha alguma coisa configurado no .vimrc, coloque a seguinte linha no arquivo.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>execute pathogen#infect<span class="o">()</span>
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>execute pathogen#infect<span class="o">()</span>
+</code></pre></div></div>
 
 <h2 id="instalando-plugins-usando-pathogen">Instalando plugins usando Pathogen</h2>
 
 <p>Toda a razão pela qual você instalou o Pathogen, foi para instalar os plugins de uma forma mais rápida e aumentar a sua produtividade no Vim. Agora, está tudo pronto para a instalação. Vamos instalar o <strong>Emmet-vim</strong> usando o Pathongen, para isso use esses comandos:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">cd</span> ~/.vim/bundle/
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/.vim/bundle/
+</code></pre></div></div>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>git clone https://github.com/mattn/emmet-vim.git
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/mattn/emmet-vim.git
+</code></pre></div></div>
 <p>Os comandos acima faz com que você entre na pasta ~/.vim/bundle e clone o repositório do plugin Emmet-vim que está <a href="https://github.com/mattn/emmet-vim/">hospedado no GitHub.</a> Agora, criaremos um arquivo <strong>index.html</strong> para testar o Emment.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>vim index.html
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim index.html
+</code></pre></div></div>
 
 <p>Pressione a tecla <strong>i</strong> para entrar no Modo de Inserção, depois digite <strong>html:5</strong> deixe o cursor na frente do número 5 e pressione ao mesmo tempo as teclas <strong>Ctrl+y</strong> e logo na sequência pressione <strong>,</strong> não demore muito para digitar a vírgula. Se você tiver feito tudo certo aparecerá isso:</p>
 

@@ -10,7 +10,7 @@
 
     <title>Como fazer sorteio no terminal usando o comando shuf - Allythy</title>
 
-    <link rel="canonical" href="http://localhost:4000/Como-fazer-sorteio-no-terminal-usando-o-comando-shuf">
+    <link rel="canonical" href="/Como-fazer-sorteio-no-terminal-usando-o-comando-shuf">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -108,44 +108,38 @@
 <h2 id="gerando-números-aleatórios-de-um-intervalo-numérico">Gerando números aleatórios de um intervalo numérico</h2>
 
 <p><strong>Sintaxe</strong>:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>shuf -i <span class="o">[</span>NÚMERO INICIAL]-[NUMERO FINAL]
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">shuf</span> <span class="nt">-i</span> <span class="o">[</span>NÚMERO INICIAL]-[NUMERO FINAL]
+</code></pre></div></div>
 
 <p>A opção <code class="highlighter-rouge">-i</code> é usada para informar o intervalo número. Exemplo:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>shuf -i 2-70
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">shuf</span> <span class="nt">-i</span> 2-70
+</code></pre></div></div>
 <p><img src="/img/shuf-1.png" alt="Gerou números aleatórios de 2 até 70." /></p>
 
 <p>Ele vai gerar as permutações e mostrar a saída padrão (tela do seu emulador de terminal). Mas digamos que você queira apenas o primeiro número. Para isso, você deve usar a opção <code class="highlighter-rouge">-n</code> para informar a quantidade de números você gostaria de ver na saída padrão. Exemplo:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>shuf -i 10-20 -n1
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">shuf</span> <span class="nt">-i</span> 10-20 <span class="nt">-n1</span>
+</code></pre></div></div>
 <p><img src="/img/shuf-2.png" alt="Gerou números aleatórios de 10 até 20, mostrando apenas o primeiro número." /></p>
 
 <h2 id="gerando-nomes-aleatórios-de-um-arquivo">Gerando nomes aleatórios de um arquivo</h2>
 
 <p><strong>Sintaxe</strong>:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>shuf <span class="o">[</span>NOME DO ARQUIVO] -n1
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">shuf</span> <span class="o">[</span>NOME DO ARQUIVO] <span class="nt">-n1</span>
+</code></pre></div></div>
 
 <p>Exemplo:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code> shuf nomes -n1
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">shuf </span>nomes <span class="nt">-n1</span>
+</code></pre></div></div>
 <p><img src="/img/shuf-3.png" alt="Pegou um nome aleatório do arquivo nome, neste casso Francisco." /></p>
 
 <p>Você também pode guardar a saída do comando em um arquivo usando os redirecionadores (&gt;, »), mas o próprio comando tem uma opção para isso a <code class="highlighter-rouge">-o</code> . Exemplo:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>shuf nomes -n2 -o ganhadores
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">shuf </span>nomes <span class="nt">-n2</span> <span class="nt">-o</span> ganhadores
+</code></pre></div></div>
 
 
                 <hr>
