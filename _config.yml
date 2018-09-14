@@ -21,7 +21,7 @@ permalink: /:title #pretty
 paginate: 5
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 
-plugins: [jekyll-paginate, jekyll-feed]
+plugins_dir: [jekyll-paginate, jekyll-feed]
 
 exclude:
   - vendor
