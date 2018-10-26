@@ -10,7 +10,7 @@
 
     <title>Como criar documentação com MkDocs - Allythy</title>
 
-    <link rel="canonical" href="/como-criar-documentacao-com-mkdocs">
+    <link rel="canonical" href="http://localhost:4000/como-criar-documentacao-com-mkdocs">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -149,6 +149,13 @@ Entretanto, se você não souber como instalar o pip,
 └── mkdocs.yml
 </code></pre></div></div>
 
+<p>Outra forma de começar o projeto é assim:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdocs new .
+</code></pre></div></div>
+
+<p>O ponto que dizer que inicialize o projeto no diretório atual, assim ele não criará uma pasta com o nome do projeto e dentro dela a pasta docs. Vai apenas criar a pasta docs e deixar o arquivo de configuração(mkdocs.yml) na raiz do projeto.</p>
+
 <p>Agora vamos entender o que são esses arquivos e pasta. O MkDocs tem apenas um arquivo de configuração, como eu tinha falando acima, esse arquivo é o <code class="highlighter-rouge">mkdocs.yml</code> e uma pasta chamada <code class="highlighter-rouge">docs</code> que conterá os nossos arquivos da documentação escritos em Markdown. No momento, a pasta docs contém apenas uma única página de documentação, chamada index.md.</p>
 
 <h2 id="inicializando-o-servidor">Inicializando o servidor</h2>
@@ -192,9 +199,9 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 <p>O nome <strong>Welcome to MkDocs</strong> no menu de navegação não está muito interessante, quero deixar apenas o nome <strong>home</strong>, porque o MkDocs utiliza o primeiro título do documento e define como nome do menu de navegação. Então vamos alterar isso, primeiro que temos abrir o arquivo de configuração do MkDocs (mkdocs.yml) e colocar essas informações:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>site_name: My Docs
-pages:
-        - Home: index.md
-        - About: about.md
+nav:
+    - Home: index.md
+    - About: about.md
 </code></pre></div></div>
 
 <p><img src="img/mkdocs3.png" alt="" /></p>
@@ -212,9 +219,9 @@ pages:
 <p>O MkDocs vem com dois temas: <strong>mkdocs</strong> e o <strong>readthedocs</strong>. O  mkdocs é o tema que estavamos usando até o momento, então vamos habilitar o readthedocs. Para isso, abra o arquivo <code class="highlighter-rouge">mkdocs.yml</code> e adicione o parâmetro <code class="highlighter-rouge">theme</code> ao arquivo e passe o nome do tema.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>site_name: My Docs
-pages:
-        - Home: index.md
-        - About: about.md
+nav:
+    - Home: index.md
+    - About: about.md
 theme: readthedocs
 </code></pre></div></div>
 

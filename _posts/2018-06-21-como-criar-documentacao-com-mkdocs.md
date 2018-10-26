@@ -56,6 +56,14 @@ Dentro desse diretório você vai ter uma estrutura igual a essa:
 └── mkdocs.yml
 ```
 
+Outra forma de começar o projeto é assim:
+
+```
+mkdocs new .
+```
+
+O ponto que dizer que inicialize o projeto no diretório atual, assim ele não criará uma pasta com o nome do projeto e dentro dela a pasta docs. Vai apenas criar a pasta docs e deixar o arquivo de configuração(mkdocs.yml) na raiz do projeto.
+
 Agora vamos entender o que são esses arquivos e pasta. O MkDocs tem apenas um arquivo de configuração, como eu tinha falando acima, esse arquivo é o `mkdocs.yml` e uma pasta chamada `docs` que conterá os nossos arquivos da documentação escritos em Markdown. No momento, a pasta docs contém apenas uma única página de documentação, chamada index.md.
 
 ## Inicializando o servidor
@@ -100,9 +108,9 @@ O nome **Welcome to MkDocs** no menu de navegação não está muito interessant
 
 ```
 site_name: My Docs
-pages:
-        - Home: index.md
-        - About: about.md
+nav:
+    - Home: index.md
+    - About: about.md
 ```
 
 ![](img/mkdocs3.png)
@@ -121,9 +129,9 @@ O MkDocs vem com dois temas: **mkdocs** e o **readthedocs**. O  mkdocs é o tema
 
 ```
 site_name: My Docs
-pages:
-        - Home: index.md
-        - About: about.md
+nav:
+    - Home: index.md
+    - About: about.md
 theme: readthedocs
 ```
 
