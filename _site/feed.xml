@@ -1,259 +1,282 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2019-04-02T21:41:36-05:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como Gerenciar Senhas Com O Pass</title><link href="http://0.0.0.0:4000/como-gerenciar-senhas-com-o-pass" rel="alternate" type="text/html" title="Como Gerenciar Senhas Com O Pass " /><published>2018-09-14T12:10:00-05:00</published><updated>2018-09-14T12:10:00-05:00</updated><id>http://0.0.0.0:4000/como-gerenciar-senhas-com-o-pass</id><content type="html" xml:base="http://0.0.0.0:4000/como-gerenciar-senhas-com-o-pass">&lt;p&gt;O Pass é um simples gerenciador de senhas de linha de comando. Com o Pass, cada senha fica salva dentro de um arquivo criptografado com o GPG, onde o nome do arquivo é o site ou recurso que você gostaria de salvar a senha. Esses arquivos criptografados ficam salvos em &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.password-store&lt;/code&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2019-04-20T17:23:02-05:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como Gerenciar Senhas Com O Pass</title><link href="http://0.0.0.0:4000/como-gerenciar-senhas-com-o-pass" rel="alternate" type="text/html" title="Como Gerenciar Senhas Com O Pass " /><published>2018-09-14T12:10:00-05:00</published><updated>2018-09-14T12:10:00-05:00</updated><id>http://0.0.0.0:4000/como-gerenciar-senhas-com-o-pass</id><content type="html" xml:base="http://0.0.0.0:4000/como-gerenciar-senhas-com-o-pass">O Pass é um simples gerenciador de senhas de linha de comando. Com o Pass, cada senha fica salva dentro de um arquivo criptografado com o GPG, onde o nome do arquivo é o site ou recurso que você gostaria de salvar a senha. Esses arquivos criptografados ficam salvos em `~/.password-store`.
 
-&lt;p&gt;O Pass torna o gerenciamento desses arquivos extremamente fácil fornecendo uma série de comandos para senhas: adicione, remova, edite, sincronizar, gerar e manipule. Neste artigo, vamos aprender como usá-lo para gerenciarmos nossas senhas.&lt;/p&gt;
+O Pass torna o gerenciamento desses arquivos extremamente fácil fornecendo uma série de comandos para senhas: adicione, remova, edite, sincronizar, gerar e manipule. Neste artigo, vamos aprender como usá-lo para gerenciarmos nossas senhas.
 
-&lt;h2 id=&quot;instalação&quot;&gt;Instalação&lt;/h2&gt;
+## Instalação
 
-&lt;p&gt;A instalação do Pass é muito simples, porque o mesmo está disponível na maioria das distribuições GNU.&lt;/p&gt;
+A instalação do Pass é muito simples, porque o mesmo está disponível na maioria das distribuições GNU.
 
-&lt;p&gt;&lt;strong&gt;Debian e derivados&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;pass
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;Fedora&lt;/strong&gt;&lt;/p&gt;
+**Debian e derivados**
+```bash
+sudo apt install pass
+```
+**Fedora**
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;dnf &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;pass
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;Arch Linux&lt;/strong&gt;&lt;/p&gt;
+```bash
+sudo dnf install pass
+```
+**Arch Linux**
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pacman -S pass
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```
+pacman -S pass
+```
 
-&lt;h2 id=&quot;inicializando-o-pass&quot;&gt;Inicializando o pass&lt;/h2&gt;
+## Inicializando o pass
 
-&lt;p&gt;Após a instalação do Pass, temos que &lt;strong&gt;criar o nosso par de chaves usando o GPG&lt;/strong&gt;. Então, para isso, digite esse comando:&lt;/p&gt;
+Após a instalação do Pass, temos que **criar o nosso par de chaves usando o GPG**. Então, para isso, digite esse comando:
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gpg &lt;span class=&quot;nt&quot;&gt;--full-gen-key&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```bash
+gpg --full-gen-key
+```
 
-&lt;p&gt;Com nossas chaves criadas, vamos inicializar o Pass. Para isso, você vai precisar do &lt;strong&gt;ID da sua chave GPG ou o e-mail&lt;/strong&gt; que você informou quando estava criando a mesma. Eu vou usar o e-mail:&lt;/p&gt;
+Com nossas chaves criadas, vamos inicializar o Pass. Para isso, você vai precisar do **ID da sua chave GPG ou o e-mail** que você informou quando estava criando a mesma. Eu vou usar o e-mail:
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pass init contato@allythy.com
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```bash
+pass init contato@allythy.com
+```
 
-&lt;p&gt;Com isso, o Pass vai criar a um diretório para armazenar a nossas senhas.&lt;/p&gt;
+Com isso, o Pass vai criar a um diretório para armazenar a nossas senhas.
 
-&lt;h2 id=&quot;inserindo-senhas&quot;&gt;Inserindo senhas&lt;/h2&gt;
+## Inserindo senhas
 
-&lt;blockquote&gt;
-  &lt;p&gt;Sintaxe: pass insert pasta/serviço&lt;/p&gt;
-&lt;/blockquote&gt;
+&gt;Sintaxe: pass insert pasta/serviço
 
-&lt;p&gt;Para adicionar senha ao pass é bem simples. Primeiro, vou criar uma pasta chamada e-mail e nela vou guardar as senhas dos meus e-mails. Então, vou começar com o e-mail do SempreUpdate.&lt;/p&gt;
+Para adicionar senha ao pass é bem simples. Primeiro, vou criar uma pasta chamada e-mail e nela vou guardar as senhas dos meus e-mails. Então, vou começar com o e-mail do SempreUpdate.
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pass insert email/sempreupdate
+```bash
+pass insert email/sempreupdate
 
-&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt;: foi criado o diretório &lt;span class=&quot;s1&quot;&gt;'/home/allythy/.password-store/email'&lt;/span&gt;
-Enter password &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;email/sempreupdate:
-Retype password &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;email/sempreupdate:
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+mkdir: foi criado o diretório '/home/allythy/.password-store/email'
+Enter password for email/sempreupdate:
+Retype password for email/sempreupdate:
+```
 
-&lt;p&gt;Agora eu quero adicionar a senha do protonmail na mesma pasta email. Vai ser do mesmo jeito, mas agora ele não vai criar a pasta email, porque já foi criada antes.&lt;/p&gt;
+Agora eu quero adicionar a senha do protonmail na mesma pasta email. Vai ser do mesmo jeito, mas agora ele não vai criar a pasta email, porque já foi criada antes.
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pass insert email/protonmail
+```bash
+pass insert email/protonmail
 
-Enter password &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;email/protonmail:
-Retype password &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;email/protonmail:
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+Enter password for email/protonmail:
+Retype password for email/protonmail:
+```
 
-&lt;p&gt;Para ver a estrutura de como as nossas senhas estão sendo salvas, digite:&lt;/p&gt;
+Para ver a estrutura de como as nossas senhas estão sendo salvas, digite:
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pass
+```bash
+pass
 
 Password Store
 |---- email
     |---protonmail
     |---sempreupdate
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```
 
-&lt;p&gt;Vamos criar outra pasta para armazenar as senhas das redes sociais:&lt;/p&gt;
+Vamos criar outra pasta para armazenar as senhas das redes sociais:
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pass insert social/diaspora
+```bash
+pass insert social/diaspora
 
-&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt;: foi criado o diretório &lt;span class=&quot;s1&quot;&gt;'/home/allythy/.password-store/social'&lt;/span&gt;
-Enter password &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;social/diaspora:
-Retype password &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;social/diaspora:
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+mkdir: foi criado o diretório '/home/allythy/.password-store/social'
+Enter password for social/diaspora:
+Retype password for social/diaspora:
+```
 
-&lt;p&gt;Se a gente não informar a pasta que vai ser criada ou usada para salvar a senha, o Pass vai salvar normalmente nossa senha, mas vai ficar desorganizado porque vai ficar “solto” no repositório &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.password-store&lt;/code&gt;. Então, é recomendado informar uma pasta.&lt;/p&gt;
+Se a gente não informar a pasta que vai ser criada ou usada para salvar a senha, o Pass vai salvar normalmente nossa senha, mas vai ficar desorganizado porque vai ficar “solto” no repositório `~/.password-store`. Então, é recomendado informar uma pasta.
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Password Store
+```bash
+Password Store
 |---- email
 |    |---protonmail
 |    |---sempreupdate
 |----social
      |---diaspora
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```
 
-&lt;p&gt;Você também pode salvar outras informações junto à senha, como usuário, site etc. Para isso, você tem que passar a opção &lt;code class=&quot;highlighter-rouge&quot;&gt;--multiline&lt;/code&gt; ou &lt;code class=&quot;highlighter-rouge&quot;&gt;-m&lt;/code&gt;. Contudo, a primeira linha tem que ser a senha. Já as outras podem conter qualquer informação. Para sair e salva as informações pressione &lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl+d&lt;/code&gt;.&lt;/p&gt;
+Você também pode salvar outras informações junto à senha, como usuário, site etc. Para isso, você tem que passar a opção `--multiline` ou `-m`. Contudo, a primeira linha tem que ser a senha. Já as outras podem conter qualquer informação. Para sair e salva as informações pressione `Ctrl+d`.
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pass insert &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; social/noosfero
+```bash
+pass insert -m social/noosfero
 Enter contents of social/noosfero and press Ctrl+D when finished:
 
-2wq!2oOLIF9&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;&amp;amp;&amp;lt;de2cx
+2wq!2oOLIF9*&amp;&lt;de2cx
 site: noosfero.org
 user: livre
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```
 
-&lt;h2 id=&quot;gerando-senhas-automaticamente&quot;&gt;Gerando senhas automaticamente&lt;/h2&gt;
+## Gerando senhas automaticamente
 
-&lt;p&gt;Você pode mandar o Pass gerar uma senha para um serviço novo ou  já existente. Vamos gerar uma nova senha para o Protonmail com 25 caracteres:&lt;/p&gt;
+Você pode mandar o Pass gerar uma senha para um serviço novo ou  já existente. Vamos gerar uma nova senha para o Protonmail com 25 caracteres:
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pass generate email/protonmail 25
+```
+pass generate email/protonmail 25
 
 An entry already exists for social/sim. Overwrite it? [y/N] y
 The generated password for email/protonmail is:
-&amp;amp;aPO&amp;lt;*$~.&quot;HS)?z'9VIDh(NL0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Caso queira gerar senha alfanumérico coloque a opção &lt;code class=&quot;highlighter-rouge&quot;&gt;-n&lt;/code&gt; depois do comando generate.&lt;/p&gt;
+&amp;aPO&lt;*$~.&quot;HS)?z'9VIDh(NL0
+```
+Caso queira gerar senha alfanumérico coloque a opção `-n` depois do comando generate.
 
-&lt;h2 id=&quot;exibindo-as-senhas&quot;&gt;Exibindo as senhas&lt;/h2&gt;
+## Exibindo as senhas
 
-&lt;p&gt;Como a gente viu, digitando &lt;code class=&quot;highlighter-rouge&quot;&gt;pass&lt;/code&gt; mostra a estrutura de como as senhas estão organizadas. Digamos que eu quero pegar a senha do sempreupdate. Para isso precisamos passar a pasta e o arquivo que vamos pegar a senha:&lt;/p&gt;
+Como a gente viu, digitando `pass` mostra a estrutura de como as senhas estão organizadas. Digamos que eu quero pegar a senha do sempreupdate. Para isso precisamos passar a pasta e o arquivo que vamos pegar a senha:
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pass email/sempreupdate
+```
+pass email/sempreupdate
 
-!J|&amp;gt;%,a9UP3Et,X`d:L&amp;lt;;xr3)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+!J|&gt;%,a9UP3Et,X`d:L&lt;;xr3)
+```
 
-&lt;p&gt;Ele vai pedir uma senha. Essa é a senha que colocamos quando criamos a chaves GPG. O problema é que ele vai mostrar a senha do terminal. Imagine se tiver alguém perto de você nesse momento. Isso não seria nada bom. Então, vamos usar a opção &lt;code class=&quot;highlighter-rouge&quot;&gt;-c&lt;/code&gt;. Assim, essa opção vai copiar a senha para o clipboard, deixar ela lá por 45s e depois apagar.&lt;/p&gt;
+Ele vai pedir uma senha. Essa é a senha que colocamos quando criamos a chaves GPG. O problema é que ele vai mostrar a senha do terminal. Imagine se tiver alguém perto de você nesse momento. Isso não seria nada bom. Então, vamos usar a opção `-c`. Assim, essa opção vai copiar a senha para o clipboard, deixar ela lá por 45s e depois apagar.
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pass -c email/sempreupdate
+```
+pass -c email/sempreupdate
 Copied email/sempreupdate to clipboard. Will clear in 45 seconds.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```
 
-&lt;p&gt;Para ver as informações de noosfero, que foi a senha que inserimos múltiplas linhas, usamos o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;show&lt;/code&gt;:&lt;/p&gt;
+Para ver as informações de noosfero, que foi a senha que inserimos múltiplas linhas, usamos o comando `show`:
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pass show social/noosfero
+```
+pass show social/noosfero
 
-2wq!2oOLIF9*&amp;amp;&amp;lt;de2cx
+2wq!2oOLIF9*&amp;&lt;de2cx
 site: noosfero.org
 user: livre
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```
 
-&lt;p&gt;Caso você queira que a senha não seja mostrada no terminal tem que usar a opção &lt;code class=&quot;highlighter-rouge&quot;&gt;-c&lt;/code&gt; depois do comando &lt;code class=&quot;highlighter-rouge&quot;&gt;show&lt;/code&gt;. Como você verá, apenas a senha vai ser copiada. Então, caso queira copiar a linha 2,3 ou qualquer outra, você precisa passar o número da linha depois da opção &lt;code class=&quot;highlighter-rouge&quot;&gt;-c&lt;/code&gt;, assim:&lt;/p&gt;
+Caso você queira que a senha não seja mostrada no terminal tem que usar a opção `-c` depois do comando `show`. Como você verá, apenas a senha vai ser copiada. Então, caso queira copiar a linha 2,3 ou qualquer outra, você precisa passar o número da linha depois da opção `-c`, assim:
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pass show -c2 social/noosfero
+```
+pass show -c2 social/noosfero
 
 Copied social/noosfero to clipboard. Will clear in 45 seconds.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```
 
-&lt;h2 id=&quot;apagando-senhas&quot;&gt;Apagando senhas&lt;/h2&gt;
+## Apagando senhas
 
-&lt;p&gt;Enfim, para remover uma senha do Pass precisamos apenas usar o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;rm&lt;/code&gt; e informar qual é senha, desse forma:&lt;/p&gt;
+Enfim, para remover uma senha do Pass precisamos apenas usar o comando `rm` e informar qual é senha, desse forma:
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pass rm email/sempreupdate
+```
+pass rm email/sempreupdate
 
 Are you sure you would like to delete email/sempreupdate? [y/N] y
 removido '/home/allythy/.password-store/email/sempreupdate.gpg'
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```
 
-&lt;p&gt;Caso você queira remover uma pasta completa com todas senhas use a opção &lt;code class=&quot;highlighter-rouge&quot;&gt;--recursive&lt;/code&gt; ou &lt;code class=&quot;highlighter-rouge&quot;&gt;-r&lt;/code&gt; .&lt;/p&gt;
+Caso você queira remover uma pasta completa com todas senhas use a opção `--recursive` ou `-r` .
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pass rm -r email/
+```
+pass rm -r email/
 
 Are you sure you would like to delete email/? [y/N] y
 removido '/home/allythy/.password-store/email/job.gpg'
 removido '/home/allythy/.password-store/email/protonmail.gpg'
 foi removido o diretório: '/home/allythy/.password-store/email/'
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```
 
-&lt;p&gt;Se não quiser que o pass pergunte se tem certeza na hora de apagar a senha, use a opção &lt;code class=&quot;highlighter-rouge&quot;&gt;--force&lt;/code&gt; ou &lt;code class=&quot;highlighter-rouge&quot;&gt;-f&lt;/code&gt;.&lt;/p&gt;
+Se não quiser que o pass pergunte se tem certeza na hora de apagar a senha, use a opção `--force` ou `-f`.
 
-&lt;h2 id=&quot;editando-senha&quot;&gt;Editando senha&lt;/h2&gt;
+## Editando senha
 
-&lt;p&gt;Para editar uma senha do Pass, temos que usar o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;edit&lt;/code&gt;:&lt;/p&gt;
+Para editar uma senha do Pass, temos que usar o comando `edit`:
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pass edit social/diaspora
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```
+pass edit social/diaspora
+```
 
-&lt;h2 id=&quot;mais-informações&quot;&gt;Mais informações&lt;/h2&gt;
+## Mais informações
 
-&lt;p&gt;Para mais informações você pode &lt;a href=&quot;https://www.passwordstore.org/&quot; target=&quot;_ blank&quot;&gt;acessar a página do projeto&lt;/a&gt;
- ou olhar a documentação no terminal mesmo:&lt;/p&gt;
+Para mais informações você pode &lt;a href=&quot;https://www.passwordstore.org/&quot; target=&quot;_ blank&quot;&gt;acessar a página do projeto&lt;/a&gt;
+ ou olhar a documentação no terminal mesmo:
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;man pass
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```bash
+man pass
+```
 
-&lt;p&gt;Entretanto, caso você não goste de usar a linha de comando &lt;a href=&quot;https://qtpass.org/ &quot; target=&quot;_ blank&quot;&gt;pode instalar o QtPass&lt;/a&gt;. Ele é uma interface gráfica para o pass. Da mesma forma do Pass, o QtPass está na maioria do repositório das distribuições GNU.&lt;/p&gt;
+Entretanto, caso você não goste de usar a linha de comando &lt;a href=&quot;https://qtpass.org/ &quot; target=&quot;_ blank&quot;&gt;pode instalar o QtPass&lt;/a&gt;. Ele é uma interface gráfica para o pass. Da mesma forma do Pass, o QtPass está na maioria do repositório das distribuições GNU.
 
 &lt;p&gt;
 Referência:
 &lt;a href=&quot;https://www.passwordstore.org/&quot; target=&quot;_ blank&quot;&gt;Pass&lt;/a&gt;
-&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">O Pass é um simples gerenciador de senhas de linha de comando. Com o Pass, cada senha fica salva dentro de um arquivo criptografado com o GPG, onde o nome do arquivo é o site ou recurso que você gostaria de salvar a senha. Esses arquivos criptografados ficam salvos em ~/.password-store.</summary></entry><entry><title type="html">Como criar documentação com MkDocs</title><link href="http://0.0.0.0:4000/como-criar-documentacao-com-mkdocs" rel="alternate" type="text/html" title="Como criar documentação com MkDocs" /><published>2018-06-21T12:10:00-05:00</published><updated>2018-06-21T12:10:00-05:00</updated><id>http://0.0.0.0:4000/como-criar-documentacao-com-mkdocs</id><content type="html" xml:base="http://0.0.0.0:4000/como-criar-documentacao-com-mkdocs">&lt;p&gt;O MkDocs é gerador de site estático para documentação simples, rápido e um bonito para seu projeto. Ele é feito em Python, então já entendemos a origem da sua simplicidade, mas não confunda simplicidade com falta de recursos, porque o MkDocs tem muito recursos que você pode usar com poucas linhas de código. A documentação é escrita em Markdown, que é uma forma de escrever HTML bem mais simples e bonita e a configuração do MkDocs é feita em apenas um arquivo YAML.&lt;/p&gt;
+&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">O Pass é um simples gerenciador de senhas de linha de comando. Com o Pass, cada senha fica salva dentro de um arquivo criptografado com o GPG, onde o nome do arquivo é o site ou recurso que você gostaria de salvar a senha. Esses arquivos criptografados ficam salvos em ~/.password-store.</summary></entry><entry><title type="html">Como criar documentação com MkDocs</title><link href="http://0.0.0.0:4000/como-criar-documentacao-com-mkdocs" rel="alternate" type="text/html" title="Como criar documentação com MkDocs" /><published>2018-06-21T12:10:00-05:00</published><updated>2018-06-21T12:10:00-05:00</updated><id>http://0.0.0.0:4000/como-criar-documentacao-com-mkdocs</id><content type="html" xml:base="http://0.0.0.0:4000/como-criar-documentacao-com-mkdocs">O MkDocs é gerador de site estático para documentação simples, rápido e um bonito para seu projeto. Ele é feito em Python, então já entendemos a origem da sua simplicidade, mas não confunda simplicidade com falta de recursos, porque o MkDocs tem muito recursos que você pode usar com poucas linhas de código. A documentação é escrita em Markdown, que é uma forma de escrever HTML bem mais simples e bonita e a configuração do MkDocs é feita em apenas um arquivo YAML.
 
-&lt;p&gt;Quando ocorre o build o MKDocs vai gerar arquivos estáticos (HTML, CSS e JS), com isso você pode hospedar o site da sua documentação sem pagar nada no GitHub ou GitLab, porque esses serviços possuem os recursos &lt;a href=&quot;https://pages.github.com/&quot; target=&quot;_ blank&quot;&gt;GitHub Pages&lt;/a&gt; e &lt;a href=&quot;https://about.gitlab.com/features/pages/&quot; target=&quot;_ blank&quot;&gt;GitLab Pages&lt;/a&gt;, respectivamente, que permite a utilização dos arquivos estáticos.&lt;/p&gt;
+Quando ocorre o build o MKDocs vai gerar arquivos estáticos (HTML, CSS e JS), com isso você pode hospedar o site da sua documentação sem pagar nada no GitHub ou GitLab, porque esses serviços possuem os recursos &lt;a href=&quot;https://pages.github.com/&quot; target=&quot;_ blank&quot;&gt;GitHub Pages&lt;/a&gt; e &lt;a href=&quot;https://about.gitlab.com/features/pages/&quot; target=&quot;_ blank&quot;&gt;GitLab Pages&lt;/a&gt;, respectivamente, que permite a utilização dos arquivos estáticos.
 
-&lt;p&gt;O MkDocs ainda possui um servidor de desenvolvimento integrado, isso permite pré-visualizar a documentação à medida que a escreve. Ele também vai recarregar automaticamente e atualizar seu navegador sempre que você salvar suas alterações.&lt;/p&gt;
+O MkDocs ainda possui um servidor de desenvolvimento integrado, isso permite pré-visualizar a documentação à medida que a escreve. Ele também vai recarregar automaticamente e atualizar seu navegador sempre que você salvar suas alterações.
 
-&lt;h2 id=&quot;instalação&quot;&gt;Instalação&lt;/h2&gt;
+## Instalação
 
-&lt;p&gt;Se você estiver usando qualquer distribuição GNU, você pode instalar o MkDocs pelo seu gerenciador de pacotes. Como eu estou usando o Debian só tenho que digitar esse comando:&lt;/p&gt;
+Se você estiver usando qualquer distribuição GNU, você pode instalar o MkDocs pelo seu gerenciador de pacotes. Como eu estou usando o Debian só tenho que digitar esse comando:
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;mkdocs
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```bash
+sudo apt install mkdocs
+```
 
-&lt;p&gt;Acredito que seja mais interessante instalar o MkDocs pelo gerenciador de pacotes do Python, o pip, porque se você estiver usando um ambiente virtual vai ficar tudo mais organizado e não vai “poluir” o seu sistema. Neste post não vou mostrar como você faz isso, pois sairia do escopo do texto.
+Acredito que seja mais interessante instalar o MkDocs pelo gerenciador de pacotes do Python, o pip, porque se você estiver usando um ambiente virtual vai ficar tudo mais organizado e não vai “poluir” o seu sistema. Neste post não vou mostrar como você faz isso, pois sairia do escopo do texto.
 Entretanto, se você não souber como instalar o pip,
-&lt;a href=&quot;https://allythy.github.io/Como-instalar-o-pip-para-gerenciar-pacotes-do-Python-no-GNU-Linux&quot; target=&quot;_ blank&quot;&gt;preparei esse post que demostra como faz&lt;/a&gt;. Com o pip instalado, você só tem que digitar esse comando:&lt;/p&gt;
+&lt;a href=&quot;https://allythy.github.io/Como-instalar-o-pip-para-gerenciar-pacotes-do-Python-no-GNU-Linux&quot; target=&quot;_ blank&quot;&gt;preparei esse post que demostra como faz&lt;/a&gt;. Com o pip instalado, você só tem que digitar esse comando:
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;pip&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mkdocs&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Para verificar se tudo deu certo, execute esse comando:&lt;/p&gt;
+```python
+pip install mkdocs
+```
+Para verificar se tudo deu certo, execute esse comando:
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;mkdocs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;version&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```python
+mkdocs --version
+```
 
-&lt;h2 id=&quot;criando-a-documentação&quot;&gt;Criando a documentação&lt;/h2&gt;
+## Criando a documentação
 
-&lt;p&gt;Para começar a nossa documentação é muito fácil, basta digitar esse comando:&lt;/p&gt;
+Para começar a nossa documentação é muito fácil, basta digitar esse comando:
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;mkdocs&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;project&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```python
+mkdocs new my-project
+```
 
-&lt;blockquote&gt;
-  &lt;p&gt;Onde tem &lt;code class=&quot;highlighter-rouge&quot;&gt;my-project&lt;/code&gt; você coloca o nome da sua docomentação&lt;/p&gt;
-&lt;/blockquote&gt;
+&gt;Onde tem `my-project` você coloca o nome da sua docomentação
 
-&lt;p&gt;Depois entre no diretório que foi criado:&lt;/p&gt;
+Depois entre no diretório que foi criado:
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;project&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Dentro desse diretório você vai ter uma estrutura igual a essa:&lt;/p&gt;
+```python
+cd my-project
+```
+Dentro desse diretório você vai ter uma estrutura igual a essa:
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;├── docs
+```
+├── docs
 │ └── index.md
 └── mkdocs.yml
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```
 
-&lt;p&gt;Outra forma de começar o projeto é assim:&lt;/p&gt;
+Outra forma de começar o projeto é assim:
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkdocs new .
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```
+mkdocs new .
+```
 
-&lt;p&gt;O ponto que dizer que inicialize o projeto no diretório atual, assim ele não criará uma pasta com o nome do projeto e dentro dela a pasta docs. Vai apenas criar a pasta docs e deixar o arquivo de configuração(mkdocs.yml) na raiz do projeto.&lt;/p&gt;
+O ponto que dizer que inicialize o projeto no diretório atual, assim ele não criará uma pasta com o nome do projeto e dentro dela a pasta docs. Vai apenas criar a pasta docs e deixar o arquivo de configuração(mkdocs.yml) na raiz do projeto.
 
-&lt;p&gt;Agora vamos entender o que são esses arquivos e pasta. O MkDocs tem apenas um arquivo de configuração, como eu tinha falando acima, esse arquivo é o &lt;code class=&quot;highlighter-rouge&quot;&gt;mkdocs.yml&lt;/code&gt; e uma pasta chamada &lt;code class=&quot;highlighter-rouge&quot;&gt;docs&lt;/code&gt; que conterá os nossos arquivos da documentação escritos em Markdown. No momento, a pasta docs contém apenas uma única página de documentação, chamada index.md.&lt;/p&gt;
+Agora vamos entender o que são esses arquivos e pasta. O MkDocs tem apenas um arquivo de configuração, como eu tinha falando acima, esse arquivo é o `mkdocs.yml` e uma pasta chamada `docs` que conterá os nossos arquivos da documentação escritos em Markdown. No momento, a pasta docs contém apenas uma única página de documentação, chamada index.md.
 
-&lt;h2 id=&quot;inicializando-o-servidor&quot;&gt;Inicializando o servidor&lt;/h2&gt;
+## Inicializando o servidor
 
-&lt;p&gt;Vamos inicializar o servidor do MkDocs para verificar como está a nossa documentação até agora:&lt;/p&gt;
+Vamos inicializar o servidor do MkDocs para verificar como está a nossa documentação até agora:
 
-&lt;blockquote&gt;
-  &lt;p&gt;Lembre-se de estar no mesmo diretório que o arquivo de configuração &lt;code class=&quot;highlighter-rouge&quot;&gt;mkdocs.yml&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&gt; Lembre-se de estar no mesmo diretório que o arquivo de configuração `mkdocs.yml`
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;mkdocs&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serve&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```python
+mkdocs serve
+```
 
-&lt;p&gt;Abra o seu navegador e digite a seguinte URL &lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost:8000/&lt;/code&gt;, encontrará uma página igual a essa:&lt;/p&gt;
+Abra o seu navegador e digite a seguinte URL `http://localhost:8000/`, encontrará uma página igual a essa:
 
-&lt;p&gt;&lt;img src=&quot;img/mkdocs.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+![](img/mkdocs.png)
 
-&lt;h2 id=&quot;editando-as-páginas&quot;&gt;Editando as páginas&lt;/h2&gt;
+## Editando as páginas
 
-&lt;p&gt;Vamos adicionar uma segunda página a nossa documentação, o nome dela será &lt;code class=&quot;highlighter-rouge&quot;&gt;about.md&lt;/code&gt; e deve ficar dentro da pasta &lt;strong&gt;docs&lt;/strong&gt;. O conteúdo dela vai ser esse:&lt;/p&gt;
+Vamos adicionar uma segunda página a nossa documentação, o nome dela será `about.md` e deve ficar dentro da pasta **docs**. O conteúdo dela vai ser esse:
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# About
+```
+# About
 
 ## Random
 
@@ -266,523 +289,574 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 ## Random3
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```
 
-&lt;p&gt;Feito isso, o MkDocs colocará automaticamente a nossa página no menu de navegação. Como vocês podem observar, cada título do documento virou um hyperlink no menu lateral e a URL que será exibida é o nome que você deu para o arquivo, neste casso &lt;code class=&quot;highlighter-rouge&quot;&gt;about&lt;/code&gt;.&lt;/p&gt;
+Feito isso, o MkDocs colocará automaticamente a nossa página no menu de navegação. Como vocês podem observar, cada título do documento virou um hyperlink no menu lateral e a URL que será exibida é o nome que você deu para o arquivo, neste casso `about`.
 
-&lt;p&gt;&lt;img src=&quot;img/mkdocs2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+![](img/mkdocs2.png)
 
-&lt;p&gt;O nome &lt;strong&gt;Welcome to MkDocs&lt;/strong&gt; no menu de navegação não está muito interessante, quero deixar apenas o nome &lt;strong&gt;home&lt;/strong&gt;, porque o MkDocs utiliza o primeiro título do documento e define como nome do menu de navegação. Então vamos alterar isso, primeiro que temos abrir o arquivo de configuração do MkDocs (mkdocs.yml) e colocar essas informações:&lt;/p&gt;
+O nome **Welcome to MkDocs** no menu de navegação não está muito interessante, quero deixar apenas o nome **home**, porque o MkDocs utiliza o primeiro título do documento e define como nome do menu de navegação. Então vamos alterar isso, primeiro que temos abrir o arquivo de configuração do MkDocs (mkdocs.yml) e colocar essas informações:
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;site_name: My Docs
+```
+site_name: My Docs
 nav:
     - Home: index.md
     - About: about.md
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```
 
-&lt;p&gt;&lt;img src=&quot;img/mkdocs3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+![](img/mkdocs3.png)
 
-&lt;p&gt;O que acabamos de fazer foi adicionar o parâmetro &lt;code class=&quot;highlighter-rouge&quot;&gt;pages&lt;/code&gt; ao arquivo de configuração, onde primeiro argumento é o nome que vai aparecer no menu de navegação e o segundo é caminho da página. Você também podem alterar o nome da documentação, para isso mude onde tem &lt;code class=&quot;highlighter-rouge&quot;&gt;My Docs&lt;/code&gt; e colocar o nome da sua documentação.&lt;/p&gt;
+O que acabamos de fazer foi adicionar o parâmetro `pages` ao arquivo de configuração, onde primeiro argumento é o nome que vai aparecer no menu de navegação e o segundo é caminho da página. Você também podem alterar o nome da documentação, para isso mude onde tem `My Docs` e colocar o nome da sua documentação.
 
-&lt;h2 id=&quot;campo-de-pesquisa&quot;&gt;Campo de Pesquisa&lt;/h2&gt;
+## Campo de Pesquisa
 
-&lt;p&gt;Uma coisa que me chamou muito atenção foi o campo de pesquisa do MkDocs, porque os resultados da pesquisa incluem todas as ocorrências do termo de pesquisa no site e vinculam diretamente à seção da página em que o termo é exibido. Você tem tudo isso sem esforço ou configuração nenhuma da sua parte.&lt;/p&gt;
+Uma coisa que me chamou muito atenção foi o campo de pesquisa do MkDocs, porque os resultados da pesquisa incluem todas as ocorrências do termo de pesquisa no site e vinculam diretamente à seção da página em que o termo é exibido. Você tem tudo isso sem esforço ou configuração nenhuma da sua parte.
 
-&lt;p&gt;&lt;img src=&quot;img/mkdocs4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+![](img/mkdocs4.png)
 
-&lt;h2 id=&quot;alterando-o-tema&quot;&gt;Alterando o tema&lt;/h2&gt;
+## Alterando o tema
 
-&lt;p&gt;O MkDocs vem com dois temas: &lt;strong&gt;mkdocs&lt;/strong&gt; e o &lt;strong&gt;readthedocs&lt;/strong&gt;. O  mkdocs é o tema que estavamos usando até o momento, então vamos habilitar o readthedocs. Para isso, abra o arquivo &lt;code class=&quot;highlighter-rouge&quot;&gt;mkdocs.yml&lt;/code&gt; e adicione o parâmetro &lt;code class=&quot;highlighter-rouge&quot;&gt;theme&lt;/code&gt; ao arquivo e passe o nome do tema.&lt;/p&gt;
+O MkDocs vem com dois temas: **mkdocs** e o **readthedocs**. O  mkdocs é o tema que estavamos usando até o momento, então vamos habilitar o readthedocs. Para isso, abra o arquivo `mkdocs.yml` e adicione o parâmetro `theme` ao arquivo e passe o nome do tema.
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;site_name: My Docs
+```
+site_name: My Docs
 nav:
     - Home: index.md
     - About: about.md
 theme: readthedocs
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```
 
-&lt;p&gt;&lt;img src=&quot;img/mkdocs5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+![](img/mkdocs5.png)
 
-&lt;p&gt;Você também pode instalar temas feitos por outras pessoas &lt;a href=&quot;https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes&quot; target=&quot;_ blank&quot;&gt;acessando a Wiki do MkDocs&lt;/a&gt;.&lt;/p&gt;
+Você também pode instalar temas feitos por outras pessoas &lt;a href=&quot;https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes&quot; target=&quot;_ blank&quot;&gt;acessando a Wiki do MkDocs&lt;/a&gt;.
 
-&lt;h2 id=&quot;gerando-os-arquivos-estáticos&quot;&gt;Gerando os arquivos estáticos&lt;/h2&gt;
+## Gerando os arquivos estáticos
 
-&lt;p&gt;Digamos que já fizemos toda a nossa documentação, então agora temos que gerar os arquivos estáticos. Para isso, só temos que digitar esse comado:&lt;/p&gt;
+Digamos que já fizemos toda a nossa documentação, então agora temos que gerar os arquivos estáticos. Para isso, só temos que digitar esse comado:
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkdocs build
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```
+mkdocs build
+```
 
-&lt;p&gt;Esse comando vai criar um diretório chamado &lt;code class=&quot;highlighter-rouge&quot;&gt;site&lt;/code&gt; e ele vai conter os nossos arquivos estáticos.&lt;/p&gt;
+Esse comando vai criar um diretório chamado `site` e ele vai conter os nossos arquivos estáticos.
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;404.html  about  css  fonts  img  index.html  js  search  search.html  sitemap.xml
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```
+404.html  about  css  fonts  img  index.html  js  search  search.html  sitemap.xml
+```
 
-&lt;h2 id=&quot;deploy-para-o-github&quot;&gt;Deploy para o GitHub&lt;/h2&gt;
+## Deploy para o GitHub
 
-&lt;p&gt;Essa parte é importante que você tenha um conhecido básico de como usar o git. O MkDocs possui um comando que facilita o deploy para o GitHub, o  &lt;code class=&quot;highlighter-rouge&quot;&gt;mkdocs gh-deploy&lt;/code&gt;, mas antes temos que ir no GitHub e criar um repositório vazio, eu vou colocar o nome de &lt;strong&gt;test-mkdocs&lt;/strong&gt;.&lt;/p&gt;
+Essa parte é importante que você tenha um conhecido básico de como usar o git. O MkDocs possui um comando que facilita o deploy para o GitHub, o  `mkdocs gh-deploy`, mas antes temos que ir no GitHub e criar um repositório vazio, eu vou colocar o nome de **test-mkdocs**.
 
-&lt;p&gt;&lt;img src=&quot;img/mkdocs6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+![](img/mkdocs6.png )
 
-&lt;p&gt;Quando clicamos em &lt;code class=&quot;highlighter-rouge&quot;&gt;Create repository&lt;/code&gt;, vamos ser enviado para essa página:&lt;/p&gt;
+Quando clicamos em `Create repository`, vamos ser enviado para essa página:
 
-&lt;p&gt;&lt;img src=&quot;img/mkdocs7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+![](img/mkdocs7.png)
 
-&lt;blockquote&gt;
-  &lt;p&gt;Não feche essa página vamos precisar dela daqui a pouco.&lt;/p&gt;
-&lt;/blockquote&gt;
+&gt;Não feche essa página vamos precisar dela daqui a pouco.
 
-&lt;p&gt;Volte a pasta do projeto e inicializar o git com esse comando:&lt;/p&gt;
+Volte a pasta do projeto e inicializar o git com esse comando:
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git init
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```
+git init
+```
 
-&lt;p&gt;Feito isso, vamos criar um arquivo chamando &lt;code class=&quot;highlighter-rouge&quot;&gt;.gitignore&lt;/code&gt;, esse arquivo vai dizer para o git ignorar uma pasta ou arquivo, no nosso caso vamos ignorar a pasta &lt;strong&gt;site&lt;/strong&gt;.&lt;/p&gt;
+Feito isso, vamos criar um arquivo chamando `.gitignore`, esse arquivo vai dizer para o git ignorar uma pasta ou arquivo, no nosso caso vamos ignorar a pasta **site**.
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo &quot;site/&quot; &amp;gt;&amp;gt; .gitignore
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```
+echo &quot;site/&quot; &gt;&gt; .gitignore
+```
 
-&lt;p&gt;Agora vamos adicionar todos os arquivos e realizar o commit deles:&lt;/p&gt;
+Agora vamos adicionar todos os arquivos e realizar o commit deles:
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add .
+```
+git add .
 git commit -m &quot;first commit&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```
 
-&lt;p&gt;Volte ao GitHub e pegue o link do repositório remoto que ele deu e adicione ao seu projeto, o meu vai ser esse:&lt;/p&gt;
+Volte ao GitHub e pegue o link do repositório remoto que ele deu e adicione ao seu projeto, o meu vai ser esse:
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git remote add origin https://github.com/allythy/test-mkdocs.git
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```
+git remote add origin https://github.com/allythy/test-mkdocs.git
+```
 
-&lt;p&gt;Feito isso, vamos enviar nossa documentação para o GitHub:&lt;/p&gt;
+Feito isso, vamos enviar nossa documentação para o GitHub:
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git push -u origin master
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```
+git push -u origin master
+```
 
-&lt;p&gt;Volte ao GitHub e atualize a página e verá que nossa documentação já está lá.&lt;/p&gt;
+Volte ao GitHub e atualize a página e verá que nossa documentação já está lá.
 
-&lt;p&gt;&lt;img src=&quot;img/mkdocs8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+![](img/mkdocs8.png)
 
-&lt;p&gt;Certo, mas cadê o site da documentação? Calma, primeiro tivemos que colocar no nosso projeto no GitHub, porque se ele não tivesse lá o comando a seguir falharia. Então vamos voltar ao nosso projeto e executar esse comando:&lt;/p&gt;
+Certo, mas cadê o site da documentação? Calma, primeiro tivemos que colocar no nosso projeto no GitHub, porque se ele não tivesse lá o comando a seguir falharia. Então vamos voltar ao nosso projeto e executar esse comando:
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkdocs gh-deploy
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Esse comando gerar o build do site, copiar os arquivos para a branch &lt;code class=&quot;highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; caso não tenha essa branch ele vai criar (que é o nosso caso) e enviar os arquivos para o GitHub, por conta disso ele vai solicitar o seu usuário e senha do GitHub. Feito isso, ele vai gerar a URL da sua documentação.&lt;/p&gt;
+```
+mkdocs gh-deploy
+```
 
-&lt;p&gt;&lt;img src=&quot;img/mkdocs9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+Esse comando gerar o build do site, copiar os arquivos para a branch `gh-pages` caso não tenha essa branch ele vai criar (que é o nosso caso) e enviar os arquivos para o GitHub, por conta disso ele vai solicitar o seu usuário e senha do GitHub. Feito isso, ele vai gerar a URL da sua documentação.
 
-&lt;p&gt;É só pegar ela URL e colocar no seu navegador. Pronto, a sua documentarão feita com o MkDocs está online. O código desse projeto está &lt;a href=&quot;https://github.com/allythy/test-mkdocs&quot; target=&quot;_ blank&quot;&gt;disponível no meu GitHub&lt;/a&gt;, se gostou dá uma star lá.&lt;/p&gt;
+![](img/mkdocs9.png)
 
-&lt;p&gt;&lt;img src=&quot;img/mkdocs10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+É só pegar ela URL e colocar no seu navegador. Pronto, a sua documentarão feita com o MkDocs está online. O código desse projeto está &lt;a href=&quot;https://github.com/allythy/test-mkdocs&quot; target=&quot;_ blank&quot;&gt;disponível no meu GitHub&lt;/a&gt;, se gostou dá uma star lá.
+
+![](img/mkdocs10.png)
 
 &lt;p&gt;
 Referência:
 &lt;a href=&quot;https://www.mkdocs.org/&quot; target=&quot;_ blank&quot;&gt;MkDocs&lt;/a&gt;
 
-&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">O MkDocs é gerador de site estático para documentação simples, rápido e um bonito para seu projeto. Ele é feito em Python, então já entendemos a origem da sua simplicidade, mas não confunda simplicidade com falta de recursos, porque o MkDocs tem muito recursos que você pode usar com poucas linhas de código. A documentação é escrita em Markdown, que é uma forma de escrever HTML bem mais simples e bonita e a configuração do MkDocs é feita em apenas um arquivo YAML.</summary></entry><entry><title type="html">Como mostrar a branch do Git no Bash</title><link href="http://0.0.0.0:4000/como-mostrar-a-branch-do-git-no-bash" rel="alternate" type="text/html" title="Como mostrar a branch do Git no Bash" /><published>2018-05-15T12:10:00-05:00</published><updated>2018-05-15T12:10:00-05:00</updated><id>http://0.0.0.0:4000/como-mostrar-a-branch-do-git-no-bash</id><content type="html" xml:base="http://0.0.0.0:4000/como-mostrar-a-branch-do-git-no-bash">&lt;p&gt;Se você é um usuário do Bash, pode aproveitar alguns recursos dele para tornar sua experiência com o Git muito mais amigável. Neste caso, como mostrar a branch do Git que você está trabalhando.&lt;/p&gt;
+&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">O MkDocs é gerador de site estático para documentação simples, rápido e um bonito para seu projeto. Ele é feito em Python, então já entendemos a origem da sua simplicidade, mas não confunda simplicidade com falta de recursos, porque o MkDocs tem muito recursos que você pode usar com poucas linhas de código. A documentação é escrita em Markdown, que é uma forma de escrever HTML bem mais simples e bonita e a configuração do MkDocs é feita em apenas um arquivo YAML.</summary></entry><entry><title type="html">Como mostrar a branch do Git no Bash</title><link href="http://0.0.0.0:4000/como-mostrar-a-branch-do-git-no-bash" rel="alternate" type="text/html" title="Como mostrar a branch do Git no Bash" /><published>2018-05-15T12:10:00-05:00</published><updated>2018-05-15T12:10:00-05:00</updated><id>http://0.0.0.0:4000/como-mostrar-a-branch-do-git-no-bash</id><content type="html" xml:base="http://0.0.0.0:4000/como-mostrar-a-branch-do-git-no-bash">Se você é um usuário do Bash, pode aproveitar alguns recursos dele para tornar sua experiência com o Git muito mais amigável. Neste caso, como mostrar a branch do Git que você está trabalhando.
 
-&lt;p&gt;Primeiro, vamos abrir o arquivo .bashrc:&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim .bashrc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+Primeiro, vamos abrir o arquivo .bashrc:
+```bash
+vim .bashrc
+```
 
-&lt;p&gt;Procure pela variável &lt;code class=&quot;highlighter-rouge&quot;&gt;PS1&lt;/code&gt; e coloque antes do &lt;code class=&quot;highlighter-rouge&quot;&gt;\$&lt;/code&gt; isso:&lt;/p&gt;
+Procure pela variável `PS1` e coloque antes do `\$` isso:
 
-&lt;pre&gt;&lt;code class=&quot;language-bashrc&quot;&gt;__git_ps1 &quot; (%s)&quot;
-&lt;/code&gt;&lt;/pre&gt;
+```bashrc
+__git_ps1 &quot; (%s)&quot;
+```
 
-&lt;p&gt;Deve ficar assim sua PS1:&lt;/p&gt;
+Deve ficar assim sua PS1:
 
-&lt;p&gt;&lt;img src=&quot;img/branch.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+![](img/branch.png)
 
-&lt;p&gt;Agora vamos entender o que acabamos de fazer. O &lt;code class=&quot;highlighter-rouge&quot;&gt;__git_ps1 &quot;(% s)&quot;&lt;/code&gt; chama uma função fornecida pelo git-prompt.sh com um argumento de formatação o &lt;code class=&quot;highlighter-rouge&quot;&gt;(%s)&lt;/code&gt;. Feito isso, vamos salvar o nosso arquivo e recarregar o .bashrc:&lt;/p&gt;
+Agora vamos entender o que acabamos de fazer. O `__git_ps1 &quot;(% s)&quot;` chama uma função fornecida pelo git-prompt.sh com um argumento de formatação o `(%s)`. Feito isso, vamos salvar o nosso arquivo e recarregar o .bashrc:
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; .bashrc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```bash
+source .bashrc
+```
 
-&lt;p&gt;Pronto, agora entre em algum diretório que você tenha um projeto versionado com o Git que o Bash vai mostrar a branch que você está.&lt;/p&gt;
+Pronto, agora entre em algum diretório que você tenha um projeto versionado com o Git que o Bash vai mostrar a branch que você está.
 
-&lt;p&gt;&lt;img src=&quot;img/branch2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+![](img/branch2.png)
 
-&lt;p&gt;Caso, aparecer essa mensagem:&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bash: __git_ps1: comando não encontrado
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Você tem que carregar essa função que está no &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/lib/git-core/git-sh-prompt&lt;/code&gt;. Para isso, você tem que acrescentar no começo do seu .bashrc esse comando:&lt;/p&gt;
+Caso, aparecer essa mensagem:
+```bash
+bash: __git_ps1: comando não encontrado
+```
+Você tem que carregar essa função que está no `/usr/lib/git-core/git-sh-prompt`. Para isso, você tem que acrescentar no começo do seu .bashrc esse comando:
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; /usr/lib/git-core/git-sh-prompt
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Feito isso, recarregue novamente o .bashrc:&lt;/p&gt;
+```bash
+source /usr/lib/git-core/git-sh-prompt
+```
+Feito isso, recarregue novamente o .bashrc:
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; .bashrc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Se você estiver usando o Fedora o arquivo que você tem que acrescentar no seu .bashrc é esse:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;source /usr/share/git-core/contrib/completion/git-prompt.sh
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Eu testei essas alterações no Debian 9, 10 , Ubuntu 16.04, Fedora e deu tudo certo. Nas outras distribuições não tive como testar. Caso você queira deixar o seu Bash igual ao meu, é assim que está a minha PS1:&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;PS1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'${debian_chroot:+($debian_chroot)}\[\033[36m\]\u\[\033[37m\]@\[\033[33m\]\h:\[\033[32m\]\w\[\033[31;1m\]$(__git_ps1 &quot;(%s)&quot;)\[\033[00m\]\$ '&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```bash
+source .bashrc
+```
+Se você estiver usando o Fedora o arquivo que você tem que acrescentar no seu .bashrc é esse:
+```
+source /usr/share/git-core/contrib/completion/git-prompt.sh
+```
+Eu testei essas alterações no Debian 9, 10 , Ubuntu 16.04, Fedora e deu tudo certo. Nas outras distribuições não tive como testar. Caso você queira deixar o seu Bash igual ao meu, é assim que está a minha PS1:
+```bash
+PS1='${debian_chroot:+($debian_chroot)}\[\033[36m\]\u\[\033[37m\]@\[\033[33m\]\h:\[\033[32m\]\w\[\033[31;1m\]$(__git_ps1 &quot;(%s)&quot;)\[\033[00m\]\$ '
+```
 &lt;p&gt;
 Regerência:
 &lt;a href=&quot;https://git-scm.com/book/en/v2/Appendix-A:-Git-in-Other-Environments-Git-in-Bash&quot; target=&quot;_ blank&quot;&gt;Git-Pro&lt;/a&gt;,
 &lt;a href=&quot;https://fedoraproject.org/wiki/Git_quick_reference&quot; target=&quot;_ blank&quot;&gt;Fedora Project&lt;/a&gt;
 
-&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Se você é um usuário do Bash, pode aproveitar alguns recursos dele para tornar sua experiência com o Git muito mais amigável. Neste caso, como mostrar a branch do Git que você está trabalhando.</summary></entry><entry><title type="html">Como usar o Trimage para comprimir imagens</title><link href="http://0.0.0.0:4000/como-usar-o-trimage-para-comprimir-imagens" rel="alternate" type="text/html" title="Como usar o Trimage para comprimir imagens" /><published>2018-05-08T08:10:00-05:00</published><updated>2018-05-08T08:10:00-05:00</updated><id>http://0.0.0.0:4000/como-usar-o-trimage-para-comprimir-imagens</id><content type="html" xml:base="http://0.0.0.0:4000/como-usar-o-trimage-para-comprimir-imagens">&lt;p&gt;Neste artigo, vamos aprender como instalar o Trimage para comprimir nossas imagens. O Trimage é uma GUI multiplataforma e interface de linha de comando para otimizar imagem, usando optipng, pngcrush, advpng e jpegoptim, dependendo do tipo de arquivo (atualmente, os arquivos PNG e JPG são suportados),foi inspirado no imageoptim.&lt;/p&gt;
+&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Se você é um usuário do Bash, pode aproveitar alguns recursos dele para tornar sua experiência com o Git muito mais amigável. Neste caso, como mostrar a branch do Git que você está trabalhando.</summary></entry><entry><title type="html">Como usar o Trimage para comprimir imagens</title><link href="http://0.0.0.0:4000/como-usar-o-trimage-para-comprimir-imagens" rel="alternate" type="text/html" title="Como usar o Trimage para comprimir imagens" /><published>2018-05-08T08:10:00-05:00</published><updated>2018-05-08T08:10:00-05:00</updated><id>http://0.0.0.0:4000/como-usar-o-trimage-para-comprimir-imagens</id><content type="html" xml:base="http://0.0.0.0:4000/como-usar-o-trimage-para-comprimir-imagens">Neste artigo, vamos aprender como instalar o Trimage para comprimir nossas imagens. O Trimage é uma GUI multiplataforma e interface de linha de comando para otimizar imagem, usando optipng, pngcrush, advpng e jpegoptim, dependendo do tipo de arquivo (atualmente, os arquivos PNG e JPG são suportados),foi inspirado no imageoptim.
 
-&lt;p&gt;Todas as imagem são comprimidos com o Trimage sem perdas nos níveis mais altos de compressão disponíveis, o EXIF e outros metadados são removidos. O Trimage oferece várias funções de entrada para ajustar o seu próprio fluxo de trabalho: Uma caixa de diálogo de arquivo comum, arrastando e soltando e várias opções de linha de comando.&lt;/p&gt;
+Todas as imagem são comprimidos com o Trimage sem perdas nos níveis mais altos de compressão disponíveis, o EXIF e outros metadados são removidos. O Trimage oferece várias funções de entrada para ajustar o seu próprio fluxo de trabalho: Uma caixa de diálogo de arquivo comum, arrastando e soltando e várias opções de linha de comando.
 
-&lt;h2 id=&quot;instalação&quot;&gt;Instalação&lt;/h2&gt;
+## Instalação
 
-&lt;p&gt;&lt;strong&gt;Debian, Ubuntu e derivados&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;trimage
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;Arch Linux&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yaourt &lt;span class=&quot;nt&quot;&gt;-S&lt;/span&gt; trimage-git
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;Outras distribuições&lt;/strong&gt;&lt;/p&gt;
+__Debian, Ubuntu e derivados__
+```bash
+sudo apt install trimage
+```
+__Arch Linux__
+```bash
+yaourt -S trimage-git
+```
+__Outras distribuições__
 
-&lt;p&gt;1- Faça o download no projeto no &lt;a href=&quot;http://github.com/Kilian/Trimage&quot; target=&quot;_ blank&quot;&gt;GitHub&lt;/a&gt; ou no  &lt;a href=&quot;https://launchpad.net/trimage&quot; target=&quot;_ blank&quot;&gt;Launchpad&lt;/a&gt;&lt;/p&gt;
+1- Faça o download no projeto no &lt;a href=&quot;http://github.com/Kilian/Trimage&quot; target=&quot;_ blank&quot;&gt;GitHub&lt;/a&gt; ou no  &lt;a href=&quot;https://launchpad.net/trimage&quot; target=&quot;_ blank&quot;&gt;Launchpad&lt;/a&gt;
 
-&lt;p&gt;2- Feito isso, você tem que instalar os pacotes necessário para instalação:&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;python python-qt4 optipng pngcrush advancecomp jpegoptim
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;3- Digite esse comando para começar a instalação:&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;python setup.py &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;4- Pronto, agora é só procurar por Trimage no seu lançador de arquivos.&lt;/p&gt;
+2- Feito isso, você tem que instalar os pacotes necessário para instalação:
+```bash
+sudo apt install python python-qt4 optipng pngcrush advancecomp jpegoptim
+```
+3- Digite esse comando para começar a instalação:
+```bash
+sudo python setup.py install
+```
+4- Pronto, agora é só procurar por Trimage no seu lançador de arquivos.
 
-&lt;h2 id=&quot;como-usar&quot;&gt;Como usar&lt;/h2&gt;
+## Como usar
 
-&lt;h3 id=&quot;interface-gráfica&quot;&gt;Interface gráfica&lt;/h3&gt;
-&lt;p&gt;Ele é um programa bem simples de usar, para comprimir suas imagens clique em &lt;strong&gt;Add and compress&lt;/strong&gt; e selecione os arquivos. Se você achar isso muito trabalhoso é só arrasta as imagens para o programa ou a pasta. Quando a imagem é comprimida ele mostra de quantos porcentos foi a compressão e o tamanho que a imagem tinha e o tamanho que ele ficou depois.&lt;/p&gt;
+### Interface gráfica
+Ele é um programa bem simples de usar, para comprimir suas imagens clique em __Add and compress__ e selecione os arquivos. Se você achar isso muito trabalhoso é só arrasta as imagens para o programa ou a pasta. Quando a imagem é comprimida ele mostra de quantos porcentos foi a compressão e o tamanho que a imagem tinha e o tamanho que ele ficou depois.
 
-&lt;p&gt;&lt;img src=&quot;img/trimage.png&quot; alt=&quot;Interface do trimamge comprimindo cinco imagens&quot; /&gt;&lt;/p&gt;
+![Interface do trimamge comprimindo cinco imagens](img/trimage.png)
 
-&lt;h3 id=&quot;linha-de-comando&quot;&gt;Linha de comando&lt;/h3&gt;
+### Linha de comando
 
-&lt;p&gt;Comprimir um arquivo:&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;trimage &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; nome-do-arquivo
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+Comprimir um arquivo:
+```bash
+trimage -f nome-do-arquivo
+```
 
-&lt;p&gt;Comprimir um diretórios com várias imagem:&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;trimage &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; nome-da-pasta
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como instalar o Trimage para comprimir nossas imagens. O Trimage é uma GUI multiplataforma e interface de linha de comando para otimizar imagem, usando optipng, pngcrush, advpng e jpegoptim, dependendo do tipo de arquivo (atualmente, os arquivos PNG e JPG são suportados),foi inspirado no imageoptim.</summary></entry><entry><title type="html">Como alterar o tempo autenticação da senha do sudo</title><link href="http://0.0.0.0:4000/Como-alterar-o-tempo-autenticacao-da-senha-do-sudo" rel="alternate" type="text/html" title=" Como alterar o tempo autenticação da senha do sudo" /><published>2018-04-26T19:10:00-05:00</published><updated>2018-04-26T19:10:00-05:00</updated><id>http://0.0.0.0:4000/Como-alterar-o-tempo-autenticacao-da-senha-do-sudo</id><content type="html" xml:base="http://0.0.0.0:4000/Como-alterar-o-tempo-autenticacao-da-senha-do-sudo">&lt;p&gt;Essa vai ser uma dica rápida, mas é bem útil. Vamos aprender como alterar o tempo de autenticação da senha do &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo&lt;/code&gt;. Por padrão, quando executamos algum comando com privilégios de superusuário, como &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt update&lt;/code&gt;, as credencias de autenticação são armazenadas em cache por 15 minutos. Assim, para alguns esse tempo é pouco, mas para outros é muito tempo. Então, vamos saber como alterar o tempo autenticação da senha do sudo.&lt;/p&gt;
+Comprimir um diretórios com várias imagem:
+```bash
+trimage -d nome-da-pasta
+```</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como instalar o Trimage para comprimir nossas imagens. O Trimage é uma GUI multiplataforma e interface de linha de comando para otimizar imagem, usando optipng, pngcrush, advpng e jpegoptim, dependendo do tipo de arquivo (atualmente, os arquivos PNG e JPG são suportados),foi inspirado no imageoptim.</summary></entry><entry><title type="html">Como alterar o tempo autenticação da senha do sudo</title><link href="http://0.0.0.0:4000/Como-alterar-o-tempo-autenticacao-da-senha-do-sudo" rel="alternate" type="text/html" title=" Como alterar o tempo autenticação da senha do sudo" /><published>2018-04-26T19:10:00-05:00</published><updated>2018-04-26T19:10:00-05:00</updated><id>http://0.0.0.0:4000/Como-alterar-o-tempo-autenticacao-da-senha-do-sudo</id><content type="html" xml:base="http://0.0.0.0:4000/Como-alterar-o-tempo-autenticacao-da-senha-do-sudo">Essa vai ser uma dica rápida, mas é bem útil. Vamos aprender como alterar o tempo de autenticação da senha do `sudo`. Por padrão, quando executamos algum comando com privilégios de superusuário, como `sudo apt update`, as credencias de autenticação são armazenadas em cache por 15 minutos. Assim, para alguns esse tempo é pouco, mas para outros é muito tempo. Então, vamos saber como alterar o tempo autenticação da senha do sudo.
 
-&lt;p&gt;Assim, primeiro, temos que abrir o arquivo de configuração do sudo, que está localizando em &lt;code class=&quot;highlighter-rouge&quot;&gt;etc/sudoers&lt;/code&gt;. Então, para isso, vamos usar o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;visudo&lt;/code&gt;, porque não é recomendado alterar direto no arquivo de configuração.&lt;/p&gt;
+Assim, primeiro, temos que abrir o arquivo de configuração do sudo, que está localizando em `etc/sudoers`. Então, para isso, vamos usar o comando `visudo`, porque não é recomendado alterar direto no arquivo de configuração.
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo visudo
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```
+sudo visudo
+```
 
-&lt;p&gt;&lt;img src=&quot;img/sudo.png&quot; alt=&quot;Tela do arquivo de configuração do sudo, selecionado a linha onde tem Defaults env_reset &quot; /&gt;&lt;/p&gt;
+![Tela do arquivo de configuração do sudo, selecionado a linha onde tem Defaults env_reset ](img/sudo.png)
 
-&lt;p&gt;Vamos alterar a linha onde tem &lt;strong&gt;Defaults env_reset&lt;/strong&gt; acrescentando o parâmetro &lt;strong&gt;timestamp_timeout=xx&lt;/strong&gt;. Onde tem &lt;code class=&quot;highlighter-rouge&quot;&gt;“xx”&lt;/code&gt; é o valor em minutos que você vai colocar para que o sudo peça a senha. Nesse exemplo eu vou colocar 5 minutos:&lt;/p&gt;
+Vamos alterar a linha onde tem __Defaults env_reset__ acrescentando o parâmetro __timestamp_timeout=xx__. Onde tem `“xx”` é o valor em minutos que você vai colocar para que o sudo peça a senha. Nesse exemplo eu vou colocar 5 minutos:
 
-&lt;p&gt;&lt;img src=&quot;img/sudo2.png&quot; alt=&quot;Tela do arquivo de configuração do sudo, selecionado a linha onde tem timestamp_timeout=5 &quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Feito isso, pressione &lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl+x&lt;/code&gt; para sair e depois &lt;code class=&quot;highlighter-rouge&quot;&gt;s&lt;/code&gt; para salvar.&lt;/p&gt;
+![Tela do arquivo de configuração do sudo, selecionado a linha onde tem timestamp_timeout=5 ](img/sudo2.png)
 
-&lt;p&gt;Se você quiser que peça a senha toda vez que executar o sudo, altere o valor do timestamp_timeout para 0 (zero). Você também pode desabilitar a senha colocando o valor -1, o que não é recomendando por motivos de segurança.&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Essa vai ser uma dica rápida, mas é bem útil. Vamos aprender como alterar o tempo de autenticação da senha do sudo. Por padrão, quando executamos algum comando com privilégios de superusuário, como sudo apt update, as credencias de autenticação são armazenadas em cache por 15 minutos. Assim, para alguns esse tempo é pouco, mas para outros é muito tempo. Então, vamos saber como alterar o tempo autenticação da senha do sudo.</summary></entry><entry><title type="html">Como usar a tecla super, meta ou tecla do windows para abrir o menu no KDE Plasma</title><link href="http://0.0.0.0:4000/como-usar-a-tecla-super-meta-ou-tecla-do-windows-para-abrir-o-menu-no-kde-plasma" rel="alternate" type="text/html" title="Como usar a tecla super, meta ou tecla do windows para abrir o menu no KDE Plasma" /><published>2018-03-11T10:00:00-05:00</published><updated>2018-03-11T10:00:00-05:00</updated><id>http://0.0.0.0:4000/como-usar-a-tecla-super-meta-ou-tecla-do-windows-para-abrir-o-menu-no-kde-plasma</id><content type="html" xml:base="http://0.0.0.0:4000/como-usar-a-tecla-super-meta-ou-tecla-do-windows-para-abrir-o-menu-no-kde-plasma">&lt;p&gt;Essa vai ser uma dica rápida, mas que pode ser bem útil e livrar você de algumas dores de cabeça. Vou mostrar como usar a tecla super, meta ou tecla do Windows para abrir o menu no KDE Plasma.&lt;/p&gt;
+Feito isso, pressione `Ctrl+x` para sair e depois `s` para salvar.
 
-&lt;p&gt;Primeiro, você tem que clicar com o botão direito do mouse no widget do menu e depois em &lt;strong&gt;Configurações de Lançador de Aplicativos&lt;/strong&gt;:&lt;/p&gt;
+Se você quiser que peça a senha toda vez que executar o sudo, altere o valor do timestamp_timeout para 0 (zero). Você também pode desabilitar a senha colocando o valor -1, o que não é recomendando por motivos de segurança.</content><author><name>Allythy</name></author><summary type="html">Essa vai ser uma dica rápida, mas é bem útil. Vamos aprender como alterar o tempo de autenticação da senha do sudo. Por padrão, quando executamos algum comando com privilégios de superusuário, como sudo apt update, as credencias de autenticação são armazenadas em cache por 15 minutos. Assim, para alguns esse tempo é pouco, mas para outros é muito tempo. Então, vamos saber como alterar o tempo autenticação da senha do sudo.</summary></entry><entry><title type="html">Como usar a tecla super, meta ou tecla do windows para abrir o menu no KDE Plasma</title><link href="http://0.0.0.0:4000/como-usar-a-tecla-super-meta-ou-tecla-do-windows-para-abrir-o-menu-no-kde-plasma" rel="alternate" type="text/html" title="Como usar a tecla super, meta ou tecla do windows para abrir o menu no KDE Plasma" /><published>2018-03-11T10:00:00-05:00</published><updated>2018-03-11T10:00:00-05:00</updated><id>http://0.0.0.0:4000/como-usar-a-tecla-super-meta-ou-tecla-do-windows-para-abrir-o-menu-no-kde-plasma</id><content type="html" xml:base="http://0.0.0.0:4000/como-usar-a-tecla-super-meta-ou-tecla-do-windows-para-abrir-o-menu-no-kde-plasma">Essa vai ser uma dica rápida, mas que pode ser bem útil e livrar você de algumas dores de cabeça. Vou mostrar como usar a tecla super, meta ou tecla do Windows para abrir o menu no KDE Plasma.
 
-&lt;p&gt;&lt;img src=&quot;img/kde-menu.png&quot; alt=&quot;Widget do menu de configuração, com o mouse sobre Configurações de Lançador de Aplicativos &quot; /&gt;&lt;/p&gt;
+Primeiro, você tem que clicar com o botão direito do mouse no widget do menu e depois em __Configurações de Lançador de Aplicativos__:
 
-&lt;p&gt;Feito isso, você vai clicar em &lt;strong&gt;Atalhos de teclado:&lt;/strong&gt;&lt;/p&gt;
+![Widget do menu de configuração, com o mouse sobre Configurações de Lançador de Aplicativos ](img/kde-menu.png)
 
-&lt;p&gt;&lt;img src=&quot;img/kde-menu2.png&quot; alt=&quot;Tela de configurações de lançador de aplicativos, selecionada a opção do menu lateral Atalhos de teclado &quot; /&gt;&lt;/p&gt;
+Feito isso, você vai clicar em __Atalhos de teclado:__
 
-&lt;p&gt;Onde tem o botão com nome &lt;strong&gt;Nenhum&lt;/strong&gt; você clica nele. Quando você fizer isso ele vai mudar de cor e nome para &lt;strong&gt;Entrada&lt;/strong&gt;:&lt;/p&gt;
+![Tela de configurações de lançador de aplicativos, selecionada a opção do menu lateral Atalhos de teclado ](img/kde-menu2.png)
 
-&lt;p&gt;&lt;img src=&quot;img/kde-menu3.png&quot; alt=&quot;Tela de Atalhos do Teclado com o botão Entrada selecionado &quot; /&gt;&lt;/p&gt;
+Onde tem o botão com nome __Nenhum__ você clica nele. Quando você fizer isso ele vai mudar de cor e nome para __Entrada__:
 
-&lt;p&gt;Nesse momento, você tem que pressionar a combinação &lt;strong&gt;Alt+F1&lt;/strong&gt;:&lt;/p&gt;
+![Tela de Atalhos do Teclado com o botão Entrada selecionado ](img/kde-menu3.png)
 
-&lt;p&gt;&lt;img src=&quot;img/kde-menu4.png&quot; alt=&quot;Tela de Atalhos do Teclado com o botão Entrada selecionado &quot; /&gt;&lt;/p&gt;
+Nesse momento, você tem que pressionar a combinação __Alt+F1__:
 
-&lt;p&gt;Feito isso, é só clicar no botão de &lt;strong&gt;Aplicar&lt;/strong&gt; e depois no botão de &lt;strong&gt;OK&lt;/strong&gt;. Pronto, você já pode pressionar a tecla super que ela vai abrir o menu do sistema.&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Essa vai ser uma dica rápida, mas que pode ser bem útil e livrar você de algumas dores de cabeça. Vou mostrar como usar a tecla super, meta ou tecla do Windows para abrir o menu no KDE Plasma.</summary></entry><entry><title type="html">Como instalar o Zabbix Server 3.4 no Debian 9</title><link href="http://0.0.0.0:4000/Como-instalar-o-Zabbix-Server-3-4-no-Debian-9" rel="alternate" type="text/html" title="Como instalar o Zabbix Server 3.4 no Debian 9" /><published>2018-02-11T15:00:00-06:00</published><updated>2018-02-11T15:00:00-06:00</updated><id>http://0.0.0.0:4000/Como-instalar-o-Zabbix-Server-3-4-no-Debian-9</id><content type="html" xml:base="http://0.0.0.0:4000/Como-instalar-o-Zabbix-Server-3-4-no-Debian-9">&lt;p&gt;Este artigo vai tomar como base o material e os conhecimentos adqueridos no treinamento que fiz mês passado sobre o Zabbix, ministrado pelo Werneck Costa que é Zabbix Certified Specialist e Zabbix Certified Professional. Vamos aprender como instalar o Zabbix Server 3.4 no Debian 9.&lt;/p&gt;
+![Tela de Atalhos do Teclado com o botão Entrada selecionado ](img/kde-menu4.png)
 
-&lt;p&gt;A solução de monitoramento Zabbix é um Software Livre de última geração com classe empresarial. Ele é projetado para monitorar disponibilidade e desempenho dos componentes de uma infraestruturada de TI. O Zabbix é capaz de monitorar um número ilimitado de métricas e fornecer análises sofisticadas sobre a saúde da infraestrutura de TI. Sendo capaz de identificar a fonte de um problema nos sistemas de T.I, permite aos usuários Zabbix (SysOps) agirem rapidamente, reduzindo os custos associados com a paralisação.&lt;/p&gt;
+Feito isso, é só clicar no botão de __Aplicar__ e depois no botão de __OK__. Pronto, você já pode pressionar a tecla super que ela vai abrir o menu do sistema.</content><author><name>Allythy</name></author><summary type="html">Essa vai ser uma dica rápida, mas que pode ser bem útil e livrar você de algumas dores de cabeça. Vou mostrar como usar a tecla super, meta ou tecla do Windows para abrir o menu no KDE Plasma.</summary></entry><entry><title type="html">Como instalar o Zabbix Server 3.4 no Debian 9</title><link href="http://0.0.0.0:4000/Como-instalar-o-Zabbix-Server-3-4-no-Debian-9" rel="alternate" type="text/html" title="Como instalar o Zabbix Server 3.4 no Debian 9" /><published>2018-02-11T15:00:00-06:00</published><updated>2018-02-11T15:00:00-06:00</updated><id>http://0.0.0.0:4000/Como-instalar-o-Zabbix-Server-3-4-no-Debian-9</id><content type="html" xml:base="http://0.0.0.0:4000/Como-instalar-o-Zabbix-Server-3-4-no-Debian-9">Este artigo vai tomar como base o material e os conhecimentos adqueridos no treinamento que fiz mês passado sobre o Zabbix, ministrado pelo Werneck Costa que é Zabbix Certified Specialist e Zabbix Certified Professional. Vamos aprender como instalar o Zabbix Server 3.4 no Debian 9.
 
-&lt;p&gt;&lt;strong&gt;Roteiro para instalação do Zabbix:&lt;/strong&gt;&lt;/p&gt;
+ A solução de monitoramento Zabbix é um Software Livre de última geração com classe empresarial. Ele é projetado para monitorar disponibilidade e desempenho dos componentes de uma infraestruturada de TI. O Zabbix é capaz de monitorar um número ilimitado de métricas e fornecer análises sofisticadas sobre a saúde da infraestrutura de TI. Sendo capaz de identificar a fonte de um problema nos sistemas de T.I, permite aos usuários Zabbix (SysOps) agirem rapidamente, reduzindo os custos associados com a paralisação.
 
-&lt;blockquote&gt;
-  &lt;ol&gt;
-    &lt;li&gt;Instalação do repositório Debian;&lt;/li&gt;
-    &lt;li&gt;Instalação dos pacotes Zabbix (servidor e cliente) e suas dependências;&lt;/li&gt;
-    &lt;li&gt;Configuração do banco de dados;&lt;/li&gt;
-    &lt;li&gt;Configurar interface web;&lt;/li&gt;
-    &lt;li&gt;Testar e validar a instalação acessado via navegador.&lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/blockquote&gt;
+__Roteiro para instalação do Zabbix:__
 
-&lt;h3 id=&quot;1-instalação-do-repositório-debian&quot;&gt;1. Instalação do repositório Debian&lt;/h3&gt;
+&gt;1. Instalação do repositório Debian;
+&gt;2. Instalação dos pacotes Zabbix (servidor e cliente) e suas dependências;
+&gt;3. Configuração do banco de dados;
+&gt;4. Configurar interface web;
+&gt;5. Testar e validar a instalação acessado via navegador.
 
-&lt;p&gt;Primeiro, vamos logar como root para fazer a instalação. Feito isso, vamos baixar o pacote do Zabbix 3.4:&lt;/p&gt;
+### 1. Instalação do repositório Debian
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;su
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; wget http://repo.zabbix.com/zabbix/3.4/debian/pool/main/z/zabbix-release/zabbix-release_3.4-1+stretch_all.deb
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+Primeiro, vamos logar como root para fazer a instalação. Feito isso, vamos baixar o pacote do Zabbix 3.4:
 
-&lt;p&gt;Agora vamos instalar o pacote que baixamos, digite:&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dpkg &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; zabbix-release_3.4-1+stretch_all.deb
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```bash
+su
+```
+```bash
+ wget http://repo.zabbix.com/zabbix/3.4/debian/pool/main/z/zabbix-release/zabbix-release_3.4-1+stretch_all.deb
+ ```
 
-&lt;p&gt;Vamos atualizar o repositório do sistema:&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt update
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+Agora vamos instalar o pacote que baixamos, digite:
+```bash
+dpkg -i zabbix-release_3.4-1+stretch_all.deb
+```
 
-&lt;h2 id=&quot;2-instalação-dos-pacotes-zabbix&quot;&gt;2. Instalação dos pacotes Zabbix&lt;/h2&gt;
+Vamos atualizar o repositório do sistema:
+```bash
+apt update
+```
 
-&lt;p&gt;Temos que instalar o pacote Zabbix Server e suas dependências:&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;zabbix-server-mysql zabbix-frontend-php zabbix-agent zabbix-get &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+## 2. Instalação dos pacotes Zabbix
 
-&lt;p&gt;Após a execução do comando anterior, todos os componentes estarão instalados (servidor web, php, banco de dados e servidor Zabbix). Para fazer o primeiro acesso (teste), recarregue o Apache e abra o seu navegador e acesse o ip do seu servidor barra zabbix:&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl reload apache2
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;192.168.0.106/zabbix
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;img/zabbix1.png&quot; alt=&quot;Página de boas-vindas do Zabbix&quot; /&gt;&lt;/p&gt;
+Temos que instalar o pacote Zabbix Server e suas dependências:
+```bash
+apt install zabbix-server-mysql zabbix-frontend-php zabbix-agent zabbix-get -y
+```
 
-&lt;p&gt;Feito o primeiro teste, vamos voltar para emulador de terminal e editar alguns parâmetros de configuração do Apache para o frontend do Zabbix. Algumas configurações do PHP estão corretas, mas é necessário configurar o time zone. Para isso, vou usar o editor de linha de comando, o vim. Caso você não tenha instalado, use esse comando:&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;vim
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+Após a execução do comando anterior, todos os componentes estarão instalados (servidor web, php, banco de dados e servidor Zabbix). Para fazer o primeiro acesso (teste), recarregue o Apache e abra o seu navegador e acesse o ip do seu servidor barra zabbix:
+```bash
+systemctl reload apache2
+```
+```bash
+192.168.0.106/zabbix
+```
+![Página de boas-vindas do Zabbix](img/zabbix1.png)
 
-&lt;p&gt;Vamos abrir o arquivo de configuração:&lt;/p&gt;
+Feito o primeiro teste, vamos voltar para emulador de terminal e editar alguns parâmetros de configuração do Apache para o frontend do Zabbix. Algumas configurações do PHP estão corretas, mas é necessário configurar o time zone. Para isso, vou usar o editor de linha de comando, o vim. Caso você não tenha instalado, use esse comando:
+```bash
+apt install vim
+```
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim /etc/apache2/conf-available/zabbix.conf
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+Vamos abrir o arquivo de configuração:
 
-&lt;p&gt;Procure o seguinte bloco de código &lt;strong&gt;mod_php7.c&lt;/strong&gt;, quando encontrar pressione a tecla &lt;code class=&quot;highlighter-rouge&quot;&gt;i&lt;/code&gt; para entrar no modo de inserção do vim.
-Retire o comentário (“#”) da linha &lt;strong&gt;php_value date.timezone&lt;/strong&gt; e altere para o time zone do seu Estado,
-&lt;a href=&quot;https://secure.php.net/manual/en/timezones.america.php&quot; target=&quot;_ blank&quot;&gt;caso você não saiba o seu time zone, procure aqui.&lt;/a&gt;&lt;/p&gt;
+```bash
+vim /etc/apache2/conf-available/zabbix.conf
+```
 
-&lt;p&gt;&lt;img src=&quot;img/zabbix2.png&quot; alt=&quot;Arquivo de configuração do Zabbiz Server&quot; /&gt;&lt;/p&gt;
+Procure o seguinte bloco de código __mod_php7.c__, quando encontrar pressione a tecla `i` para entrar no modo de inserção do vim.
+Retire o comentário (“#”) da linha __php_value date.timezone__ e altere para o time zone do seu Estado,
+&lt;a href=&quot;https://secure.php.net/manual/en/timezones.america.php&quot; target=&quot;_ blank&quot;&gt;caso você não saiba o seu time zone, procure aqui.&lt;/a&gt;
 
-&lt;p&gt;Feito isso, pressione &lt;code class=&quot;highlighter-rouge&quot;&gt;Esc&lt;/code&gt; para sair do modo de inserção e depois &lt;code class=&quot;highlighter-rouge&quot;&gt;:x&lt;/code&gt; que vai salvar o arquivo e sair do vim.&lt;/p&gt;
+![Arquivo de configuração do Zabbiz Server](img/zabbix2.png)
 
-&lt;p&gt;Agora vamos reiniciar o servidor Apache para aplicação da configuração feita no arquivo do PHP:&lt;/p&gt;
+Feito isso, pressione `Esc` para sair do modo de inserção e depois `:x` que vai salvar o arquivo e sair do vim.
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl restart apache2
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+Agora vamos reiniciar o servidor Apache para aplicação da configuração feita no arquivo do PHP:
 
-&lt;h2 id=&quot;3-configuração-do-banco-de-dados&quot;&gt;3. Configuração do banco de dados&lt;/h2&gt;
+```bash
+systemctl restart apache2
+```
 
-&lt;p&gt;Antes de voltar à interface web, será preciso executar algumas operações no banco de dados:&lt;/p&gt;
+## 3. Configuração do banco de dados
 
-&lt;blockquote&gt;
-  &lt;ul&gt;
-    &lt;li&gt;Setar senha de root&lt;/li&gt;
-    &lt;li&gt;Criar banco Zabbix&lt;/li&gt;
-    &lt;li&gt;Criar usuário para acesso&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
+Antes de voltar à interface web, será preciso executar algumas operações no banco de dados:
 
-&lt;p&gt;Vamos executar o comando a seguir para melhorar a segurança do nosso banco de dados MariaDB, configurando uma senha para o root, remover o usuário de conexão anônima, desabilitar acesso de root feito de fora deste servidor, remover a base de test que possui acesso anônimo.&lt;/p&gt;
+&gt;- Setar senha de root
+&gt;- Criar banco Zabbix
+&gt;- Criar usuário para acesso
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql_secure_installation
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+Vamos executar o comando a seguir para melhorar a segurança do nosso banco de dados MariaDB, configurando uma senha para o root, remover o usuário de conexão anônima, desabilitar acesso de root feito de fora deste servidor, remover a base de test que possui acesso anônimo.
 
-&lt;p&gt;O utilitário solicitará uma senha de root para se conectar. Como não existe, pode deixar em branco e apertar o Enter:&lt;/p&gt;
+```bash
+mysql_secure_installation
+```
 
-&lt;p&gt;&lt;img src=&quot;img/zabbix3.png&quot; alt=&quot;Tela que solicita a senha do root do bando de dados&quot; /&gt;&lt;/p&gt;
+O utilitário solicitará uma senha de root para se conectar. Como não existe, pode deixar em branco e apertar o Enter:
 
-&lt;p&gt;O utilitário perguntará se deve ser setada uma senha para o root. Responda com um &lt;strong&gt;“y”&lt;/strong&gt; e informe sua senha, vou colocar &lt;strong&gt;Allythy!&lt;/strong&gt;:&lt;/p&gt;
+![Tela que solicita a senha do root do bando de dados](img/zabbix3.png)
 
-&lt;p&gt;&lt;img src=&quot;img/zabbix4.png&quot; alt=&quot;Tela para configurar a senha do usuário root&quot; /&gt;&lt;/p&gt;
+O utilitário perguntará se deve ser setada uma senha para o root. Responda com um __“y”__ e informe sua senha, vou colocar __Allythy!__:
 
-&lt;p&gt;Agora é só responder &lt;strong&gt;“y”&lt;/strong&gt; para as próximas perguntas. No final o programa informará que a configuração foi finalizada:&lt;/p&gt;
+![Tela para configurar a senha do usuário root](img/zabbix4.png)
 
-&lt;p&gt;&lt;img src=&quot;img/zabbix5.png&quot; alt=&quot;Tela informando que todos os campos foram preenchidos&quot; /&gt;&lt;/p&gt;
+Agora é só responder __&quot;y&quot;__ para as próximas perguntas. No final o programa informará que a configuração foi finalizada:
 
-&lt;p&gt;Ainda no terminal, logue no console do MariaDB com usuário root e senha que você colocou acima.&lt;/p&gt;
+![Tela informando que todos os campos foram preenchidos](img/zabbix5.png)
 
-&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;mariadb&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;u&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+Ainda no terminal, logue no console do MariaDB com usuário root e senha que você colocou acima.
 
-&lt;p&gt;Vamos criar um banco de dados chamado zabbix_db:&lt;/p&gt;
-&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;create&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;database&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zabbix_db&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;character&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;collate&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8_bin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```sql
+mariadb -u root -p
+```
 
-&lt;p&gt;Depois criaremos um usuário chamado &lt;strong&gt;zabbix_usr&lt;/strong&gt; para o banco que acabamos de criar e colocar como senha para esse usuário &lt;strong&gt;@Allythye@!&lt;/strong&gt;. Caso você queira saber como criar usuário e conceder permissão,
-&lt;a href=&quot;https://allythy.github.io/Como-criar-um-novo-usuario-e-conceder-permissoes-no-MariaD-e-MySQL&quot; target=&quot;_ blank&quot;&gt;temos esse artigo sobre o assunto.&lt;/a&gt;&lt;/p&gt;
+Vamos criar um banco de dados chamado zabbix_db:
+```sql
+create database zabbix_db character set utf8 collate utf8_bin;
+```
 
-&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;grant&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;all&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;privileges&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;on&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zabbix_db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zabbix_usr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;localhost&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;identified&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;by&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@Allythye@!'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Feito isso, podemos sair do console do MariaDB:&lt;/p&gt;
+Depois criaremos um usuário chamado __zabbix_usr__ para o banco que acabamos de criar e colocar como senha para esse usuário __@Allythye@!__. Caso você queira saber como criar usuário e conceder permissão,
+&lt;a href=&quot;https://allythy.github.io/Como-criar-um-novo-usuario-e-conceder-permissoes-no-MariaD-e-MySQL&quot; target=&quot;_ blank&quot;&gt;temos esse artigo sobre o assunto.&lt;/a&gt;
 
-&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```sql
+grant all privileges on zabbix_db.* to zabbix_usr@localhost identified by '@Allythye@!';
+```
+Feito isso, podemos sair do console do MariaDB:
 
-&lt;p&gt;Agora temos que fazer importação dos dados iniciais para o banco de dados que criamos, o zabbix_db:&lt;/p&gt;
+```sql
+exit;
+```
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;zcat /usr/share/doc/zabbix-server-mysql/create.sql.gz | mysql &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; zabbix_usr &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt;@Allythye@! zabbix_db
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Vamos editar o arquivo de configuração do banco de dados do servidor Zabbix que se encontra no diretório /etc/zabbix:&lt;/p&gt;
+Agora temos que fazer importação dos dados iniciais para o banco de dados que criamos, o zabbix_db:
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim /etc/zabbix/zabbix_server.conf
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Procure pelos parâmetros abaixo e coloque as informações do seu banco de dados. Lembrando, pressione a tecla &lt;code class=&quot;highlighter-rouge&quot;&gt;i&lt;/code&gt; para entrar no modo de inserção do vim, depois de alterar os parâmetros pressione &lt;code class=&quot;highlighter-rouge&quot;&gt;Esc&lt;/code&gt; e depois &lt;code class=&quot;highlighter-rouge&quot;&gt;:x&lt;/code&gt; para salvar e depois sair do vim.&lt;/p&gt;
+```bash
+zcat /usr/share/doc/zabbix-server-mysql/create.sql.gz | mysql -u zabbix_usr -p@Allythye@! zabbix_db
+```
+Vamos editar o arquivo de configuração do banco de dados do servidor Zabbix que se encontra no diretório /etc/zabbix:
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;DBName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;zabbix_db
-&lt;span class=&quot;nv&quot;&gt;DBUser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;zabbix_usr
-&lt;span class=&quot;nv&quot;&gt;DBPassword&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;@Sempre#Update@!
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;img/zabbix6.png&quot; alt=&quot;Tela do arquivo de configuração do zabbix server mostrando as variáveis alteradas&quot; /&gt;&lt;/p&gt;
+```bash
+vim /etc/zabbix/zabbix_server.conf
+```
+Procure pelos parâmetros abaixo e coloque as informações do seu banco de dados. Lembrando, pressione a tecla `i` para entrar no modo de inserção do vim, depois de alterar os parâmetros pressione `Esc` e depois `:x` para salvar e depois sair do vim.
 
-&lt;p&gt;Feito isso, vamos reiniciar o servidor Zabbix:&lt;/p&gt;
+```bash
+DBName=zabbix_db
+DBUser=zabbix_usr
+DBPassword=@Sempre#Update@!
+```
+![Tela do arquivo de configuração do zabbix server mostrando as variáveis alteradas](img/zabbix6.png)
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl restart zabbix-server
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Configurando o Zabbix para inicializar junto ao sistema:&lt;/p&gt;
+Feito isso, vamos reiniciar o servidor Zabbix:
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl &lt;span class=&quot;nb&quot;&gt;enable &lt;/span&gt;zabbix-server
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```bash
+systemctl restart zabbix-server
+```
+Configurando o Zabbix para inicializar junto ao sistema:
 
-&lt;h2 id=&quot;4-configurar-interface-web&quot;&gt;4. Configurar interface web&lt;/h2&gt;
+```bash
+systemctl enable zabbix-server
+```
 
-&lt;p&gt;Vamos voltar para a interface web, coloque o ip do seu servidor e no final coloque &lt;strong&gt;“/zabbix”&lt;/strong&gt;, depois clique em Next step:&lt;/p&gt;
+## 4. Configurar interface web
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;192.168.0.106/zabbix
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;img/zabbix1.png&quot; alt=&quot;Tela de boas-vindas do Zabbix&quot; /&gt;&lt;/p&gt;
+Vamos voltar para a interface web, coloque o ip do seu servidor e no final coloque __“/zabbix”__, depois clique em Next step:
 
-&lt;p&gt;Verifique se está tudo OK, se tiver, clique Next step:&lt;/p&gt;
+```bash
+192.168.0.106/zabbix
+```
+![Tela de boas-vindas do Zabbix](img/zabbix1.png)
 
-&lt;p&gt;&lt;img src=&quot;img/zabbix7.png&quot; alt=&quot;Tela mostrando a checagem dos pré-requisitos&quot; /&gt;&lt;/p&gt;
+Verifique se está tudo OK, se tiver, clique Next step:
 
-&lt;p&gt;Preencha os campos com as informações do banco de dados e depois clique em Next step:&lt;/p&gt;
+![Tela mostrando a checagem dos pré-requisitos](img/zabbix7.png)
 
-&lt;p&gt;&lt;img src=&quot;img/zabbix8.png&quot; alt=&quot;Tela para colocar as informações do banco de dados&quot; /&gt;&lt;/p&gt;
+Preencha os campos com as informações do banco de dados e depois clique em Next step:
 
-&lt;p&gt;Coloque um nome ,ip e porta do seu Servidor Zabbix:&lt;/p&gt;
+![Tela para colocar as informações do banco de dados](img/zabbix8.png)
 
-&lt;p&gt;&lt;img src=&quot;img/zabbix9.png&quot; alt=&quot;Tela para colocar as informações do servidor&quot; /&gt;&lt;/p&gt;
+Coloque um nome ,ip e porta do seu Servidor Zabbix:
 
-&lt;p&gt;Confirme tudo:&lt;/p&gt;
+![Tela para colocar as informações do servidor](img/zabbix9.png)
 
-&lt;p&gt;&lt;img src=&quot;img/zabbix11.png&quot; alt=&quot;Tela para confirmar as configurações feitas anteriomente&quot; /&gt;&lt;/p&gt;
+Confirme tudo:
 
-&lt;p&gt;Instalação finalizada com sucesso, clique em Finish:&lt;/p&gt;
+![Tela para confirmar as configurações feitas anteriomente](img/zabbix11.png)
 
-&lt;p&gt;&lt;img src=&quot;img/zabbix12.png&quot; alt=&quot;Tela mostrando que a instalação foi finalizada com sucesso&quot; /&gt;&lt;/p&gt;
+Instalação finalizada com sucesso, clique em Finish:
 
-&lt;p&gt;O acesso padrão é:&lt;/p&gt;
+![Tela mostrando que a instalação foi finalizada com sucesso](img/zabbix12.png)
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Usuário: Admin
+O acesso padrão é:
+
+```
+Usuário: Admin
 Senha: zabbix
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Pronto, com o servidor Zabbix instalado é só começar o monitoramento da sua rede, servidores e tudo que essa poderosa ferramenta tem a oferecer.&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Este artigo vai tomar como base o material e os conhecimentos adqueridos no treinamento que fiz mês passado sobre o Zabbix, ministrado pelo Werneck Costa que é Zabbix Certified Specialist e Zabbix Certified Professional. Vamos aprender como instalar o Zabbix Server 3.4 no Debian 9.</summary></entry><entry><title type="html">Como fazer sorteio no terminal usando o comando shuf</title><link href="http://0.0.0.0:4000/Como-fazer-sorteio-no-terminal-usando-o-comando-shuf" rel="alternate" type="text/html" title="Como fazer sorteio no terminal usando o comando shuf" /><published>2017-12-24T14:00:00-06:00</published><updated>2017-12-24T14:00:00-06:00</updated><id>http://0.0.0.0:4000/Como-fazer-sorteio-no-terminal-usando-o-comando-shuf</id><content type="html" xml:base="http://0.0.0.0:4000/Como-fazer-sorteio-no-terminal-usando-o-comando-shuf">&lt;p&gt;Neste artigo, vamos aprender como fazer sorteio no terminal com o comando shuf. O shuf é um comando que gerar permutações aleatórias, com isso a gente pode gerar um número aleatório de um terminado intervalo ou de algum arquivo. Digamos que você tem a quantidade de pessoas que estão participando de um evento ou lista com todos os nomes das pessoas, com uma dessas informações você gostaria de realizar um sorteio. Você pode fazer isso de uma forma rápida e fácil usando o comando shuf.&lt;/p&gt;
+```
+Pronto, com o servidor Zabbix instalado é só começar o monitoramento da sua rede, servidores e tudo que essa poderosa ferramenta tem a oferecer.</content><author><name>Allythy</name></author><summary type="html">Este artigo vai tomar como base o material e os conhecimentos adqueridos no treinamento que fiz mês passado sobre o Zabbix, ministrado pelo Werneck Costa que é Zabbix Certified Specialist e Zabbix Certified Professional. Vamos aprender como instalar o Zabbix Server 3.4 no Debian 9.</summary></entry><entry><title type="html">Como fazer sorteio no terminal usando o comando shuf</title><link href="http://0.0.0.0:4000/Como-fazer-sorteio-no-terminal-usando-o-comando-shuf" rel="alternate" type="text/html" title="Como fazer sorteio no terminal usando o comando shuf" /><published>2017-12-24T14:00:00-06:00</published><updated>2017-12-24T14:00:00-06:00</updated><id>http://0.0.0.0:4000/Como-fazer-sorteio-no-terminal-usando-o-comando-shuf</id><content type="html" xml:base="http://0.0.0.0:4000/Como-fazer-sorteio-no-terminal-usando-o-comando-shuf">Neste artigo, vamos aprender como fazer sorteio no terminal com o comando shuf. O shuf é um comando que gerar permutações aleatórias, com isso a gente pode gerar um número aleatório de um terminado intervalo ou de algum arquivo. Digamos que você tem a quantidade de pessoas que estão participando de um evento ou lista com todos os nomes das pessoas, com uma dessas informações você gostaria de realizar um sorteio. Você pode fazer isso de uma forma rápida e fácil usando o comando shuf.
 
-&lt;h2 id=&quot;gerando-números-aleatórios-de-um-intervalo-numérico&quot;&gt;Gerando números aleatórios de um intervalo numérico&lt;/h2&gt;
+## Gerando números aleatórios de um intervalo numérico
 
-&lt;p&gt;&lt;strong&gt;Sintaxe&lt;/strong&gt;:&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;shuf&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;NÚMERO INICIAL]-[NUMERO FINAL]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+__Sintaxe__:
+```bash
+shuf -i [NÚMERO INICIAL]-[NUMERO FINAL]
+```
 
-&lt;p&gt;A opção &lt;code class=&quot;highlighter-rouge&quot;&gt;-i&lt;/code&gt; é usada para informar o intervalo número. Exemplo:&lt;/p&gt;
+A opção `-i` é usada para informar o intervalo número. Exemplo:
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;shuf&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; 2-70
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;/img/shuf-1.png&quot; alt=&quot;Gerou números aleatórios de 2 até 70.&quot; /&gt;&lt;/p&gt;
+```bash
+shuf -i 2-70
+```
+![Gerou números aleatórios de 2 até 70.](/img/shuf-1.png)
 
-&lt;p&gt;Ele vai gerar as permutações e mostrar a saída padrão (tela do seu emulador de terminal). Mas digamos que você queira apenas o primeiro número. Para isso, você deve usar a opção &lt;code class=&quot;highlighter-rouge&quot;&gt;-n&lt;/code&gt; para informar a quantidade de números você gostaria de ver na saída padrão. Exemplo:&lt;/p&gt;
+Ele vai gerar as permutações e mostrar a saída padrão (tela do seu emulador de terminal). Mas digamos que você queira apenas o primeiro número. Para isso, você deve usar a opção `-n` para informar a quantidade de números você gostaria de ver na saída padrão. Exemplo:
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;shuf&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; 10-20 &lt;span class=&quot;nt&quot;&gt;-n1&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;/img/shuf-2.png&quot; alt=&quot;Gerou números aleatórios de 10 até 20, mostrando apenas o primeiro número.&quot; /&gt;&lt;/p&gt;
+```bash
+shuf -i 10-20 -n1
+```
+![Gerou números aleatórios de 10 até 20, mostrando apenas o primeiro número.](/img/shuf-2.png)
 
-&lt;h2 id=&quot;gerando-nomes-aleatórios-de-um-arquivo&quot;&gt;Gerando nomes aleatórios de um arquivo&lt;/h2&gt;
+## Gerando nomes aleatórios de um arquivo
 
-&lt;p&gt;&lt;strong&gt;Sintaxe&lt;/strong&gt;:&lt;/p&gt;
+__Sintaxe__:
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;shuf&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;NOME DO ARQUIVO] &lt;span class=&quot;nt&quot;&gt;-n1&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```bash
+shuf [NOME DO ARQUIVO] -n1
+```
 
-&lt;p&gt;Exemplo:&lt;/p&gt;
+Exemplo:
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nb&quot;&gt;shuf &lt;/span&gt;nomes &lt;span class=&quot;nt&quot;&gt;-n1&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;/img/shuf-3.png&quot; alt=&quot;Pegou um nome aleatório do arquivo nome, neste casso Francisco.&quot; /&gt;&lt;/p&gt;
+```bash
+ shuf nomes -n1
+```
+![Pegou um nome aleatório do arquivo nome, neste casso Francisco.](/img/shuf-3.png)
 
-&lt;p&gt;Você também pode guardar a saída do comando em um arquivo usando os redirecionadores (&amp;gt;, »), mas o próprio comando tem uma opção para isso a &lt;code class=&quot;highlighter-rouge&quot;&gt;-o&lt;/code&gt; . Exemplo:&lt;/p&gt;
+Você também pode guardar a saída do comando em um arquivo usando os redirecionadores (&gt;, &gt;&gt;), mas o próprio comando tem uma opção para isso a `-o` . Exemplo:
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;shuf &lt;/span&gt;nomes &lt;span class=&quot;nt&quot;&gt;-n2&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; ganhadores
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como fazer sorteio no terminal com o comando shuf. O shuf é um comando que gerar permutações aleatórias, com isso a gente pode gerar um número aleatório de um terminado intervalo ou de algum arquivo. Digamos que você tem a quantidade de pessoas que estão participando de um evento ou lista com todos os nomes das pessoas, com uma dessas informações você gostaria de realizar um sorteio. Você pode fazer isso de uma forma rápida e fácil usando o comando shuf.</summary></entry><entry><title type="html">Como alterar o diretório padrão do Apache</title><link href="http://0.0.0.0:4000/Como-alterar-o-diretorio-padrao-do-Apache" rel="alternate" type="text/html" title="Como alterar o diretório padrão do Apache" /><published>2017-12-23T16:00:00-06:00</published><updated>2017-12-23T16:00:00-06:00</updated><id>http://0.0.0.0:4000/Como-alterar-o-diretorio-padrao-do-Apache</id><content type="html" xml:base="http://0.0.0.0:4000/Como-alterar-o-diretorio-padrao-do-Apache">&lt;p&gt;Neste artigo, vamos aprender como alterar o diretório padrão do Apache. Digamos que você está desenvolvendo uma aplicação em PHP na sua máquina, mas toda vez que você tem que editar um arquivo, criar ou fazer algum tipo de manipulação no seu projeto é necessário entrar como superusuário (root), o que não é tão interessante. Por conta disso, vamos alterar o diretório padrão do Apache.&lt;/p&gt;
+```bash
+shuf nomes -n2 -o ganhadores
+```</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como fazer sorteio no terminal com o comando shuf. O shuf é um comando que gerar permutações aleatórias, com isso a gente pode gerar um número aleatório de um terminado intervalo ou de algum arquivo. Digamos que você tem a quantidade de pessoas que estão participando de um evento ou lista com todos os nomes das pessoas, com uma dessas informações você gostaria de realizar um sorteio. Você pode fazer isso de uma forma rápida e fácil usando o comando shuf.</summary></entry><entry><title type="html">Como alterar o diretório padrão do Apache</title><link href="http://0.0.0.0:4000/Como-alterar-o-diretorio-padrao-do-Apache" rel="alternate" type="text/html" title="Como alterar o diretório padrão do Apache" /><published>2017-12-23T16:00:00-06:00</published><updated>2017-12-23T16:00:00-06:00</updated><id>http://0.0.0.0:4000/Como-alterar-o-diretorio-padrao-do-Apache</id><content type="html" xml:base="http://0.0.0.0:4000/Como-alterar-o-diretorio-padrao-do-Apache">Neste artigo, vamos aprender como alterar o diretório padrão do Apache. Digamos que você está desenvolvendo uma aplicação em PHP na sua máquina, mas toda vez que você tem que editar um arquivo, criar ou fazer algum tipo de manipulação no seu projeto é necessário entrar como superusuário (root), o que não é tão interessante. Por conta disso, vamos alterar o diretório padrão do Apache.
 
-&lt;h2 id=&quot;como-alterar-o-diretório-padrão-do-apache&quot;&gt;Como alterar o diretório padrão do Apache&lt;/h2&gt;
+## Como alterar o diretório padrão do Apache
 
-&lt;p&gt;Primeiro vamos abrir o arquivo de configuração do Apache:&lt;/p&gt;
+Primeiro vamos abrir o arquivo de configuração do Apache:
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;nano /etc/apache2/apache2.conf
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```bash
+sudo nano /etc/apache2/apache2.conf
+```
 
-&lt;p&gt;Você vai procurar pele linha que tenha &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;Directory /var/www&amp;gt;&lt;/code&gt;, que deve estar igual à imagem abaixo:&lt;/p&gt;
+Você vai procurar pele linha que tenha `&lt;Directory /var/www&gt;`, que deve estar igual à imagem abaixo:
 
-&lt;p&gt;&lt;img src=&quot;img/apache1.png&quot; alt=&quot;Arquivo de configuracao do apache2&quot; /&gt;&lt;/p&gt;
+![Arquivo de configuracao do apache2](img/apache1.png)
 
-&lt;p&gt;Substitua &lt;code class=&quot;highlighter-rouge&quot;&gt;/var/www&lt;/code&gt; pelo diretório que você deseja. Eu coloquei esse diretório que vocês podem ver abaixo:&lt;/p&gt;
+Substitua `/var/www` pelo diretório que você deseja. Eu coloquei esse diretório que vocês podem ver abaixo:
 
-&lt;p&gt;&lt;img src=&quot;img/apache2.png&quot; alt=&quot;Substitui o /var/www/ por /home/allythy/Documentos/desenvolvimento&quot; /&gt;&lt;/p&gt;
+![Substitui o /var/www/ por /home/allythy/Documentos/desenvolvimento](img/apache2.png)
 
-&lt;p&gt;Feito isso, vamos alterar esse arquivo &lt;code class=&quot;highlighter-rouge&quot;&gt;000-default.conf&lt;/code&gt;&lt;/p&gt;
+Feito isso, vamos alterar esse arquivo `000-default.conf`
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;nano /etc/apache2/sites-available/000-default.conf
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```bash
+sudo nano /etc/apache2/sites-available/000-default.conf
+```
 
-&lt;p&gt;Procure pela linha que tenha &lt;strong&gt;DocumentRoot&lt;/strong&gt;, que deve estar igual à imagem abaixo:&lt;/p&gt;
+Procure pela linha que tenha __DocumentRoot__, que deve estar igual à imagem abaixo:
 
-&lt;p&gt;&lt;img src=&quot;img/apache3.png&quot; alt=&quot;Mostrando que a linha que tem o DocumentRoot é onde tem o caminho /var/www &quot; /&gt;&lt;/p&gt;
+![Mostrando que a linha que tem o DocumentRoot é onde tem o caminho /var/www ](img/apache3.png)
 
-&lt;p&gt;Onde tem &lt;code class=&quot;highlighter-rouge&quot;&gt;/var/www&lt;/code&gt; coloque o mesmo diretório que você colocou no arquivo apache2.conf.&lt;/p&gt;
+Onde tem `/var/www` coloque o mesmo diretório que você colocou no arquivo apache2.conf.
 
-&lt;p&gt;&lt;img src=&quot;img/apache4.png&quot; alt=&quot;Substitui o /var/www/ por /home/allythy/Documentos/desenvolvimento &quot; /&gt;&lt;/p&gt;
+![Substitui o /var/www/ por /home/allythy/Documentos/desenvolvimento ](img/apache4.png)
 
-&lt;p&gt;Feito isso, temos que reiniciar o Apache. Para isso, use o seguinte comando:&lt;/p&gt;
+Feito isso, temos que reiniciar o Apache. Para isso, use o seguinte comando:
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl restart apache2
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```bash
+sudo systemctl restart apache2
+```
 
-&lt;p&gt;Pronto, já alteramos o diretório padrão do Apache.&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como alterar o diretório padrão do Apache. Digamos que você está desenvolvendo uma aplicação em PHP na sua máquina, mas toda vez que você tem que editar um arquivo, criar ou fazer algum tipo de manipulação no seu projeto é necessário entrar como superusuário (root), o que não é tão interessante. Por conta disso, vamos alterar o diretório padrão do Apache.</summary></entry><entry><title type="html">3 maneiras de alterar o Shell padrão de um usuário no GNU/Linux</title><link href="http://0.0.0.0:4000/3-Maneiras-de-alterar-o-Shell-padrao-de-um-usuario-no-GNU-Linux" rel="alternate" type="text/html" title="3 maneiras de alterar o Shell padrão de um usuário no GNU/Linux" /><published>2017-09-12T12:00:00-05:00</published><updated>2017-09-12T12:00:00-05:00</updated><id>http://0.0.0.0:4000/3-Maneiras-de-alterar-o-Shell-padrao-de-um-usuario-no-GNU-Linux</id><content type="html" xml:base="http://0.0.0.0:4000/3-Maneiras-de-alterar-o-Shell-padrao-de-um-usuario-no-GNU-Linux">&lt;p&gt;Neste artigo, vamos aprender 3 maneiras de alterar o Shell padrão de um usuário no GNU/Linux. O Shell é interpretador de comandos e é a uma camada entre o Kernel e o usuário. O Shell é simplesmente o programa que lê o comando que você digitou e converte-o em uma forma mais simplificada e legível para o Sistema GNU, diminuindo o tempo gasto pelo Sistema GNU (ou kernel) na execução deste comando. Existem vários tipos de Shells, como: bash, sh, ksh, zsh, fish e muitos outros.&lt;/p&gt;
+Pronto, já alteramos o diretório padrão do Apache.</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como alterar o diretório padrão do Apache. Digamos que você está desenvolvendo uma aplicação em PHP na sua máquina, mas toda vez que você tem que editar um arquivo, criar ou fazer algum tipo de manipulação no seu projeto é necessário entrar como superusuário (root), o que não é tão interessante. Por conta disso, vamos alterar o diretório padrão do Apache.</summary></entry><entry><title type="html">3 maneiras de alterar o Shell padrão de um usuário no GNU/Linux</title><link href="http://0.0.0.0:4000/3-Maneiras-de-alterar-o-Shell-padrao-de-um-usuario-no-GNU-Linux" rel="alternate" type="text/html" title="3 maneiras de alterar o Shell padrão de um usuário no GNU/Linux" /><published>2017-09-12T12:00:00-05:00</published><updated>2017-09-12T12:00:00-05:00</updated><id>http://0.0.0.0:4000/3-Maneiras-de-alterar-o-Shell-padrao-de-um-usuario-no-GNU-Linux</id><content type="html" xml:base="http://0.0.0.0:4000/3-Maneiras-de-alterar-o-Shell-padrao-de-um-usuario-no-GNU-Linux">Neste artigo, vamos aprender 3 maneiras de alterar o Shell padrão de um usuário no GNU/Linux. O Shell é interpretador de comandos e é a uma camada entre o Kernel e o usuário. O Shell é simplesmente o programa que lê o comando que você digitou e converte-o em uma forma mais simplificada e legível para o Sistema GNU, diminuindo o tempo gasto pelo Sistema GNU (ou kernel) na execução deste comando. Existem vários tipos de Shells, como: bash, sh, ksh, zsh, fish e muitos outros.
 
-&lt;p&gt;Vamos primeiro listar todos os Shells disponíveis em seu sistema GNU/Linux, digite:&lt;/p&gt;
+Vamos primeiro listar todos os Shells disponíveis em seu sistema GNU/Linux, digite:
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; /etc/shells
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```bash
+cat /etc/shells
+```
 
-&lt;p&gt;O Shell padrão para a maioria dos Sistemas GNU/Liunx é o Bash &lt;strong&gt;(/ bin / bash)&lt;/strong&gt;. Antes de prosseguir, observe que:&lt;/p&gt;
+O Shell padrão para a maioria dos Sistemas GNU/Liunx é o Bash __(/ bin / bash)__. Antes de prosseguir, observe que:
 
-&lt;blockquote&gt;
-  &lt;p&gt;– Um usuário pode alterar seu Shell para qualquer Shell que esteja listado no arquivo / etc/shells.
-– Somente o superusuário (root) ou usuário com privilégio de superusuário pode alterar o Shell.&lt;/p&gt;
-&lt;/blockquote&gt;
+&gt;– Um usuário pode alterar seu Shell para qualquer Shell que esteja listado no arquivo / etc/shells.
+&gt;– Somente o superusuário (root) ou usuário com privilégio de superusuário pode alterar o Shell.
 
-&lt;h2 id=&quot;1-usermod&quot;&gt;1. usermod&lt;/h2&gt;
+## 1. usermod
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;usermod&lt;/code&gt; é um utilitário para modificar os detalhes da conta de um usuário, armazenado no arquivo / &lt;strong&gt;etc/passwd&lt;/strong&gt; e a opção &lt;code class=&quot;highlighter-rouge&quot;&gt;-s&lt;/code&gt; ou &lt;code class=&quot;highlighter-rouge&quot;&gt;--shell&lt;/code&gt; é usada para alterar o Shell de login do usuário.&lt;/p&gt;
+`usermod` é um utilitário para modificar os detalhes da conta de um usuário, armazenado no arquivo / __etc/passwd__ e a opção `-s` ou `--shell` é usada para alterar o Shell de login do usuário.
 
-&lt;p&gt;Neste exemplo, primeiro verificamos as informações da conta do usuário para ver seu Shell de login padrão.&lt;/p&gt;
+Neste exemplo, primeiro verificamos as informações da conta do usuário para ver seu Shell de login padrão.
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;grep &lt;/span&gt;allythy /etc/passwd
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```bash
+grep allythy /etc/passwd
+```
 
-&lt;p&gt;Em seguida, altere seu shell de login de &lt;code class=&quot;highlighter-rouge&quot;&gt;/bin/bash&lt;/code&gt; para &lt;code class=&quot;highlighter-rouge&quot;&gt;/bin/sh&lt;/code&gt; da seguinte maneira:&lt;/p&gt;
+Em seguida, altere seu shell de login de `/bin/bash` para `/bin/sh` da seguinte maneira:
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;usermod &lt;span class=&quot;nt&quot;&gt;--shell&lt;/span&gt; /bin/bash allythy
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```bash
+sudo usermod --shell /bin/bash allythy
+```
 
-&lt;h2 id=&quot;2-chsh&quot;&gt;2. chsh&lt;/h2&gt;
+## 2. chsh
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;chsh&lt;/code&gt; é um utilitário de linha de comando para alterar o Shell de um usuário. Você alterar o Shell passando a opção &lt;code class=&quot;highlighter-rouge&quot;&gt;-s&lt;/code&gt; ou &lt;code class=&quot;highlighter-rouge&quot;&gt;--shell&lt;/code&gt;, depois informando o Shell que vai ser usado e o nome do usuário.&lt;/p&gt;
+`chsh` é um utilitário de linha de comando para alterar o Shell de um usuário. Você alterar o Shell passando a opção `-s` ou `--shell`, depois informando o Shell que vai ser usado e o nome do usuário.
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;chsh &lt;span class=&quot;nt&quot;&gt;--shell&lt;/span&gt; /bin/sh allythy
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```bash
+sudo chsh --shell /bin/sh allythy
+```
 
-&lt;h2 id=&quot;3-alterando-diretamente-o-arquivo-etcpasswd&quot;&gt;3. Alterando diretamente o arquivo /etc/passwd&lt;/h2&gt;
+## 3. Alterando diretamente o arquivo /etc/passwd
 
-&lt;p&gt;Neste método, basta abrir o arquivo &lt;strong&gt;/etc/passwd&lt;/strong&gt; usando qualquer editor de texto e alterar o Shell do usuário que você queira.&lt;/p&gt;
+Neste método, basta abrir o arquivo __/etc/passwd__ usando qualquer editor de texto e alterar o Shell do usuário que você queira.
 
-&lt;pre&gt;&lt;code class=&quot;language-basta&quot;&gt;sudo vim /etc/passwd
-&lt;/code&gt;&lt;/pre&gt;
+```basta
+sudo vim /etc/passwd
+```
 
-&lt;p&gt;&lt;img src=&quot;img/etc-passwd.png&quot; alt=&quot;Mostrando o conteúdo do arquivo etc/passwd e ressaltando o shell do usuário, que é o último campo do arquivo&quot; /&gt;&lt;/p&gt;
+![Mostrando o conteúdo do arquivo etc/passwd e ressaltando o shell do usuário, que é o último campo do arquivo](img/etc-passwd.png)
 
-&lt;p&gt;Quando tiver feito a edição, salve e feche o arquivo.&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender 3 maneiras de alterar o Shell padrão de um usuário no GNU/Linux. O Shell é interpretador de comandos e é a uma camada entre o Kernel e o usuário. O Shell é simplesmente o programa que lê o comando que você digitou e converte-o em uma forma mais simplificada e legível para o Sistema GNU, diminuindo o tempo gasto pelo Sistema GNU (ou kernel) na execução deste comando. Existem vários tipos de Shells, como: bash, sh, ksh, zsh, fish e muitos outros.</summary></entry></feed>
+Quando tiver feito a edição, salve e feche o arquivo.</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender 3 maneiras de alterar o Shell padrão de um usuário no GNU/Linux. O Shell é interpretador de comandos e é a uma camada entre o Kernel e o usuário. O Shell é simplesmente o programa que lê o comando que você digitou e converte-o em uma forma mais simplificada e legível para o Sistema GNU, diminuindo o tempo gasto pelo Sistema GNU (ou kernel) na execução deste comando. Existem vários tipos de Shells, como: bash, sh, ksh, zsh, fish e muitos outros.</summary></entry></feed>
