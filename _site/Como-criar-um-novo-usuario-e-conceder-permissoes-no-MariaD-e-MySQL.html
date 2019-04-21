@@ -55,7 +55,7 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right nav-mobile" >
                 <li>
                     <a href="/">Home</a>
                 </li>
@@ -73,12 +73,16 @@
 				
                 
                 <li>
-                    <form class="search" action="/search.html" method="get">
+                    <form class="search no-vis-mobile" action="/search.html" method="get">
                       <div class="search__wrapper">
                         <input class="search__field" type="search" name="query" id="search-box" placeholder="Procurando por...">
                         <button type="submit" class="fa fa-search search__icon"></button>
                       </div>
                     </form>
+                    <form class="form-inline no-vis-desktop vis-mobile" action="/search.html" method="get">
+                        <label for="search-box"></label>
+                        <input class="form-control"  id="search-box" type="search" name="query" placeholder="Procurando por...">
+                     </form>
                 </li>
 
 
@@ -267,8 +271,9 @@ GRANT OPTION- permite conceder ou revogar privilégios de outros usuários
 <script src="/js/bootstrap.min.js "></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="/js/clean-blog.min.js "></script>
-
+<script src="/js/clean-blog.js "></script>
+<!-- <script src="/js/clean-blog.min.js "></script>
+ -->
 
     
 <script>
