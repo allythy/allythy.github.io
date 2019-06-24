@@ -5,6 +5,7 @@ subtitle:   "Neste artigo, vamos aprender a automatizar a geração de senhas se
 date:       2017-07-03 14:00:00
 author:     "Allythy"
 header-img: ""
+categories: [GNU/Linux, Dica]
 ---
 
 Neste artigo, vamos aprender a automatizar a geração de senhas seguras no GNU/Linux. Vamos deixar a criação de senha algo mais prático e rápido, porque se você precisar fazer algo mais do que 3 vezes, crie um Shell Script.

@@ -5,6 +5,7 @@ subtitle:   "Neste artigo, vamos aprender como criar um novo usuário e conceder
 date:       2017-08-03 22:00:00
 author:     "Allythy"
 header-img: ""
+categories: [MariaDB, MySQL]
 ---
 Neste artigo, vamos aprender como criar um novo usuário e conceder permissões no MariaDB e MySQL. O  MariaDB e MySQL são sistemas de gerenciamento de banco de dados (SGBD), que possuem uma variedade de opções para conceder a usuários específicos permissões diferenciadas dentro de tabelas e bases de dados. Este artigo vai lhe dar um breve resumo de algumas das muitas opções que eles oferecem.
 

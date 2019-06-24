@@ -5,6 +5,7 @@ subtitle:   "Vamos aprender como instalar o Zabbix 3.4 no Debian 9, uma soluçã
 date:       2018-02-11 21:00:00
 author:     "Allythy"
 header-img: ""
+categories: [Debian, Zabbix]
 ---
 
 Este artigo vai tomar como base o material e os conhecimentos adqueridos no treinamento que fiz mês passado sobre o Zabbix, ministrado pelo Werneck Costa que é Zabbix Certified Specialist e Zabbix Certified Professional. Vamos aprender como instalar o Zabbix Server 3.4 no Debian 9.

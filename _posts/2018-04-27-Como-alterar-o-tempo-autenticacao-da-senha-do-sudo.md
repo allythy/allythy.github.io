@@ -1,10 +1,11 @@
 ---
 layout:     post
-title:      " Como alterar o tempo autenticação da senha do sudo"
+title:      "Como alterar o tempo autenticação da senha do sudo"
 subtitle:   "Vamos aprender como alterar o tempo de autenticação da senha do sudo."
 date:       2018-04-27 0:10:00
 author:     "Allythy"
 header-img: ""
+categories: [GNU/Linux, Dica]
 ---
 
 Essa vai ser uma dica rápida, mas é bem útil. Vamos aprender como alterar o tempo de autenticação da senha do `sudo`. Por padrão, quando executamos algum comando com privilégios de superusuário, como `sudo apt update`, as credencias de autenticação são armazenadas em cache por 15 minutos. Assim, para alguns esse tempo é pouco, mas para outros é muito tempo. Então, vamos saber como alterar o tempo autenticação da senha do sudo.

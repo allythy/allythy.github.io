@@ -5,6 +5,7 @@ subtitle:   "Essa será uma dica bem rápida, mas muito útil de como instalar o
 date:       2017-09-10 22:00:00
 author:     "Allythy"
 header-img: ""
+categories: LibreOffice
 ---
 Essa será uma dica bem rápida, mas muito útil de como instalar o corretor ortográfico no LibreOffice. O LibreOffice que vem no Debian ou derivados não contém o corretor ortográfico, porque infelizmente ninguém empacotou para ele ainda. Mas, se você baixar o LibreOffice direto do site ele já vem com o corretor ortográfico. Para que você não tenha o trabalho de desinstalar o LibreOffice que está na nossa distribuição e baixar a do site, vamos apenas instalar o corretor ortográfico, o VERO.
 

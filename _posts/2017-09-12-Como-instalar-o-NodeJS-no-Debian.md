@@ -5,6 +5,7 @@ subtitle:   "Neste artigo, vamos aprender como instalar o NodeJS no Debian"
 date:       2017-09-12 17:00:00
 author:     "Allythy"
 header-img: ""
+categories: [Debian, Nodejs]
 ---
 
 Neste artigo, vamos aprender como instalar o NodeJS no Debian. Node.js é uma plataforma para desenvolvimento de aplicações server-side baseadas em rede utilizando JavaScript e o V8 JavaScript Engine, ou seja, com Node.js podemos criar uma variedade de aplicações Web utilizando apenas código em JavaScript.

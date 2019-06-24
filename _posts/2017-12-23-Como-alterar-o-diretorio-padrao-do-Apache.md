@@ -5,6 +5,7 @@ subtitle:   "Neste artigo, vamos aprender como alterar o diretório padrão do A
 date:       2017-12-23 22:00:00
 author:     "Allythy"
 header-img: ""
+categories: Apache
 ---
 
 Neste artigo, vamos aprender como alterar o diretório padrão do Apache. Digamos que você está desenvolvendo uma aplicação em PHP na sua máquina, mas toda vez que você tem que editar um arquivo, criar ou fazer algum tipo de manipulação no seu projeto é necessário entrar como superusuário (root), o que não é tão interessante. Por conta disso, vamos alterar o diretório padrão do Apache.

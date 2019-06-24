@@ -5,6 +5,7 @@ subtitle:   "Neste artigo, vamos aprender a instalar o RubyGems do Debian"
 date:       2017-08-24 15:00:00
 author:     "Allythy"
 header-img: ""
+categories: Debian
 ---
 Neste artigo, vamos aprender a instalar o RubyGems do Debian. O RubyGems é o gerenciador de pacotes para o Ruby. Primeiramente, temos que instalar o pacote build-essential, porque vamos compilar algumas coisas.
 

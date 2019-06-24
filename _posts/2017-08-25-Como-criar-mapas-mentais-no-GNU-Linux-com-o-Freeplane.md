@@ -5,6 +5,7 @@ subtitle:   "Neste artigo, vamos aprender como criar mapas mentais no GNU/Linux.
 date:       2017-08-25 20:00:00
 author:     "Allythy"
 header-img: ""
+categories: [GNU/Linux, Dica]
 ---
 Uma ótima ferramenta para criação de mapas mentais no GNU/Linux é o Freeplane. O Freeplane é software livre e está no repositório da maioria das distribuições GNU/Linux.
 

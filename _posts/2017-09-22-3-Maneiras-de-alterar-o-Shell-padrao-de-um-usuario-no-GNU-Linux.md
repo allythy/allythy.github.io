@@ -5,6 +5,7 @@ subtitle:   "Neste artigo, vamos aprender 3 maneiras de alterar o Shell padrão 
 date:       2017-09-12 17:00:00
 author:     "Allythy"
 header-img: ""
+categories: [GNU/Linux, Shell]
 ---
 
 Neste artigo, vamos aprender 3 maneiras de alterar o Shell padrão de um usuário no GNU/Linux. O Shell é interpretador de comandos e é a uma camada entre o Kernel e o usuário. O Shell é simplesmente o programa que lê o comando que você digitou e converte-o em uma forma mais simplificada e legível para o Sistema GNU, diminuindo o tempo gasto pelo Sistema GNU (ou kernel) na execução deste comando. Existem vários tipos de Shells, como: bash, sh, ksh, zsh, fish e muitos outros.

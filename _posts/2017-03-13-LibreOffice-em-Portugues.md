@@ -5,6 +5,7 @@ subtitle:   "Essa será uma dica bem rápida, mas muito útil de como deixar o L
 date:       2017-03-13 14:00:00
 author:     "Allythy"
 header-img: ""
+categories: [LibreOffice, Firefox]
 ---
 
 Essa será uma dica bem rápida, mas muito útil de como deixar o LibreOffice e Firefox em Português. É um procedimento muito fácil e rápido, primeiramente deixaremos o LibreOffice em Português, para isso use o comando abaixo:

@@ -5,6 +5,7 @@ subtitle:   "Nesse artigo, vamos aprender sobre empacotamento e compactação de
 date:       2017-04-30 15:00:00
 author:     "Allythy"
 header-img: ""
+categories: GNU/Linux
 ---
 Nesse artigo, vamos aprender sobre empacotamento e compactação de arquivos. Para o empacotamento de arquivos utilizamos o comando tar, é válido ressaltar que o empacotamento não diminui o tamanho do arquivo, ele faz a junção de um ou mais arquivos em um único arquivo, quem diminui o tamanho são os compactadores, que são GNU gzip (gzip) ou bzip2. Primeiro vamos entender a sintaxe do comando tar.
 

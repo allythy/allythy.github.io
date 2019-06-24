@@ -5,6 +5,7 @@ subtitle:   "Neste artigo, vamos aprender como instalar programas pelo código f
 date:       2017-05-29 19:00:00
 author:     "Allythy"
 header-img: ""
+categories: GNU/Linux
 ---
 Neste artigo, vamos aprender como instalar programas pelo código fonte, isso pode parecer uma tarefa bem complicada, mas não é. Na maioria das vezes usamos ferramentas para instalar os programas sem necessidade de compilar ou corrigir dependências, como o apt-get, aptitude, yum ou pacman eles fazem isso tudo para gente. Mas existem alguns programas que vêm apenas com o código fonte, então temos que compilar, que é transformar o “texto” (linguagem de programação) em arquivos binários, pois é essa linguagem que o computador entende.
 

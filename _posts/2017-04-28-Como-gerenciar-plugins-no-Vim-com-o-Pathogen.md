@@ -5,6 +5,7 @@ subtitle:   "Neste artigo, vamos aprender como gerenciar plugins no Vim com o Pa
 date:       2017-04-28 14:00:00
 author:     "Allythy"
 header-img: ""
+categories: Vim
 ---
 O Vim é um editor de texto altamente configurável com centenas de plugins que podem ser instalados. Muitos deles são adaptados para usos específicos, como programação em uma determinada linguagem ou até ajudar na escrita de um texto comum, outros são mais gerais e melhoram as capacidades existentes do Vim. Qualquer que seja a sua finalidade você terá que gerenciar esses plugins.
 

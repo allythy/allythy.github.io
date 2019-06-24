@@ -5,6 +5,7 @@ subtitle:   "Neste artigo, vamos aprender como instalar o Trimage para comprimir
 date:       2018-05-08 13:10:00
 author:     "Allythy"
 header-img: ""
+categories: [Dica]
 ---
 
 Neste artigo, vamos aprender como instalar o Trimage para comprimir nossas imagens. O Trimage é uma GUI multiplataforma e interface de linha de comando para otimizar imagem, usando optipng, pngcrush, advpng e jpegoptim, dependendo do tipo de arquivo (atualmente, os arquivos PNG e JPG são suportados),foi inspirado no imageoptim.

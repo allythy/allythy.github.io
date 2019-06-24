@@ -5,6 +5,7 @@ subtitle:   "Neste artigo, vamos aprender como deixar o pen drive bootável usan
 date:       2017-07-03 14:00:00
 author:     "Allythy"
 header-img: ""
+categories: [GNU/Linux, Dica]
 ---
 Neste artigo, vamos aprender como deixar o pen drive bootável usando a interface gráfica. Alguns usuários não gostam ou não estão muito familiarizados com o Terminal, então esse método é uma boa alternativa. O programa que usaremos será o __Utilitário de Discos do GNOME__, em algumas distribuições como Debian com o ambiente de trabalho GNOME ou Ubuntu ele já vem instalado por padrão. Caso você esteja usando o Debian como outro ambiente de trabalho use o comando abaixo para instalar Utilitário de Discos do GNOME:
 

@@ -5,6 +5,7 @@ subtitle:   "Neste artigo, vamos aprender como usar o tmux. O tmux é um multipl
 date:       2017-04-26 23:00:00
 author:     "Allythy"
 header-img: ""
+categories: [Terminal, Dica] 
 ---
 Neste artigo, vamos aprender como usar o tmux. O tmux é um multiplexador de terminais, um multiplexador de terminal permite que um número de terminais sejam criados, acessados e controlados a partir de uma única janela. Com o tmux você também pode ser desconectar de uma tela e  a mesma continuar funcionando em segundo plano, e depois você pode se conectar novamente.
 

@@ -5,6 +5,7 @@ subtitle:   "Neste artigo, vamos aprender como mostrar a branch do Git no Bash."
 date:       2018-05-15 17:10:00
 author:     "Allythy"
 header-img: ""
+categories: [Git, Shell]
 ---
 Se você é um usuário do Bash, pode aproveitar alguns recursos dele para tornar sua experiência com o Git muito mais amigável. Neste caso, como mostrar a branch do Git que você está trabalhando.
 

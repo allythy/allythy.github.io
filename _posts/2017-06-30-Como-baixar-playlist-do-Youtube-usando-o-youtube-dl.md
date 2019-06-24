@@ -5,6 +5,7 @@ subtitle:   "Esta vai ser uma dica bem rápida, mas muito útil de como baixar p
 date:       2017-06-30 16:00:00
 author:     "Allythy"
 header-img: ""
+categories: Dica
 ---
 Esta vai ser uma dica bem rápida, mas muito útil de como baixar playlist do Youtube usando o youtube-dl. Para quem ainda não conhece o youtube-dl é um pequeno programa de linha de comando para baixar vídeos e áudio do YouTube e outros sites, o programa é escrito em python.
 

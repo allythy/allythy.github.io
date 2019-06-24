@@ -5,6 +5,7 @@ subtitle:   "Neste artigo, vamos aprender como fazer sorteio no terminal com o c
 date:       2017-12-24 20:00:00
 author:     "Allythy"
 header-img: ""
+categories: [Terminal, Dica]
 ---
 Neste artigo, vamos aprender como fazer sorteio no terminal com o comando shuf. O shuf é um comando que gerar permutações aleatórias, com isso a gente pode gerar um número aleatório de um terminado intervalo ou de algum arquivo. Digamos que você tem a quantidade de pessoas que estão participando de um evento ou lista com todos os nomes das pessoas, com uma dessas informações você gostaria de realizar um sorteio. Você pode fazer isso de uma forma rápida e fácil usando o comando shuf.
 

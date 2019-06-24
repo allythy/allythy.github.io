@@ -5,6 +5,7 @@ subtitle:   "Neste artigo, vamos aprender como criar uma docomentação com o Mk
 date:       2018-06-21 17:10:00
 author:     "Allythy"
 header-img: ""
+categories: [Python, Dica]
 ---
 O MkDocs é gerador de site estático para documentação simples, rápido e um bonito para seu projeto. Ele é feito em Python, então já entendemos a origem da sua simplicidade, mas não confunda simplicidade com falta de recursos, porque o MkDocs tem muito recursos que você pode usar com poucas linhas de código. A documentação é escrita em Markdown, que é uma forma de escrever HTML bem mais simples e bonita e a configuração do MkDocs é feita em apenas um arquivo YAML.
 

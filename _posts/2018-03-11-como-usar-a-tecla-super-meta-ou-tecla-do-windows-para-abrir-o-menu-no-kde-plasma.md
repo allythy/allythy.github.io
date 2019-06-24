@@ -5,6 +5,7 @@ subtitle:   "Vamos aprender como usar a tecla super, meta ou tecla do windows pa
 date:       2018-03-11 15:00:00
 author:     "Allythy"
 header-img: ""
+categories: KDE Plasma
 ---
 
 Essa vai ser uma dica rápida, mas que pode ser bem útil e livrar você de algumas dores de cabeça. Vou mostrar como usar a tecla super, meta ou tecla do Windows para abrir o menu no KDE Plasma.

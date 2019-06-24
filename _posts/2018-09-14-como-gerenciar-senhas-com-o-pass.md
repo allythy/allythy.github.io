@@ -5,6 +5,7 @@ subtitle:   "Neste artigo, vamos aprender como gerenciar senhas com o Pass."
 date:       2018-09-14 17:10:00
 author:     "Allythy"
 header-img: ""
+categories: [Terminal, Dica]
 ---
 
 O Pass é um simples gerenciador de senhas de linha de comando. Com o Pass, cada senha fica salva dentro de um arquivo criptografado com o GPG, onde o nome do arquivo é o site ou recurso que você gostaria de salvar a senha. Esses arquivos criptografados ficam salvos em `~/.password-store`.

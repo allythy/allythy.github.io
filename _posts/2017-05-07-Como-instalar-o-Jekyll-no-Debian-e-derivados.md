@@ -5,6 +5,7 @@ subtitle:   "Neste artigo, vamos aprender como instalar o Jekyll no Debian e der
 date:       2017-05-07 14:00:00
 author:     "Allythy"
 header-img: ""
+categories: [Debian, Jekyll]
 ---
 Neste artigo, vamos aprender como instalar o Jekyll no Debian e derivados. O Jekyll é um gerador de site estáticos, seja ele um blog, site institucional ou o que você queira criar. O jekyll utiliza o [YAML](http://yaml.org/), e  para guardar e organizar informações, ele usa o Front Matter e o [Liquid](https://github.com/Shopify/liquid/wiki) como renderizador. Outra coisa muito interessante do Jekyll que você pode fazer os seus post usando [Markdown](https://daringfireball.net/projects/markdown/) e hospedar o seu site no [GitHub](https://github.com/).
 

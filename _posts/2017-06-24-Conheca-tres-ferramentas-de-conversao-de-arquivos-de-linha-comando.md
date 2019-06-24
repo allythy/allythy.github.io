@@ -5,6 +5,7 @@ subtitle:   "Neste artigo, vamos ver três ferramentas de conversão de arquivos
 date:       2017-06-24 17:00:00
 author:     "Allythy"
 header-img: ""
+categories: Dica
 ---
 Neste artigo, vamos ver três ferramentas de conversão de arquivos de linha de comando para GNU/Linux.
 

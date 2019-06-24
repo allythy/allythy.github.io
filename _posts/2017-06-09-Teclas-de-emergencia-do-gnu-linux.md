@@ -5,6 +5,7 @@ subtitle:   "Neste artigo vamos aprender algumas teclas de emergência do GNU/Li
 date:       2017-06-09 20:00:00
 author:     "Allythy"
 header-img: ""
+categories: GNU/Linux
 ---
 Neste artigo vamos aprender algumas teclas de emergência do GNU/Linux. Sabemos que os sistemas GNU/Linux não estão a salvo de travamentos(raramente isso acontece), então é bom conhecer o que fazer quando ocorre essa situação, pois não queremos danificar o nosso sistema.
 

@@ -5,6 +5,7 @@ subtitle:   "Neste artigo, vamos aprender como configurar uma variável no PATH 
 date:       2017-07-01 16:00:00
 author:     "Allythy"
 header-img: ""
+categories: [GNU/Linux, Shell]
 ---
 Neste artigo, vamos aprender como configurar uma variável no $PATH do GNU/Linux. Quando você digita um comando no seu Shell o que você está dizendo é pra ele executar um programa. Mesmos comandos simples, como `ls` , `cd` , `mkdir` , `rm` e outros, são apenas pequenos programas que geralmente ficam dentro de um diretório no seu computador chamado `/usr/bin`.
 

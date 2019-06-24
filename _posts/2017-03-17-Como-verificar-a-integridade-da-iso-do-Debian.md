@@ -5,6 +5,7 @@ subtitle:   "Neste artigo, vamos aprender como verificar autenticidade da ISO do
 date:       2017-03-17 20:00:00
 author:     "Allythy"
 header-img: ""
+categories: Debian
 ---
 Neste artigo, vamos aprender como verificar autenticidade da ISO do Debian. É uma coisa bem rápida de se fazer e importante, porque fazendo essa verificação podemos ter certeza que aquela ISO não foi corrompida. Se o pessoal que baixou o ISO do Linux Mint tivesse verificado a assinatura da ISO deles não teria ocorrido aquele escândalo no começo do ano.
 

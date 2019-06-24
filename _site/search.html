@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Dicas sobre o Debian, Software Livre, linha de comando">
+
+    <title>Allythy</title>
+
+    <link rel="canonical" href="http://localhost:4000/search">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/clean-blog.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Allythy</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right nav-mobile" >
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                
+				
+                <li>
+                    <a href="/about">Quem sou</a>
+                </li>
+				
+                
+				
+                <li>
+                    <a href="/category">Categoria</a>
+                </li>
+				
+                
+				
+                <li>
+                    <a href="/contact">Contato</a>
+                </li>
+				
+                
+                <li>
+                    <form class="search no-vis-mobile" action="/search.html" method="get">
+                      <div class="search__wrapper">
+                        <input class="search__field" type="search" name="query" id="search-box" placeholder="Procurando por...">
+                        <button type="submit" class="fa fa-search search__icon"></button>
+                      </div>
+                    </form>
+                    <form class="form-inline no-vis-desktop vis-mobile" action="/search.html" method="get">
+                        <label for="search-box"></label>
+                        <input class="form-control"  id="search-box" type="search" name="query" placeholder="Procurando por...">
+                     </form>
+                </li>
+
+
+                <!-- <form class="form-inline" action="/search.html" method="get">
+                    <label for="search-box"></label>
+                    <input class="form-control"  id="search-box" type="search" name="query" placeholder="Search">
+                 </form> -->
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Search Header -->
+<header class="intro-header" style="background-image: url('/img/post-bg-04.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+					<!-- <form class="form-inline my-2 my-lg-0" action="/search.html" method="get">
+						<label for="search-box"></label>
+						<input class="form-control mr-sm-2"  id="search-box" type="search" name="query" placeholder="Search">
+					 </form> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+	<div class="row">
+		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+			<li id="search-results"></li>
+
+<script>
+  window.store = {
+    
+      "como-gerenciar-senhas-com-o-pass": {
+        "title": "Como Gerenciar Senhas Com O Pass ",
+        "author": "Allythy",
+        "category": "",
+        "content": "O Pass é um simples gerenciador de senhas de linha de comando. Com o Pass, cada senha fica salva dentro de um arquivo criptografado com o GPG, onde o nome do arquivo é o site ou recurso que você gostaria de salvar a senha. Esses arquivos criptografados ficam salvos em ~/.password-store.O Pass torna o gerenciamento desses arquivos extremamente fácil fornecendo uma série de comandos para senhas: adicione, remova, edite, sincronizar, gerar e manipule. Neste artigo, vamos aprender como usá-lo para gerenciarmos nossas senhas.InstalaçãoA instalação do Pass é muito simples, porque o mesmo está disponível na maioria das distribuições GNU.Debian e derivadossudo apt install passFedorasudo dnf install passArch Linuxpacman -S passInicializando o passApós a instalação do Pass, temos que criar o nosso par de chaves usando o GPG. Então, para isso, digite esse comando:gpg --full-gen-keyCom nossas chaves criadas, vamos inicializar o Pass. Para isso, você vai precisar do ID da sua chave GPG ou o e-mail que você informou quando estava criando a mesma. Eu vou usar o e-mail:pass init contato@allythy.comCom isso, o Pass vai criar a um diretório para armazenar a nossas senhas.Inserindo senhas  Sintaxe: pass insert pasta/serviçoPara adicionar senha ao pass é bem simples. Primeiro, vou criar uma pasta chamada e-mail e nela vou guardar as senhas dos meus e-mails. Então, vou começar com o e-mail do SempreUpdate.pass insert email/sempreupdatemkdir: foi criado o diretório '/home/allythy/.password-store/email'Enter password for email/sempreupdate:Retype password for email/sempreupdate:Agora eu quero adicionar a senha do protonmail na mesma pasta email. Vai ser do mesmo jeito, mas agora ele não vai criar a pasta email, porque já foi criada antes.pass insert email/protonmailEnter password for email/protonmail:Retype password for email/protonmail:Para ver a estrutura de como as nossas senhas estão sendo salvas, digite:passPassword Store|---- email    |---protonmail    |---sempreupdateVamos criar outra pasta para armazenar as senhas das redes sociais:pass insert social/diasporamkdir: foi criado o diretório '/home/allythy/.password-store/social'Enter password for social/diaspora:Retype password for social/diaspora:Se a gente não informar a pasta que vai ser criada ou usada para salvar a senha, o Pass vai salvar normalmente nossa senha, mas vai ficar desorganizado porque vai ficar “solto” no repositório ~/.password-store. Então, é recomendado informar uma pasta.Password Store|---- email|    |---protonmail|    |---sempreupdate|----social     |---diasporaVocê também pode salvar outras informações junto à senha, como usuário, site etc. Para isso, você tem que passar a opção --multiline ou -m. Contudo, a primeira linha tem que ser a senha. Já as outras podem conter qualquer informação. Para sair e salva as informações pressione Ctrl+d.pass insert -m social/noosferoEnter contents of social/noosfero and press Ctrl+D when finished:2wq!2oOLIF9*&amp;&lt;de2cxsite: noosfero.orguser: livreGerando senhas automaticamenteVocê pode mandar o Pass gerar uma senha para um serviço novo ou  já existente. Vamos gerar uma nova senha para o Protonmail com 25 caracteres:pass generate email/protonmail 25An entry already exists for social/sim. Overwrite it? [y/N] yThe generated password for email/protonmail is:&amp;aPO&lt;*$~.\"HS)?z'9VIDh(NL0Caso queira gerar senha alfanumérico coloque a opção -n depois do comando generate.Exibindo as senhasComo a gente viu, digitando pass mostra a estrutura de como as senhas estão organizadas. Digamos que eu quero pegar a senha do sempreupdate. Para isso precisamos passar a pasta e o arquivo que vamos pegar a senha:pass email/sempreupdate!J|&gt;%,a9UP3Et,X`d:L&lt;;xr3)Ele vai pedir uma senha. Essa é a senha que colocamos quando criamos a chaves GPG. O problema é que ele vai mostrar a senha do terminal. Imagine se tiver alguém perto de você nesse momento. Isso não seria nada bom. Então, vamos usar a opção -c. Assim, essa opção vai copiar a senha para o clipboard, deixar ela lá por 45s e depois apagar.pass -c email/sempreupdateCopied email/sempreupdate to clipboard. Will clear in 45 seconds.Para ver as informações de noosfero, que foi a senha que inserimos múltiplas linhas, usamos o comando show:pass show social/noosfero2wq!2oOLIF9*&amp;&lt;de2cxsite: noosfero.orguser: livreCaso você queira que a senha não seja mostrada no terminal tem que usar a opção -c depois do comando show. Como você verá, apenas a senha vai ser copiada. Então, caso queira copiar a linha 2,3 ou qualquer outra, você precisa passar o número da linha depois da opção -c, assim:pass show -c2 social/noosferoCopied social/noosfero to clipboard. Will clear in 45 seconds.Apagando senhasEnfim, para remover uma senha do Pass precisamos apenas usar o comando rm e informar qual é senha, desse forma:pass rm email/sempreupdateAre you sure you would like to delete email/sempreupdate? [y/N] yremovido '/home/allythy/.password-store/email/sempreupdate.gpg'Caso você queira remover uma pasta completa com todas senhas use a opção --recursive ou -r .pass rm -r email/Are you sure you would like to delete email/? [y/N] yremovido '/home/allythy/.password-store/email/job.gpg'removido '/home/allythy/.password-store/email/protonmail.gpg'foi removido o diretório: '/home/allythy/.password-store/email/'Se não quiser que o pass pergunte se tem certeza na hora de apagar a senha, use a opção --force ou -f.Editando senhaPara editar uma senha do Pass, temos que usar o comando edit:pass edit social/diasporaMais informaçõesPara mais informações você pode acessar a página do projeto ou olhar a documentação no terminal mesmo:man passEntretanto, caso você não goste de usar a linha de comando pode instalar o QtPass. Ele é uma interface gráfica para o pass. Da mesma forma do Pass, o QtPass está na maioria do repositório das distribuições GNU.Referência:Pass",
+        "url": "/como-gerenciar-senhas-com-o-pass"
+      }
+      ,
+    
+      "como-criar-documentacao-com-mkdocs": {
+        "title": "Como criar documentação com MkDocs",
+        "author": "Allythy",
+        "category": "",
+        "content": "O MkDocs é gerador de site estático para documentação simples, rápido e um bonito para seu projeto. Ele é feito em Python, então já entendemos a origem da sua simplicidade, mas não confunda simplicidade com falta de recursos, porque o MkDocs tem muito recursos que você pode usar com poucas linhas de código. A documentação é escrita em Markdown, que é uma forma de escrever HTML bem mais simples e bonita e a configuração do MkDocs é feita em apenas um arquivo YAML.Quando ocorre o build o MKDocs vai gerar arquivos estáticos (HTML, CSS e JS), com isso você pode hospedar o site da sua documentação sem pagar nada no GitHub ou GitLab, porque esses serviços possuem os recursos GitHub Pages e GitLab Pages, respectivamente, que permite a utilização dos arquivos estáticos.O MkDocs ainda possui um servidor de desenvolvimento integrado, isso permite pré-visualizar a documentação à medida que a escreve. Ele também vai recarregar automaticamente e atualizar seu navegador sempre que você salvar suas alterações.InstalaçãoSe você estiver usando qualquer distribuição GNU, você pode instalar o MkDocs pelo seu gerenciador de pacotes. Como eu estou usando o Debian só tenho que digitar esse comando:sudo apt install mkdocsAcredito que seja mais interessante instalar o MkDocs pelo gerenciador de pacotes do Python, o pip, porque se você estiver usando um ambiente virtual vai ficar tudo mais organizado e não vai “poluir” o seu sistema. Neste post não vou mostrar como você faz isso, pois sairia do escopo do texto.Entretanto, se você não souber como instalar o pip,preparei esse post que demostra como faz. Com o pip instalado, você só tem que digitar esse comando:pip install mkdocsPara verificar se tudo deu certo, execute esse comando:mkdocs --versionCriando a documentaçãoPara começar a nossa documentação é muito fácil, basta digitar esse comando:mkdocs new my-project  Onde tem my-project você coloca o nome da sua docomentaçãoDepois entre no diretório que foi criado:cd my-projectDentro desse diretório você vai ter uma estrutura igual a essa:├── docs│ └── index.md└── mkdocs.ymlOutra forma de começar o projeto é assim:mkdocs new .O ponto que dizer que inicialize o projeto no diretório atual, assim ele não criará uma pasta com o nome do projeto e dentro dela a pasta docs. Vai apenas criar a pasta docs e deixar o arquivo de configuração(mkdocs.yml) na raiz do projeto.Agora vamos entender o que são esses arquivos e pasta. O MkDocs tem apenas um arquivo de configuração, como eu tinha falando acima, esse arquivo é o mkdocs.yml e uma pasta chamada docs que conterá os nossos arquivos da documentação escritos em Markdown. No momento, a pasta docs contém apenas uma única página de documentação, chamada index.md.Inicializando o servidorVamos inicializar o servidor do MkDocs para verificar como está a nossa documentação até agora:  Lembre-se de estar no mesmo diretório que o arquivo de configuração mkdocs.ymlmkdocs serveAbra o seu navegador e digite a seguinte URL http://localhost:8000/, encontrará uma página igual a essa:Editando as páginasVamos adicionar uma segunda página a nossa documentação, o nome dela será about.md e deve ficar dentro da pasta docs. O conteúdo dela vai ser esse:# About## RandomLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.## Random2Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.## Random3Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Feito isso, o MkDocs colocará automaticamente a nossa página no menu de navegação. Como vocês podem observar, cada título do documento virou um hyperlink no menu lateral e a URL que será exibida é o nome que você deu para o arquivo, neste casso about.O nome Welcome to MkDocs no menu de navegação não está muito interessante, quero deixar apenas o nome home, porque o MkDocs utiliza o primeiro título do documento e define como nome do menu de navegação. Então vamos alterar isso, primeiro que temos abrir o arquivo de configuração do MkDocs (mkdocs.yml) e colocar essas informações:site_name: My Docsnav:    - Home: index.md    - About: about.mdO que acabamos de fazer foi adicionar o parâmetro pages ao arquivo de configuração, onde primeiro argumento é o nome que vai aparecer no menu de navegação e o segundo é caminho da página. Você também podem alterar o nome da documentação, para isso mude onde tem My Docs e colocar o nome da sua documentação.Campo de PesquisaUma coisa que me chamou muito atenção foi o campo de pesquisa do MkDocs, porque os resultados da pesquisa incluem todas as ocorrências do termo de pesquisa no site e vinculam diretamente à seção da página em que o termo é exibido. Você tem tudo isso sem esforço ou configuração nenhuma da sua parte.Alterando o temaO MkDocs vem com dois temas: mkdocs e o readthedocs. O  mkdocs é o tema que estavamos usando até o momento, então vamos habilitar o readthedocs. Para isso, abra o arquivo mkdocs.yml e adicione o parâmetro theme ao arquivo e passe o nome do tema.site_name: My Docsnav:    - Home: index.md    - About: about.mdtheme: readthedocsVocê também pode instalar temas feitos por outras pessoas acessando a Wiki do MkDocs.Gerando os arquivos estáticosDigamos que já fizemos toda a nossa documentação, então agora temos que gerar os arquivos estáticos. Para isso, só temos que digitar esse comado:mkdocs buildEsse comando vai criar um diretório chamado site e ele vai conter os nossos arquivos estáticos.404.html  about  css  fonts  img  index.html  js  search  search.html  sitemap.xmlDeploy para o GitHubEssa parte é importante que você tenha um conhecido básico de como usar o git. O MkDocs possui um comando que facilita o deploy para o GitHub, o  mkdocs gh-deploy, mas antes temos que ir no GitHub e criar um repositório vazio, eu vou colocar o nome de test-mkdocs.Quando clicamos em Create repository, vamos ser enviado para essa página:  Não feche essa página vamos precisar dela daqui a pouco.Volte a pasta do projeto e inicializar o git com esse comando:git initFeito isso, vamos criar um arquivo chamando .gitignore, esse arquivo vai dizer para o git ignorar uma pasta ou arquivo, no nosso caso vamos ignorar a pasta site.echo \"site/\" &gt;&gt; .gitignoreAgora vamos adicionar todos os arquivos e realizar o commit deles:git add .git commit -m \"first commit\"Volte ao GitHub e pegue o link do repositório remoto que ele deu e adicione ao seu projeto, o meu vai ser esse:git remote add origin https://github.com/allythy/test-mkdocs.gitFeito isso, vamos enviar nossa documentação para o GitHub:git push -u origin masterVolte ao GitHub e atualize a página e verá que nossa documentação já está lá.Certo, mas cadê o site da documentação? Calma, primeiro tivemos que colocar no nosso projeto no GitHub, porque se ele não tivesse lá o comando a seguir falharia. Então vamos voltar ao nosso projeto e executar esse comando:mkdocs gh-deployEsse comando gerar o build do site, copiar os arquivos para a branch gh-pages caso não tenha essa branch ele vai criar (que é o nosso caso) e enviar os arquivos para o GitHub, por conta disso ele vai solicitar o seu usuário e senha do GitHub. Feito isso, ele vai gerar a URL da sua documentação.É só pegar ela URL e colocar no seu navegador. Pronto, a sua documentarão feita com o MkDocs está online. O código desse projeto está disponível no meu GitHub, se gostou dá uma star lá.Referência:MkDocs",
+        "url": "/como-criar-documentacao-com-mkdocs"
+      }
+      ,
+    
+      "como-mostrar-a-branch-do-git-no-bash": {
+        "title": "Como mostrar a branch do Git no Bash",
+        "author": "Allythy",
+        "category": "",
+        "content": "Se você é um usuário do Bash, pode aproveitar alguns recursos dele para tornar sua experiência com o Git muito mais amigável. Neste caso, como mostrar a branch do Git que você está trabalhando.Primeiro, vamos abrir o arquivo .bashrc:vim .bashrcProcure pela variável PS1 e coloque antes do \\$ isso:__git_ps1 \" (%s)\"Deve ficar assim sua PS1:Agora vamos entender o que acabamos de fazer. O __git_ps1 \"(% s)\" chama uma função fornecida pelo git-prompt.sh com um argumento de formatação o (%s). Feito isso, vamos salvar o nosso arquivo e recarregar o .bashrc:source .bashrcPronto, agora entre em algum diretório que você tenha um projeto versionado com o Git que o Bash vai mostrar a branch que você está.Caso, aparecer essa mensagem:bash: __git_ps1: comando não encontradoVocê tem que carregar essa função que está no /usr/lib/git-core/git-sh-prompt. Para isso, você tem que acrescentar no começo do seu .bashrc esse comando:source /usr/lib/git-core/git-sh-promptFeito isso, recarregue novamente o .bashrc:source .bashrcSe você estiver usando o Fedora o arquivo que você tem que acrescentar no seu .bashrc é esse:source /usr/share/git-core/contrib/completion/git-prompt.shEu testei essas alterações no Debian 9, 10 , Ubuntu 16.04, Fedora e deu tudo certo. Nas outras distribuições não tive como testar. Caso você queira deixar o seu Bash igual ao meu, é assim que está a minha PS1:PS1='${debian_chroot:+($debian_chroot)}\\[\\033[36m\\]\\u\\[\\033[37m\\]@\\[\\033[33m\\]\\h:\\[\\033[32m\\]\\w\\[\\033[31;1m\\]$(__git_ps1 \"(%s)\")\\[\\033[00m\\]\\$ 'Regerência:Git-Pro,Fedora Project",
+        "url": "/como-mostrar-a-branch-do-git-no-bash"
+      }
+      ,
+    
+      "como-usar-o-trimage-para-comprimir-imagens": {
+        "title": "Como usar o Trimage para comprimir imagens",
+        "author": "Allythy",
+        "category": "",
+        "content": "Neste artigo, vamos aprender como instalar o Trimage para comprimir nossas imagens. O Trimage é uma GUI multiplataforma e interface de linha de comando para otimizar imagem, usando optipng, pngcrush, advpng e jpegoptim, dependendo do tipo de arquivo (atualmente, os arquivos PNG e JPG são suportados),foi inspirado no imageoptim.Todas as imagem são comprimidos com o Trimage sem perdas nos níveis mais altos de compressão disponíveis, o EXIF e outros metadados são removidos. O Trimage oferece várias funções de entrada para ajustar o seu próprio fluxo de trabalho: Uma caixa de diálogo de arquivo comum, arrastando e soltando e várias opções de linha de comando.InstalaçãoDebian, Ubuntu e derivadossudo apt install trimageArch Linuxyaourt -S trimage-gitOutras distribuições1- Faça o download no projeto no GitHub ou no  Launchpad2- Feito isso, você tem que instalar os pacotes necessário para instalação:sudo apt install python python-qt4 optipng pngcrush advancecomp jpegoptim3- Digite esse comando para começar a instalação:sudo python setup.py install4- Pronto, agora é só procurar por Trimage no seu lançador de arquivos.Como usarInterface gráficaEle é um programa bem simples de usar, para comprimir suas imagens clique em Add and compress e selecione os arquivos. Se você achar isso muito trabalhoso é só arrasta as imagens para o programa ou a pasta. Quando a imagem é comprimida ele mostra de quantos porcentos foi a compressão e o tamanho que a imagem tinha e o tamanho que ele ficou depois.Linha de comandoComprimir um arquivo:trimage -f nome-do-arquivoComprimir um diretórios com várias imagem:trimage -d nome-da-pasta",
+        "url": "/como-usar-o-trimage-para-comprimir-imagens"
+      }
+      ,
+    
+      "como-alterar-o-tempo-autenticacao-da-senha-do-sudo": {
+        "title": "Como alterar o tempo autenticação da senha do sudo",
+        "author": "Allythy",
+        "category": "",
+        "content": "Essa vai ser uma dica rápida, mas é bem útil. Vamos aprender como alterar o tempo de autenticação da senha do sudo. Por padrão, quando executamos algum comando com privilégios de superusuário, como sudo apt update, as credencias de autenticação são armazenadas em cache por 15 minutos. Assim, para alguns esse tempo é pouco, mas para outros é muito tempo. Então, vamos saber como alterar o tempo autenticação da senha do sudo.Assim, primeiro, temos que abrir o arquivo de configuração do sudo, que está localizando em etc/sudoers. Então, para isso, vamos usar o comando visudo, porque não é recomendado alterar direto no arquivo de configuração.sudo visudoVamos alterar a linha onde tem Defaults env_reset acrescentando o parâmetro timestamp_timeout=xx. Onde tem “xx” é o valor em minutos que você vai colocar para que o sudo peça a senha. Nesse exemplo eu vou colocar 5 minutos:Feito isso, pressione Ctrl+x para sair e depois s para salvar.Se você quiser que peça a senha toda vez que executar o sudo, altere o valor do timestamp_timeout para 0 (zero). Você também pode desabilitar a senha colocando o valor -1, o que não é recomendando por motivos de segurança.",
+        "url": "/Como-alterar-o-tempo-autenticacao-da-senha-do-sudo"
+      }
+      ,
+    
+      "como-usar-a-tecla-super-meta-ou-tecla-do-windows-para-abrir-o-menu-no-kde-plasma": {
+        "title": "Como usar a tecla super, meta ou tecla do windows para abrir o menu no KDE Plasma",
+        "author": "Allythy",
+        "category": "",
+        "content": "Essa vai ser uma dica rápida, mas que pode ser bem útil e livrar você de algumas dores de cabeça. Vou mostrar como usar a tecla super, meta ou tecla do Windows para abrir o menu no KDE Plasma.Primeiro, você tem que clicar com o botão direito do mouse no widget do menu e depois em Configurações de Lançador de Aplicativos:Feito isso, você vai clicar em Atalhos de teclado:Onde tem o botão com nome Nenhum você clica nele. Quando você fizer isso ele vai mudar de cor e nome para Entrada:Nesse momento, você tem que pressionar a combinação Alt+F1:Feito isso, é só clicar no botão de Aplicar e depois no botão de OK. Pronto, você já pode pressionar a tecla super que ela vai abrir o menu do sistema.",
+        "url": "/como-usar-a-tecla-super-meta-ou-tecla-do-windows-para-abrir-o-menu-no-kde-plasma"
+      }
+      ,
+    
+      "como-instalar-o-zabbix-server-3-4-no-debian-9": {
+        "title": "Como instalar o Zabbix Server 3.4 no Debian 9",
+        "author": "Allythy",
+        "category": "",
+        "content": "Este artigo vai tomar como base o material e os conhecimentos adqueridos no treinamento que fiz mês passado sobre o Zabbix, ministrado pelo Werneck Costa que é Zabbix Certified Specialist e Zabbix Certified Professional. Vamos aprender como instalar o Zabbix Server 3.4 no Debian 9.A solução de monitoramento Zabbix é um Software Livre de última geração com classe empresarial. Ele é projetado para monitorar disponibilidade e desempenho dos componentes de uma infraestruturada de TI. O Zabbix é capaz de monitorar um número ilimitado de métricas e fornecer análises sofisticadas sobre a saúde da infraestrutura de TI. Sendo capaz de identificar a fonte de um problema nos sistemas de T.I, permite aos usuários Zabbix (SysOps) agirem rapidamente, reduzindo os custos associados com a paralisação.Roteiro para instalação do Zabbix:      Instalação do repositório Debian;    Instalação dos pacotes Zabbix (servidor e cliente) e suas dependências;    Configuração do banco de dados;    Configurar interface web;    Testar e validar a instalação acessado via navegador.  1. Instalação do repositório DebianPrimeiro, vamos logar como root para fazer a instalação. Feito isso, vamos baixar o pacote do Zabbix 3.4:su wget http://repo.zabbix.com/zabbix/3.4/debian/pool/main/z/zabbix-release/zabbix-release_3.4-1+stretch_all.debAgora vamos instalar o pacote que baixamos, digite:dpkg -i zabbix-release_3.4-1+stretch_all.debVamos atualizar o repositório do sistema:apt update2. Instalação dos pacotes ZabbixTemos que instalar o pacote Zabbix Server e suas dependências:apt install zabbix-server-mysql zabbix-frontend-php zabbix-agent zabbix-get -yApós a execução do comando anterior, todos os componentes estarão instalados (servidor web, php, banco de dados e servidor Zabbix). Para fazer o primeiro acesso (teste), recarregue o Apache e abra o seu navegador e acesse o ip do seu servidor barra zabbix:systemctl reload apache2192.168.0.106/zabbixFeito o primeiro teste, vamos voltar para emulador de terminal e editar alguns parâmetros de configuração do Apache para o frontend do Zabbix. Algumas configurações do PHP estão corretas, mas é necessário configurar o time zone. Para isso, vou usar o editor de linha de comando, o vim. Caso você não tenha instalado, use esse comando:apt install vimVamos abrir o arquivo de configuração:vim /etc/apache2/conf-available/zabbix.confProcure o seguinte bloco de código mod_php7.c, quando encontrar pressione a tecla i para entrar no modo de inserção do vim.Retire o comentário (“#”) da linha php_value date.timezone e altere para o time zone do seu Estado,caso você não saiba o seu time zone, procure aqui.Feito isso, pressione Esc para sair do modo de inserção e depois :x que vai salvar o arquivo e sair do vim.Agora vamos reiniciar o servidor Apache para aplicação da configuração feita no arquivo do PHP:systemctl restart apache23. Configuração do banco de dadosAntes de voltar à interface web, será preciso executar algumas operações no banco de dados:      Setar senha de root    Criar banco Zabbix    Criar usuário para acesso  Vamos executar o comando a seguir para melhorar a segurança do nosso banco de dados MariaDB, configurando uma senha para o root, remover o usuário de conexão anônima, desabilitar acesso de root feito de fora deste servidor, remover a base de test que possui acesso anônimo.mysql_secure_installationO utilitário solicitará uma senha de root para se conectar. Como não existe, pode deixar em branco e apertar o Enter:O utilitário perguntará se deve ser setada uma senha para o root. Responda com um “y” e informe sua senha, vou colocar Allythy!:Agora é só responder “y” para as próximas perguntas. No final o programa informará que a configuração foi finalizada:Ainda no terminal, logue no console do MariaDB com usuário root e senha que você colocou acima.mariadb -u root -pVamos criar um banco de dados chamado zabbix_db:create database zabbix_db character set utf8 collate utf8_bin;Depois criaremos um usuário chamado zabbix_usr para o banco que acabamos de criar e colocar como senha para esse usuário @Allythye@!. Caso você queira saber como criar usuário e conceder permissão,temos esse artigo sobre o assunto.grant all privileges on zabbix_db.* to zabbix_usr@localhost identified by '@Allythye@!';Feito isso, podemos sair do console do MariaDB:exit;Agora temos que fazer importação dos dados iniciais para o banco de dados que criamos, o zabbix_db:zcat /usr/share/doc/zabbix-server-mysql/create.sql.gz | mysql -u zabbix_usr -p@Allythye@! zabbix_dbVamos editar o arquivo de configuração do banco de dados do servidor Zabbix que se encontra no diretório /etc/zabbix:vim /etc/zabbix/zabbix_server.confProcure pelos parâmetros abaixo e coloque as informações do seu banco de dados. Lembrando, pressione a tecla i para entrar no modo de inserção do vim, depois de alterar os parâmetros pressione Esc e depois :x para salvar e depois sair do vim.DBName=zabbix_dbDBUser=zabbix_usrDBPassword=@Sempre#Update@!Feito isso, vamos reiniciar o servidor Zabbix:systemctl restart zabbix-serverConfigurando o Zabbix para inicializar junto ao sistema:systemctl enable zabbix-server4. Configurar interface webVamos voltar para a interface web, coloque o ip do seu servidor e no final coloque “/zabbix”, depois clique em Next step:192.168.0.106/zabbixVerifique se está tudo OK, se tiver, clique Next step:Preencha os campos com as informações do banco de dados e depois clique em Next step:Coloque um nome ,ip e porta do seu Servidor Zabbix:Confirme tudo:Instalação finalizada com sucesso, clique em Finish:O acesso padrão é:Usuário: AdminSenha: zabbixPronto, com o servidor Zabbix instalado é só começar o monitoramento da sua rede, servidores e tudo que essa poderosa ferramenta tem a oferecer.",
+        "url": "/Como-instalar-o-Zabbix-Server-3-4-no-Debian-9"
+      }
+      ,
+    
+      "como-fazer-sorteio-no-terminal-usando-o-comando-shuf": {
+        "title": "Como fazer sorteio no terminal usando o comando shuf",
+        "author": "Allythy",
+        "category": "",
+        "content": "Neste artigo, vamos aprender como fazer sorteio no terminal com o comando shuf. O shuf é um comando que gerar permutações aleatórias, com isso a gente pode gerar um número aleatório de um terminado intervalo ou de algum arquivo. Digamos que você tem a quantidade de pessoas que estão participando de um evento ou lista com todos os nomes das pessoas, com uma dessas informações você gostaria de realizar um sorteio. Você pode fazer isso de uma forma rápida e fácil usando o comando shuf.Gerando números aleatórios de um intervalo numéricoSintaxe:shuf -i [NÚMERO INICIAL]-[NUMERO FINAL]A opção -i é usada para informar o intervalo número. Exemplo:shuf -i 2-70Ele vai gerar as permutações e mostrar a saída padrão (tela do seu emulador de terminal). Mas digamos que você queira apenas o primeiro número. Para isso, você deve usar a opção -n para informar a quantidade de números você gostaria de ver na saída padrão. Exemplo:shuf -i 10-20 -n1Gerando nomes aleatórios de um arquivoSintaxe:shuf [NOME DO ARQUIVO] -n1Exemplo: shuf nomes -n1Você também pode guardar a saída do comando em um arquivo usando os redirecionadores (&gt;, »), mas o próprio comando tem uma opção para isso a -o . Exemplo:shuf nomes -n2 -o ganhadores",
+        "url": "/Como-fazer-sorteio-no-terminal-usando-o-comando-shuf"
+      }
+      ,
+    
+      "como-alterar-o-diretorio-padrao-do-apache": {
+        "title": "Como alterar o diretório padrão do Apache",
+        "author": "Allythy",
+        "category": "",
+        "content": "Neste artigo, vamos aprender como alterar o diretório padrão do Apache. Digamos que você está desenvolvendo uma aplicação em PHP na sua máquina, mas toda vez que você tem que editar um arquivo, criar ou fazer algum tipo de manipulação no seu projeto é necessário entrar como superusuário (root), o que não é tão interessante. Por conta disso, vamos alterar o diretório padrão do Apache.Como alterar o diretório padrão do ApachePrimeiro vamos abrir o arquivo de configuração do Apache:sudo nano /etc/apache2/apache2.confVocê vai procurar pele linha que tenha &lt;Directory /var/www&gt;, que deve estar igual à imagem abaixo:Substitua /var/www pelo diretório que você deseja. Eu coloquei esse diretório que vocês podem ver abaixo:Feito isso, vamos alterar esse arquivo 000-default.confsudo nano /etc/apache2/sites-available/000-default.confProcure pela linha que tenha DocumentRoot, que deve estar igual à imagem abaixo:Onde tem /var/www coloque o mesmo diretório que você colocou no arquivo apache2.conf.Feito isso, temos que reiniciar o Apache. Para isso, use o seguinte comando:sudo systemctl restart apache2Pronto, já alteramos o diretório padrão do Apache.",
+        "url": "/Como-alterar-o-diretorio-padrao-do-Apache"
+      }
+      ,
+    
+      "3-maneiras-de-alterar-o-shell-padrao-de-um-usuario-no-gnu-linux": {
+        "title": "3 maneiras de alterar o Shell padrão de um usuário no GNU/Linux",
+        "author": "Allythy",
+        "category": "",
+        "content": "Neste artigo, vamos aprender 3 maneiras de alterar o Shell padrão de um usuário no GNU/Linux. O Shell é interpretador de comandos e é a uma camada entre o Kernel e o usuário. O Shell é simplesmente o programa que lê o comando que você digitou e converte-o em uma forma mais simplificada e legível para o Sistema GNU, diminuindo o tempo gasto pelo Sistema GNU (ou kernel) na execução deste comando. Existem vários tipos de Shells, como: bash, sh, ksh, zsh, fish e muitos outros.Vamos primeiro listar todos os Shells disponíveis em seu sistema GNU/Linux, digite:cat /etc/shellsO Shell padrão para a maioria dos Sistemas GNU/Liunx é o Bash (/ bin / bash). Antes de prosseguir, observe que:  – Um usuário pode alterar seu Shell para qualquer Shell que esteja listado no arquivo / etc/shells.– Somente o superusuário (root) ou usuário com privilégio de superusuário pode alterar o Shell.1. usermodusermod é um utilitário para modificar os detalhes da conta de um usuário, armazenado no arquivo / etc/passwd e a opção -s ou --shell é usada para alterar o Shell de login do usuário.Neste exemplo, primeiro verificamos as informações da conta do usuário para ver seu Shell de login padrão.grep allythy /etc/passwdEm seguida, altere seu shell de login de /bin/bash para /bin/sh da seguinte maneira:sudo usermod --shell /bin/bash allythy2. chshchsh é um utilitário de linha de comando para alterar o Shell de um usuário. Você alterar o Shell passando a opção -s ou --shell, depois informando o Shell que vai ser usado e o nome do usuário.sudo chsh --shell /bin/sh allythy3. Alterando diretamente o arquivo /etc/passwdNeste método, basta abrir o arquivo /etc/passwd usando qualquer editor de texto e alterar o Shell do usuário que você queira.sudo vim /etc/passwdQuando tiver feito a edição, salve e feche o arquivo.",
+        "url": "/3-Maneiras-de-alterar-o-Shell-padrao-de-um-usuario-no-GNU-Linux"
+      }
+      ,
+    
+      "como-instalar-o-nodejs-no-debian": {
+        "title": "Como instalar o NodeJS no Debian",
+        "author": "Allythy",
+        "category": "",
+        "content": "Neste artigo, vamos aprender como instalar o NodeJS no Debian. Node.js é uma plataforma para desenvolvimento de aplicações server-side baseadas em rede utilizando JavaScript e o V8 JavaScript Engine, ou seja, com Node.js podemos criar uma variedade de aplicações Web utilizando apenas código em JavaScript.Baixando e executando scriptEsta parte é super fácil. Na verdade, é o que é recomendado pela NodeJS Foundation. Use cURL para baixar script. O script detecta sua distribuição e configura o repositório para você. Ele ainda executa apt update. Você provavelmente deve ter o sudo instalado. Caso contrário, você precisa executar o script com o usuário root e os comandos onde eu utilizo o sudo você deve omitir o mesmo, porque se você não fizer isso vai da um erro dizendo que o comando não foi encontrado.Caso você não tenho o cURL, use esse comando para instalar:sudo apt install curlVersão LTS do Nodejscurl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -Última versão do Nodejscurl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -Instalando o NodeJsAgora que temos o repositório configura. Você pode instalar o NodeJS normalmente através do apt.sudo apt install nodejsTestando NodeJSCertifique-se que o NodeJS foi instalado e está funcionando corretamente. Você pode fazer isso usando esse comando:node -vInstalando um pacote com o NPMAntes de começar a usar o NPM, verifique se está instalado no seu Debian o pacote build-essential para evitar problemas futuros quando encontra pacote fonte. Caso você não tenha instalado, use o comando abaixo para instalar:sudo apt install build-essentialO NPM é um gerenciador de pacotes do NodeJS. Com ele você pode instalar, remover, procurar pacotes entre outras coisas como a gente faz com apt no Debian e seus derivados. Vamos instalar o Express para testar o npm. O Express é um popular  framwork NodeJS.sudo npm install expressFonte",
+        "url": "/Como-instalar-o-NodeJS-no-Debian"
+      }
+      ,
+    
+      "como-instalar-o-corretor-ortografico-no-libreoffice": {
+        "title": "Como instalar o corretor ortográfico no LibreOffice",
+        "author": "Allythy",
+        "category": "",
+        "content": "Essa será uma dica bem rápida, mas muito útil de como instalar o corretor ortográfico no LibreOffice. O LibreOffice que vem no Debian ou derivados não contém o corretor ortográfico, porque infelizmente ninguém empacotou para ele ainda. Mas, se você baixar o LibreOffice direto do site ele já vem com o corretor ortográfico. Para que você não tenha o trabalho de desinstalar o LibreOffice que está na nossa distribuição e baixar a do site, vamos apenas instalar o corretor ortográfico, o VERO.InstalaçãoPrimeiro, você têm que acessar o site do VERO e baixar ou usar esse comando para isso:wget -c https://pt-br.libreoffice.org/assets/Uploads/PT-BR-Documents/VERO/VeroptBRV320AOC.oxtFeito isso, vamos abrir o LibreOffice e ir em Ferrementas &gt; Gerenciador de Extensões.Com o gerenciador de extensões aberto vamos clicar em adicionar.E depois informar o caminho onde salvamos o Vero e clicamos em abrir.Feito isso, você pode fechar o gerenciador de extensões que o corretor ortográfico do LibreOffice já estará funcionando.",
+        "url": "/Como-instalar-o-corretor-ortografico-no-LibreOffice"
+      }
+      ,
+    
+      "como-instalar-o-pip-para-gerenciar-pacotes-do-python-no-gnu-linux": {
+        "title": "Como instalar o pip para gerenciar pacotes do Python no GNU/Linux",
+        "author": "Allythy",
+        "category": "",
+        "content": "Neste artigo, vamos aprender como instalar o pip no GNU/Linux. O pip é um gerenciador de pacotes multiplataforma para instalar e gerenciar pacotes Python.Instalação no Debian e derivadosPara o Python 2sudo apt install python-pipPara o Python 3sudo apt install python3-pipInstalação no CentOS e RHELInfelizmente, o pip não é está no repositório oficial do CentOS/RHEL. Então, você precisa primeiro habilitar o repositório EPEL e depois instalar o pip.sudo yum install epel-releasesudo yum install python-pipInstalação no FedoraPara o Python 2sudo dnf install python-pipPara o Python 3sudo dnf install python3Instalação no Arch LinuxPara o Python 2sudo pacman -S python2-pipPara o Python 3sudo pacman -S python-pipInstalação no openSUSEPara o Python 2sudo zypper install python-pipPara o Python 3sudo zypper install python3-pipComo usar o PipEu vou usar como exemplo o pip3 que usar o Python 3, caso você queira usar o Python 2 use o pip no lugar do pip3.Instalação de pacotes:sudo pip3 install nome-do-pacoteDesinstalação de um pacote:sudo uninstall nome-do-pacoteProcurar um pacote:pip3 search nome-do-pacoteListar os pacotes instalados:pip3 listMostrar informações sobre um pacote:pip3 show nome-do-pacotePara ver a lista completa de comandos:pip3 helpFonte",
+        "url": "/Como-instalar-o-pip-para-gerenciar-pacotes-do-Python-no-GNU-Linux"
+      }
+      ,
+    
+      "como-criar-mapas-mentais-no-gnu-linux-com-o-freeplane": {
+        "title": "Como criar mapas mentais no GNU/Linux",
+        "author": "Allythy",
+        "category": "",
+        "content": "Uma ótima ferramenta para criação de mapas mentais no GNU/Linux é o Freeplane. O Freeplane é software livre e está no repositório da maioria das distribuições GNU/Linux.Algumas funções:Proteção com senha para mapas mentais ou nó individual com criptografia DESSuporte para fórmulas LaTeXIntegração com a suíte de literatura acadêmica DocearTarefas com calendário e lembretes;Agrupando nós com contêineres visuaisEstilo de nó automático de acordo com a hierarquiaExportar o mapa mental como html, svg, png, pdf e outros formatosInstalaçãoDebian e derivadossudo apt install freeplaneFedorasudo dnf install freeplaneArch Linuxpacman -S freeplane",
+        "url": "/Como-criar-mapas-mentais-no-GNU-Linux-com-o-Freeplane"
+      }
+      ,
+    
+      "como-instalar-o-rubygem-no-debian": {
+        "title": "Como instalar o RubyGems no Debian",
+        "author": "Allythy",
+        "category": "",
+        "content": "Neste artigo, vamos aprender a instalar o RubyGems do Debian. O RubyGems é o gerenciador de pacotes para o Ruby. Primeiramente, temos que instalar o pacote build-essential, porque vamos compilar algumas coisas.InstalaçãoPara instalação, use o seguinte comando:sudo apt install build-essentialTambém temos que instalar o Ruby. Para isso, use esse comando:sudo apt install ruby-fullAgora temos que baixar o RubyGems, você pode acessar o site e baixar ou usar esse comando:wget -c https://rubygems.org/rubygems/rubygems-2.6.12.tgzVamos descompactar o arquivo baixado. Caso você queira saber mais sobre o descompactadores  tem esse artigo.tar -xvzf rubygems-2.6.12.tgzTemos agora que entrar na pasta que descompactar o arquivo baixado:cd rubygems-2.6.12Feito isso, vamos instalar o RubyGems com esse comando:sudo ruby setup.rbPronto, o RubyGems está instalado. Você pode fazer um teste instalando o Gulp comesse comando:sudo gem install gulp",
+        "url": "/Como-instalar-o-RubyGem-no-Debian"
+      }
+      ,
+    
+      "como-criar-um-novo-usuario-e-conceder-permissoes-no-mariad-e-mysql": {
+        "title": "Como criar um novo usuário e conceder permissões no MariaDB e MySQL ",
+        "author": "Allythy",
+        "category": "",
+        "content": "Neste artigo, vamos aprender como criar um novo usuário e conceder permissões no MariaDB e MySQL. O  MariaDB e MySQL são sistemas de gerenciamento de banco de dados (SGBD), que possuem uma variedade de opções para conceder a usuários específicos permissões diferenciadas dentro de tabelas e bases de dados. Este artigo vai lhe dar um breve resumo de algumas das muitas opções que eles oferecem.Como criar um Novo UsuárioVamos fazer toda a edição no MariaDB ou MySQL como usuário root, já que ele tem acesso total a todos os bancos de dados e tabelas dentro desses bancos de dados. Os comandos a seguir vão funcionar tanto no MariaDB como no MySQL.sudo mysql -u root -pVamos começar criando um novo usuário:CREATE USER 'novousuario'@'localhost' IDENTIFIED BY 'minhasenha';Infelizmente, nesse momento o “novousuario” não tem permissão para fazer nada com as bases de dados. Na verdade, se o “novousuario” tentar fazer login (com a senha “minhasenha”), ele não será capaz de chegar ao shell do MySQL ou do MariaDB.Portanto, a primeira coisa a fazer é fornecer ao usuário o acesso às informações que ele vai precisar, com o seguinte comando:GRANT ALL PRIVILEGES ON * . * TO 'novousuario'@'localhost';Os asteriscos neste comando referem-se ao banco de dados e à tabela respectivamente que eles podem acessar. Este comando permite ao usuário ler, editar, executar e realizar todas as tarefas em todas as bases de dados e tabelas, tendo assim as mesmas permissões de acesso que o usuário root.Feito isso, vamos recarregar as permissões do nosso banco de dados com esse comando:FLUSH PRIVILEGES;Como conceder permissões específicas para usuáriosNão é muito inteligente conceder acesso de nível de root a um usuário como a gente fez acima. Imagine que você precisa dar acesso ao banco de dados para uma pessoa que precisa ver as tabelas.Ao conceder acesso à nível de root para essa pessoa, ela pode alterar algum dado de alguma tabela, excluir ou fazer alguma coisa pior. Então, é melhor você criar um usuário e especificar as permissões que ele tem acesso, assim você tem mais controle de quem pode acessar o seu banco de dados e o que vai acessar.A sintaxe do comando que concede privilégios é essa:GRANT tipo-de-permissão ON nome-da-base-de-dados . nome-da-tabela TO 'nome-do-usuário'@'localhost';Aqui está uma pequena lista de outras possíveis permissões que os usuários podem utilizar, você pode ver a lista completa aqui.ALL PRIVILEGES- como vimos anteriormente, isso daria a um usuário do MySQL todo o acesso a uma determinada base de dados (ou se nenhuma base de dados for selecionada, todo o sistema)CREATE- permite criar novas tabelas ou bases de dadosDROP- permite deletar tableas ou bases de dadosDELETE- permite deletar linhas das tabelasINSERT- permite inserir linhas nas tabelasSELECT- permite utilizar o comando Select para ler bases de dadosUPDATE- permite atualizar linhas das tabelasGRANT OPTION- permite conceder ou revogar privilégios de outros usuáriosPara aplicar mais de uma permissão a um usuário é só separar com uma vírgula. Por exemplo, vamos atribuir a um determinado usuário a permissão de UPDATE e DELETE:GRANT UPDATE, DELETE ON * . * TO 'nome-do-usuario'@'localhost';  Cada vez que você atualizar ou mudar uma permissão certifique-se de utilizar o comando FLUSH PRIVILEGESRemover uma permissãoSe você precisar revogar uma permissão, a estrutura é quase idêntica a concedê-la:REVOKE tipo-de-permissão ON nome-da-base-de-dados . nome-da-tabela FROM 'nome-do-usuário'@'localhost';Vamos remover a permissão de UPDATE de um usuário. Exemplo:REVOQUE UPDATE ON *. * FROM 'nome-do-usuario' @ 'localhost';Excluir um usuárioAssim como você pode deletar bases de dados com o DROP, você pode utilizar o DROP para excluir um usuário:DROP USER 'nome-do-usuario'@'localhost';Testando o novo usuárioPara testar seu novo usuário, faça logout digitando:quitE faça login de novamente com este comando:mysql -u nome-do-usuário -pFonte",
+        "url": "/Como-criar-um-novo-usuario-e-conceder-permissoes-no-MariaD-e-MySQL"
+      }
+      ,
+    
+      "como-deixar-o-pen-drive-bootavel-usando-a-interface-grafica": {
+        "title": "Como deixar o pen drive bootável usando a interface gráfica",
+        "author": "Allythy",
+        "category": "",
+        "content": "Neste artigo, vamos aprender como deixar o pen drive bootável usando a interface gráfica. Alguns usuários não gostam ou não estão muito familiarizados com o Terminal, então esse método é uma boa alternativa. O programa que usaremos será o Utilitário de Discos do GNOME, em algumas distribuições como Debian com o ambiente de trabalho GNOME ou Ubuntu ele já vem instalado por padrão. Caso você esteja usando o Debian como outro ambiente de trabalho use o comando abaixo para instalar Utilitário de Discos do GNOME:sudo apt install gnome-disk-utilityAgora vamos formatar o pen drive, do lado esquerdo selecione o pen drive, muito cuidado para não selecionar o seu HD. Clique no ícone da engrenagem e depois em Formatar ou Shift + Ctrl + F.Na próxima tela você escolherá o Sistema de Arquivos, que será o FAT e depois digite o nome desse volume. Feito isso, clique em Formatar aparecerá outra tela onde você vai clique em Formatar novamente. Pronto, o seu pen drive foi formatado.Com o pen drive formatado agora vamos deixar ele bootável. Clique novamente na engrenagem e em Restaurar imagem de disco, outra janela abrirá, nela você vai indicar a localização da sua ISO.   Feito isso, clique em Iniciar Restauração e depois digite sua senha.Pronto, o seu pen drive já está bootável.",
+        "url": "/Como-deixar-o-pen-drive-bootavel-usando-a-interface-grafica"
+      }
+      ,
+    
+      "automatizando-a-gera-c3-a7-c3-a3o-de-senhas-seguras-no-gnu-linux": {
+        "title": "Automatizando a geração de senhas seguras no GNU/Linux",
+        "author": "Allythy",
+        "category": "",
+        "content": "Neste artigo, vamos aprender a automatizar a geração de senhas seguras no GNU/Linux. Vamos deixar a criação de senha algo mais prático e rápido, porque se você precisar fazer algo mais do que 3 vezes, crie um Shell Script.Gerando senha com caracteres alfanuméricoscat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 20 | head -n1No comando acima, utilizo a saída do /dev/urandom que gera números aleatórios e mando para o tr que vai deletar todos os caracteres exceto aqueles que estão entre as aspas simples, o fold vai quebrar a linha a cada 20 caracteres. Em seguida, temos o head que pegar apenas a primeira linhaGerando senha com caracteres especiaiscat /dev/urandom | tr -dc 'a-zA-Z0-9-_!@#$%&amp;*+?' | fold -w 20 | head -n1Script para geração da senhaAgora vamos a um exemplo de script que pode ser utilizado para gerar senhas. O script vai perguntar quantas senhas o usuário vai querer e a quantidade de caracteres que a senha vai ter.#!/bin/bashwhile [ \"$menu\" != \"n\" ]do  echo  read -p \"Informe a quantidade de senhas: \" qtdSenha  read -p \"Informe a quantidade de caracteres da senha: \" cart  echo  for i in $(seq 1 $qtdSenha);    do      cat /dev/urandom | tr -dc 'a-zA-Z0-9-_!@#$%&amp;*+' | fold -w $cart | head -n1    done  echo  read -p \"Deseja voltar ? [S/N]\" menu  echodoneFonte",
+        "url": "/Automatizando-a-gera%C3%A7%C3%A3o-de-senhas-seguras-no-gnu-linux"
+      }
+      ,
+    
+      "como-configurar-uma-vari-c3-a1vel-no-path-do-gnu-linux-md": {
+        "title": "Como configurar uma variável no $PATH do GNU/Linux",
+        "author": "Allythy",
+        "category": "",
+        "content": "Neste artigo, vamos aprender como configurar uma variável no $PATH do GNU/Linux. Quando você digita um comando no seu Shell o que você está dizendo é pra ele executar um programa. Mesmos comandos simples, como ls , cd , mkdir , rm e outros, são apenas pequenos programas que geralmente ficam dentro de um diretório no seu computador chamado /usr/bin.Existem outros lugares em seu sistema que geralmente possuem programas executáveis ​​também, os mais comuns são:  /usr/local/ bin, /usr/local/sbin e /usr/sbin. Onde os programas ficam e por que, estão fora do escopo deste artigo, mas um programa executável pode ficar praticamente em qualquer lugar do seu sistema ele não precisa se limitar a um desses diretórios.Quando você digita um comando no seu Shell, ele não vai procurar em todos os diretórios para ver se tem um programa com esse nome, mas apenas em diretórios específicos. Como eu sei qual é esses diretórios ? É simples, eles fazem parte de uma variável de ambiente, chamada $PATH, onde o seu Shell faz uma verificação para saber onde procurar. Para ver o que está no seu $PATH, digite:echo $PATHVocê provavelmente verá os diretórios mencionados acima, bem como alguns outros e todos são separados por dois pontos.Às vezes, você precisa instalar algum programa que está em outro local do seu sistema, mas não que dizer o seu caminho completo. Você pode fazer isso facilmente adicionando um diretório a sua variável ambiente $PATH.Digamos que você escreveu um pequeno Shell Script chamado hello.sh e ele está localizado em um diretório chamado shell que tem esse caminho /home/allythy/Documentos/shell. Este script fornece alguma função útil e você gostaria de executar ele independentemente do diretório em que você estivesse. Para isso, basta adicionar o caminho do seu arquivo para a variável de ambiente $PATH com o seguinte comando:export PATH=$PATH:/home/allythy/Documentos/shellAgora você pode executar o seu script em qualquer lugar do seu sistema apenas digitando seu nome(hello.sh), sem ter que incluir o caminho completo dele.Mas o que acontece se você reiniciar seu computador ou abri um terminal ? Sua adição do caminho a variável de ambiente $PATH desapareceu. A variável $PATH é definida pelo seu Shell toda vez que você abri um novo terminal, mas você pode configurá-lo para que ele sempre inclua seu novo caminho a cada novo Shell que você vai abrir.Você pode configurar para todos os usuários do sistema colocando o comando acima export PATH=$PATH:/home/allythy/Documentos/shell no final de algum desses arquivos:/etc/profile //etc/profile.d/   /etc/bash.bashrcOu para um usuário específico colocando o comando acima nesses arquivos:~/.bashrc~/.profileVou dá um exemplo colocando o caminho do nosso script no arquivo ~/.bashrc. Primeiro, vamos abri o arquivo com algum editor de texto.vim ~/.bashrcFeito isso, vamos colocar o esse comando export PATH=$PATH:/home/allythy/Documentos/shell no final do arquivo e depois salvar. O seu arquivo deve ficar assim.Pronto agora você pode acessar o seu script em qualquer parte do seu sistema.Fonte",
+        "url": "/Como-configurar-uma-vari%C3%A1vel-no-PATH-do-gnu-linux.md"
+      }
+      ,
+    
+      "como-baixar-playlist-do-youtube-usando-o-youtube-dl": {
+        "title": "Como baixar playlist do Youtube usando o youtube-dl",
+        "author": "Allythy",
+        "category": "",
+        "content": "Esta vai ser uma dica bem rápida, mas muito útil de como baixar playlist do Youtube usando o youtube-dl. Para quem ainda não conhece o youtube-dl é um pequeno programa de linha de comando para baixar vídeos e áudio do YouTube e outros sites, o programa é escrito em python.Caso você não tenha o programa instalado, use esse comando para instalar o Debian e derivados:sudo apt install youtube-dlFeito isso, vamos pegar o link da playlist do canal do YouTube do SempreUpdate como exemplo.Com o link em mãos, use esse comando para baixar a playlistyoutude-dl -cit coloque-aqui-o-link-da-playlist  -c Continua do download da onde parou, caso você tenha cancelado ( Ctrl+C)  -i Continuar caso tenha algum erros de download, por exemplo, para ignorar vídeos indisponíveis em uma playlist  -t Usa o título do nome do vídeoLegal, mas eu não quero baixar todos os vídeos só quero do vídeo 5 até o 9, então você usa esse comando:youtube-dl --playlist-start 5 --playlist-end 9 link-da-playlist  --playlist-start Vídeo da playlist que vai começar.  --playlist-end Vídeo da playlist que vai parar.Interessante, mas eu quero baixar apenas os vídeos 4, 6 e 15. Então, você tem que usar esse comando:youtube-dl -cit --playlist-items 4,6,15 link-da-playlist  --playlist-items Faz o download de vídeos específicos de uma playlist. Para isso, você tem que especificar o índices dos vídeos na playlist separando-os por vírgulas.Você pode também informar ao mesmo tempo os vídeos que gostaria de baixar na playlist e especificar o intervalo. Com esse comando:youtube-dl -cit --playlist 4-7,8,10-13 link-da-playlist",
+        "url": "/Como-baixar-playlist-do-Youtube-usando-o-youtube-dl"
+      }
+      ,
+    
+      "conheca-tres-ferramentas-de-conversao-de-arquivos-de-linha-comando": {
+        "title": "Conheça três ferramentas de conversão de arquivos de linha de comando para GNU/Linux",
+        "author": "Allythy",
+        "category": "",
+        "content": "Neste artigo, vamos ver três ferramentas de conversão de arquivos de linha de comando para GNU/Linux.PandocPandoc é um ótimo utilitário para converter de uma linguagem de marcação para outra, além de fazer conversões rápidas e boas. Tem um arquivo formatado com Markdown que você deseja converter para um documento do LibreOffice Writer? Ou tem um documento LaTeX que você quer transformar em um EPUB? Ou talvez você tenha um arquivo HTML que deseja transformar em um slide deck. Pandoc está a altura de todas essas tarefas.Veja como usar Pandoc para uma conversão simples (neste caso, de HTML para reStructuredText). Para mais informações sobre essa ferramenta, leia a documentação do Pandoc.pandoc -t rst myfile.htlm -o myfile.rstLibreOfficeVocê provavelmente está pensando: “Espere, o LibreOffice é uma aplicação gráfica”. Sim, mas o que muitas pessoas não sabem é que você pode executar LibreOffice a partir da linha de comando para converter rapidamente um ou mais arquivos. Por exemplo, transformar um conjunto de slides do LibreOffice Impress em PDF, digite o seguinte:soffice --headless --convert-to pdf SoftwareLivre.odpVocê pode substituir a extensão .pdf para qualquer formato de arquivo que você deseja converter. A opção --headless permite usar o aplicativo sem a interface gráfica.Usar o LibreOffice na linha de comando para converter um único arquivo não é uma coisa interessante, pois você poderia fazer isso mais rápido usando a interface gráfica. No entanto, para converter vários arquivos ao mesmo tempo é uma ótima opção. Digamos que você queira converter todos os documentos do Microsoft Word para o formato do LibreOffice Writer, então digite o comando:soffice --headless --convert-to odt *.docFFmpegConsiderando que o Pandoc é o canivete suíço para conversão entre linguagens de marcação, o FFmpeg é o Pandoc para conversão de áudios e vídeos. O FFmpeg é um conjunto de bibliotecas e executáveis ​​que lhe dão a capacidade de converter seemlessly entre quase qualquer formato.Aqui está um exemplo de uma simples conversão de um vídeo em um formato AVI para Ogg Theora:ffmpeg -i myvideo.avi myvideo.oggFFmpeg pode fazer muito mais do que isso. Você pode definir a taxa de quadros de um vídeo e adicionar legendas para ele, mudar a qualidade de áudio e muito mais.O FFmpeg tem muitas opões e é fácil esquecê-las, especialmente se você usar o FFmpeg de vez em quando. Então é sempre bom ler a documentação.Fonte",
+        "url": "/Conheca-tres-ferramentas-de-conversao-de-arquivos-de-linha-comando"
+      }
+      ,
+    
+      "teclas-de-emergencia-do-gnu-linux": {
+        "title": "Teclas de emergência do GNU/Linux",
+        "author": "Allythy",
+        "category": "",
+        "content": "Neste artigo vamos aprender algumas teclas de emergência do GNU/Linux. Sabemos que os sistemas GNU/Linux não estão a salvo de travamentos(raramente isso acontece), então é bom conhecer o que fazer quando ocorre essa situação, pois não queremos danificar o nosso sistema.Desligando o computadorA primeira combinação de emergência é usada para sincronizar os discos e desligar o computador instantaneamente, evitando problemas nos sistemas de arquivos. Ela é ideal para quem precisa desligar o computador rapidamente sem danificar seus sistemas de arquivos, ou quando a máquina trava e por qualquer motivo não permite um desligamento natural através do init.Mantenha Alt+Print Screen+Shift+oReiniciando o computadorAssim como o Ctrl+Alt+Del do MS-DOS o kernel do Linux também possui uma chamada de emergência que permite reiniciar a máquina, com a vantagem de sincronizar os discos evitando danos no sistema de arquivos.Mantenha Alt+Print Screen+Shift+bSincronizando os discosSe você acha que a força vai cair e precisa trabalhar até a ultima hora mas tem medo de danificar seu sistema de arquivo, poderá sincronizar seus discos de tempos em tempos. Para sincronizar discos em caso de emergência.Mantenha Alt+Print Screen+Shift+sSegurançaSe por algum motivo algo está ameaçando a segurança do seu sistema, como a execução acidental de um script malicioso como root ou de programa desconhecido, poderá colocar os discos como somente leitura e evitar danos mais sérios.Mantenha Alt+Print Screen+Shift+u",
+        "url": "/Teclas-de-emergencia-do-gnu-linux"
+      }
+      ,
+    
+      "como-fazer-calculos-de-sub-rede-no-terminal": {
+        "title": "Como fazer cálculo de sub-redes no terminal",
+        "author": "Allythy",
+        "category": "",
+        "content": "Neste artigo, vamos aprender a fazer cálculo de sub-rede no terminal. Hoje eu estava estudando para prova de Redes que eu tenho amanhã, só que eu não tinha como conferir se as respostas estavam corretas, então fui pesquisar algum programa (apt-cache search ) achei ipcalc um programa de linha de comando que mostra o endereço de rede, primeiro host, ultimo host, máscara de rede, endereço de broadcast e faz cálculos de sub-rede para uma determinada quantidade de host. O ipcalc  mostrar todas essas informações tanto em decimal como em binário, mas o ipcalc só é valido para o Ipv4.  A  instalação é bem simples, digite esse comando:sudo apt install ipcalcPara  verificar  o endereço de rede, primeiro host, ultimo host, máscara de rede, endereço de broadcast de um determinado IP, use esse comando: ipcalc 192.168.0.0/24Para verificar o endereço IP para uma sub-rede com 40 host outra com 25 host e outra com 12 hostipcalc 192.100.40.0/24 -s 40 25 12Para fazer 8 sub-redes para um endereço IP de classe Cipcalc 192.168.0.0/24 27",
+        "url": "/Como-fazer-calculos-de-sub-rede-no-terminal"
+      }
+      ,
+    
+      "como-instalar-programas-pelo-codigo-fonte-no-gnu-linux": {
+        "title": "Como instalar programas pelo código fonte no GNU/Linux",
+        "author": "Allythy",
+        "category": "",
+        "content": "Neste artigo, vamos aprender como instalar programas pelo código fonte, isso pode parecer uma tarefa bem complicada, mas não é. Na maioria das vezes usamos ferramentas para instalar os programas sem necessidade de compilar ou corrigir dependências, como o apt-get, aptitude, yum ou pacman eles fazem isso tudo para gente. Mas existem alguns programas que vêm apenas com o código fonte, então temos que compilar, que é transformar o “texto” (linguagem de programação) em arquivos binários, pois é essa linguagem que o computador entende.Primeiro,temos que baixar o pacote build-essential que contém as ferramentas necessárias para compilação.No Debian e derivados, devemos executar o comando:sudo apt install build-essentialFeito isso, agora temos que descompactar o arquivo que contém o código fonte, na maioria das vezes o código fonte vem compactados em gzip ou bzip2. Caso você queira saber mais sobre esse compactadores leia esse artigo .tar -xvzf pacote.tar.gzEntre no diretório que foi descompactado.cd /pacoteDentro do diretório descompactado, é sempre recomendado ler os arquivos readme e install antes. Agora temos que executar um script, que na maioria da vezes vem como o nome configure. Esse script verifica no sistema se existem todas as dependências necessárias para a compilação do programa, se for concluído com sucesso, irá gerar o arquivo Makefile que contém as informações para compilação. Para executar o script basta usar esse comando:./configurePara compilar, usamos o comando make, que vai ler o arquivo Makefile com as instruções de compilação e executar cada etapa. Isso pode demorar um pouco dependendo do software e do seu computador.makeDepois que o programa foi compilado, usamos o comando make install que vai mover os arquivos que foram compilados para os seus devidos lugares, assim concluindo a instalação. Lembrando que esse comando tem que ser executado com a permissão de super usuário (root).sudo make installUma dica, depois da instalação use o comando make clean, ele vai apagar os arquivos temporários que foram gerados durante a instalação.DesinstalaçãoPara desinstalar um programa que foi instalado pelo código fonte também é muito simples, primeiros temos que entrar  diretório onde foi descompactado o programa.cd /pacoteFeito isso, é só digitar o seguinte comando:sudo make uninstallSe por algum motivo essa opção não deu certo, não se preocupe você pode usar o comando whereis que retorna a localização os binários, código fonte e manuais dos programas.whereis nome-do-pacoteSabendo o caminho onde os arquivos foram instalados é só removê-los com o comando rm -r.sudo rm -r caminho-do-pacoteComo você pode ver não tem nada de complicado em instalar programas pelo código fonte, basicamente são três comandos :./configuremakesudo make installEspero que tenha sanado suas dúvidas sobre esse assunto.",
+        "url": "/Como-instalar-programas-pelo-codigo-fonte-no-gnu-linux"
+      }
+      ,
+    
+      "como-instalar-o-jekyll-no-debian-e-derivados": {
+        "title": "Como instalar o Jekyll no Debian e derivados ",
+        "author": "Allythy",
+        "category": "",
+        "content": "Neste artigo, vamos aprender como instalar o Jekyll no Debian e derivados. O Jekyll é um gerador de site estáticos, seja ele um blog, site institucional ou o que você queira criar. O jekyll utiliza o YAML, e  para guardar e organizar informações, ele usa o Front Matter e o Liquid como renderizador. Outra coisa muito interessante do Jekyll que você pode fazer os seus post usando Markdown e hospedar o seu site no GitHub.Como Instalar o Jekyll?Primeiro temos que instalar o pacote build-essential, pois vamos precisar do gcc e do make. Para isso,  use esse comando:sudo apt install build-essentialTambém temos que instalar a versão 2.0 do ruby ou superior.  Para isso, use esse comando:sudo apt install ruby2.3Cerifique-se que também foi instalado o pacote ruby-dev, caso não tenho sido instalado, use esse comando:sudo apt install ruby2.3-devAgora temos que baixar o RubyGems, que é um gerenciador de pacotes para o Ruby. Você pode acessar o site e baixar ou usar esse comando:wget -c https://rubygems.org/rubygems/rubygems-2.6.11.tgzVamos descompactar. Caso você queira saber mais sobre o descompactadores tem esse artigo.tar -xvzf rubygems-2.6.11.tgzTemos que entrar na pasta que descompactar e depois instalar o RubyGems, para isso use esses comandos:cd rubygems-2.6.11/sudo ruby setup.rbPronto, agora é só instalar o jekyll com esse comando:sudo gem install jekyll bundlerVocê pode verificar se ele foi instalado com esse comando:jekyll -vPronto, você tá com Jekyll instalado. Para criar o seu site digite esse comando, onde tem o nomeSempreUpdate coloque o nome que você vai dar para o seu site.sudo jekyll new allythyEsse comando vai gerar uma pasta com o nome que você deu para o seu site, entre nessa pasta e execute esse comando:sudo jekyll sEsse comando vai executar o seu site localmente na porta 4000. Agora é só você acessar o endereço http://127.0.0.1:4000/ e começar a testar.",
+        "url": "/Como-instalar-o-Jekyll-no-Debian-e-derivados"
+      }
+      ,
+    
+      "empacotamento-e-compactacao-de-arquivos-no-gnu-linux": {
+        "title": "Empacotamento e Compactação de arquivos no GNU/Linux",
+        "author": "Allythy",
+        "category": "",
+        "content": "Nesse artigo, vamos aprender sobre empacotamento e compactação de arquivos. Para o empacotamento de arquivos utilizamos o comando tar, é válido ressaltar que o empacotamento não diminui o tamanho do arquivo, ele faz a junção de um ou mais arquivos em um único arquivo, quem diminui o tamanho são os compactadores, que são GNU gzip (gzip) ou bzip2. Primeiro vamos entender a sintaxe do comando tar.Sintaxetar [opções] [nome do novo arquivo] [arquivo de origem]Vejamos alguma opções do comando tar:c = Cria um novo arquivo tart = Exibe o conteúdo de um arquivo tarp = Mantém as permissões originais dos arquivosr = Adiciona arquivos a um arquivo tar existentef = Permite especificar o arquivo tar que vai ser usado, por causa disso é a ultima opçãov = Exibe detalhes da operaçãox = Extrai arquivos de uma arquivo tar existenteC = especifica o diretório dos arquivos a serem armazenadosUsando o comando tarPrimeiro vamos aprender a usar o comando tar para o empacotamento de arquivos e extração mais adiante usaremos os compactadores, que não tem nada de difícil.Criando um arquivo .tartar -cvf artigos.tar telgram.odt mycroft.odtExibindo o conteúdo de um arquivo .tartar -tf artigos.tarExtraindo um arquivo .tartar -xvf artigos.tarAdicionar um arquivo ao arquivo já empacotadotar -rf artigos.tar mozilla.odtExcluindo um arquivo do arquivo.tartar -f artigos.tar –-delete mozilla.odtUsando os compactadoresAgora que já sabemos usar o comando tar para o empacotamento de arquivos, vai ser bem fácil aprender a comprimir arquivos. Primeiros vamos aprender a compactar com o gzip, para  isso temos que acrescentar uma opção ao comando tar que é -z, essa opção indica que os arquivos serão compactados em gzip, que resultará em um arquivo com extensão .tar.gz.Criando um arquivo compactado com gziptar -cvzf artigos.tar.gz telgram.odt mycroft.odtExtraindo arquivos com gziptar -xvzf artigos.tar.gzQuando for comprimir arquivos usando o bzip2, só acrescentar o parâmetro -j, essa opção indica que os arquivos serão compactados em bzip2, que resultara um arquivo com a extensão .tar.bz2.Criando um arquivo compactado com bzip2tar -cvjf artigos.tar.bz2 telgram.odt mycroft.odtExtraindo arquivos com bzip2tar -xvjf artigos.tar.bz2",
+        "url": "/Empacotamento-e-compactacao-de-arquivos-no-gnu-linux"
+      }
+      ,
+    
+      "entendendo-as-permissoes-de-acesso-a-arquivos-e-repositorios-e-como-altera-las": {
+        "title": "Entendendo as permissões de acesso a arquivos e repositórios e como alterá-las",
+        "author": "Allythy",
+        "category": "",
+        "content": "Neste artigo, vamos entendendo as permissões de acesso a arquivos e repositórios e como alterá-las. Para um Administrador de Sistema é primordial entender as permissões de acesso a arquivos e repositórios e como alterá-las. Isso não se restringe apenas aos Administradores de Sistemas, também é necessário para usuários domésticos, pois algumas vezes temos que alterar a permissão de um arquivo.Para ver as permissões que um arquivo ou diretório possui, temos que executar o seguinte comando:ls -lO comando ls lista o conteúdo do diretório, no meu caso é o diretório home e a opção -l trás as informações em um formato longo mostrando as permissões, número e links, proprietário, grupo, tamanho, data de modificação e nome do arquivo.Vamos entender o que cada coluna se trata, primeiro vamos começar pela coluna das permissões, para entender o que cada letra significa.Conhecendo as PermissõesA primeira letra trata da natureza do arquivo, se ele é um diretório, link, arquivo comum de usuário, arquivo de bloco, Socket de comunicação entre processos, Pipe de comunicação entre processos ou arquivo de caractere.d = Diretório- = Arquivo comum de usuáriob = Arquivo de blococ = Arquivo de caracterel = Links = Socket de comunicação entre processosp = Pipe de comunicação entre processosDepois temos as letras rwx (que sempre apareceram nessa ordem) que estão divididas em três categorias, dono, grupo e outros. Onde cada letra determina o acesso a um diretório ou arquivo, ao dono, grupo e outros. As letras rwx significam:r = Permissão de Leitura (read)w =  Permissão de Escrita (write)x = Permissão de Execução (execution)- = Sem PermissãoAs outras colunas são mais fácies de entende, porque elas são autoexplicativas. A coluna do link, mostra a quantidade de link que esse arquivo ou diretório possui. Na Coluna do Proprietário, a pessoa que criou o arquivou ou diretório (dono), nesse caso é allythy. A Coluna do Grupo, o grupo ao qual pertence o arquivo ou diretório, nesse caso o grupo é allythy. A coluna Date e Hora, mostra a última vez que o arquivo foi alterado. E por fim, a última coluna que diz o nome do arquivo.Vamos aprender a alterar essas permissõesPara alterar essas permissões em arquivos ou diretório, vamos utilizar o comando chmod em modo octal, pois é mais fácil para o entendimento.A sintaxe do comando é essa :chmod [opções] [permissões] [nome do arquivo ou diretório]Os valores que são necessário para você conhecer é: 4 (leitura) 2 (escrita) 1 (execução). Porque a soma deles dão as outras permissões, exemplo: leitura e execução, 4 + 1 = 5. Lembrando, caso não queira conceder nenhuma permissão utilize 0 (zero).Ao fornecer novas permissões aos arquivos, utilize um dígito para o dono, grupo e os outros. Por exemplo, para conceder todas as permissões ao dono, porém nenhuma permissão para leitura, escrita ou execução de um arquivo ao grupo e outros, vamos fazer assim:chmod 700 Documentos  OBS: A opção menos -R (recursiva) faz com que as alterações sejam aplicadas aos subdiretórios.Alterar proprietário e grupo dos arquivos e diretóriosPara alterar o proprietário e grupo de um arquivo ou diretório, vamos usar o comando chown. Que possui a seguinte sintaxe:chown [novo proprietário]:[ novo grupo] [nome do arquivo ou diretório]Só alterar o proprietário e manter o grupo  Não coloque os colchetes quanto for digitar o comando.chown [novo proprietário] [nome do arquivo]Alterar o proprietário e o grupo  Não deixe espaço entre os dois pontos. Na versão GNU você pode usar o ponto ao invés dos dois pontoschown [novo proprietário]:[ novo grupo] [nome do arquivo ou diretório]Alterar só o grupo  Se os dois pontos ou ponto e grupo são fornecidos, mas o  nomedo  usuário  é  omitido, somente o grupo do arquivo é alterado. Nestecaso, chown assume a mesma função que chgrp.chown [deixa vazio ]:[ novo grupo] [nome do arquivo ou diretório]Se você colocar os dois pontos ou ponto sem o nome de grupo só com o nome do usuário, aquele  usuáriotorna-se o proprietário do arquivo e o grupo do arquivo é alterado para o grupo de login do usuário.chown [novo proprietário]:[deixa vazio ] [nome do arquivo ou diretório]Lembrando que da forma como foi executado o comando acima, ele alterou somente do diretório ou arquivo, mas  as sub-pastas dentro dele continuam com o proprietário antigo. Para incluir os sub-diretórios acrescente -R de recursiva.chown -R [novo proprietário]:[ novo grupo] [nome do arquivo ou diretório]",
+        "url": "/Entendendo-as-permissoes-de-acesso-a-arquivos-e-repositorios-e-como-altera-las"
+      }
+      ,
+    
+      "como-gerenciar-plugins-no-vim-com-o-pathogen": {
+        "title": "Como gerenciar plugins no Vim com o Pathogen",
+        "author": "Allythy",
+        "category": "",
+        "content": "O Vim é um editor de texto altamente configurável com centenas de plugins que podem ser instalados. Muitos deles são adaptados para usos específicos, como programação em uma determinada linguagem ou até ajudar na escrita de um texto comum, outros são mais gerais e melhoram as capacidades existentes do Vim. Qualquer que seja a sua finalidade você terá que gerenciar esses plugins.Existe uma série de gerenciadores de plugins para o Vim, mas o Pathogen é o mais universal e simples de instalar e usar.O Pathogen funciona puxando todos os plugins do Vim em um determinado diretório para sua instalação no editor de texto e depois são ativados com uma linha no arquivo .vimrc. Pacotes necessáriosAntes de começar, você deve ter instalado, claro, o Vim, Git e o Curl em seu sistema. Eles são pacotes muito comuns em qualquer distribuição GNU/Linux, por isso não há muita necessidade de entrar em detalhes aqui. Caso você queira saber sobre o gerenciador de pacotes do Debian e derivadosleia esse artigoInstalação do Vim, Git e CurlNo Debian, Ubuntu, linux mint e seus derivados:sudo apt install vim git curlNo CentOS e RHELsudo yum install vim git curlNo Arch Linuxsudo pacman -S vim git curlNo Fedorasudo dnf install vim git curlConfigurando os diretóriosTudo isso é feito localmente, pelo usuário. Ele requer uma pasta .vim no diretório /home. Se ainda não o tiver, você tem que criar usando o seguinte comando:mkdir ~/.vimVamos entrar na pasta que acabamos de criar, e dentro dela criaremos mais duas pastas autoload e bundle.cd ~/.vimmkdir autoloadmkdir bundle]Instalando o PathogenA melhor maneira de instalar o Phathogen é clonado-o diretamente do seu repositório do Github. Para que o Pathogen seja executado automaticamente, ele precisa ser instalado no diretório autoload que acabou de ser criado. Quando a clonagem do repositório terminar, você terá o Pathogen instalado.cd autoloadcurl -LSso ~/.vim/autoload/pathogen.vim https://github.com/tpope/vim-pathogen.gitConfigurando o .vimrcVocê precisa adicionar algumas linhas ao arquivo .vimrc. Caso não tenha o arquivo .vimrc, você poderá criá-lo e logo em seguida adicionar o Pathogen.vim ~/.vimrcexecute pathogen#infect()syntax onfiletype plugin indent onCaso já tenha alguma coisa configurado no .vimrc, coloque a seguinte linha no arquivo.execute pathogen#infect()Instalando plugins usando PathogenToda a razão pela qual você instalou o Pathogen, foi para instalar os plugins de uma forma mais rápida e aumentar a sua produtividade no Vim. Agora, está tudo pronto para a instalação. Vamos instalar o Emmet-vim usando o Pathongen, para isso use esses comandos:cd ~/.vim/bundle/git clone https://github.com/mattn/emmet-vim.gitOs comandos acima faz com que você entre na pasta ~/.vim/bundle e clone o repositório do plugin Emmet-vim que está hospedado no GitHub. Agora, criaremos um arquivo index.html para testar o Emment.vim index.htmlPressione a tecla i para entrar no Modo de Inserção, depois digite html:5 deixe o cursor na frente do número 5 e pressione ao mesmo tempo as teclas Ctrl+y e logo na sequência pressione , não demore muito para digitar a vírgula. Se você tiver feito tudo certo aparecerá isso:Fonte",
+        "url": "/Como-gerenciar-plugins-no-Vim-com-o-Pathogen"
+      }
+      ,
+    
+      "como-usar-o-tmux": {
+        "title": "Como usar o Tmux",
+        "author": "Allythy",
+        "category": "",
+        "content": "Neste artigo, vamos aprender como usar o tmux. O tmux é um multiplexador de terminais, um multiplexador de terminal permite que um número de terminais sejam criados, acessados e controlados a partir de uma única janela. Com o tmux você também pode ser desconectar de uma tela e  a mesma continuar funcionando em segundo plano, e depois você pode se conectar novamente.Como instalar o TmuxPara instalar o tmux no Debian, Ubuntu, linux mint e seus derivados:sudo apt install tmuxNo CentOS e RHELsudo yum install tmuxNo Arch Linuxsudo pacman -S tmuxNo Fedorasudo dnf install tmux -yAprenda como usar o TmuxPara iniciar uma sessão no tmux esse comando:tmux new -s nomedasessãoAo ser iniciado, o aplicativo cria uma nova sessão em uma janela, exibida na tela.Uma linha de status, na parte inferior da janela mostra informações sobre a sessão atual e também é usada para digitar comandos interativos. Uma sessão é uma coleção de pseudoterminais sob a gestão do tmux. Cada sessão tem uma ou mais janelas ligadas a ela.Com uma sessão criada, vamos aprender alguns comandos do tmux. Primeiro, os comandos no tmux são emitidos por um prefixo de comandos, por padrão é Ctrl + B. Depois de pressionar Ctrl + b você pressionar outra tecla que vai fazer uma determinada ação, logo abaixo segue um exemplos dessas combinações.Criar uma sessão com nome:tmux new -s nomedasessãoListas as sessões:tmux list-sessionsPara ir em sessão que você fechou, caso você só coloque tmux attach ele vai se conectar a última sessão, para ele se conectar a uma sessão específica você tem que usar esse comando:tux attach -t nomedasessãoPara entrar no modo interativo :Ctrl+b+ :Desconectar uma sessão ( mas ela ainda vai ficar aberta em segundo plano)Ctrl+b+dFechar uma sessão ( você também pode digitar “exit” ou Ctrl+b+x) Você vai usar o Ctrl+b+:para entrar no modo interativo, quando estiver nele digite esse comando:kill-sessionRenomeia a janela atual :Ctrl+b+,Renomeia a sessão atual:Ctrl+b+$Navegar entre as sessões:Ctrl+b+sCriar uma janela:Ctrl+b+cNavegar entra as janelas, para saber em qual janela você tá fica * depois do nome da janela.-Para voltar: Ctrl+b+p-Para avançar: Ctrl+b+n ou você pode usar o número da janela :Ctrl+b+1Dividir na horizontal. Depois de pressionar o Ctrl + b você terá que pressionar o Shift ao mesmo tempo que as aspas duplas, caso você não faça isso ele vai usar a aspa simples e não vai fazer nada.Ctrl+b+ “Dividir na vertical. Depois de pressionar o Ctrl + b você terá que pressionar o Shift ao mesmo tempo que o símbolo de percentagem.Ctrl+b+%Navegar entra janelasCtrl+b+ setas_do_tecladoOrganizar as janelas com layout pré-definidosCtrl+b+espaçoMostrar a horaCtrl+b+t",
+        "url": "/Como-usar-o-Tmux"
+      }
+      ,
+    
+      "conhecendo-o-advanced-packaging-tool-apt": {
+        "title": "Conhecendo o Advanced Packaging Tool (APT) ",
+        "author": "Allythy",
+        "category": "",
+        "content": "Neste artigo, vamos conhecer um pouco mais o Advanced Packaging Tool (APT), o gerenciador de pacotes do Debian e seus derivados. Então, vamos aprender como esse gerenciador surgiu e alguns comandos que são necessário para os usuários que o utilizam.No princípio era o .tar.gz. Os usuários tinham que compilar cada programa que quisessem usar em seus sistemas GNU/Linux, ou outro qualquer. Quando o Debian foi criado, uma nova forma de gerenciamento de pacotes tornou-se necessário. Para este sistema, foi dado o nome dpkg. Esse famoso pacote (Pacote é um arquivo binário, compactado ou não, que contém os arquivos binários do software, scripts de configuração, documentação, ícones, imagens, licenças GPL e, por vezes, os próprios arquivos-fonte. Um pacote pode ser criptografado e assinado digitalmente, apesar de nem todos o serem.) foi o primeiro a chegar nos sistemas GNU/Linux. Logo após a Red Hat decidiu criar seu próprio sistema, o RPM.Um novo dilema rapidamente tomou conta das mentes dos criadores do GNU/Linux. Eles precisavam de um método rápido, prático e eficiente para instalar pacotes, que deveriam gerenciar automaticamente as dependências e cuidar dos arquivos de configuração ao atualizá-los. Aqui novamente, o Debian mostrou o caminho e deu vida ao APT, o ‘Advanced Packaging Tool’ (ferramenta de pacotes avançada), hoje portado pela Conectiva e incorporado por algumas outras distribuições”.APT é um programa C++ cujo código reside principalmente na biblioteca compartilhada libapt-pkg. Usar uma biblioteca compartilhada para facilitar a criação de interfaces de usuário (front-ends), já que o código contido na biblioteca pode facilmente ser reutilizado. Historicamente, apt-get foi projetado apenas como um front-end de teste para libapt-pkg, mas seu sucesso tende a obscurecer esse fato, tornando-se a ferramenta usada no gerenciamento de pacotes padrão do Debian e seus derivados. Você também pode usar outra ferramentas para gerenciar o APT, como Aptitude, que tem uma interface semi-gráfico e o Synaptic que é uma ferramenta em modo gráfico.Agora que já possuímos um embasamento sobre a origem e porque foi necessário criar o APT, vamos aprender alguns comandos essenciais.Instalação de programasPara Instalar um programa é muito fácil, basta usar o seguinte comando:sudo apt install nome_do_pacoteInstalando mais de um programa simultaneamente:sudo apt install pacote1 pacote2 pacote3Baixa apenas os pacotes, não são desempacotados e nem instalados. Os arquivos baixados são colocados no diretório /var/cache/apt/archivessudo apt install -d nome_do_pacoteSimulando a instalação de um pacote, isso não altera nada no seu sistema:sudo apt install -s nome_do_pacote  Ainda temos a opção -y que assume “sim” para todas as perguntas, e a opção -u mostrar pacotes que serão atualizados.Desinstalação de programasPara remoção de um programa:sudo apt remove nome_do_pacoteRemovendo mais de um programa simultaneamente:sudo apt remove pacote1 pacote2 pacote3Quando você usa “apt remove” para desinstalar um programa, ele ainda deixa suas configurações, por exemplo: Quando você instala o servidor de impressão CUPS e cria uma configuração personalizada. Ao remover com “apt-get remove cups” essas configurações ainda continuam presentes no /etc/, caso você venha a reinstalar esse pacote estas configurações serão mantidas. Para uma desinstalação completa temos que usar esse comando:sudo apt purge nome_do_pacoteCaso você de alguma forma danifique a instalação de um pacote, ou simplesmente deseja que os arquivos do pacote sejam repostos com a versão mais nova que estiver disponível, você pode usar esse comando:sudo apt --reinstall install nome_do_pacoteAtualizaçãoAtualizar lista de repositório do sistema:sudo apt updateInstalar as atualizações de todos os pacotes no sistema:sudo apt upgradeO dist-upgrade é quase igual ao upgrade , o dist-upgrade também atualiza o sistema, mas  pode remover pacotes que ele julgue necessário para atualização do sistema.sudo apt dist-upgradeObtendo informações sobre os pacotesPara isso, vamos usar o apt cahe. Ela é usada para manipular e obter informações sobre os pacotes no cache (O cache é um sistema de armazenamento temporário usado para acelerar o acesso frequente de dados) do APT.Esse comando pesquisa por pacotes que estejam relacionados com a palavra-chave que você deseja, e traz uma breve descrição sobre eles.apt search palavra-chaveEste comando fornece a descrição do pacote, suas dependências, o nome de seu mantenedor, entre outras coisas. Ele traz mais informações do que o apt search.apt show nome_do_pacoteMostra as dependência de um pacote:apt depends nome_do_pacoteEste comando escreve o nome de cada pacote que o APT conhece:apt-cache pkgnamesPara exibir as prioridades de pacote, se ele está instalado ou não, a versão e outras coisas:apt policyLimpezaO APT mantém uma cópia de cada arquivo .deb baixado no diretório /var/cache/apt/archives/ . Caso haja atualizações frequentes, este diretório pode rapidamente ocupar uma grande espaço em disco com várias versões de cada pacote. Para efetuar essa limpeza, vamos usar dois comando. O primeiro  esvazia completamente o diretório:sudo apt cleanO segundo remove apenas os pacotes que não podem mais ser baixados, por terem sumido dos repositórios do Debian, e são agora claramente inúteis:sudo apt autocleanO comando a seguir é usado para remover pacotes que foram instalados automaticamente, para satisfazer dependências de outros pacotes, que já não são necessários.sudo apt autoremoveResolvendo ProblemasÀs vezes, um defeito em algum pacote ou um download corrompido pode fazer com que o APT fique “travado”, sem concluir a instalação de um determinado pacote por causa de um erro qualquer e sem aceitar instalar outros antes que o problema inicial seja resolvido.Caso isso aconteça, usamos o sistema de resolução de problemas do APT,  que verifica a lista de dependências quebradas e tenta corrigi-las, instalando pacotes necessários. Para isso, usamos esse comando:sudo apt -f installCaso você queira saber qual é a dependência que está faltando, o comando a seguir faz a verificação e mostra todas as dependências que o pacote necessita.sudo dpkg –configure -aCaso apt -f install não resolva, o que é bem difícil isso acontecer, experimente o sudo apt -f remove, que tem uma função similar à do sudo apt-get -f install, mas dá preferência a remover os pacotes com problemas, ao invés de tentar corrigir a instalação.",
+        "url": "/conhecendo-o-advanced-packaging-tool-apt"
+      }
+      ,
+    
+      "como-verificar-a-integridade-da-iso-do-debian": {
+        "title": "Como verificar autenticidade da ISO do Debian",
+        "author": "Allythy",
+        "category": "",
+        "content": "Neste artigo, vamos aprender como verificar autenticidade da ISO do Debian. É uma coisa bem rápida de se fazer e importante, porque fazendo essa verificação podemos ter certeza que aquela ISO não foi corrompida. Se o pessoal que baixou o ISO do Linux Mint tivesse verificado a assinatura da ISO deles não teria ocorrido aquele escândalo no começo do ano.Enfim, vamos para o que interessa. Depois de ter baixado a ISO do Debian temos que baixar os arquivos SHA512SUMS e SHA512SUMS.sign e colocar no mesmo diretório da ISO do Debian. Primeiramente, vamos verificar a hash da ISO que baixamos como esse comando:sha512sum -c SHA512SUMS | grep debian-testing-amd64-netinst.isoVai aparecer uma mensagem com o nome “SUCESSO”, isso nos diz que o Download não foi corrompido, mas a gente não sabe se veio do Debian. Para isso temos que verificar a assinatura dos arquivos que contém as hashs. Primeiro, temos que obter a chave pública da pessoa que assinou o arquivo usando o seguinte comando:gpg —verify SHA512SUMS.signVocê receberá uma mensagem informando que a chave pública com ID 09EA8AC3 não está actualmente disponível em seu sistema, então precisamos baixar essa chave diretamentamente do keyring server do Debian, para isso vamos usar esse comando:gpg —keyserver keyring.debian.org —recv 6294BE9BLembrando que no lugar desse ID “6294BE9B” você vai colocar o ID que apareceu pra você com o comando anterior. Feito isso, agora é só fazer a verificação da assinatura com esse comando:gpg —verify SHA512SUMS.sign SHA512SUMSSe tudo ocorrer bem você irar receber essa mensagem “ Good signature from “Debian CD signing key “. Também é bom você verificar se o chave do fingerprint que foi gerado pelo último comando é o mesmo que tem no site do Debian, para ter certeza que ninguém modificou. Agora é só instalar o seu Debian. Com ajuda do Samuel Henrique da comunidade Debian.",
+        "url": "/Como-verificar-a-integridade-da-iso-do-Debian"
+      }
+      ,
+    
+      "criando-apresentacao-de-slides-no-terminal": {
+        "title": "Como criar apresentação de slides no terminal",
+        "author": "Allythy",
+        "category": "",
+        "content": "Neste artigo, vamos aprender como criar uma apresentação de slides no terminal.Não há necessidade de instalar uma tonelada de softwares, afim de criar uma apresentação agradável e informativa.O TPP é uma simples ferramenta de linha de comando que permite que você faça isso,com suporte a cores, saída de código fonte e animações, tudo isso com um simples arquivos de texto ASCII.Para fazer a instalação no Debian e derivados, basta executar o comando:sudo apt-get install tppIrei fazer uma apresentação simples de dois slides com o titulo, nome do autor, uma frase centralizada e a data da criação. Para isso, criarei um arquivo de texto e salvá-lo com a extensão .tpp.vim apresentacao.tppE nesse arquivo vou colocar as informações a baixo:--author Por Allythy Souza--date today--newpage--center Saudações LivresPara saber mais sobre os comandos do TPP basta ler o README que esta em  /usr/share/doc/tpp. Você pode ver uma pequena apresentaçao usando TPP aqui. Caso você queira ver o código desse vídeo ele vai estar no meu GitHub.",
+        "url": "/Criando-apresentacao-de-slides-no-terminal"
+      }
+      ,
+    
+      "libreoffice-em-portugues": {
+        "title": "Como deixar o LibreOffice e Firefox em Português",
+        "author": "Allythy",
+        "category": "",
+        "content": "Essa será uma dica bem rápida, mas muito útil de como deixar o LibreOffice e Firefox em Português. É um procedimento muito fácil e rápido, primeiramente deixaremos o LibreOffice em Português, para isso use o comando abaixo:sudo apt install libreoffice-l10n-pt-brAgora é a vez de deixar o Firefox em Português, para isso use o seguinte comando:sudo apt install firefox-esr-l10n-brO l10n é a implementação de um idioma específico, nesse caso o Português do Brasil para um programa já internacionalizado. Mas o que seria um programa internacionalizado? Internacionalização é a modificação de um programa para que ele possa lidar com os múltiplos idiomas e culturas do mundo.",
+        "url": "/LibreOffice-em-Portugues"
+      }
+      
+    
+  };
+</script>
+<script src="/js/lunr.min.js"></script>
+<script src="/js/search.js"></script>
+
+		</div>
+	</div>
+</div>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://github.com/allythy "target=_blank">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">Todo conteúdo está licenciado sob <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"> Creative Commons</a>   Allythy 2019</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/clean-blog.js "></script>
+<!-- <script src="/js/clean-blog.min.js "></script>
+ -->
+
+    
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-96197910-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+
+</html>

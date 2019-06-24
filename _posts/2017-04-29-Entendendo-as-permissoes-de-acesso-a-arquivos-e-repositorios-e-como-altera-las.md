@@ -5,6 +5,7 @@ subtitle:   "Neste artigo, vamos entendendo as permissões de acesso a arquivos 
 date:       2017-04-29 15:00:00
 author:     "Allythy"
 header-img: ""
+categories: GNU/Linux
 ---
 Neste artigo, vamos entendendo as permissões de acesso a arquivos e repositórios e como alterá-las. Para um Administrador de Sistema é primordial entender as permissões de acesso a arquivos e repositórios e como alterá-las. Isso não se restringe apenas aos Administradores de Sistemas, também é necessário para usuários domésticos, pois algumas vezes temos que alterar a permissão de um arquivo.
 

@@ -5,6 +5,7 @@ subtitle:   "Neste artigo, vamos aprender como instalar o pip para gerenciar pac
 date:       2017-08-27 00:35:00
 author:     "Allythy"
 header-img: ""
+categories: [GNU/Linux, Python]
 ---
 Neste artigo, vamos aprender como instalar o pip no GNU/Linux. O pip é um gerenciador de pacotes multiplataforma para instalar e gerenciar pacotes Python.
 
