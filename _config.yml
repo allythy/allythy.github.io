@@ -1,7 +1,6 @@
-# Site settings
+
 title: Allythy
 header-img: img/post-bg-04.jpg
-#email: your-email@yourdomain.com
 copyright_name: Allythy
 description: "Dicas sobre o Debian, Software Livre, linha de comando"
 baseurl: ""
@@ -9,12 +8,6 @@ page: "/"
 #url: "http://yourdomain.com"
 github_username:  allythy
 
-
-# Google Analytics
-# To enable google analytics, uncomment below line with a valid Google Tracking ID
-google_tracking_id: "UA-96197910-2"
-
-# Build settings
 markdown: kramdown
 highlighter: rouge
 permalink: /:title #pretty

@@ -385,7 +385,7 @@ form .row:first-child .floating-label-form-group {
    color: #000;
  }
  .nav-mobile {
-   min-height: 30vh; 
+   min-height: 30vh;
  }
  .no-vis-mobile {
   display: none;
