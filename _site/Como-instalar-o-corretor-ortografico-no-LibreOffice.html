@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Dicas sobre o Debian, Software Livre, linha de comando">
+
+    <title>Como instalar o corretor ortográfico no LibreOffice - Allythy</title>
+
+    <link rel="canonical" href="http://0.0.0.0:4000/Como-instalar-o-corretor-ortografico-no-LibreOffice">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/clean-blog.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Allythy</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right nav-mobile" >
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                
+				
+                <li>
+                    <a href="/categoria">Categoria</a>
+                </li>
+				
+                
+				
+                <li>
+                    <a href="/contato">Contato</a>
+                </li>
+				
+                
+				
+                <li>
+                    <a href="/quem-sou">Quem sou</a>
+                </li>
+				
+                
+                <li>
+                    <form class="search no-vis-mobile" action="/search.html" method="get">
+                      <div class="search__wrapper">
+                        <input class="search__field" type="search" name="query" id="search-box" placeholder="Procurando por...">
+                        <button type="submit" class="fa fa-search search__icon"></button>
+                      </div>
+                    </form>
+                    <form class="form-inline no-vis-desktop vis-mobile" action="/search.html" method="get">
+                        <label for="search-box"></label>
+                        <input class="search__field"  id="search-box" type="search" name="query" placeholder="Procurando por...">
+                     </form>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Como instalar o corretor ortográfico no LibreOffice</h1>
+                    
+                    <h2 class="subheading">Essa será uma dica bem rápida, mas muito útil de como instalar o corretor ortográfico no LibreOffice.</h2>
+                    
+                    <span class="meta">Postado por Allythy em September 10, 2017</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<p>Essa será uma dica bem rápida, mas muito útil de como instalar o corretor ortográfico no LibreOffice. O LibreOffice que vem no Debian ou derivados não contém o corretor ortográfico, porque infelizmente ninguém empacotou para ele ainda. Mas, se você baixar o LibreOffice direto do site ele já vem com o corretor ortográfico. Para que você não tenha o trabalho de desinstalar o LibreOffice que está na nossa distribuição e baixar a do site, vamos apenas instalar o corretor ortográfico, o VERO.</p>
+
+<h2 id="instalação">Instalação</h2>
+
+<p>Primeiro, você têm que acessar o site do VERO e baixar ou usar esse comando para isso:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget <span class="nt">-c</span> https://pt-br.libreoffice.org/assets/Uploads/PT-BR-Documents/VERO/VeroptBRV320AOC.oxt
+</code></pre></div></div>
+<p>Feito isso, vamos abrir o LibreOffice e ir em <strong>Ferrementas &gt; Gerenciador de Extensões</strong>.</p>
+
+<p><img src="/img/libreoffice.png" alt="Tela principal do LibreOffice mostrando onde está o gerenciador de extensões" /></p>
+
+<p>Com o gerenciador de extensões aberto vamos clicar em adicionar.</p>
+
+<p><img src="/img/libreoffice2png" alt="Tela do gerenciador de extensões do LibreOffice" /></p>
+
+<p>E depois informar o caminho onde salvamos o Vero e clicamos em abrir.</p>
+
+<p><img src="img/libreoffice3.png" alt="Tela para informar o caminho onde salvamos o Vero" /></p>
+
+<p>Feito isso, você pode fechar o gerenciador de extensões que o corretor ortográfico do LibreOffice já estará funcionando.</p>
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/Como-instalar-o-pip-para-gerenciar-pacotes-do-Python-no-GNU-Linux" data-toggle="tooltip" data-placement="top" title="Como instalar o pip para gerenciar pacotes do Python no GNU/Linux">&larr; Postagem anterior</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/Como-instalar-o-NodeJS-no-Debian" data-toggle="tooltip" data-placement="top" title="Como instalar o NodeJS no Debian">Próxima postagem &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://github.com/allythy "target=_blank">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">Todo conteúdo está licenciado sob <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"> Creative Commons</a>   Allythy 2019</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/clean-blog.js "></script>
+<!-- <script src="/js/clean-blog.min.js "></script>
+ -->
+
+</body>
+
+</html>

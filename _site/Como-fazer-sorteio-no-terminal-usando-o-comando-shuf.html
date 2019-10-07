@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Dicas sobre o Debian, Software Livre, linha de comando">
+
+    <title>Como fazer sorteio no terminal usando o comando shuf - Allythy</title>
+
+    <link rel="canonical" href="http://0.0.0.0:4000/Como-fazer-sorteio-no-terminal-usando-o-comando-shuf">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/clean-blog.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Allythy</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right nav-mobile" >
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                
+				
+                <li>
+                    <a href="/categoria">Categoria</a>
+                </li>
+				
+                
+				
+                <li>
+                    <a href="/contato">Contato</a>
+                </li>
+				
+                
+				
+                <li>
+                    <a href="/quem-sou">Quem sou</a>
+                </li>
+				
+                
+                <li>
+                    <form class="search no-vis-mobile" action="/search.html" method="get">
+                      <div class="search__wrapper">
+                        <input class="search__field" type="search" name="query" id="search-box" placeholder="Procurando por...">
+                        <button type="submit" class="fa fa-search search__icon"></button>
+                      </div>
+                    </form>
+                    <form class="form-inline no-vis-desktop vis-mobile" action="/search.html" method="get">
+                        <label for="search-box"></label>
+                        <input class="search__field"  id="search-box" type="search" name="query" placeholder="Procurando por...">
+                     </form>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Como fazer sorteio no terminal usando o comando shuf</h1>
+                    
+                    <h2 class="subheading">Neste artigo, vamos aprender como fazer sorteio no terminal com o comando shuf.</h2>
+                    
+                    <span class="meta">Postado por Allythy em December 24, 2017</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<p>Neste artigo, vamos aprender como fazer sorteio no terminal com o comando shuf. O shuf é um comando que gerar permutações aleatórias, com isso a gente pode gerar um número aleatório de um terminado intervalo ou de algum arquivo. Digamos que você tem a quantidade de pessoas que estão participando de um evento ou lista com todos os nomes das pessoas, com uma dessas informações você gostaria de realizar um sorteio. Você pode fazer isso de uma forma rápida e fácil usando o comando shuf.</p>
+
+<h2 id="gerando-números-aleatórios-de-um-intervalo-numérico">Gerando números aleatórios de um intervalo numérico</h2>
+
+<p><strong>Sintaxe</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">shuf</span> <span class="nt">-i</span> <span class="o">[</span>NÚMERO INICIAL]-[NUMERO FINAL]
+</code></pre></div></div>
+
+<p>A opção <code class="highlighter-rouge">-i</code> é usada para informar o intervalo número. Exemplo:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">shuf</span> <span class="nt">-i</span> 2-70
+</code></pre></div></div>
+<p><img src="/img/shuf-1.png" alt="Gerou números aleatórios de 2 até 70." /></p>
+
+<p>Ele vai gerar as permutações e mostrar a saída padrão (tela do seu emulador de terminal). Mas digamos que você queira apenas o primeiro número. Para isso, você deve usar a opção <code class="highlighter-rouge">-n</code> para informar a quantidade de números você gostaria de ver na saída padrão. Exemplo:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">shuf</span> <span class="nt">-i</span> 10-20 <span class="nt">-n1</span>
+</code></pre></div></div>
+<p><img src="/img/shuf-2.png" alt="Gerou números aleatórios de 10 até 20, mostrando apenas o primeiro número." /></p>
+
+<h2 id="gerando-nomes-aleatórios-de-um-arquivo">Gerando nomes aleatórios de um arquivo</h2>
+
+<p><strong>Sintaxe</strong>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">shuf</span> <span class="o">[</span>NOME DO ARQUIVO] <span class="nt">-n1</span>
+</code></pre></div></div>
+
+<p>Exemplo:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">shuf </span>nomes <span class="nt">-n1</span>
+</code></pre></div></div>
+<p><img src="/img/shuf-3.png" alt="Pegou um nome aleatório do arquivo nome, neste casso Francisco." /></p>
+
+<p>Você também pode guardar a saída do comando em um arquivo usando os redirecionadores (&gt;, »), mas o próprio comando tem uma opção para isso a <code class="highlighter-rouge">-o</code> . Exemplo:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">shuf </span>nomes <span class="nt">-n2</span> <span class="nt">-o</span> ganhadores
+</code></pre></div></div>
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/Como-alterar-o-diretorio-padrao-do-Apache" data-toggle="tooltip" data-placement="top" title="Como alterar o diretório padrão do Apache">&larr; Postagem anterior</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/Como-instalar-o-Zabbix-Server-3-4-no-Debian-9" data-toggle="tooltip" data-placement="top" title="Como instalar o Zabbix Server 3.4 no Debian 9">Próxima postagem &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://github.com/allythy "target=_blank">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">Todo conteúdo está licenciado sob <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"> Creative Commons</a>   Allythy 2019</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/clean-blog.js "></script>
+<!-- <script src="/js/clean-blog.min.js "></script>
+ -->
+
+</body>
+
+</html>

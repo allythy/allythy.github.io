@@ -1,0 +1,862 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2019-10-06T20:13:27-05:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Allythy</title><subtitle>Dicas sobre o Debian, Software Livre, linha de comando</subtitle><entry><title type="html">Como Gerenciar Senhas Com O Pass</title><link href="http://0.0.0.0:4000/como-gerenciar-senhas-com-o-pass" rel="alternate" type="text/html" title="Como Gerenciar Senhas Com O Pass " /><published>2018-09-14T12:10:00-05:00</published><updated>2018-09-14T12:10:00-05:00</updated><id>http://0.0.0.0:4000/como-gerenciar-senhas-com-o-pass</id><content type="html" xml:base="http://0.0.0.0:4000/como-gerenciar-senhas-com-o-pass">O Pass é um simples gerenciador de senhas de linha de comando. Com o Pass, cada senha fica salva dentro de um arquivo criptografado com o GPG, onde o nome do arquivo é o site ou recurso que você gostaria de salvar a senha. Esses arquivos criptografados ficam salvos em `~/.password-store`.
+
+O Pass torna o gerenciamento desses arquivos extremamente fácil fornecendo uma série de comandos para senhas: adicione, remova, edite, sincronizar, gerar e manipule. Neste artigo, vamos aprender como usá-lo para gerenciarmos nossas senhas.
+
+## Instalação
+
+A instalação do Pass é muito simples, porque o mesmo está disponível na maioria das distribuições GNU.
+
+**Debian e derivados**
+```bash
+sudo apt install pass
+```
+**Fedora**
+
+```bash
+sudo dnf install pass
+```
+**Arch Linux**
+
+```
+pacman -S pass
+```
+
+## Inicializando o pass
+
+Após a instalação do Pass, temos que **criar o nosso par de chaves usando o GPG**. Então, para isso, digite esse comando:
+
+```bash
+gpg --full-gen-key
+```
+
+Com nossas chaves criadas, vamos inicializar o Pass. Para isso, você vai precisar do **ID da sua chave GPG ou o e-mail** que você informou quando estava criando a mesma. Eu vou usar o e-mail:
+
+```bash
+pass init contato@allythy.com
+```
+
+Com isso, o Pass vai criar a um diretório para armazenar a nossas senhas.
+
+## Inserindo senhas
+
+&gt;Sintaxe: pass insert pasta/serviço
+
+Para adicionar senha ao pass é bem simples. Primeiro, vou criar uma pasta chamada e-mail e nela vou guardar as senhas dos meus e-mails. Então, vou começar com o e-mail do SempreUpdate.
+
+```bash
+pass insert email/sempreupdate
+
+mkdir: foi criado o diretório '/home/allythy/.password-store/email'
+Enter password for email/sempreupdate:
+Retype password for email/sempreupdate:
+```
+
+Agora eu quero adicionar a senha do protonmail na mesma pasta email. Vai ser do mesmo jeito, mas agora ele não vai criar a pasta email, porque já foi criada antes.
+
+```bash
+pass insert email/protonmail
+
+Enter password for email/protonmail:
+Retype password for email/protonmail:
+```
+
+Para ver a estrutura de como as nossas senhas estão sendo salvas, digite:
+
+```bash
+pass
+
+Password Store
+|---- email
+    |---protonmail
+    |---sempreupdate
+```
+
+Vamos criar outra pasta para armazenar as senhas das redes sociais:
+
+```bash
+pass insert social/diaspora
+
+mkdir: foi criado o diretório '/home/allythy/.password-store/social'
+Enter password for social/diaspora:
+Retype password for social/diaspora:
+```
+
+Se a gente não informar a pasta que vai ser criada ou usada para salvar a senha, o Pass vai salvar normalmente nossa senha, mas vai ficar desorganizado porque vai ficar “solto” no repositório `~/.password-store`. Então, é recomendado informar uma pasta.
+
+```bash
+Password Store
+|---- email
+|    |---protonmail
+|    |---sempreupdate
+|----social
+     |---diaspora
+```
+
+Você também pode salvar outras informações junto à senha, como usuário, site etc. Para isso, você tem que passar a opção `--multiline` ou `-m`. Contudo, a primeira linha tem que ser a senha. Já as outras podem conter qualquer informação. Para sair e salva as informações pressione `Ctrl+d`.
+
+```bash
+pass insert -m social/noosfero
+Enter contents of social/noosfero and press Ctrl+D when finished:
+
+2wq!2oOLIF9*&amp;&lt;de2cx
+site: noosfero.org
+user: livre
+```
+
+## Gerando senhas automaticamente
+
+Você pode mandar o Pass gerar uma senha para um serviço novo ou  já existente. Vamos gerar uma nova senha para o Protonmail com 25 caracteres:
+
+```
+pass generate email/protonmail 25
+
+An entry already exists for social/sim. Overwrite it? [y/N] y
+The generated password for email/protonmail is:
+&amp;aPO&lt;*$~.&quot;HS)?z'9VIDh(NL0
+```
+Caso queira gerar senha alfanumérico coloque a opção `-n` depois do comando generate.
+
+## Exibindo as senhas
+
+Como a gente viu, digitando `pass` mostra a estrutura de como as senhas estão organizadas. Digamos que eu quero pegar a senha do sempreupdate. Para isso precisamos passar a pasta e o arquivo que vamos pegar a senha:
+
+```
+pass email/sempreupdate
+
+!J|&gt;%,a9UP3Et,X`d:L&lt;;xr3)
+```
+
+Ele vai pedir uma senha. Essa é a senha que colocamos quando criamos a chaves GPG. O problema é que ele vai mostrar a senha do terminal. Imagine se tiver alguém perto de você nesse momento. Isso não seria nada bom. Então, vamos usar a opção `-c`. Assim, essa opção vai copiar a senha para o clipboard, deixar ela lá por 45s e depois apagar.
+
+```
+pass -c email/sempreupdate
+Copied email/sempreupdate to clipboard. Will clear in 45 seconds.
+```
+
+Para ver as informações de noosfero, que foi a senha que inserimos múltiplas linhas, usamos o comando `show`:
+
+```
+pass show social/noosfero
+
+2wq!2oOLIF9*&amp;&lt;de2cx
+site: noosfero.org
+user: livre
+```
+
+Caso você queira que a senha não seja mostrada no terminal tem que usar a opção `-c` depois do comando `show`. Como você verá, apenas a senha vai ser copiada. Então, caso queira copiar a linha 2,3 ou qualquer outra, você precisa passar o número da linha depois da opção `-c`, assim:
+
+```
+pass show -c2 social/noosfero
+
+Copied social/noosfero to clipboard. Will clear in 45 seconds.
+```
+
+## Apagando senhas
+
+Enfim, para remover uma senha do Pass precisamos apenas usar o comando `rm` e informar qual é senha, desse forma:
+
+```
+pass rm email/sempreupdate
+
+Are you sure you would like to delete email/sempreupdate? [y/N] y
+removido '/home/allythy/.password-store/email/sempreupdate.gpg'
+```
+
+Caso você queira remover uma pasta completa com todas senhas use a opção `--recursive` ou `-r` .
+
+```
+pass rm -r email/
+
+Are you sure you would like to delete email/? [y/N] y
+removido '/home/allythy/.password-store/email/job.gpg'
+removido '/home/allythy/.password-store/email/protonmail.gpg'
+foi removido o diretório: '/home/allythy/.password-store/email/'
+```
+
+Se não quiser que o pass pergunte se tem certeza na hora de apagar a senha, use a opção `--force` ou `-f`.
+
+## Editando senha
+
+Para editar uma senha do Pass, temos que usar o comando `edit`:
+
+```
+pass edit social/diaspora
+```
+
+## Mais informações
+
+Para mais informações você pode &lt;a href=&quot;https://www.passwordstore.org/&quot; target=&quot;_ blank&quot;&gt;acessar a página do projeto&lt;/a&gt;
+ ou olhar a documentação no terminal mesmo:
+
+```bash
+man pass
+```
+
+Entretanto, caso você não goste de usar a linha de comando &lt;a href=&quot;https://qtpass.org/ &quot; target=&quot;_ blank&quot;&gt;pode instalar o QtPass&lt;/a&gt;. Ele é uma interface gráfica para o pass. Da mesma forma do Pass, o QtPass está na maioria do repositório das distribuições GNU.
+
+&lt;p&gt;
+Referência:
+&lt;a href=&quot;https://www.passwordstore.org/&quot; target=&quot;_ blank&quot;&gt;Pass&lt;/a&gt;
+&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">O Pass é um simples gerenciador de senhas de linha de comando. Com o Pass, cada senha fica salva dentro de um arquivo criptografado com o GPG, onde o nome do arquivo é o site ou recurso que você gostaria de salvar a senha. Esses arquivos criptografados ficam salvos em ~/.password-store.</summary></entry><entry><title type="html">Como criar documentação com MkDocs</title><link href="http://0.0.0.0:4000/como-criar-documentacao-com-mkdocs" rel="alternate" type="text/html" title="Como criar documentação com MkDocs" /><published>2018-06-21T12:10:00-05:00</published><updated>2018-06-21T12:10:00-05:00</updated><id>http://0.0.0.0:4000/como-criar-documentacao-com-mkdocs</id><content type="html" xml:base="http://0.0.0.0:4000/como-criar-documentacao-com-mkdocs">O MkDocs é gerador de site estático para documentação simples, rápido e um bonito para seu projeto. Ele é feito em Python, então já entendemos a origem da sua simplicidade, mas não confunda simplicidade com falta de recursos, porque o MkDocs tem muito recursos que você pode usar com poucas linhas de código. A documentação é escrita em Markdown, que é uma forma de escrever HTML bem mais simples e bonita e a configuração do MkDocs é feita em apenas um arquivo YAML.
+
+Quando ocorre o build o MKDocs vai gerar arquivos estáticos (HTML, CSS e JS), com isso você pode hospedar o site da sua documentação sem pagar nada no GitHub ou GitLab, porque esses serviços possuem os recursos &lt;a href=&quot;https://pages.github.com/&quot; target=&quot;_ blank&quot;&gt;GitHub Pages&lt;/a&gt; e &lt;a href=&quot;https://about.gitlab.com/features/pages/&quot; target=&quot;_ blank&quot;&gt;GitLab Pages&lt;/a&gt;, respectivamente, que permite a utilização dos arquivos estáticos.
+
+O MkDocs ainda possui um servidor de desenvolvimento integrado, isso permite pré-visualizar a documentação à medida que a escreve. Ele também vai recarregar automaticamente e atualizar seu navegador sempre que você salvar suas alterações.
+
+## Instalação
+
+Se você estiver usando qualquer distribuição GNU, você pode instalar o MkDocs pelo seu gerenciador de pacotes. Como eu estou usando o Debian só tenho que digitar esse comando:
+
+```bash
+sudo apt install mkdocs
+```
+
+Acredito que seja mais interessante instalar o MkDocs pelo gerenciador de pacotes do Python, o pip, porque se você estiver usando um ambiente virtual vai ficar tudo mais organizado e não vai “poluir” o seu sistema. Neste post não vou mostrar como você faz isso, pois sairia do escopo do texto.
+Entretanto, se você não souber como instalar o pip,
+&lt;a href=&quot;https://allythy.github.io/Como-instalar-o-pip-para-gerenciar-pacotes-do-Python-no-GNU-Linux&quot; target=&quot;_ blank&quot;&gt;preparei esse post que demostra como faz&lt;/a&gt;. Com o pip instalado, você só tem que digitar esse comando:
+
+```python
+pip install mkdocs
+```
+Para verificar se tudo deu certo, execute esse comando:
+
+```python
+mkdocs --version
+```
+
+## Criando a documentação
+
+Para começar a nossa documentação é muito fácil, basta digitar esse comando:
+
+```python
+mkdocs new my-project
+```
+
+&gt;Onde tem `my-project` você coloca o nome da sua docomentação
+
+Depois entre no diretório que foi criado:
+
+```python
+cd my-project
+```
+Dentro desse diretório você vai ter uma estrutura igual a essa:
+
+```
+├── docs
+│ └── index.md
+└── mkdocs.yml
+```
+
+Outra forma de começar o projeto é assim:
+
+```
+mkdocs new .
+```
+
+O ponto que dizer que inicialize o projeto no diretório atual, assim ele não criará uma pasta com o nome do projeto e dentro dela a pasta docs. Vai apenas criar a pasta docs e deixar o arquivo de configuração(mkdocs.yml) na raiz do projeto.
+
+Agora vamos entender o que são esses arquivos e pasta. O MkDocs tem apenas um arquivo de configuração, como eu tinha falando acima, esse arquivo é o `mkdocs.yml` e uma pasta chamada `docs` que conterá os nossos arquivos da documentação escritos em Markdown. No momento, a pasta docs contém apenas uma única página de documentação, chamada index.md.
+
+## Inicializando o servidor
+
+Vamos inicializar o servidor do MkDocs para verificar como está a nossa documentação até agora:
+
+&gt; Lembre-se de estar no mesmo diretório que o arquivo de configuração `mkdocs.yml`
+
+```python
+mkdocs serve
+```
+
+Abra o seu navegador e digite a seguinte URL `http://localhost:8000/`, encontrará uma página igual a essa:
+
+![](img/mkdocs.png)
+
+## Editando as páginas
+
+Vamos adicionar uma segunda página a nossa documentação, o nome dela será `about.md` e deve ficar dentro da pasta **docs**. O conteúdo dela vai ser esse:
+
+```
+# About
+
+## Random
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+## Random2
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+## Random3
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+```
+
+Feito isso, o MkDocs colocará automaticamente a nossa página no menu de navegação. Como vocês podem observar, cada título do documento virou um hyperlink no menu lateral e a URL que será exibida é o nome que você deu para o arquivo, neste casso `about`.
+
+![](img/mkdocs2.png)
+
+O nome **Welcome to MkDocs** no menu de navegação não está muito interessante, quero deixar apenas o nome **home**, porque o MkDocs utiliza o primeiro título do documento e define como nome do menu de navegação. Então vamos alterar isso, primeiro que temos abrir o arquivo de configuração do MkDocs (mkdocs.yml) e colocar essas informações:
+
+```
+site_name: My Docs
+nav:
+    - Home: index.md
+    - About: about.md
+```
+
+![](img/mkdocs3.png)
+
+O que acabamos de fazer foi adicionar o parâmetro `pages` ao arquivo de configuração, onde primeiro argumento é o nome que vai aparecer no menu de navegação e o segundo é caminho da página. Você também podem alterar o nome da documentação, para isso mude onde tem `My Docs` e colocar o nome da sua documentação.
+
+## Campo de Pesquisa
+
+Uma coisa que me chamou muito atenção foi o campo de pesquisa do MkDocs, porque os resultados da pesquisa incluem todas as ocorrências do termo de pesquisa no site e vinculam diretamente à seção da página em que o termo é exibido. Você tem tudo isso sem esforço ou configuração nenhuma da sua parte.
+
+![](img/mkdocs4.png)
+
+## Alterando o tema
+
+O MkDocs vem com dois temas: **mkdocs** e o **readthedocs**. O  mkdocs é o tema que estavamos usando até o momento, então vamos habilitar o readthedocs. Para isso, abra o arquivo `mkdocs.yml` e adicione o parâmetro `theme` ao arquivo e passe o nome do tema.
+
+```
+site_name: My Docs
+nav:
+    - Home: index.md
+    - About: about.md
+theme: readthedocs
+```
+
+![](img/mkdocs5.png)
+
+Você também pode instalar temas feitos por outras pessoas &lt;a href=&quot;https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes&quot; target=&quot;_ blank&quot;&gt;acessando a Wiki do MkDocs&lt;/a&gt;.
+
+## Gerando os arquivos estáticos
+
+Digamos que já fizemos toda a nossa documentação, então agora temos que gerar os arquivos estáticos. Para isso, só temos que digitar esse comado:
+
+```
+mkdocs build
+```
+
+Esse comando vai criar um diretório chamado `site` e ele vai conter os nossos arquivos estáticos.
+
+```
+404.html  about  css  fonts  img  index.html  js  search  search.html  sitemap.xml
+```
+
+## Deploy para o GitHub
+
+Essa parte é importante que você tenha um conhecido básico de como usar o git. O MkDocs possui um comando que facilita o deploy para o GitHub, o  `mkdocs gh-deploy`, mas antes temos que ir no GitHub e criar um repositório vazio, eu vou colocar o nome de **test-mkdocs**.
+
+![](img/mkdocs6.png )
+
+Quando clicamos em `Create repository`, vamos ser enviado para essa página:
+
+![](img/mkdocs7.png)
+
+&gt;Não feche essa página vamos precisar dela daqui a pouco.
+
+Volte a pasta do projeto e inicializar o git com esse comando:
+
+```
+git init
+```
+
+Feito isso, vamos criar um arquivo chamando `.gitignore`, esse arquivo vai dizer para o git ignorar uma pasta ou arquivo, no nosso caso vamos ignorar a pasta **site**.
+
+```
+echo &quot;site/&quot; &gt;&gt; .gitignore
+```
+
+Agora vamos adicionar todos os arquivos e realizar o commit deles:
+
+```
+git add .
+git commit -m &quot;first commit&quot;
+```
+
+Volte ao GitHub e pegue o link do repositório remoto que ele deu e adicione ao seu projeto, o meu vai ser esse:
+
+```
+git remote add origin https://github.com/allythy/test-mkdocs.git
+```
+
+Feito isso, vamos enviar nossa documentação para o GitHub:
+
+```
+git push -u origin master
+```
+
+Volte ao GitHub e atualize a página e verá que nossa documentação já está lá.
+
+![](img/mkdocs8.png)
+
+Certo, mas cadê o site da documentação? Calma, primeiro tivemos que colocar no nosso projeto no GitHub, porque se ele não tivesse lá o comando a seguir falharia. Então vamos voltar ao nosso projeto e executar esse comando:
+
+
+```
+mkdocs gh-deploy
+```
+
+Esse comando gerar o build do site, copiar os arquivos para a branch `gh-pages` caso não tenha essa branch ele vai criar (que é o nosso caso) e enviar os arquivos para o GitHub, por conta disso ele vai solicitar o seu usuário e senha do GitHub. Feito isso, ele vai gerar a URL da sua documentação.
+
+![](img/mkdocs9.png)
+
+É só pegar ela URL e colocar no seu navegador. Pronto, a sua documentarão feita com o MkDocs está online. O código desse projeto está &lt;a href=&quot;https://github.com/allythy/test-mkdocs&quot; target=&quot;_ blank&quot;&gt;disponível no meu GitHub&lt;/a&gt;, se gostou dá uma star lá.
+
+![](img/mkdocs10.png)
+
+&lt;p&gt;
+Referência:
+&lt;a href=&quot;https://www.mkdocs.org/&quot; target=&quot;_ blank&quot;&gt;MkDocs&lt;/a&gt;
+
+&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">O MkDocs é gerador de site estático para documentação simples, rápido e um bonito para seu projeto. Ele é feito em Python, então já entendemos a origem da sua simplicidade, mas não confunda simplicidade com falta de recursos, porque o MkDocs tem muito recursos que você pode usar com poucas linhas de código. A documentação é escrita em Markdown, que é uma forma de escrever HTML bem mais simples e bonita e a configuração do MkDocs é feita em apenas um arquivo YAML.</summary></entry><entry><title type="html">Como mostrar a branch do Git no Bash</title><link href="http://0.0.0.0:4000/como-mostrar-a-branch-do-git-no-bash" rel="alternate" type="text/html" title="Como mostrar a branch do Git no Bash" /><published>2018-05-15T12:10:00-05:00</published><updated>2018-05-15T12:10:00-05:00</updated><id>http://0.0.0.0:4000/como-mostrar-a-branch-do-git-no-bash</id><content type="html" xml:base="http://0.0.0.0:4000/como-mostrar-a-branch-do-git-no-bash">Se você é um usuário do Bash, pode aproveitar alguns recursos dele para tornar sua experiência com o Git muito mais amigável. Neste caso, como mostrar a branch do Git que você está trabalhando.
+
+Primeiro, vamos abrir o arquivo .bashrc:
+```bash
+vim .bashrc
+```
+
+Procure pela variável `PS1` e coloque antes do `\$` isso:
+
+```bashrc
+__git_ps1 &quot; (%s)&quot;
+```
+
+Deve ficar assim sua PS1:
+
+![](img/branch.png)
+
+Agora vamos entender o que acabamos de fazer. O `__git_ps1 &quot;(% s)&quot;` chama uma função fornecida pelo git-prompt.sh com um argumento de formatação o `(%s)`. Feito isso, vamos salvar o nosso arquivo e recarregar o .bashrc:
+
+```bash
+source .bashrc
+```
+
+Pronto, agora entre em algum diretório que você tenha um projeto versionado com o Git que o Bash vai mostrar a branch que você está.
+
+![](img/branch2.png)
+
+Caso, aparecer essa mensagem:
+```bash
+bash: __git_ps1: comando não encontrado
+```
+Você tem que carregar essa função que está no `/usr/lib/git-core/git-sh-prompt`. Para isso, você tem que acrescentar no começo do seu .bashrc esse comando:
+
+```bash
+source /usr/lib/git-core/git-sh-prompt
+```
+Feito isso, recarregue novamente o .bashrc:
+
+```bash
+source .bashrc
+```
+Se você estiver usando o Fedora o arquivo que você tem que acrescentar no seu .bashrc é esse:
+```
+source /usr/share/git-core/contrib/completion/git-prompt.sh
+```
+Eu testei essas alterações no Debian 9, 10 , Ubuntu 16.04, Fedora e deu tudo certo. Nas outras distribuições não tive como testar. Caso você queira deixar o seu Bash igual ao meu, é assim que está a minha PS1:
+```bash
+PS1='${debian_chroot:+($debian_chroot)}\[\033[36m\]\u\[\033[37m\]@\[\033[33m\]\h:\[\033[32m\]\w\[\033[31;1m\]$(__git_ps1 &quot;(%s)&quot;)\[\033[00m\]\$ '
+```
+&lt;p&gt;
+Regerência:
+&lt;a href=&quot;https://git-scm.com/book/en/v2/Appendix-A:-Git-in-Other-Environments-Git-in-Bash&quot; target=&quot;_ blank&quot;&gt;Git-Pro&lt;/a&gt;,
+&lt;a href=&quot;https://fedoraproject.org/wiki/Git_quick_reference&quot; target=&quot;_ blank&quot;&gt;Fedora Project&lt;/a&gt;
+
+&lt;/p&gt;</content><author><name>Allythy</name></author><summary type="html">Se você é um usuário do Bash, pode aproveitar alguns recursos dele para tornar sua experiência com o Git muito mais amigável. Neste caso, como mostrar a branch do Git que você está trabalhando.</summary></entry><entry><title type="html">Como usar o Trimage para comprimir imagens</title><link href="http://0.0.0.0:4000/como-usar-o-trimage-para-comprimir-imagens" rel="alternate" type="text/html" title="Como usar o Trimage para comprimir imagens" /><published>2018-05-08T08:10:00-05:00</published><updated>2018-05-08T08:10:00-05:00</updated><id>http://0.0.0.0:4000/como-usar-o-trimage-para-comprimir-imagens</id><content type="html" xml:base="http://0.0.0.0:4000/como-usar-o-trimage-para-comprimir-imagens">Neste artigo, vamos aprender como instalar o Trimage para comprimir nossas imagens. O Trimage é uma GUI multiplataforma e interface de linha de comando para otimizar imagem, usando optipng, pngcrush, advpng e jpegoptim, dependendo do tipo de arquivo (atualmente, os arquivos PNG e JPG são suportados),foi inspirado no imageoptim.
+
+Todas as imagem são comprimidos com o Trimage sem perdas nos níveis mais altos de compressão disponíveis, o EXIF e outros metadados são removidos. O Trimage oferece várias funções de entrada para ajustar o seu próprio fluxo de trabalho: Uma caixa de diálogo de arquivo comum, arrastando e soltando e várias opções de linha de comando.
+
+## Instalação
+
+__Debian, Ubuntu e derivados__
+```bash
+sudo apt install trimage
+```
+__Arch Linux__
+```bash
+yaourt -S trimage-git
+```
+__Outras distribuições__
+
+1- Faça o download no projeto no &lt;a href=&quot;http://github.com/Kilian/Trimage&quot; target=&quot;_ blank&quot;&gt;GitHub&lt;/a&gt; ou no  &lt;a href=&quot;https://launchpad.net/trimage&quot; target=&quot;_ blank&quot;&gt;Launchpad&lt;/a&gt;
+
+2- Feito isso, você tem que instalar os pacotes necessário para instalação:
+```bash
+sudo apt install python python-qt4 optipng pngcrush advancecomp jpegoptim
+```
+3- Digite esse comando para começar a instalação:
+```bash
+sudo python setup.py install
+```
+4- Pronto, agora é só procurar por Trimage no seu lançador de arquivos.
+
+## Como usar
+
+### Interface gráfica
+Ele é um programa bem simples de usar, para comprimir suas imagens clique em __Add and compress__ e selecione os arquivos. Se você achar isso muito trabalhoso é só arrasta as imagens para o programa ou a pasta. Quando a imagem é comprimida ele mostra de quantos porcentos foi a compressão e o tamanho que a imagem tinha e o tamanho que ele ficou depois.
+
+![Interface do trimamge comprimindo cinco imagens](img/trimage.png)
+
+### Linha de comando
+
+Comprimir um arquivo:
+```bash
+trimage -f nome-do-arquivo
+```
+
+Comprimir um diretórios com várias imagem:
+```bash
+trimage -d nome-da-pasta
+```</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como instalar o Trimage para comprimir nossas imagens. O Trimage é uma GUI multiplataforma e interface de linha de comando para otimizar imagem, usando optipng, pngcrush, advpng e jpegoptim, dependendo do tipo de arquivo (atualmente, os arquivos PNG e JPG são suportados),foi inspirado no imageoptim.</summary></entry><entry><title type="html">Como alterar o tempo autenticação da senha do sudo</title><link href="http://0.0.0.0:4000/Como-alterar-o-tempo-autenticacao-da-senha-do-sudo" rel="alternate" type="text/html" title="Como alterar o tempo autenticação da senha do sudo" /><published>2018-04-26T19:10:00-05:00</published><updated>2018-04-26T19:10:00-05:00</updated><id>http://0.0.0.0:4000/Como-alterar-o-tempo-autenticacao-da-senha-do-sudo</id><content type="html" xml:base="http://0.0.0.0:4000/Como-alterar-o-tempo-autenticacao-da-senha-do-sudo">Essa vai ser uma dica rápida, mas é bem útil. Vamos aprender como alterar o tempo de autenticação da senha do `sudo`. Por padrão, quando executamos algum comando com privilégios de superusuário, como `sudo apt update`, as credencias de autenticação são armazenadas em cache por 15 minutos. Assim, para alguns esse tempo é pouco, mas para outros é muito tempo. Então, vamos saber como alterar o tempo autenticação da senha do sudo.
+
+Assim, primeiro, temos que abrir o arquivo de configuração do sudo, que está localizando em `etc/sudoers`. Então, para isso, vamos usar o comando `visudo`, porque não é recomendado alterar direto no arquivo de configuração.
+
+```
+sudo visudo
+```
+
+![Tela do arquivo de configuração do sudo, selecionado a linha onde tem Defaults env_reset ](img/sudo.png)
+
+Vamos alterar a linha onde tem __Defaults env_reset__ acrescentando o parâmetro __timestamp_timeout=xx__. Onde tem `“xx”` é o valor em minutos que você vai colocar para que o sudo peça a senha. Nesse exemplo eu vou colocar 5 minutos:
+
+
+![Tela do arquivo de configuração do sudo, selecionado a linha onde tem timestamp_timeout=5 ](img/sudo2.png)
+
+Feito isso, pressione `Ctrl+x` para sair e depois `s` para salvar.
+
+Se você quiser que peça a senha toda vez que executar o sudo, altere o valor do timestamp_timeout para 0 (zero). Você também pode desabilitar a senha colocando o valor -1, o que não é recomendando por motivos de segurança.</content><author><name>Allythy</name></author><summary type="html">Essa vai ser uma dica rápida, mas é bem útil. Vamos aprender como alterar o tempo de autenticação da senha do sudo. Por padrão, quando executamos algum comando com privilégios de superusuário, como sudo apt update, as credencias de autenticação são armazenadas em cache por 15 minutos. Assim, para alguns esse tempo é pouco, mas para outros é muito tempo. Então, vamos saber como alterar o tempo autenticação da senha do sudo.</summary></entry><entry><title type="html">Como usar a tecla super, meta ou tecla do windows para abrir o menu no KDE Plasma</title><link href="http://0.0.0.0:4000/como-usar-a-tecla-super-meta-ou-tecla-do-windows-para-abrir-o-menu-no-kde-plasma" rel="alternate" type="text/html" title="Como usar a tecla super, meta ou tecla do windows para abrir o menu no KDE Plasma" /><published>2018-03-11T10:00:00-05:00</published><updated>2018-03-11T10:00:00-05:00</updated><id>http://0.0.0.0:4000/como-usar-a-tecla-super-meta-ou-tecla-do-windows-para-abrir-o-menu-no-kde-plasma</id><content type="html" xml:base="http://0.0.0.0:4000/como-usar-a-tecla-super-meta-ou-tecla-do-windows-para-abrir-o-menu-no-kde-plasma">Essa vai ser uma dica rápida, mas que pode ser bem útil e livrar você de algumas dores de cabeça. Vou mostrar como usar a tecla super, meta ou tecla do Windows para abrir o menu no KDE Plasma.
+
+Primeiro, você tem que clicar com o botão direito do mouse no widget do menu e depois em __Configurações de Lançador de Aplicativos__:
+
+![Widget do menu de configuração, com o mouse sobre Configurações de Lançador de Aplicativos ](img/kde-menu.png)
+
+Feito isso, você vai clicar em __Atalhos de teclado:__
+
+![Tela de configurações de lançador de aplicativos, selecionada a opção do menu lateral Atalhos de teclado ](img/kde-menu2.png)
+
+Onde tem o botão com nome __Nenhum__ você clica nele. Quando você fizer isso ele vai mudar de cor e nome para __Entrada__:
+
+![Tela de Atalhos do Teclado com o botão Entrada selecionado ](img/kde-menu3.png)
+
+Nesse momento, você tem que pressionar a combinação __Alt+F1__:
+
+![Tela de Atalhos do Teclado com o botão Entrada selecionado ](img/kde-menu4.png)
+
+Feito isso, é só clicar no botão de __Aplicar__ e depois no botão de __OK__. Pronto, você já pode pressionar a tecla super que ela vai abrir o menu do sistema.</content><author><name>Allythy</name></author><summary type="html">Essa vai ser uma dica rápida, mas que pode ser bem útil e livrar você de algumas dores de cabeça. Vou mostrar como usar a tecla super, meta ou tecla do Windows para abrir o menu no KDE Plasma.</summary></entry><entry><title type="html">Como instalar o Zabbix Server 3.4 no Debian 9</title><link href="http://0.0.0.0:4000/Como-instalar-o-Zabbix-Server-3-4-no-Debian-9" rel="alternate" type="text/html" title="Como instalar o Zabbix Server 3.4 no Debian 9" /><published>2018-02-11T15:00:00-06:00</published><updated>2018-02-11T15:00:00-06:00</updated><id>http://0.0.0.0:4000/Como-instalar-o-Zabbix-Server-3-4-no-Debian-9</id><content type="html" xml:base="http://0.0.0.0:4000/Como-instalar-o-Zabbix-Server-3-4-no-Debian-9">Este artigo vai tomar como base o material e os conhecimentos adqueridos no treinamento que fiz mês passado sobre o Zabbix, ministrado pelo Werneck Costa que é Zabbix Certified Specialist e Zabbix Certified Professional. Vamos aprender como instalar o Zabbix Server 3.4 no Debian 9.
+
+ A solução de monitoramento Zabbix é um Software Livre de última geração com classe empresarial. Ele é projetado para monitorar disponibilidade e desempenho dos componentes de uma infraestruturada de TI. O Zabbix é capaz de monitorar um número ilimitado de métricas e fornecer análises sofisticadas sobre a saúde da infraestrutura de TI. Sendo capaz de identificar a fonte de um problema nos sistemas de T.I, permite aos usuários Zabbix (SysOps) agirem rapidamente, reduzindo os custos associados com a paralisação.
+
+__Roteiro para instalação do Zabbix:__
+
+&gt;1. Instalação do repositório Debian;
+&gt;2. Instalação dos pacotes Zabbix (servidor e cliente) e suas dependências;
+&gt;3. Configuração do banco de dados;
+&gt;4. Configurar interface web;
+&gt;5. Testar e validar a instalação acessado via navegador.
+
+### 1. Instalação do repositório Debian
+
+Primeiro, vamos logar como root para fazer a instalação. Feito isso, vamos baixar o pacote do Zabbix 3.4:
+
+```bash
+su
+```
+```bash
+ wget http://repo.zabbix.com/zabbix/3.4/debian/pool/main/z/zabbix-release/zabbix-release_3.4-1+stretch_all.deb
+ ```
+
+Agora vamos instalar o pacote que baixamos, digite:
+```bash
+dpkg -i zabbix-release_3.4-1+stretch_all.deb
+```
+
+Vamos atualizar o repositório do sistema:
+```bash
+apt update
+```
+
+## 2. Instalação dos pacotes Zabbix
+
+Temos que instalar o pacote Zabbix Server e suas dependências:
+```bash
+apt install zabbix-server-mysql zabbix-frontend-php zabbix-agent zabbix-get -y
+```
+
+Após a execução do comando anterior, todos os componentes estarão instalados (servidor web, php, banco de dados e servidor Zabbix). Para fazer o primeiro acesso (teste), recarregue o Apache e abra o seu navegador e acesse o ip do seu servidor barra zabbix:
+```bash
+systemctl reload apache2
+```
+```bash
+192.168.0.106/zabbix
+```
+![Página de boas-vindas do Zabbix](img/zabbix1.png)
+
+Feito o primeiro teste, vamos voltar para emulador de terminal e editar alguns parâmetros de configuração do Apache para o frontend do Zabbix. Algumas configurações do PHP estão corretas, mas é necessário configurar o time zone. Para isso, vou usar o editor de linha de comando, o vim. Caso você não tenha instalado, use esse comando:
+```bash
+apt install vim
+```
+
+Vamos abrir o arquivo de configuração:
+
+```bash
+vim /etc/apache2/conf-available/zabbix.conf
+```
+
+Procure o seguinte bloco de código __mod_php7.c__, quando encontrar pressione a tecla `i` para entrar no modo de inserção do vim.
+Retire o comentário (“#”) da linha __php_value date.timezone__ e altere para o time zone do seu Estado,
+&lt;a href=&quot;https://secure.php.net/manual/en/timezones.america.php&quot; target=&quot;_ blank&quot;&gt;caso você não saiba o seu time zone, procure aqui.&lt;/a&gt;
+
+![Arquivo de configuração do Zabbiz Server](img/zabbix2.png)
+
+Feito isso, pressione `Esc` para sair do modo de inserção e depois `:x` que vai salvar o arquivo e sair do vim.
+
+Agora vamos reiniciar o servidor Apache para aplicação da configuração feita no arquivo do PHP:
+
+```bash
+systemctl restart apache2
+```
+
+## 3. Configuração do banco de dados
+
+Antes de voltar à interface web, será preciso executar algumas operações no banco de dados:
+
+&gt;- Setar senha de root
+&gt;- Criar banco Zabbix
+&gt;- Criar usuário para acesso
+
+Vamos executar o comando a seguir para melhorar a segurança do nosso banco de dados MariaDB, configurando uma senha para o root, remover o usuário de conexão anônima, desabilitar acesso de root feito de fora deste servidor, remover a base de test que possui acesso anônimo.
+
+```bash
+mysql_secure_installation
+```
+
+O utilitário solicitará uma senha de root para se conectar. Como não existe, pode deixar em branco e apertar o Enter:
+
+![Tela que solicita a senha do root do bando de dados](img/zabbix3.png)
+
+O utilitário perguntará se deve ser setada uma senha para o root. Responda com um __“y”__ e informe sua senha, vou colocar __Allythy!__:
+
+![Tela para configurar a senha do usuário root](img/zabbix4.png)
+
+Agora é só responder __&quot;y&quot;__ para as próximas perguntas. No final o programa informará que a configuração foi finalizada:
+
+![Tela informando que todos os campos foram preenchidos](img/zabbix5.png)
+
+Ainda no terminal, logue no console do MariaDB com usuário root e senha que você colocou acima.
+
+```sql
+mariadb -u root -p
+```
+
+Vamos criar um banco de dados chamado zabbix_db:
+```sql
+create database zabbix_db character set utf8 collate utf8_bin;
+```
+
+Depois criaremos um usuário chamado __zabbix_usr__ para o banco que acabamos de criar e colocar como senha para esse usuário __@Allythye@!__. Caso você queira saber como criar usuário e conceder permissão,
+&lt;a href=&quot;https://allythy.github.io/Como-criar-um-novo-usuario-e-conceder-permissoes-no-MariaD-e-MySQL&quot; target=&quot;_ blank&quot;&gt;temos esse artigo sobre o assunto.&lt;/a&gt;
+
+```sql
+grant all privileges on zabbix_db.* to zabbix_usr@localhost identified by '@Allythye@!';
+```
+Feito isso, podemos sair do console do MariaDB:
+
+```sql
+exit;
+```
+
+Agora temos que fazer importação dos dados iniciais para o banco de dados que criamos, o zabbix_db:
+
+```bash
+zcat /usr/share/doc/zabbix-server-mysql/create.sql.gz | mysql -u zabbix_usr -p@Allythye@! zabbix_db
+```
+Vamos editar o arquivo de configuração do banco de dados do servidor Zabbix que se encontra no diretório /etc/zabbix:
+
+```bash
+vim /etc/zabbix/zabbix_server.conf
+```
+Procure pelos parâmetros abaixo e coloque as informações do seu banco de dados. Lembrando, pressione a tecla `i` para entrar no modo de inserção do vim, depois de alterar os parâmetros pressione `Esc` e depois `:x` para salvar e depois sair do vim.
+
+```bash
+DBName=zabbix_db
+DBUser=zabbix_usr
+DBPassword=@Sempre#Update@!
+```
+![Tela do arquivo de configuração do zabbix server mostrando as variáveis alteradas](img/zabbix6.png)
+
+Feito isso, vamos reiniciar o servidor Zabbix:
+
+```bash
+systemctl restart zabbix-server
+```
+Configurando o Zabbix para inicializar junto ao sistema:
+
+```bash
+systemctl enable zabbix-server
+```
+
+## 4. Configurar interface web
+
+Vamos voltar para a interface web, coloque o ip do seu servidor e no final coloque __“/zabbix”__, depois clique em Next step:
+
+```bash
+192.168.0.106/zabbix
+```
+![Tela de boas-vindas do Zabbix](img/zabbix1.png)
+
+Verifique se está tudo OK, se tiver, clique Next step:
+
+![Tela mostrando a checagem dos pré-requisitos](img/zabbix7.png)
+
+Preencha os campos com as informações do banco de dados e depois clique em Next step:
+
+![Tela para colocar as informações do banco de dados](img/zabbix8.png)
+
+Coloque um nome ,ip e porta do seu Servidor Zabbix:
+
+![Tela para colocar as informações do servidor](img/zabbix9.png)
+
+Confirme tudo:
+
+![Tela para confirmar as configurações feitas anteriomente](img/zabbix11.png)
+
+Instalação finalizada com sucesso, clique em Finish:
+
+![Tela mostrando que a instalação foi finalizada com sucesso](img/zabbix12.png)
+
+O acesso padrão é:
+
+```
+Usuário: Admin
+Senha: zabbix
+```
+Pronto, com o servidor Zabbix instalado é só começar o monitoramento da sua rede, servidores e tudo que essa poderosa ferramenta tem a oferecer.</content><author><name>Allythy</name></author><summary type="html">Este artigo vai tomar como base o material e os conhecimentos adqueridos no treinamento que fiz mês passado sobre o Zabbix, ministrado pelo Werneck Costa que é Zabbix Certified Specialist e Zabbix Certified Professional. Vamos aprender como instalar o Zabbix Server 3.4 no Debian 9.</summary></entry><entry><title type="html">Como fazer sorteio no terminal usando o comando shuf</title><link href="http://0.0.0.0:4000/Como-fazer-sorteio-no-terminal-usando-o-comando-shuf" rel="alternate" type="text/html" title="Como fazer sorteio no terminal usando o comando shuf" /><published>2017-12-24T14:00:00-06:00</published><updated>2017-12-24T14:00:00-06:00</updated><id>http://0.0.0.0:4000/Como-fazer-sorteio-no-terminal-usando-o-comando-shuf</id><content type="html" xml:base="http://0.0.0.0:4000/Como-fazer-sorteio-no-terminal-usando-o-comando-shuf">Neste artigo, vamos aprender como fazer sorteio no terminal com o comando shuf. O shuf é um comando que gerar permutações aleatórias, com isso a gente pode gerar um número aleatório de um terminado intervalo ou de algum arquivo. Digamos que você tem a quantidade de pessoas que estão participando de um evento ou lista com todos os nomes das pessoas, com uma dessas informações você gostaria de realizar um sorteio. Você pode fazer isso de uma forma rápida e fácil usando o comando shuf.
+
+## Gerando números aleatórios de um intervalo numérico
+
+__Sintaxe__:
+```bash
+shuf -i [NÚMERO INICIAL]-[NUMERO FINAL]
+```
+
+A opção `-i` é usada para informar o intervalo número. Exemplo:
+
+```bash
+shuf -i 2-70
+```
+![Gerou números aleatórios de 2 até 70.](/img/shuf-1.png)
+
+Ele vai gerar as permutações e mostrar a saída padrão (tela do seu emulador de terminal). Mas digamos que você queira apenas o primeiro número. Para isso, você deve usar a opção `-n` para informar a quantidade de números você gostaria de ver na saída padrão. Exemplo:
+
+```bash
+shuf -i 10-20 -n1
+```
+![Gerou números aleatórios de 10 até 20, mostrando apenas o primeiro número.](/img/shuf-2.png)
+
+## Gerando nomes aleatórios de um arquivo
+
+__Sintaxe__:
+
+```bash
+shuf [NOME DO ARQUIVO] -n1
+```
+
+Exemplo:
+
+```bash
+ shuf nomes -n1
+```
+![Pegou um nome aleatório do arquivo nome, neste casso Francisco.](/img/shuf-3.png)
+
+Você também pode guardar a saída do comando em um arquivo usando os redirecionadores (&gt;, &gt;&gt;), mas o próprio comando tem uma opção para isso a `-o` . Exemplo:
+
+```bash
+shuf nomes -n2 -o ganhadores
+```</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como fazer sorteio no terminal com o comando shuf. O shuf é um comando que gerar permutações aleatórias, com isso a gente pode gerar um número aleatório de um terminado intervalo ou de algum arquivo. Digamos que você tem a quantidade de pessoas que estão participando de um evento ou lista com todos os nomes das pessoas, com uma dessas informações você gostaria de realizar um sorteio. Você pode fazer isso de uma forma rápida e fácil usando o comando shuf.</summary></entry><entry><title type="html">Como alterar o diretório padrão do Apache</title><link href="http://0.0.0.0:4000/Como-alterar-o-diretorio-padrao-do-Apache" rel="alternate" type="text/html" title="Como alterar o diretório padrão do Apache" /><published>2017-12-23T16:00:00-06:00</published><updated>2017-12-23T16:00:00-06:00</updated><id>http://0.0.0.0:4000/Como-alterar-o-diretorio-padrao-do-Apache</id><content type="html" xml:base="http://0.0.0.0:4000/Como-alterar-o-diretorio-padrao-do-Apache">Neste artigo, vamos aprender como alterar o diretório padrão do Apache. Digamos que você está desenvolvendo uma aplicação em PHP na sua máquina, mas toda vez que você tem que editar um arquivo, criar ou fazer algum tipo de manipulação no seu projeto é necessário entrar como superusuário (root), o que não é tão interessante. Por conta disso, vamos alterar o diretório padrão do Apache.
+
+## Como alterar o diretório padrão do Apache
+
+Primeiro vamos abrir o arquivo de configuração do Apache:
+
+```bash
+sudo nano /etc/apache2/apache2.conf
+```
+
+Você vai procurar pele linha que tenha `&lt;Directory /var/www&gt;`, que deve estar igual à imagem abaixo:
+
+![Arquivo de configuracao do apache2](img/apache1.png)
+
+Substitua `/var/www` pelo diretório que você deseja. Eu coloquei esse diretório que vocês podem ver abaixo:
+
+![Substitui o /var/www/ por /home/allythy/Documentos/desenvolvimento](img/apache2.png)
+
+Feito isso, vamos alterar esse arquivo `000-default.conf`
+
+```bash
+sudo nano /etc/apache2/sites-available/000-default.conf
+```
+
+Procure pela linha que tenha __DocumentRoot__, que deve estar igual à imagem abaixo:
+
+![Mostrando que a linha que tem o DocumentRoot é onde tem o caminho /var/www ](img/apache3.png)
+
+Onde tem `/var/www` coloque o mesmo diretório que você colocou no arquivo apache2.conf.
+
+![Substitui o /var/www/ por /home/allythy/Documentos/desenvolvimento ](img/apache4.png)
+
+Feito isso, temos que reiniciar o Apache. Para isso, use o seguinte comando:
+
+```bash
+sudo systemctl restart apache2
+```
+
+Pronto, já alteramos o diretório padrão do Apache.</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender como alterar o diretório padrão do Apache. Digamos que você está desenvolvendo uma aplicação em PHP na sua máquina, mas toda vez que você tem que editar um arquivo, criar ou fazer algum tipo de manipulação no seu projeto é necessário entrar como superusuário (root), o que não é tão interessante. Por conta disso, vamos alterar o diretório padrão do Apache.</summary></entry><entry><title type="html">3 maneiras de alterar o Shell padrão de um usuário no GNU/Linux</title><link href="http://0.0.0.0:4000/3-Maneiras-de-alterar-o-Shell-padrao-de-um-usuario-no-GNU-Linux" rel="alternate" type="text/html" title="3 maneiras de alterar o Shell padrão de um usuário no GNU/Linux" /><published>2017-09-12T12:00:00-05:00</published><updated>2017-09-12T12:00:00-05:00</updated><id>http://0.0.0.0:4000/3-Maneiras-de-alterar-o-Shell-padrao-de-um-usuario-no-GNU-Linux</id><content type="html" xml:base="http://0.0.0.0:4000/3-Maneiras-de-alterar-o-Shell-padrao-de-um-usuario-no-GNU-Linux">Neste artigo, vamos aprender 3 maneiras de alterar o Shell padrão de um usuário no GNU/Linux. O Shell é interpretador de comandos e é a uma camada entre o Kernel e o usuário. O Shell é simplesmente o programa que lê o comando que você digitou e converte-o em uma forma mais simplificada e legível para o Sistema GNU, diminuindo o tempo gasto pelo Sistema GNU (ou kernel) na execução deste comando. Existem vários tipos de Shells, como: bash, sh, ksh, zsh, fish e muitos outros.
+
+Vamos primeiro listar todos os Shells disponíveis em seu sistema GNU/Linux, digite:
+
+```bash
+cat /etc/shells
+```
+
+O Shell padrão para a maioria dos Sistemas GNU/Liunx é o Bash __(/ bin / bash)__. Antes de prosseguir, observe que:
+
+&gt;– Um usuário pode alterar seu Shell para qualquer Shell que esteja listado no arquivo / etc/shells.
+&gt;– Somente o superusuário (root) ou usuário com privilégio de superusuário pode alterar o Shell.
+
+## 1. usermod
+
+`usermod` é um utilitário para modificar os detalhes da conta de um usuário, armazenado no arquivo / __etc/passwd__ e a opção `-s` ou `--shell` é usada para alterar o Shell de login do usuário.
+
+Neste exemplo, primeiro verificamos as informações da conta do usuário para ver seu Shell de login padrão.
+
+```bash
+grep allythy /etc/passwd
+```
+
+Em seguida, altere seu shell de login de `/bin/bash` para `/bin/sh` da seguinte maneira:
+
+```bash
+sudo usermod --shell /bin/bash allythy
+```
+
+## 2. chsh
+
+`chsh` é um utilitário de linha de comando para alterar o Shell de um usuário. Você alterar o Shell passando a opção `-s` ou `--shell`, depois informando o Shell que vai ser usado e o nome do usuário.
+
+```bash
+sudo chsh --shell /bin/sh allythy
+```
+
+## 3. Alterando diretamente o arquivo /etc/passwd
+
+Neste método, basta abrir o arquivo __/etc/passwd__ usando qualquer editor de texto e alterar o Shell do usuário que você queira.
+
+```basta
+sudo vim /etc/passwd
+```
+
+![Mostrando o conteúdo do arquivo etc/passwd e ressaltando o shell do usuário, que é o último campo do arquivo](img/etc-passwd.png)
+
+Quando tiver feito a edição, salve e feche o arquivo.</content><author><name>Allythy</name></author><summary type="html">Neste artigo, vamos aprender 3 maneiras de alterar o Shell padrão de um usuário no GNU/Linux. O Shell é interpretador de comandos e é a uma camada entre o Kernel e o usuário. O Shell é simplesmente o programa que lê o comando que você digitou e converte-o em uma forma mais simplificada e legível para o Sistema GNU, diminuindo o tempo gasto pelo Sistema GNU (ou kernel) na execução deste comando. Existem vários tipos de Shells, como: bash, sh, ksh, zsh, fish e muitos outros.</summary></entry></feed>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Dicas sobre o Debian, Software Livre, linha de comando">
+
+    <title>Como baixar playlist do Youtube usando o youtube-dl - Allythy</title>
+
+    <link rel="canonical" href="http://0.0.0.0:4000/Como-baixar-playlist-do-Youtube-usando-o-youtube-dl">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/clean-blog.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Allythy</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right nav-mobile" >
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                
+				
+                <li>
+                    <a href="/categoria">Categoria</a>
+                </li>
+				
+                
+				
+                <li>
+                    <a href="/contato">Contato</a>
+                </li>
+				
+                
+				
+                <li>
+                    <a href="/quem-sou">Quem sou</a>
+                </li>
+				
+                
+                <li>
+                    <form class="search no-vis-mobile" action="/search.html" method="get">
+                      <div class="search__wrapper">
+                        <input class="search__field" type="search" name="query" id="search-box" placeholder="Procurando por...">
+                        <button type="submit" class="fa fa-search search__icon"></button>
+                      </div>
+                    </form>
+                    <form class="form-inline no-vis-desktop vis-mobile" action="/search.html" method="get">
+                        <label for="search-box"></label>
+                        <input class="search__field"  id="search-box" type="search" name="query" placeholder="Procurando por...">
+                     </form>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Como baixar playlist do Youtube usando o youtube-dl</h1>
+                    
+                    <h2 class="subheading">Esta vai ser uma dica bem rápida, mas muito útil de como baixar playlist do Youtube usando o youtube-dl</h2>
+                    
+                    <span class="meta">Postado por Allythy em June 30, 2017</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<p>Esta vai ser uma dica bem rápida, mas muito útil de como baixar playlist do Youtube usando o youtube-dl. Para quem ainda não conhece o youtube-dl é um pequeno programa de linha de comando para baixar vídeos e áudio do YouTube e outros sites, o programa é escrito em python.</p>
+
+<p>Caso você não tenha o programa instalado, use esse comando para instalar o Debian e derivados:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>youtube-dl
+</code></pre></div></div>
+
+<p>Feito isso, vamos pegar o link da playlist do canal do YouTube do SempreUpdate como exemplo.</p>
+
+<p><img src="img/sempreupdate.png" alt="playlist do canal do youtube do SempreUpdate" /></p>
+
+<p>Com o link em mãos, use esse comando para baixar a playlist</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>youtude-dl <span class="nt">-cit</span> coloque-aqui-o-link-da-playlist
+</code></pre></div></div>
+<blockquote>
+  <p><code class="highlighter-rouge">-c</code> Continua do download da onde parou, caso você tenha cancelado ( Ctrl+C)</p>
+
+  <p><code class="highlighter-rouge">-i</code> Continuar caso tenha algum erros de download, por exemplo, para ignorar vídeos indisponíveis em uma playlist</p>
+
+  <p><code class="highlighter-rouge">-t</code> Usa o título do nome do vídeo</p>
+</blockquote>
+
+<p>Legal, mas eu não quero baixar todos os vídeos só quero do vídeo 5 até o 9, então você usa esse comando:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>youtube-dl <span class="nt">--playlist-start</span> 5 <span class="nt">--playlist-end</span> 9 link-da-playlist
+</code></pre></div></div>
+
+<blockquote>
+  <p><code class="highlighter-rouge">--playlist-start</code> Vídeo da playlist que vai começar.</p>
+
+  <p><code class="highlighter-rouge">--playlist-end</code> Vídeo da playlist que vai parar.</p>
+</blockquote>
+
+<p>Interessante, mas eu quero baixar apenas os vídeos 4, 6 e 15. Então, você tem que usar esse comando:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>youtube-dl <span class="nt">-cit</span> <span class="nt">--playlist-items</span> 4,6,15 link-da-playlist
+</code></pre></div></div>
+<blockquote>
+  <p><code class="highlighter-rouge">--playlist-items</code> Faz o download de vídeos específicos de uma playlist. Para isso, você tem que especificar o índices dos vídeos na playlist separando-os por vírgulas.</p>
+</blockquote>
+
+<p>Você pode também informar ao mesmo tempo os vídeos que gostaria de baixar na playlist e especificar o intervalo. Com esse comando:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>youtube-dl <span class="nt">-cit</span> <span class="nt">--playlist</span> 4-7,8,10-13 link-da-playlist
+</code></pre></div></div>
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/Conheca-tres-ferramentas-de-conversao-de-arquivos-de-linha-comando" data-toggle="tooltip" data-placement="top" title="Conheça três ferramentas de conversão de arquivos de linha de comando para GNU/Linux">&larr; Postagem anterior</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/Como-configurar-uma-vari%C3%A1vel-no-PATH-do-gnu-linux.md" data-toggle="tooltip" data-placement="top" title="Como configurar uma variável no $PATH do GNU/Linux">Próxima postagem &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://github.com/allythy "target=_blank">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">Todo conteúdo está licenciado sob <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"> Creative Commons</a>   Allythy 2019</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/clean-blog.js "></script>
+<!-- <script src="/js/clean-blog.min.js "></script>
+ -->
+
+</body>
+
+</html>
