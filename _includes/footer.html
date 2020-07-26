@@ -1,41 +1,42 @@
-<!-- Footer -->
-<footer>
+<footer class="has-background-black footer">
+  <div class="section">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                    <li>
-                        <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    {% if site.github_username %}
-                    <li>
-                        <a href="https://github.com/{{ site.github_username }} "target=_blank">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    {% endif %}
-                </ul>
-                <p class="copyright text-muted">Todo conteúdo está licenciado sob <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"> Creative Commons</a>   {{ site.copyright_name }} {{ site.time | date: '%Y' }}</p>
-            </div>
+      <hr>
+      <div class="level">
+        <div class="level-left">
+          <div class="level-item">
+            <a class="title is-4" href="#">
+              {{ site.data.footer.title }}
+            </a>
+          </div>
         </div>
+        <div class="level-right">
+          {% for item in site.data.navigation %}
+          <a href="{{ site.baseurl }}{{ item.link }}" class="level-item">
+            {{ item.name }}
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column">
+          <div class="buttons">
+            {% for item in site.data.footer.social%}
+            <a class="button" href="{{ item.link }}" target="_blank">
+              <i class="fab {{ item.icon }}"></i>
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="column has-text-centered has-text-right-tablet">
+          <p class="subtitle is-6">
+            <p class="copyright text-muted"><strong>{{ site.data.footer.copyright }}
+              <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
+              Creative Commons.</a> {{ site.title }} {{ site.time | date: '%Y' }}.</strong>
+            </p>
+          </p>
+        </div>
+      </div>
     </div>
+  </div>
 </footer>
-
-<!-- jQuery -->
-<script src="{{ "/js/jquery.min.js " | prepend: site.baseurl }}"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="{{ "/js/bootstrap.min.js " | prepend: site.baseurl }}"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="{{ "/js/clean-blog.js " | prepend: site.baseurl }}"></script>
-<!-- <script src="{{ "/js/clean-blog.min.js " | prepend: site.baseurl }}"></script>
- -->

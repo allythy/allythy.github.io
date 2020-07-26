@@ -1,50 +1,38 @@
 ---
 layout: default
 ---
-
-<!-- Post Header -->
-<header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <h1>{{ page.title }}</h1>
-                    {% if page.subtitle %}
-                    <h2 class="subheading">{{ page.subtitle }}</h2>
-                    {% endif %}
-                    <span class="meta">Postado por {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} em {{ page.date | date: "%B %-d, %Y" }}</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-<!-- Post Content -->
 <article>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-
-				{{ content }}
-
-                <hr>
-
-                <ul class="pager">
-                    {% if page.previous.url %}
-                    <li class="previous">
-                        <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; Postagem anterior</a>
-                    </li>
-                    {% endif %}
-                    {% if page.next.url %}
-                    <li class="next">
-                        <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">Próxima postagem &rarr;</a>
-                    </li>
-                    {% endif %}
-                </ul>
-
-            </div>
-        </div>
+  <header class="hero is-fullheight is-dark">
+    <div class="hero-head">
+      {%-include nav.html-%}
     </div>
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 class="title is-size-1-desktop 
+                        is-size-2-touch is-uppercase 
+                        is-family-code">
+          {{ page.title }}
+        </h1>
+        <h2 class="subtitle is-size-6-touch has-text-centered is-inline-flex glitch">
+          <time datetime="{{ page.date | date_to_xmlschema }}">
+            {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+            {{ page.date | date: date_format }}
+          </time>
+        </h2>
+      </div>
+    </div>
+  </header>
+  <div class="section has-background-black">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column post has-text-light">
+          {{ content }}
+        </div>
+      </div>
+    </div>  
+  </div>
+  
+  {%- if site.disqus.shortname -%}
+  {%- include disqus_comments.html -%}
+  {%- endif -%}
 </article>
-
-<hr>

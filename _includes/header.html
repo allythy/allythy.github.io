@@ -1,0 +1,23 @@
+<header class="hero is-fullheight is-dark">
+    <div class="hero-head">
+    {%-include nav.html-%}
+    </div>
+    <div class="hero-body" {% if page.glitch %}id="wrapper-glitch"{% endif %}>
+        <div class="container has-text-centered">
+            <h1 class="title is-size-1-desktop 
+                        is-size-2-touch is-uppercase 
+                        is-family-code glitch" 
+                        data-text={{ page.title }}>
+                {{ page.title }}
+            </h1>
+            {% if page.subtitle %}
+            <h2 class="subtitle is-size-6-touch has-text-centered is-inline-flex glitch">
+                <span class="icon is-padd">
+                    <i class="fa fa-angle-double-right"></i>
+                </span>
+                {{ page.subtitle }}
+            </h2>
+            {% endif %}
+        </div>
+    </div>
+</header>

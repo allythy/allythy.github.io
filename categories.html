@@ -1,0 +1,20 @@
+---
+layout: page
+permalink: /categoria/
+title: Categorias
+---
+<div>
+{% for category in site.categories %}
+  <h2 id="{{category[0]}}" class="title">
+    {{ category[0] }}
+  </h2>
+  <ul>
+    {% for post in category[1] %}
+    <li>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+{% endfor %}
+</div>
+

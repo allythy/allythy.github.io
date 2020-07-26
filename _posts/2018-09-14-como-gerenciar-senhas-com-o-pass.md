@@ -1,9 +1,7 @@
 ---
-layout:     post
-title:      "Como Gerenciar Senhas Com O Pass "
-subtitle:   "Neste artigo, vamos aprender como gerenciar senhas com o Pass."
-date:       2018-09-14 17:10:00
-author:     "Allythy"
+layout: post
+title: Como Gerenciar Senhas Com O Pass
+date: 2018-09-14 17:10:00
 header-img: ""
 categories: [Terminal, Dica]
 ---

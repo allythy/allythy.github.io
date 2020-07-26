@@ -1,45 +1,27 @@
-<!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{{ site.baseurl }}/">{{ site.title }}</a>
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item has-text-weight-semibold" 
+                href="/">
+                Allythy
+            </a>
+            <a role="button" class="navbar-burger burger" 
+                aria-label="menu" aria-expanded="false"
+                data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
         </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right nav-mobile" >
-                <li>
-                    <a href="{{ site.baseurl }}/">Home</a>
-                </li>
-                {% for page in site.pages %}{% if page.title %}
-				{% if page.url != '/404.html' %}
-                <li>
-                    <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-                </li>
-				{% endif %}
-                {% endif %}{% endfor %}
-                <li>
-                    <form class="search no-vis-mobile" action="/search.html" method="get">
-                      <div class="search__wrapper">
-                        <input class="search__field" type="search" name="query" id="search-box" placeholder="Procurando por...">
-                        <button type="submit" class="fa fa-search search__icon"></button>
-                      </div>
-                    </form>
-                    <form class="form-inline no-vis-desktop vis-mobile" action="/search.html" method="get">
-                        <label for="search-box"></label>
-                        <input class="search__field"  id="search-box" type="search" name="query" placeholder="Procurando por...">
-                     </form>
-                </li>
-            </ul>
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-end">
+                {% for item in site.data.navigation %}
+                    <a href="{{ site.baseurl }}{{ item.link }}" 
+                    class="navbar-item has-text-weight-semibold">
+                        {{ item.name }}
+                    </a>
+                {% endfor %}
+            </div>
         </div>
-        <!-- /.navbar-collapse -->
     </div>
-    <!-- /.container -->
 </nav>

@@ -1,0 +1,20 @@
+.page{ 
+    max-width: 680px;
+    ul{
+        list-style: disc;
+        padding-left: 40px;
+    }
+    ul li{
+        font-size: revert;
+        font-weight: revert;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    p{
+        font-size: 23px;
+        margin: 30px 0
+    }
+    .title{
+        color: #f5f5f5;
+    }
+}

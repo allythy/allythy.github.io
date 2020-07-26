@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+a{
+    color: #00fff9;
+    &:hover{
+        color:hsl(0, 0%, 69%);
+    }
+}
+
+strong{
+    color: #f5f5f5;
+}
+

@@ -1,0 +1,18 @@
+.footer{
+    a, p strong{
+        color: rgba(255,255,255,.7);
+    }
+    .button{
+        background-color: black;
+        &:hover{
+            color: whitesmoke;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .buttons{
+        justify-content: center
+    }
+  
+}

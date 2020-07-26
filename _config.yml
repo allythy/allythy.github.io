@@ -1,20 +1,17 @@
-
 title: Allythy
-header-img: img/post-bg-04.jpg
-copyright_name: Allythy
-description: "Dicas sobre o Debian, Software Livre, linha de comando"
+description: >- 
 baseurl: ""
-page: "/"
-#url: "http://yourdomain.com"
-github_username:  allythy
+url: ""
 
-markdown: kramdown
-highlighter: rouge
-permalink: /:title #pretty
-paginate: 5
-exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  
+sass:
+    style: compressed
 
-plugins_dir: [jekyll-paginate, jekyll-feed]
-
-exclude:
-  - vendor
+paginate: 8
+paginate_path: /page:num/
+permalink: /:title

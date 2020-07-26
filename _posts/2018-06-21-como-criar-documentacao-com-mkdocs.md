@@ -1,9 +1,7 @@
 ---
-layout:     post
-title:      "Como criar documentação com MkDocs"
-subtitle:   "Neste artigo, vamos aprender como criar uma docomentação com o MkDocs."
-date:       2018-06-21 17:10:00
-author:     "Allythy"
+layout: post
+title: "Como criar documentação com MkDocs"
+date: 2018-06-21 17:10:00
 header-img: ""
 categories: [Python, Dica]
 ---

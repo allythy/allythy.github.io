@@ -1,0 +1,8 @@
+- name: Início
+  link: '/'
+- name: Sobre
+  link: '/sobre'
+- name: Categoria
+  link: '/categoria'
+- name: Contato
+  link: '/contato'

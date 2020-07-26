@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="{{ page.lang | default: site.lang | default: "pt-br" }}">
 
-{% include head.html %}
-
-<body>
-
-    {% include nav.html %}
-
+  {%- include head.html -%}
+  
+  <body>
+    
     {{ content }}
 
-    {% include footer.html %}
+    {%- include footer.html -%}
 
-</body>
+  </body>
 
+  <script src="{{ "assets/js/app.js" |  relative_url }}"></script>
 </html>

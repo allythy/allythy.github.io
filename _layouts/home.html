@@ -1,0 +1,87 @@
+---
+layout: default
+---
+
+{%-include header.html-%}
+<section class="section has-background-black home">
+    <div class="container">
+        <h2 class="title is-2 has-text-left glitch has-text-white pt-6 pb-6" data-text="Aprender">
+            Aprender
+        </h2>
+        <div class="columns is-multiline">
+            {%- if site.posts.size > 0 -%}
+            {%- for post in paginator.posts -%}
+            <div class="column is-6 is-3-widescreen mb-6">
+                <article class="tile">
+                    <div class="card has-background-black">
+                        <div class="card-image">
+                            {% if post.header-img == ""%}
+                                <figure class="image is-4by3">
+                                    <img 
+                                        src="{{ site.baseurl }}{{ "/img/dafault.png" }}" 
+                                        alt="Imangem padrão quando não é
+                                        definidada uma para o header.
+                                        Imagem de cor preta sem nada.">
+                                </figure>
+                            {% else %}
+                                 <figure class="image is-4by3">
+                                    <img 
+                                        src="{{ site.baseurl }}{{ post.header-img }}" 
+                                        alt="{{ post.alt-img }}">
+                                </figure>
+                            {% endif %}
+                        </div>
+                        <div class="card-content">
+                            <div class="content">
+                                <h3>
+                                    <a class="post-link has-text-white" 
+                                        href="{{ post.url | relative_url }}">
+                                        {{ post.title | escape }}
+                                    </a>
+                                </h3>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Phasellus nec iaculis mauris.
+                                <!-- {{post.excerpt}} -->
+                                <div class="tags">
+                                    {% for tag in post.categories %}
+                                    <a class="pr-1" href="{{site.baseurl}}/categoria#{{tag}} ">
+                                        <span class="tag is-dark">{{ tag}}</span>
+                                    </a>
+                                    {% endfor %}
+                                </div>
+                                {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+                                <time datetime="2016-1-1">{{ post.date | date: date_format }}</time>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            {%- endfor -%}
+            {%- endif -%}
+        </div>
+
+        <!-- pagination -->
+        {% if paginator.total_pages > 1 %}
+            <nav class="pagination is-rounded" role="navigation" aria-label="pagination">
+                {% if paginator.previous_page %}
+                    <a class="pagination-previous" href="{{ paginator.previous_page_path }}" class="previous">
+                        Anterior
+                    </a>
+                {% else %}
+                    <span class="pagination-previous" disabled>Anterior</span>
+                {% endif %}
+                {% if paginator.next_page %}
+                    <a class="pagination-next" href="{{ paginator.next_page_path }}" class="next">Próxima</a>
+                {% else %}
+                    <span class="pagination-next" disabled>Próxima</span>
+                {% endif %}
+                <span class="pagination-list">
+                    <p class="pagination-link" aria-label="Goto page 1">
+                        Página: {{ paginator.page }} de {{ paginator.total_pages }}      
+                    </p>
+                </span>
+            </nav>
+        {% endif %}
+
+    </div>
+</section>

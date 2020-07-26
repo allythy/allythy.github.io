@@ -1,0 +1,26 @@
+.post{
+    max-width: 680px;
+    h1, h2, h3, h4, 
+    h5, h6, hr, legend, li, 
+    ol, p, pre, textarea, ul{
+        font-size: revert;
+        font-weight: revert;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    p{
+        font-size: 22px;
+    }
+    ul{
+        list-style: disc;
+        padding-left: 40px;
+    }
+    blockquote{
+        color: #808080;
+        font-style: italic;
+        padding: 10px 20px;
+        margin: 0 0 20px;
+        font-size: 17.5px;
+        border-left: 5px solid #c6c6c6;
+    }
+}
