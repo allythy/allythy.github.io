@@ -69,10 +69,10 @@ window.addEventListener("scroll", function(){
 })
 
 // Glitch
-let backgroundImage = document.getElementById("wrapper-glitch")
-let count = 3;
-for (let i = 0; i < count; i++) {
-  let negGlitch = document.createElement('div')
-  negGlitch.className = "wrapper"
-  backgroundImage.appendChild(negGlitch);
-}
+// let backgroundImage = document.getElementById("wrapper-glitch")
+// let count = 3;
+// for (let i = 0; i < count; i++) {
+//   let negGlitch = document.createElement('div')
+//   negGlitch.className = "wrapper"
+//   backgroundImage.appendChild(negGlitch);
+// }

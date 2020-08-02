@@ -39,9 +39,7 @@ layout: default
                                         {{ post.title | escape }}
                                     </a>
                                 </h3>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Phasellus nec iaculis mauris.
-                                <!-- {{post.excerpt}} -->
+                                <p>{{ post.excerpt | truncatewords: 12 }}</p>                                
                                 <div class="tags">
                                     {% for tag in post.categories %}
                                     <a class="pr-1" href="{{site.baseurl}}/categoria#{{tag}} ">
