@@ -1,5 +1,13 @@
 @charset "utf-8";
 
+.subtitle-blog{
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.25;  
+    color: white;
+    letter-spacing: .5em;
+  }
+ 
 a{
     color: #00fff9;
     &:hover{
