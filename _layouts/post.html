@@ -13,7 +13,7 @@ layout: default
                         is-family-code">
           {{ page.title }}
         </h1>
-        <h2 class="subtitle is-size-6-touch has-text-centered is-inline-flex glitch">
+        <h2 class="subtitle-blog is-size-6-touch has-text-centered is-inline-flex">
           <time datetime="{{ page.date | date_to_xmlschema }}">
             {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
             {{ page.date | date: date_format }}
