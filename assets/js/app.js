@@ -1,12 +1,9 @@
+// Scroll-down
+window.addEventListener("scroll", function(){
+  var header = this.document.querySelector(".navbar");
+  header.classList.toggle("sticky", window.scrollY > 0);
+})
 
-//Glitch
-let backgroundImage = document.getElementById("wrapper-glitch")
-let count = 3;
-for (let i = 0; i < count; i++) {
-  let negGlitch = document.createElement('div')
-  negGlitch.className = "wrapper"
-  backgroundImage.appendChild(negGlitch);
-}
 
 // Menu
 document.addEventListener("DOMContentLoaded", () => {
@@ -72,8 +69,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// Scroll-down
-window.addEventListener("scroll", function(){
-  var header = this.document.querySelector(".navbar");
-  header.classList.toggle("sticky", window.scrollY > 0);
-})
+//Glitch
+let backgroundImage = document.getElementById("wrapper-glitch")
+if (backgroundImage != null){
+  let count = 3;
+  for (let i = 0; i < count; i++) {
+    let negGlitch = document.createElement('div')
+    negGlitch.className = "wrapper"
+    backgroundImage.appendChild(negGlitch);
+  }
+}
