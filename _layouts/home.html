@@ -3,31 +3,14 @@ layout: default
 ---
 
 {%-include header.html-%}
-<section class="section has-background-black home">
+<section class="section home">
     <div class="container">
         <div class="columns is-multiline">
             {%- if site.posts.size > 0 -%}
             {%- for post in paginator.posts -%}
             <div class="column is-6 is-3-widescreen mb-6">
                 <article class="tile">
-                    <div class="card has-background-black">
-                        <div class="card-image">
-                            {% if post.header-img == ""%}
-                                <figure class="image is-4by3">
-                                    <img 
-                                        src="{{ site.baseurl }}{{ "/img/dafault.png" }}" 
-                                        alt="Imangem padrão quando não é
-                                        definidada uma para o header.
-                                        Imagem de cor preta sem nada.">
-                                </figure>
-                            {% else %}
-                                 <figure class="image is-4by3">
-                                    <img 
-                                        src="{{ site.baseurl }}{{ post.header-img }}" 
-                                        alt="{{ post.alt-img }}">
-                                </figure>
-                            {% endif %}
-                        </div>
+                    <div class="card">
                         <div class="card-content">
                             <div class="content">
                                 <h3>
